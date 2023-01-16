@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Cairo";
+  src: url("./assets/site/fonts/Cairo-Regular.woff2") format("woff2"),
+    url("./assets/site/fonts/Cairo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.lang-ar {
+  font-family: "Cairo", sans-serif !important;
+}
