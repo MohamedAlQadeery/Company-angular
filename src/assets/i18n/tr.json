@@ -5,7 +5,13 @@
     "english":"İngilizce",
     "turkish":"Türkçe",
     "homepage-title":"Birçok hizmet sunuyoruz",
-    "services":"Hizmetler"
+    "services":"Hizmetler", 
+    "aboutus":"Hakkımızda",
+    "providers":"Sağlayıcılar",
+    "subscribe-now":"Şimdi Abone Ol",
+    "join-as-provider":"Sağlayıcı Olarak Katıl",
+    "offers":"Teklifler",
+    "contactus":"İletişim"
 
 
 }
