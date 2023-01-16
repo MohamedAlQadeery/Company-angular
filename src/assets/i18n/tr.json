@@ -1,3 +1,11 @@
 {
-    "home":"ev"
+    "home":"Ev",
+    "language":"Dil",
+    "arabic":"Arapça",
+    "english":"İngilizce",
+    "turkish":"Türkçe",
+    "homepage-title":"Birçok hizmet sunuyoruz",
+    "services":"Hizmetler"
+
+
 }

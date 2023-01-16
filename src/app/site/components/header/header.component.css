@@ -1,0 +1,3 @@
+.main-menu ul li .submenu li:hover > a {
+  cursor: pointer;
+}

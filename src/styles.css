@@ -8,6 +8,6 @@
   font-display: swap;
 }
 
-.lang-ar {
+.lang-ar * {
   font-family: "Cairo", sans-serif !important;
 }

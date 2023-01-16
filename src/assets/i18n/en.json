@@ -1,3 +1,10 @@
 {
-    "home":"Home"
+    "home":"Home",
+    "language":"Language",
+    "arabic":"Arabic",
+    "english":"English",
+    "turkish":"Turkish",
+    "homepage-title":"We Offer a Wide Range of Services",
+    "services":"Services"
+
 }

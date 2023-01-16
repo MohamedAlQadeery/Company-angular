@@ -1,0 +1,6 @@
+<app-header (currentLangEvent)="HandleLanguageChanges($event)"></app-header>
+<main [ngClass]="{'lang-ar' : currentlang=='ar'}">
+    <router-outlet></router-outlet>
+
+</main>
+<app-footer></app-footer>
