@@ -11,7 +11,7 @@
 
 <!-- header area start -->
 <header [ngClass]="{'lang-ar' : currentLang=='ar'}">
-    <div class="header__area header__transparent">
+    <div class="header__area header__transparent ">
         <div class="header__bottom header__bottom-border-3 header__sticky" id="header-sticky">
             <div class="container">
                 <div class="mega-menu-wrapper p-relative">
@@ -29,7 +29,8 @@
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li>
-                                            <a href="home-main.html">{{'home'
+                                            <a routerLink="/" routerLinkActive="active"
+                                                [routerLinkActiveOptions]="{exact:true}">{{'home'
                                                 | translate}}</a>
 
                                         </li>
@@ -49,7 +50,8 @@
 
                                         </li>
                                         <li>
-                                            <a href="home-main.html">{{'join-as-provider'
+                                            <a routerLink="/join-provider"
+                                                routerLinkActive="active">{{'join-as-provider'
                                                 | translate}}</a>
 
                                         </li>

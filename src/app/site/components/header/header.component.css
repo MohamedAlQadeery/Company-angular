@@ -1,3 +1,11 @@
 .main-menu ul li .submenu li:hover > a {
   cursor: pointer;
 }
+
+.header__area {
+  background: #343448;
+}
+
+.active {
+  color: #f50963;
+}
