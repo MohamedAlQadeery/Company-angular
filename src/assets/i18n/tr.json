@@ -13,7 +13,26 @@
     "offers":"Teklifler",
     "contactus":"İletişim",
     "provider-signup-page":"Sağlayıcı Kayıt Sayfası",
-    "provider-signup-heading":"Bir sağlayıcı olmanın süreci"
-
+    "provider-signup-heading":"Bir sağlayıcı olmanın süreci",
+    "company":"Şirket",
+    "category":"Kategori",
+    "category-placeholder":"Lütfen bir kategori seçin",
+    "country":"Ülke",
+    "country-placeholder":"Lütfen bir ülke seçin",
+    "city":"Şehir",
+    "city-placeholder":"Lütfen bir şehir seçin",
+    "address":"Adres",
+    "google-location-link":"Google Konum Bağlantısı",
+    "website":"Web sitesi",
+    "email":"E-posta",
+    "phone":"Telefon",
+    "discount":"İndirim",
+    "signup":"Kaydol",
+    "cancel":"İptal",
+    "upload-logo":"Logo Yükle",
+    "upload-photo":"Fotoğraf Yükle",
+    "logo-drop-label":"Veya Logoyu buraya bırakın",
+    "photo-drop-label":"Veya fotoğrafı buraya bırakın",
+    "info-secure":"Kişisel bilgileriniz güvenli ve güvende tutulur"
 
 }

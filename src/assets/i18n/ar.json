@@ -13,7 +13,27 @@
     "offers":"العروض",
     "contactus":"اتصل بنا",
     "provider-signup-page":"صفحة التسجيل للمزود",
-    "provider-signup-heading":"عملية الإنضمام كمزود"
+    "provider-signup-heading":"عملية الإنضمام كمزود",
+    "company":"اسم الشركة",
+    "category":"الفئة",
+    "category-placeholder":"يرجى اختيار الفئة",
+    "country":"البلد",
+    "country-placeholder":"يرجى اختيار البلد",
+    "city":"المدينة",
+    "city-placeholder":"يرجى اختيار المدينة",
+    "address":"العنوان",
+    "google-location-link":"رابط الموقع الجغرافي لجوجل",
+    "website":"موقع الويب",
+    "email":"البريد الإلكتروني",
+    "phone":"الهاتف",
+    "discount":"خصم",
+    "signup":"تسجيل",
+    "cancel":"إلغاء",
+     "upload-logo":"رفع الشعار",
+    "upload-photo":"رفع الصورة",
+    "logo-drop-label":"أو اسقط الشعار هنا",
+    "photo-drop-label":"أو اسقط الصورة هنا",
+    "info-secure":"يتم الحفاظ على المعلومات الشخصية الخاصة بك بكل سرية وأمان"
     
 
 }

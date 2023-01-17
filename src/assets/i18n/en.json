@@ -13,6 +13,27 @@
     "offers":"Offers",
     "contactus":"Contact us",
     "provider-signup-page":"Provider Signup Page",
-    "provider-signup-heading":"The process of becoming a provider"
+    "provider-signup-heading":"The process of becoming a provider",
+    "company":"Company Name",
+    "category":"Category",
+    "category-placeholder":"Choose a category please",
+    "country":"Country",
+    "country-placeholder":"Choose a country please",
+    "city":"City",
+    "city-placeholder":"Choose a city please",
+    "address":"Address",
+    "google-location-link":"Google Location Link",
+    "website":"Website",
+    "email":"Email",
+    "phone":"Phone",
+    "discount":"Discount",
+    "signup":"Signup",
+    "cancel":"Cancel",
+    "upload-logo":"Upload Logo",
+    "upload-photo":"Upload Photo",
+    "logo-drop-label":"Or Drop Logo here",
+    "photo-drop-label":"Or Drop photo here",
+    "info-secure":"Your personal information is kept safe and secure"
+
 
 }

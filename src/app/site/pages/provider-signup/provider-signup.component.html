@@ -20,57 +20,140 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="contact__form-2 contact__style-2 contact__translate">
-                    <h3 class="contact__form-2-title">Send a message</h3>
-                    <form id="contact-form" action="assets/site/mail.php" method="POST">
+                    <form>
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="contact__input-2">
-                                    <input name="name" type="text" placeholder="Enter your name">
-                                </div>
+
+                            <div class="col-md-12 mb-3">
+                                <tui-input tuiTextfieldExampleText="Field placeholder" formControlName="nameValue">
+                                    {{'company' | translate}}
+                                    <span class="tui-required"></span>
+                                </tui-input>
                             </div>
-                            <div class="col-md-6">
-                                <div class="contact__input-2">
-                                    <input name="email" type="email" placeholder="Enter your email">
-                                </div>
+
+                            <div class="col-md-4 mb-3">
+                                <tui-select formControlName="value">
+                                    {{'category' | translate}}
+                                    <span class="tui-required"></span>
+                                    <input tuiTextfield placeholder="{{'category-placeholder' |translate}}" />
+                                    <tui-data-list-wrapper *tuiDataList [items]="fakeData"></tui-data-list-wrapper>
+                                </tui-select>
                             </div>
-                            <div class="col-md-6">
-                                <div class="contact__input-2">
-                                    <input name="phone" type="text" placeholder="Mobile no">
-                                </div>
+                            <div class="col-md-4 mb-3">
+                                <tui-select formControlName="value">
+                                    {{'country' | translate}}
+                                    <span class="tui-required"></span>
+                                    <input tuiTextfield placeholder="{{'country-placeholder' |translate}}" />
+                                    <tui-data-list-wrapper *tuiDataList [items]="fakeData"></tui-data-list-wrapper>
+                                </tui-select>
                             </div>
-                            <div class="col-md-6">
-                                <div class="contact__input-2">
-                                    <input name="company" type="text" placeholder="Company">
+
+                            <div class="col-md-4 mb-3">
+                                <tui-select formControlName="value">
+                                    {{'city' | translate}}
+                                    <span class="tui-required"></span>
+                                    <input tuiTextfield placeholder="{{'city-placeholder' |translate}}" />
+                                    <tui-data-list-wrapper *tuiDataList [items]="fakeData"></tui-data-list-wrapper>
+                                </tui-select>
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <tui-input formControlName="nameValue">
+                                    {{'address' | translate}}
+                                    <span class="tui-required"></span>
+                                </tui-input>
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <tui-input formControlName="nameValue">
+                                    {{'google-location-link' | translate}}
+                                    <span class="tui-required"></span>
+                                </tui-input>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <tui-input formControlName="nameValue">
+                                    {{'website' | translate}}
+                                    <span class="tui-required"></span>
+                                </tui-input>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <tui-input formControlName="nameValue">
+                                    {{'email' | translate}}
+                                    <span class="tui-required"></span>
+                                </tui-input>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <tui-input formControlName="nameValue">
+                                    {{'phone' | translate}}
+                                    <span class="tui-required"></span>
+                                </tui-input>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <tui-select formControlName="value">
+                                    {{'discount' | translate}}
+                                    <span class="tui-required"></span>
+                                    <input tuiTextfield placeholder="{{'discount-placeholder' |translate}}" />
+                                    <tui-data-list-wrapper *tuiDataList [items]="fakeData"></tui-data-list-wrapper>
+                                </tui-select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <tui-input-files *ngIf="!control.value" accept="image/*" [formControl]="control"
+                                    (reject)="onReject($event)" link="{{'upload-logo'|translate}}"
+                                    label="{{'logo-drop-label'|translate}}"></tui-input-files>
+
+                                <tui-files class="tui-space_top-1">
+                                    <tui-file *ngIf="loadedFiles$ | async as file" [file]="file"
+                                        [showDelete]="control.enabled" (removed)="removeFile()"></tui-file>
+
+                                    <tui-file *ngIf="rejectedFiles$ | async as file" state="error" [file]="file"
+                                        [showDelete]="control.enabled" (removed)="clearRejected()"></tui-file>
+
+
+                                </tui-files>
+                            </div>
+
+                            <div class="col-md-4">
+                                <tui-input-files *ngIf="!control.value" accept="image/*" [formControl]="control"
+                                    (reject)="onReject($event)" link="{{'upload-photo'|translate}}"
+                                    label="{{'photo-drop-label'|translate}}"></tui-input-files>
+
+                                <tui-files class="tui-space_top-1">
+                                    <tui-file *ngIf="loadedFiles$ | async as file" [file]="file"
+                                        [showDelete]="control.enabled" (removed)="removeFile()"></tui-file>
+
+                                    <tui-file *ngIf="rejectedFiles$ | async as file" state="error" [file]="file"
+                                        [showDelete]="control.enabled" (removed)="clearRejected()"></tui-file>
+
+
+                                </tui-files>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="footer__qrcode-thumb mr-10">
+                                        <i class="fa-solid fa-lock fs-1"></i>
+                                    </div>
+                                    <div class="footer__qrcode-content">
+                                        <p>{{'info-secure' |translate}}</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="contact__input-2">
-                                    <textarea name="message" placeholder="Your message"></textarea>
+                                <div class="tui-form__buttons">
+                                    <button tuiButton size="m" type="submit" class="tui-form__button">
+                                        {{'signup'|translate}}
+                                    </button>
+                                    <button tuiButton type="button" appearance="flat" size="m" class="tui-form__button">
+                                        {{'cancel' |translate}}
+                                    </button>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="contact__agree d-flex align-items-start mb-25">
-                                    <input class="e-check-input" type="checkbox" id="e-agree">
-                                    <label class="e-check-label" for="e-agree">I am bound by the terms of the Service I
-                                        accept Privacy Policy.</label>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="contact__btn-2">
-                                    <button type="submit" class="tp-btn">Send Message</button>
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <!-- for wp = this will sho in style two -->
-                                <div class="contact__form-call float-md-end">
-                                    <span>Call for Consultation</span>
-                                    <p><a href="tel:2236-384-870"><i class="fa-solid fa-phone-flip"></i> +2236 384
-                                            870</a></p>
-                                </div>
-                            </div>
+
                         </div>
                     </form>
-                    <p class="ajax-response"></p>
+
                 </div>
             </div>
         </div>

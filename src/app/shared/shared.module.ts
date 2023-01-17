@@ -3,6 +3,12 @@ import { CommonModule } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TuiInputModule } from '@taiga-ui/kit';
+import { TuiDataListModule } from '@taiga-ui/core';
+import { TuiDataListWrapperModule, TuiSelectModule } from '@taiga-ui/kit';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TuiButtonModule } from '@taiga-ui/core';
+import { TuiInputFilesModule } from '@taiga-ui/kit';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -21,7 +27,23 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       defaultLanguage: 'en',
     }),
+    ReactiveFormsModule,
+    TuiInputModule,
+    TuiSelectModule,
+    TuiDataListModule,
+    TuiDataListWrapperModule,
+    TuiButtonModule,
+    TuiInputFilesModule,
   ],
-  exports: [TranslateModule],
+  exports: [
+    TranslateModule,
+    TuiInputModule,
+    TuiSelectModule,
+    TuiDataListModule,
+    TuiDataListWrapperModule,
+    ReactiveFormsModule,
+    TuiButtonModule,
+    TuiInputFilesModule,
+  ],
 })
 export class SharedModule {}
