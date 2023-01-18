@@ -9,13 +9,16 @@ import { TuiDataListWrapperModule, TuiSelectModule } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiButtonModule } from '@taiga-ui/core';
 import { TuiInputFilesModule } from '@taiga-ui/kit';
-
+import { TuiFieldErrorPipeModule } from '@taiga-ui/kit';
+import { TuiErrorModule } from '@taiga-ui/core';
+import { InputFieldComponent } from './components/input-field/input-field.component';
+import { TranslateErrorPipe } from './helpers/translate-error.pipe';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 @NgModule({
-  declarations: [],
+  declarations: [InputFieldComponent, TranslateErrorPipe],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -34,6 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TuiDataListWrapperModule,
     TuiButtonModule,
     TuiInputFilesModule,
+    TuiFieldErrorPipeModule,
+    TuiErrorModule,
   ],
   exports: [
     TranslateModule,
@@ -44,6 +49,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     TuiButtonModule,
     TuiInputFilesModule,
+    TuiFieldErrorPipeModule,
+    TuiErrorModule,
+    InputFieldComponent,
   ],
 })
 export class SharedModule {}
