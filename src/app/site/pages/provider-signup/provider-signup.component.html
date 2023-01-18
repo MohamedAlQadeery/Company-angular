@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="contact__form-2 contact__style-2 contact__translate">
-                    <form>
+                    <form [formGroup]="signupFormGroup" (ngSubmit)="HandleOnSubmit()">
                         <div class="row">
 
                             <div class="col-md-12 mb-3">
@@ -31,86 +31,77 @@
                             </div>
 
                             <div class="col-md-4 mb-3">
-                                <tui-select formControlName="value">
-                                    {{'category' | translate}}
-                                    <span class="tui-required"></span>
-                                    <input tuiTextfield placeholder="{{'category-placeholder' |translate}}" />
-                                    <tui-data-list-wrapper *tuiDataList [items]="fakeData"></tui-data-list-wrapper>
-                                </tui-select>
+
+
+                                <app-select-input [control]="categoryControl" label="{{'category' | translate}}"
+                                    [options]="fakeCategories"></app-select-input>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <tui-select formControlName="value">
-                                    {{'country' | translate}}
-                                    <span class="tui-required"></span>
-                                    <input tuiTextfield placeholder="{{'country-placeholder' |translate}}" />
-                                    <tui-data-list-wrapper *tuiDataList [items]="fakeData"></tui-data-list-wrapper>
-                                </tui-select>
+
+
+                                <app-select-input [control]="countryControl" label="{{'country' | translate}}"
+                                    [options]="fakeCountries"></app-select-input>
                             </div>
 
                             <div class="col-md-4 mb-3">
-                                <tui-select formControlName="value">
-                                    {{'city' | translate}}
-                                    <span class="tui-required"></span>
-                                    <input tuiTextfield placeholder="{{'city-placeholder' |translate}}" />
-                                    <tui-data-list-wrapper *tuiDataList [items]="fakeData"></tui-data-list-wrapper>
-                                </tui-select>
+
+
+                                <app-select-input [control]="cityControl" label="{{'city' | translate}}"
+                                    [options]="fakeCities"></app-select-input>
                             </div>
 
                             <div class="col-md-12 mb-3">
-                                <tui-input formControlName="nameValue">
-                                    {{'address' | translate}}
-                                    <span class="tui-required"></span>
-                                </tui-input>
+
+
+                                <app-input-field [control]="addressControl"
+                                    label="{{'address' | translate}}"></app-input-field>
                             </div>
 
                             <div class="col-md-12 mb-3">
-                                <tui-input formControlName="nameValue">
-                                    {{'google-location-link' | translate}}
-                                    <span class="tui-required"></span>
-                                </tui-input>
+
+
+                                <app-input-field [control]="googleLocationControl"
+                                    label="{{'google-location-link' | translate}}"></app-input-field>
                             </div>
 
                             <div class="col-md-12 mb-3">
-                                <tui-input formControlName="nameValue">
-                                    {{'website' | translate}}
-                                    <span class="tui-required"></span>
-                                </tui-input>
+
+
+                                <app-input-field [control]="websiteControl"
+                                    label="{{'website' | translate}}"></app-input-field>
                             </div>
                             <div class="col-md-4 mb-4">
-                                <tui-input formControlName="nameValue">
-                                    {{'email' | translate}}
-                                    <span class="tui-required"></span>
-                                </tui-input>
+                                <app-input-field [control]="emailControl"
+                                    label="{{'email' | translate}}"></app-input-field>
                             </div>
                             <div class="col-md-4 mb-4">
-                                <tui-input formControlName="nameValue">
-                                    {{'password' | translate}}
-                                    <span class="tui-required"></span>
-                                </tui-input>
+
+                                <app-password-input [control]="passwordControl"
+                                    label="{{'password' | translate}}"></app-password-input>
+
                             </div>
                             <div class="col-md-4 mb-4">
-                                <tui-input formControlName="nameValue">
-                                    {{'confirm-password' | translate}}
-                                    <span class="tui-required"></span>
-                                </tui-input>
+                                <app-password-input [control]="confirmPasswordControl"
+                                    label="{{'confirm-password' | translate}}"></app-password-input>
                             </div>
 
                             <div class="col-md-6 mb-4">
-                                <tui-input formControlName="nameValue">
-                                    {{'phone' | translate}}
-                                    <span class="tui-required"></span>
-                                </tui-input>
+                                <app-input-field [control]="phoneControl"
+                                    label="{{'phone' | translate}}"></app-input-field>
                             </div>
                             <div class="col-md-6 mb-4">
-                                <tui-select formControlName="value">
+                                <!-- <tui-select formControlName="value">
                                     {{'discount' | translate}}
                                     <span class="tui-required"></span>
                                     <input tuiTextfield placeholder="{{'discount-placeholder' |translate}}" />
                                     <tui-data-list-wrapper *tuiDataList [items]="fakeData"></tui-data-list-wrapper>
-                                </tui-select>
+                                </tui-select> -->
+
+
                             </div>
 
                             <div class="col-md-4">
+                                <!-- accept="application/pdf" -->
                                 <tui-input-files *ngIf="!control.value" accept="image/*" [formControl]="control"
                                     (reject)="onReject($event)" link="{{'upload-logo'|translate}}"
                                     label="{{'logo-drop-label'|translate}}"></tui-input-files>

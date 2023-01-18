@@ -13,12 +13,23 @@ import { TuiFieldErrorPipeModule } from '@taiga-ui/kit';
 import { TuiErrorModule } from '@taiga-ui/core';
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import { TranslateErrorPipe } from './helpers/translate-error.pipe';
+import { SelectInputComponent } from './components/select-input/select-input.component';
+import { TuiInputPasswordModule } from '@taiga-ui/kit';
+import { PasswordInputComponent } from './components/password-input/password-input.component';
+import { NumberCountInputComponent } from './components/number-count-input/number-count-input.component';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 @NgModule({
-  declarations: [InputFieldComponent, TranslateErrorPipe],
+  declarations: [
+    InputFieldComponent,
+    TranslateErrorPipe,
+    SelectInputComponent,
+    PasswordInputComponent,
+    NumberCountInputComponent,
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -39,6 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TuiInputFilesModule,
     TuiFieldErrorPipeModule,
     TuiErrorModule,
+    TuiInputPasswordModule,
   ],
   exports: [
     TranslateModule,
@@ -52,6 +64,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     TuiFieldErrorPipeModule,
     TuiErrorModule,
     InputFieldComponent,
+    TranslateErrorPipe,
+    SelectInputComponent,
+    TuiInputPasswordModule,
+    PasswordInputComponent,
   ],
 })
 export class SharedModule {}

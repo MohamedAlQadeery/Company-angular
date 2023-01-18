@@ -37,7 +37,10 @@
     "apply-approval":"التقدم بطلب للحصول على الموافقة",
     "password":"كلمة المرور",
     "confirm-password":"تأكيد كلمة المرور",
-    "required-input":"الرجاء تعبئة الحقل"
+    "required-input-validation":".الرجاء تعبئة الحقل",
+    "email-input-validation":".الرجاء ادخال البريد الالكتروني بشكل صحيح",
+    "password-match-validation":"كلمة المرور وتأكيد كلمة المرور غير متطابقان"
+
 
 
 }

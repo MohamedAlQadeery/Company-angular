@@ -37,7 +37,11 @@
     "apply-approval":"Onay için Başvur",
     "password":"Parola",
     "confirm-password":"Parola Onayla",
-    "required-input":"Bu alan gereklidir"
+    "required-input-validation":"Bu alan gereklidir.",
+    "email-input-validation":"lütfen geçerli eposta adresini giriniz.",
+    "password-match-validation":"Parola ve Parola Onayı eşleşmiyor"
+
+
 
 
 
