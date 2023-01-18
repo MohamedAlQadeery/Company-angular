@@ -17,6 +17,7 @@ import { SelectInputComponent } from './components/select-input/select-input.com
 import { TuiInputPasswordModule } from '@taiga-ui/kit';
 import { PasswordInputComponent } from './components/password-input/password-input.component';
 import { NumberCountInputComponent } from './components/number-count-input/number-count-input.component';
+import { TuiInputCountModule } from '@taiga-ui/kit';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -51,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TuiFieldErrorPipeModule,
     TuiErrorModule,
     TuiInputPasswordModule,
+    TuiInputCountModule,
   ],
   exports: [
     TranslateModule,
@@ -66,8 +68,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     InputFieldComponent,
     TranslateErrorPipe,
     SelectInputComponent,
-    TuiInputPasswordModule,
     PasswordInputComponent,
+    NumberCountInputComponent,
   ],
 })
 export class SharedModule {}

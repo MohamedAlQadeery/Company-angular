@@ -59,6 +59,7 @@ export class ProviderSignupComponent implements OnInit {
   passwordControl = new FormControl('', [Validators.required]);
   confirmPasswordControl = new FormControl('', [Validators.required]);
   phoneControl = new FormControl('', [Validators.required]);
+  discount = new FormControl(0, [Validators.required]);
 
   //#endregion
 
@@ -75,6 +76,7 @@ export class ProviderSignupComponent implements OnInit {
         password: this.passwordControl,
         confirmPassword: this.confirmPasswordControl,
         phone: this.phoneControl,
+        discount: this.discount,
       },
       {
         validators: [Validation.match('password', 'confirmPassword')],
