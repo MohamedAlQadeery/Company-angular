@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LangService } from 'src/app/shared/services/language.service';
 
 @Component({
   selector: 'app-layout',
@@ -6,9 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout.component.css'],
 })
 export class LayoutComponent {
-  currentlang = 'en';
-  HandleLanguageChanges(lang: string) {
-    this.currentlang = lang;
-    console.log(this.currentlang);
-  }
+  constructor(private _langService: LangService) {}
+  currentLang$ = this._langService.currentLang$;
 }

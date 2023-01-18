@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { LangService } from 'src/app/shared/services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -7,27 +8,24 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  @Output() currentLangEvent = new EventEmitter<string>();
-  currentLang = 'en';
-
   constructor(
     private translate: TranslateService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private _langService: LangService
   ) {
     translate.setDefaultLang('en');
     translate.use('en');
   }
 
+  currentLang$ = this._langService.currentLang$;
   changeLanguage(language: string) {
     this.translate.use(language);
-    this.currentLang = language;
 
     if (language === 'ar') {
       this.renderer.setAttribute(document.body, 'dir', 'rtl');
     } else {
       this.renderer.removeAttribute(document.body, 'dir');
     }
-
-    this.currentLangEvent?.emit(language);
+    this._langService.setCurrentLanguage(language);
   }
 }

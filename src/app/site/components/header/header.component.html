@@ -9,79 +9,83 @@
 </div>
 <!-- back to top end -->
 
-<!-- header area start -->
-<header [ngClass]="{'lang-ar' : currentLang=='ar'}">
-    <div class="header__area">
-        <div class="header__bottom header__bottom-border-3 header__sticky" id="header-sticky">
-            <div class="container">
-                <div class="mega-menu-wrapper p-relative">
-                    <div class="row align-items-center">
-                        <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-5 col-8">
-                            <div class="logo logo-border">
-                                <a href="home-main.html">
-                                    <img class="logo-light" src="assets/site/img/logo/logo.svg" alt="logo">
-                                    <img class="logo-dark" src="assets/site/img/logo/logo-black.svg" alt="logo">
-                                </a>
+<ng-container *ngIf="currentLang$ | async as lang">
+    <!-- header area start -->
+    <header [ngClass]="{'lang-ar' : lang=='ar'}">
+        <div class="header__area">
+            <div class="header__bottom header__bottom-border-3 header__sticky" id="header-sticky">
+                <div class="container">
+                    <div class="mega-menu-wrapper p-relative">
+                        <div class="row align-items-center">
+                            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-5 col-8">
+                                <div class="logo logo-border">
+                                    <a href="home-main.html">
+                                        <img class="logo-light" src="assets/site/img/logo/logo.svg" alt="logo">
+                                        <img class="logo-dark" src="assets/site/img/logo/logo-black.svg" alt="logo">
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xxl-10 col-xl-8 col-lg-8 d-none d-lg-block">
-                            <div class="main-menu  main-menu-ff-space">
-                                <nav id="mobile-menu">
-                                    <ul>
-                                        <li>
-                                            <a routerLink="/" routerLinkActive="active"
-                                                [routerLinkActiveOptions]="{exact:true}">{{'home'
-                                                | translate}}</a>
+                            <div class="col-xxl-10 col-xl-8 col-lg-8 d-none d-lg-block">
+                                <div class="main-menu  main-menu-ff-space">
+                                    <nav id="mobile-menu">
+                                        <ul>
+                                            <li>
+                                                <a routerLink="/" routerLinkActive="active"
+                                                    [routerLinkActiveOptions]="{exact:true}">{{'home'
+                                                    | translate}}</a>
 
-                                        </li>
-                                        <li>
-                                            <a href="home-main.html">{{'aboutus'
-                                                | translate}}</a>
+                                            </li>
+                                            <li>
+                                                <a href="home-main.html">{{'aboutus'
+                                                    | translate}}</a>
 
-                                        </li>
-                                        <li>
-                                            <a href="home-main.html">{{'providers'
-                                                | translate}}</a>
+                                            </li>
+                                            <li>
+                                                <a href="home-main.html">{{'providers'
+                                                    | translate}}</a>
 
-                                        </li>
-                                        <li>
-                                            <a href="home-main.html">{{'subscribe-now'
-                                                | translate}}</a>
+                                            </li>
+                                            <li>
+                                                <a href="home-main.html">{{'subscribe-now'
+                                                    | translate}}</a>
 
-                                        </li>
-                                        <li>
-                                            <a routerLink="/join-provider"
-                                                routerLinkActive="active">{{'join-as-provider'
-                                                | translate}}</a>
+                                            </li>
+                                            <li>
+                                                <a routerLink="/join-provider"
+                                                    routerLinkActive="active">{{'join-as-provider'
+                                                    | translate}}</a>
 
-                                        </li>
-                                        <li>
-                                            <a href="home-main.html">{{'offers'
-                                                | translate}}</a>
+                                            </li>
+                                            <li>
+                                                <a href="home-main.html">{{'offers'
+                                                    | translate}}</a>
 
-                                        </li>
-                                        <li>
-                                            <a href="home-main.html">{{'contactus'
-                                                | translate}}</a>
+                                            </li>
+                                            <li>
+                                                <a href="home-main.html">{{'contactus'
+                                                    | translate}}</a>
 
-                                        </li>
+                                            </li>
 
 
-                                        <li class="has-dropdown">
-                                            <a href="contact.html">{{'language' | translate}}</a>
-                                            <ul class="submenu">
-                                                <li><a (click)="changeLanguage('ar')">{{'arabic' | translate}}</a></li>
-                                                <li><a (click)="changeLanguage('en')">{{'english' | translate}}</a></li>
-                                                <li><a (click)="changeLanguage('tr')">{{'turkish' | translate}}</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
-                                <!-- for wp -->
+                                            <li class="has-dropdown">
+                                                <a href="contact.html">{{'language' | translate}}</a>
+                                                <ul class="submenu">
+                                                    <li><a (click)="changeLanguage('ar')">{{'arabic' | translate}}</a>
+                                                    </li>
+                                                    <li><a (click)="changeLanguage('en')">{{'english' | translate}}</a>
+                                                    </li>
+                                                    <li><a (click)="changeLanguage('tr')">{{'turkish' | translate}}</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <!-- for wp -->
 
+                                </div>
                             </div>
-                        </div>
-                        <!-- <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-7 col-4">
+                            <!-- <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-7 col-4">
                             <div class="header__bottom-right d-flex justify-content-end align-items-center pl-30">
                                 <div class="header__action d-none d-xl-block">
                                     <ul>
@@ -117,15 +121,17 @@
                                 </div>
                             </div>
                         </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-</header>
-<!-- header area end -->
+    </header>
+    <!-- header area end -->
+</ng-container>
+
 
 <!-- offcanvas area start -->
 
