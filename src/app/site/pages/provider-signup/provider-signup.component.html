@@ -104,7 +104,7 @@
 
                             <div class="col-md-4">
                                 <!-- accept="application/pdf" -->
-                                <tui-input-files *ngIf="!control.value" accept="image/*" [formControl]="control"
+                                <!-- <tui-input-files *ngIf="!control.value" accept="image/*" [formControl]="control"
                                     (reject)="onReject($event)" link="{{'upload-logo'|translate}}"
                                     label="{{'logo-drop-label'|translate}}"></tui-input-files>
 
@@ -116,11 +116,15 @@
                                         [showDelete]="control.enabled" (removed)="clearRejected()"></tui-file>
 
 
-                                </tui-files>
+                                </tui-files> -->
+
+                                <app-file-input [control]="logoControl" accept="image/*"
+                                    linklabel="{{'upload-logo'|translate}}"
+                                    textlabel="{{'logo-drop-label'|translate}}"></app-file-input>
                             </div>
 
                             <div class="col-md-4">
-                                <tui-input-files *ngIf="!control.value" accept="image/*" [formControl]="control"
+                                <!-- <tui-input-files *ngIf="!control.value" accept="image/*" [formControl]="control"
                                     (reject)="onReject($event)" link="{{'upload-photo'|translate}}"
                                     label="{{'photo-drop-label'|translate}}"></tui-input-files>
 
@@ -132,10 +136,14 @@
                                         [showDelete]="control.enabled" (removed)="clearRejected()"></tui-file>
 
 
-                                </tui-files>
+                                </tui-files> -->
+
+                                <app-file-input [control]="photoControl" accept="image/*"
+                                    linklabel="{{'upload-photo'|translate}}"
+                                    textlabel="{{'photo-drop-label'|translate}}"></app-file-input>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class=" col-md-4">
                                 <div class="d-flex align-items-center">
                                     <div class="footer__qrcode-thumb mr-10">
                                         <i class="fa-solid fa-lock fs-1"></i>

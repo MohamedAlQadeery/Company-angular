@@ -60,6 +60,8 @@ export class ProviderSignupComponent implements OnInit {
   confirmPasswordControl = new FormControl('', [Validators.required]);
   phoneControl = new FormControl('', [Validators.required]);
   discount = new FormControl(0, [Validators.required]);
+  logoControl = new FormControl('', [Validators.required]);
+  photoControl = new FormControl('', [Validators.required]);
 
   //#endregion
 
@@ -77,32 +79,13 @@ export class ProviderSignupComponent implements OnInit {
         confirmPassword: this.confirmPasswordControl,
         phone: this.phoneControl,
         discount: this.discount,
+        logo: this.logoControl,
+        photo: this.photoControl,
       },
       {
         validators: [Validation.match('password', 'confirmPassword')],
       }
     );
-  }
-  readonly control = new FormControl();
-
-  readonly rejectedFiles$ = new Subject<TuiFileLike | null>();
-  readonly loadedFiles$ = this.control.valueChanges.pipe(
-    tap((file) => {
-      console.log(file);
-    })
-  );
-
-  onReject(file: TuiFileLike | readonly TuiFileLike[]): void {
-    this.rejectedFiles$.next(file as TuiFileLike);
-  }
-
-  removeFile(): void {
-    this.control.setValue(null);
-  }
-
-  clearRejected(): void {
-    this.removeFile();
-    this.rejectedFiles$.next(null);
   }
 
   HandleOnSubmit() {
