@@ -7,3 +7,7 @@
   font-family: "Font Awesome 6 Pro" !important;
   font-weight: 900;
 }
+
+::ng-deep tui-input {
+  text-align: inherit !important;
+}

@@ -34,7 +34,9 @@
     "logo-drop-label":"Veya Logoyu buraya bırakın",
     "photo-drop-label":"Veya fotoğrafı buraya bırakın",
     "info-secure":"Kişisel bilgileriniz güvenli ve güvende tutulur",
-    "apply-approval":"Onay için Başvur"
+    "apply-approval":"Onay için Başvur",
+    "password":"Parola",
+    "confirm-password":"Parola Onayla"
 
 
 }

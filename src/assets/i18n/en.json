@@ -34,7 +34,9 @@
     "upload-photo":"Upload Photo",
     "logo-drop-label":"Or Drop Logo here",
     "photo-drop-label":"Or Drop photo here",
-    "info-secure":"Your personal information is kept safe and secure"
+    "info-secure":"Your personal information is kept safe and secure",
+    "password":"Password",
+    "confirm-password":"Confirm Password"
 
 
 }
