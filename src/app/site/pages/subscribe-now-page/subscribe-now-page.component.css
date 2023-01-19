@@ -1,0 +1,25 @@
+.footer__qrcode-content p {
+  font-size: 16px;
+}
+
+.fa-solid,
+.fas {
+  font-family: "Font Awesome 6 Pro" !important;
+  font-weight: 900;
+}
+
+::ng-deep tui-input,
+tui-select,
+tui-input-date {
+  text-align: inherit !important;
+}
+::ng-deep tui-input-date {
+  text-align: inherit !important;
+}
+::ng-deep tui-select {
+  text-align: inherit !important;
+}
+
+::ng-deep svg.ng-star-inserted {
+  margin: 0 5px;
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TuiDay } from '@taiga-ui/cdk';
 import Validation from 'src/app/shared/helpers/validation';
 
 @Component({
@@ -57,7 +58,7 @@ export class SubscribeNowPageComponent {
   planControl = new FormControl(this.plans.at(0)?.id, [Validators.required]);
 
   addressControl = new FormControl('', [Validators.required]);
-  dobControl = new FormControl('', [Validators.required]);
+  dobControl = new FormControl(new TuiDay(2023, 1, 1), [Validators.required]);
 
   passwordControl = new FormControl('', [Validators.required]);
   confirmPasswordControl = new FormControl('', [Validators.required]);
@@ -91,5 +92,9 @@ export class SubscribeNowPageComponent {
 
   HandleOnSubmit() {
     console.log(this.subscribeFormGroup.value);
+    const dob: TuiDay = this.subscribeFormGroup.value['dob'];
+    let formValues = Object.assign({}, this.subscribeFormGroup.value);
+    formValues.dob = `${dob.year}/${dob.month}/${dob.day}`;
+    console.log(formValues);
   }
 }

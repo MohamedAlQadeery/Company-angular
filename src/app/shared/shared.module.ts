@@ -19,6 +19,8 @@ import { PasswordInputComponent } from './components/password-input/password-inp
 import { NumberCountInputComponent } from './components/number-count-input/number-count-input.component';
 import { TuiInputCountModule } from '@taiga-ui/kit';
 import { FileInputComponent } from './components/file-input/file-input.component';
+import { DateInputComponent } from './components/date-input/date-input.component';
+import { TuiInputDateModule } from '@taiga-ui/kit';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -32,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PasswordInputComponent,
     NumberCountInputComponent,
     FileInputComponent,
+    DateInputComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TuiErrorModule,
     TuiInputPasswordModule,
     TuiInputCountModule,
+    TuiInputDateModule,
   ],
   exports: [
     TranslateModule,
@@ -73,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PasswordInputComponent,
     NumberCountInputComponent,
     FileInputComponent,
+    DateInputComponent,
   ],
 })
 export class SharedModule {}

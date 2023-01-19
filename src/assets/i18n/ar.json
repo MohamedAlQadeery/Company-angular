@@ -39,7 +39,18 @@
     "confirm-password":"تأكيد كلمة المرور",
     "required-input-validation":".الرجاء تعبئة الحقل",
     "email-input-validation":".الرجاء ادخال البريد الالكتروني بشكل صحيح",
-    "password-match-validation":"كلمة المرور وتأكيد كلمة المرور غير متطابقان"
+    "password-match-validation":"كلمة المرور وتأكيد كلمة المرور غير متطابقان",
+    "subscribe-now-page":"صفحة الاشتراك",
+    "subscribe-now-heading":"اختر الخطة المناسبة لك",
+    "select-plan":"اختر الخطة",
+    "firstName":"الاسم الأول",
+    "midName":"الاسم الأوسط",
+    "lastName":"الاسم الأخير",
+    "gender":"الجنس",
+    "dob":"تاريخ الميلاد",
+    "nationality":"الجنسية",
+    "pay-get-card":"ادفع احصل على البطاقة"
+    
 
 
 

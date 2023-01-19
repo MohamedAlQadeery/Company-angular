@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProviderSignupComponent } from './pages/provider-signup/provider-signup.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { SubscribeNowPageComponent } from './pages/subscribe-now-page/subscribe-now-page.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: 'join-provider',
         component: ProviderSignupComponent,
+      },
+      {
+        path: 'subscribe',
+        component: SubscribeNowPageComponent,
       },
     ],
   },

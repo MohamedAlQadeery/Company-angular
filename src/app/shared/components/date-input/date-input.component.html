@@ -1,0 +1,5 @@
+<tui-input-date [formControl]="control">
+    {{label}}
+</tui-input-date>
+
+<tui-error [formControl]="control" [error]="[]  | tuiFieldError| async |translateError "></tui-error>

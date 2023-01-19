@@ -39,7 +39,17 @@
     "confirm-password":"Confirm Password",
     "required-input-validation":"This field is required.",
     "email-input-validation":"Please enter a valid email",
-    "password-match-validation":"Password and Confirm Password dont match"
+    "password-match-validation":"Password and Confirm Password dont match",
+    "subscribe-now-page":"Subscribe Now Page",
+    "subscribe-now-heading":"Choose a plan that's right for you",
+    "select-plan":"Select a plan",
+    "firstName":"First Name",
+    "midName":"Middle Name",
+    "lastName":"Last Name",
+    "gender":"Gender",
+    "dob":"Date Of Birth",
+    "nationality":"Nationality",
+    "pay-get-card":"Pay And Get Card"
 
 
 }

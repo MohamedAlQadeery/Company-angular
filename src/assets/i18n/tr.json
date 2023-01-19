@@ -39,7 +39,17 @@
     "confirm-password":"Parola Onayla",
     "required-input-validation":"Bu alan gereklidir.",
     "email-input-validation":"lütfen geçerli eposta adresini giriniz.",
-    "password-match-validation":"Parola ve Parola Onayı eşleşmiyor"
+    "password-match-validation":"Parola ve Parola Onayı eşleşmiyor",
+    "subscribe-now-page":"Şimdi Abone Ol Sayfası",
+    "subscribe-now-heading":"Sana uygun bir plan seç",
+    "select-plan":"Bir plan seçin",
+    "firstName":"Adınız",
+    "midName":"Orta Adınız",
+    "lastName":"Soyadınız",
+    "gender":"Cinsiyetiniz",
+    "dob":"Doğum Tarihiniz",
+    "nationality":"Milliyetiniz",
+    "pay-get-card":"Öde ve Kart Al"
 
 
 
