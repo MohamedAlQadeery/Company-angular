@@ -103,20 +103,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <!-- accept="application/pdf" -->
-                                <!-- <tui-input-files *ngIf="!control.value" accept="image/*" [formControl]="control"
-                                    (reject)="onReject($event)" link="{{'upload-logo'|translate}}"
-                                    label="{{'logo-drop-label'|translate}}"></tui-input-files>
 
-                                <tui-files class="tui-space_top-1">
-                                    <tui-file *ngIf="loadedFiles$ | async as file" [file]="file"
-                                        [showDelete]="control.enabled" (removed)="removeFile()"></tui-file>
-
-                                    <tui-file *ngIf="rejectedFiles$ | async as file" state="error" [file]="file"
-                                        [showDelete]="control.enabled" (removed)="clearRejected()"></tui-file>
-
-
-                                </tui-files> -->
 
                                 <app-file-input [control]="logoControl" accept="image/*"
                                     linklabel="{{'upload-logo'|translate}}"
@@ -124,19 +111,6 @@
                             </div>
 
                             <div class="col-md-4">
-                                <!-- <tui-input-files *ngIf="!control.value" accept="image/*" [formControl]="control"
-                                    (reject)="onReject($event)" link="{{'upload-photo'|translate}}"
-                                    label="{{'photo-drop-label'|translate}}"></tui-input-files>
-
-                                <tui-files class="tui-space_top-1">
-                                    <tui-file *ngIf="loadedFiles$ | async as file" [file]="file"
-                                        [showDelete]="control.enabled" (removed)="removeFile()"></tui-file>
-
-                                    <tui-file *ngIf="rejectedFiles$ | async as file" state="error" [file]="file"
-                                        [showDelete]="control.enabled" (removed)="clearRejected()"></tui-file>
-
-
-                                </tui-files> -->
 
                                 <app-file-input [control]="photoControl" accept="image/*"
                                     linklabel="{{'upload-photo'|translate}}"
@@ -155,7 +129,8 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="tui-form__buttons">
-                                    <button tuiButton size="m" type="submit" class="tui-form__button">
+                                    <button [disabled]="!signupFormGroup.valid" tuiButton size="m" type="submit"
+                                        class="tui-form__button">
                                         {{'apply-approval'|translate}}
                                     </button>
                                     <button tuiButton type="button" appearance="flat" size="m" class="tui-form__button">

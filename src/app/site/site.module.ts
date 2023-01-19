@@ -9,6 +9,7 @@ import { ProviderSignupComponent } from './pages/provider-signup/provider-signup
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { SubscribeNowPageComponent } from './pages/subscribe-now-page/subscribe-now-page.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LayoutComponent } from './components/layout/layout.component';
     FooterComponent,
     LayoutComponent,
     ProviderSignupComponent,
+    SubscribeNowPageComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule],
 })

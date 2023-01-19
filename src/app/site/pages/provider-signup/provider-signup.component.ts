@@ -15,8 +15,6 @@ import Validation from 'src/app/shared/helpers/validation';
   styleUrls: ['./provider-signup.component.css'],
 })
 export class ProviderSignupComponent implements OnInit {
-  // for sample select options only
-
   //#region Fake Options
 
   fakeCountries = [
@@ -71,6 +69,7 @@ export class ProviderSignupComponent implements OnInit {
         companyName: this.companyNameControl,
         email: this.emailControl,
         country: this.countryControl,
+        category: this.categoryControl,
         city: this.cityControl,
         address: this.cityControl,
         googleLocation: this.googleLocationControl,
