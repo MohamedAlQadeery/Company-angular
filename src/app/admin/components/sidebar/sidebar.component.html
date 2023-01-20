@@ -10,8 +10,8 @@
                 Dashboard
             </li>
 
-            <li class="sidebar-item active">
-                <a class="sidebar-link" href="index.html">
+            <li class="sidebar-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <a class="sidebar-link" routerLink="/admin">
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Homepage</span>
                 </a>
             </li>
@@ -21,8 +21,8 @@
                 Users
             </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="index.html">
+            <li class="sidebar-item" routerLinkActive="active">
+                <a class="sidebar-link" routerLink="providers">
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Providers</span>
                 </a>
             </li>
