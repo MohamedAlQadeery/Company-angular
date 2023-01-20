@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import {
   TuiContextWithImplicit,
   TuiStringHandler,
   tuiPure,
 } from '@taiga-ui/cdk';
+import { TuiAlertService } from '@taiga-ui/core';
 import { TuiFileLike } from '@taiga-ui/kit';
-import { Subject, tap } from 'rxjs';
+import { Subject, Subscription, tap } from 'rxjs';
 import Validation from 'src/app/shared/helpers/validation';
 
 @Component({
@@ -63,6 +66,14 @@ export class ProviderSignupComponent implements OnInit {
 
   //#endregion
 
+  //#region Subscriptions
+  alertSub: Subscription;
+  //#endregion
+  constructor(
+    private _alertService: TuiAlertService,
+    private _translate: TranslateService,
+    private _router: Router
+  ) {}
   ngOnInit(): void {
     this.signupFormGroup = new FormGroup(
       {
@@ -89,5 +100,14 @@ export class ProviderSignupComponent implements OnInit {
 
   HandleOnSubmit() {
     console.log(this.signupFormGroup.value);
+    let messageTitle = this._translate.instant('provider-success-signup-title');
+    let messageContent = this._translate.instant('success-signup-content');
+    this.alertSub = this._alertService
+      .open(messageContent, { label: messageTitle })
+      .subscribe();
+
+    this._router.navigate(['/']);
   }
+
+  ngOnDestroy(): void {}
 }

@@ -32,6 +32,8 @@
     "cancel":"Cancel",
     "upload-logo":"Upload Logo",
     "upload-photo":"Upload Photo",
+    "upload-id":"Upload Identity document",
+    "id-drop-label":"Or Drop Identity document here",
     "logo-drop-label":"Or Drop Logo here",
     "photo-drop-label":"Or Drop photo here",
     "info-secure":"Your personal information is kept safe and secure",
@@ -52,7 +54,10 @@
     "pay-get-card":"Pay And Get Card",
     "mock-service-title":"Grow your revenue",
     "mock-service-body":"This helps us determine which Providers are best for your job",
-    "explore":"Explore"
+    "explore":"Explore",
+    "success-signup-content":"Your information was send to the administrator and they will contact you in 24 hours",
+    "provider-success-signup-title":"Provider Signup",
+    "subscriber-success-signup-title":"Subscriber Signup"
 
 
 }

@@ -52,7 +52,13 @@
     "pay-get-card":"ادفع احصل على البطاقة",
     "mock-service-title":"نمي دخلك",
     "mock-service-body":"هذا يساعدنا في تحديد المزودين الأفضل لعملك",
-    "explore":"تصفح"
+    "explore":"تصفح",
+    "success-signup-content":"تم إرسال معلوماتك إلى المسؤول وسيتصل بك في غضون 24 ساعة",
+    "provider-success-signup-title":"تسجيل المزود",
+    "subscriber-success-signup-title":"تسجيل المشترك",
+    "upload-id":"تحميل وثيقة الهوية",
+    "id-drop-label":"أو اسقط وثيقة الهوية هنا"
+
     
     
 

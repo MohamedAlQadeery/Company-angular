@@ -106,10 +106,15 @@
                                     label="{{'confirm-password' | translate}}"></app-password-input>
                             </div>
 
+                            <div class="col-md-6">
+
+                                <app-file-input [control]="fileControl" accept="application/pdf"
+                                    linklabel="{{'upload-id'|translate}}"
+                                    textlabel="{{'id-drop-label'|translate}}"></app-file-input>
+                            </div>
 
 
-
-                            <div class=" col-md-4">
+                            <div class=" col-md-6">
                                 <div class="d-flex align-items-center">
                                     <div class="footer__qrcode-thumb mr-10">
                                         <i class="fa-solid fa-lock fs-1"></i>

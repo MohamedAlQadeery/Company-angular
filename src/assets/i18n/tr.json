@@ -52,7 +52,12 @@
     "pay-get-card":"Öde ve Kart Al",
     "mock-service-title":"Gelirinizi arttırın",
     "mock-service-body":"Bu, işiniz için en iyi Sağlayıcıların hangileri olduğunu belirlemenize yardımcı olur.",
-    "explore":"keşfetmek"
+    "explore":"keşfetmek",
+    "success-signup-content":"Bilgileriniz yöneticiye gönderildi ve 24 saat içinde size geri dönüş yapacaktır",
+    "provider-success-signup-title":"Sağlayıcı Kaydı",
+    "subscriber-success-signup-title":"Abone Kaydı",
+    "upload-id":"Kimlik belgesi yükle",
+    "id-drop-label":"Veya Kimlik belgesini buraya bırakın"
 
 
 

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { TuiDay } from '@taiga-ui/cdk';
+import { TuiAlertService } from '@taiga-ui/core';
 import Validation from 'src/app/shared/helpers/validation';
 
 @Component({
@@ -66,7 +69,11 @@ export class SubscribeNowPageComponent {
   fileControl = new FormControl('', [Validators.required]);
 
   //#endregion
-
+  constructor(
+    private _alertService: TuiAlertService,
+    private _translate: TranslateService,
+    private _router: Router
+  ) {}
   ngOnInit(): void {
     this.subscribeFormGroup = new FormGroup(
       {
@@ -93,10 +100,19 @@ export class SubscribeNowPageComponent {
   }
 
   HandleOnSubmit() {
-    console.log(this.subscribeFormGroup.value);
     const dob: TuiDay = this.subscribeFormGroup.value['dob'];
     let formValues = Object.assign({}, this.subscribeFormGroup.value);
     formValues.dob = `${dob.year}/${dob.month}/${dob.day}`;
     console.log(formValues);
+
+    let messageTitle = this._translate.instant(
+      'subscriber-success-signup-title'
+    );
+    let messageContent = this._translate.instant('success-signup-content');
+    this._alertService
+      .open(messageContent, { label: messageTitle, autoClose: false })
+      .subscribe();
+
+    this._router.navigate(['/']);
   }
 }
