@@ -49,8 +49,10 @@
     "gender":"Cinsiyetiniz",
     "dob":"Doğum Tarihiniz",
     "nationality":"Milliyetiniz",
-    "pay-get-card":"Öde ve Kart Al"
-
+    "pay-get-card":"Öde ve Kart Al",
+    "mock-service-title":"Gelirinizi arttırın",
+    "mock-service-body":"Bu, işiniz için en iyi Sağlayıcıların hangileri olduğunu belirlemenize yardımcı olur.",
+    "explore":"keşfetmek"
 
 
 

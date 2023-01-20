@@ -49,7 +49,10 @@
     "gender":"Gender",
     "dob":"Date Of Birth",
     "nationality":"Nationality",
-    "pay-get-card":"Pay And Get Card"
+    "pay-get-card":"Pay And Get Card",
+    "mock-service-title":"Grow your revenue",
+    "mock-service-body":"This helps us determine which Providers are best for your job",
+    "explore":"Explore"
 
 
 }
