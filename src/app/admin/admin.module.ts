@@ -8,6 +8,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProviderListPageComponent } from './pages/providers/provider-list-page/provider-list-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProviderDetailsPageComponent } from './pages/providers/provider-details-page/provider-details-page.component';
+import { SubscriberListPageComponent } from './pages/subscriber/subscriber-list-page/subscriber-list-page.component';
+import { SubscriberDetailsPageComponent } from './pages/subscriber/subscriber-details-page/subscriber-details-page.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ProviderDetailsPageComponent } from './pages/providers/provider-details
     SidebarComponent,
     ProviderListPageComponent,
     ProviderDetailsPageComponent,
+    SubscriberListPageComponent,
+    SubscriberDetailsPageComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
