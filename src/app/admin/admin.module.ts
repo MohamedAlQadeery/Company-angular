@@ -7,6 +7,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProviderListPageComponent } from './pages/providers/provider-list-page/provider-list-page.component';
 import { SharedModule } from '../shared/shared.module';
+import { ProviderDetailsPageComponent } from './pages/providers/provider-details-page/provider-details-page.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     HomePageComponent,
     SidebarComponent,
     ProviderListPageComponent,
+    ProviderDetailsPageComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
