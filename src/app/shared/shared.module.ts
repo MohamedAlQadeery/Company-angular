@@ -22,10 +22,6 @@ import { FileInputComponent } from './components/file-input/file-input.component
 import { DateInputComponent } from './components/date-input/date-input.component';
 import { TuiInputDateModule } from '@taiga-ui/kit';
 import { TuiAlertModule } from '@taiga-ui/core';
-import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatInputModule } from '@angular/material/input';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -65,10 +61,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     TuiInputCountModule,
     TuiInputDateModule,
     TuiAlertModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatPaginatorModule,
-    MatInputModule,
   ],
   exports: [
     TranslateModule,
@@ -89,10 +81,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     FileInputComponent,
     DateInputComponent,
     TuiAlertModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatPaginatorModule,
-    MatInputModule,
   ],
 })
 export class SharedModule {}
