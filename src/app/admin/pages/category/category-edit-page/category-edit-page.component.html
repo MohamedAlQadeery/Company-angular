@@ -1,0 +1,15 @@
+<ng-container *ngIf="(category$ | async) as category ;else loading">
+    <h3 class="mb-3">Update {{category.name}} Category Page</h3>
+
+    <div class="card p-3">
+
+    </div>
+
+
+</ng-container>
+
+
+
+<ng-template #loading>
+    Loading stuff...
+</ng-template>

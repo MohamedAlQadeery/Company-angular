@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LangService } from 'src/app/shared/services/language.service';
+import { LangService } from 'src/app/services/language.service';
 
 @Component({
   selector: 'app-header',

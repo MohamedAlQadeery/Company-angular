@@ -10,6 +10,9 @@ import { SharedModule } from '../shared/shared.module';
 import { ProviderDetailsPageComponent } from './pages/providers/provider-details-page/provider-details-page.component';
 import { SubscriberListPageComponent } from './pages/subscriber/subscriber-list-page/subscriber-list-page.component';
 import { SubscriberDetailsPageComponent } from './pages/subscriber/subscriber-details-page/subscriber-details-page.component';
+import { CategoryListPageComponent } from './pages/category/category-list-page/category-list-page.component';
+import { CategoryCreatePageComponent } from './pages/category/category-create-page/category-create-page.component';
+import { CategoryEditPageComponent } from './pages/category/category-edit-page/category-edit-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { SubscriberDetailsPageComponent } from './pages/subscriber/subscriber-de
     ProviderDetailsPageComponent,
     SubscriberListPageComponent,
     SubscriberDetailsPageComponent,
+    CategoryListPageComponent,
+    CategoryCreatePageComponent,
+    CategoryEditPageComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

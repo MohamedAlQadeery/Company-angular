@@ -78,6 +78,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NumberCountInputComponent,
     FileInputComponent,
     DateInputComponent,
+    HttpClientModule,
   ],
 })
 export class SharedModule {}

@@ -6,6 +6,9 @@ import { ProviderListPageComponent } from './pages/providers/provider-list-page/
 import { ProviderDetailsPageComponent } from './pages/providers/provider-details-page/provider-details-page.component';
 import { SubscriberListPageComponent } from './pages/subscriber/subscriber-list-page/subscriber-list-page.component';
 import { SubscriberDetailsPageComponent } from './pages/subscriber/subscriber-details-page/subscriber-details-page.component';
+import { CategoryListPageComponent } from './pages/category/category-list-page/category-list-page.component';
+import { CategoryEditPageComponent } from './pages/category/category-edit-page/category-edit-page.component';
+import { CategoryCreatePageComponent } from './pages/category/category-create-page/category-create-page.component';
 
 const routes: Routes = [
   {
@@ -17,6 +20,9 @@ const routes: Routes = [
       { path: 'providers/:id', component: ProviderDetailsPageComponent },
       { path: 'subscribers', component: SubscriberListPageComponent },
       { path: 'subscribers/:id', component: SubscriberDetailsPageComponent },
+      { path: 'category', component: CategoryListPageComponent },
+      { path: 'category/create', component: CategoryCreatePageComponent },
+      { path: 'category/edit/:id', component: CategoryEditPageComponent },
     ],
   },
 ];
