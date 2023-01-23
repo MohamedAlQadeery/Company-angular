@@ -13,5 +13,6 @@ export interface ICreateCategoryRequest {
 }
 export interface IUpdateCategoryRequest {
   name: string;
+  id: number;
   description: string;
 }

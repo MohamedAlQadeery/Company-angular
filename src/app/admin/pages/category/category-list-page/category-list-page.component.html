@@ -28,7 +28,7 @@
                                 <th>{{i+1}}</th>
                                 <td>{{category.name}}</td>
                                 <td>{{category.createdAt | date}}</td>
-                                <td>{{category.updatedAt ? category.updatedAt : 'Not Updated yet'}}</td>
+                                <td>{{category.updatedAt ?(category.updatedAt | date) : 'Not Updated yet'}} </td>
                                 <td>
                                     <button class="btn btn-info"
                                         routerLink="/admin/category/edit/{{category.id}}">Edit</button>

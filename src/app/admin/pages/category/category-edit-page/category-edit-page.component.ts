@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, switchMap, tap } from 'rxjs';
 import { CategoryService } from 'src/app/services/category.service';
-import { ICategoryResponse } from 'src/app/shared/interfaces/CategoryDtos';
+import {
+  ICategoryResponse,
+  IUpdateCategoryRequest,
+} from 'src/app/shared/interfaces/CategoryDtos';
 import { __param } from 'tslib';
 
 @Component({
@@ -14,7 +18,9 @@ import { __param } from 'tslib';
 export class CategoryEditPageComponent implements OnInit {
   constructor(
     private _categoryService: CategoryService,
-    private _activedRoute: ActivatedRoute
+    private _activedRoute: ActivatedRoute,
+    private _router: Router,
+    private _toastr: ToastrService
   ) {}
   category$: Observable<ICategoryResponse>;
   categoryId: number;
@@ -44,6 +50,27 @@ export class CategoryEditPageComponent implements OnInit {
   }
 
   HandleOnSubmit() {
-    console.log(this.categoryFormGroup.value);
+    const updateRequest: IUpdateCategoryRequest = {
+      name: this.nameControl.value!,
+      description: this.descriptionControl.value!,
+      id: this.categoryId,
+    };
+
+    this._categoryService
+      .UpdateCategory(updateRequest, this.categoryId)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this._toastr.success(
+            `${res.name} has been updated successfully !`,
+            'Category Updated'
+          );
+
+          this._router.navigate(['/admin/category']);
+        },
+        error: (err) => {
+          this._toastr.error(err);
+        },
+      });
   }
 }
