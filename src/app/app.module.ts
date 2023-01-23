@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -22,6 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
       progressBar: true,
       progressAnimation: 'increasing',
     }), // ToastrModule added
+    SweetAlert2Module.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
