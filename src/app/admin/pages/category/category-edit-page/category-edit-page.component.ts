@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 import { CategoryService } from 'src/app/services/category.service';
 import { ICategoryResponse } from 'src/app/shared/interfaces/CategoryDtos';
 import { __param } from 'tslib';
@@ -16,16 +17,33 @@ export class CategoryEditPageComponent implements OnInit {
     private _activedRoute: ActivatedRoute
   ) {}
   category$: Observable<ICategoryResponse>;
+  categoryId: number;
+
+  categoryFormGroup: FormGroup;
+  nameControl = new FormControl('', [Validators.required]);
+  descriptionControl = new FormControl('', [Validators.required]);
+
   ngOnInit(): void {
-    this._activedRoute.paramMap
+    this.categoryFormGroup = new FormGroup({
+      name: this.nameControl,
+      description: this.descriptionControl,
+    });
+
+    this._activedRoute.paramMap.subscribe((para) => {
+      this.categoryId = +para.get('id')!;
+    });
+
+    this.category$ = this._categoryService
+      .GetCategoryById(this.categoryId)
       .pipe(
-        switchMap((para) => {
-          let id = para.get('id')!;
-          console.log(id);
-          this.category$ = this._categoryService.GetCategoryById(+id);
-          return this.category$;
+        tap((cat) => {
+          this.nameControl.setValue(cat.name);
+          this.descriptionControl.setValue(cat.description);
         })
-      )
-      .subscribe();
+      );
+  }
+
+  HandleOnSubmit() {
+    console.log(this.categoryFormGroup.value);
   }
 }
