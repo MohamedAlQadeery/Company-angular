@@ -3,7 +3,6 @@ export interface ICategoryResponse {
   name: string;
   description: string;
   createdAt: Date;
-  deletedAt: Date | null;
   updatedAt: Date | null;
 }
 
