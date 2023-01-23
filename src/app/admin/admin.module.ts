@@ -19,6 +19,8 @@ import { OfferListPageComponent } from './pages/offers/offer-list-page/offer-lis
 import { OfferDetailsPageComponent } from './pages/offers/offer-details-page/offer-details-page.component';
 import { PlansCreatePageComponent } from './pages/plan/plans-create-page/plans-create-page.component';
 import { PlansEditPageComponent } from './pages/plan/plans-edit-page/plans-edit-page.component';
+import { OfferEditPageComponent } from './pages/offers/offer-edit-page/offer-edit-page.component';
+import { OfferCreatePageComponent } from './pages/offers/offer-create-page/offer-create-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { PlansEditPageComponent } from './pages/plan/plans-edit-page/plans-edit-
     OfferDetailsPageComponent,
     PlansCreatePageComponent,
     PlansEditPageComponent,
+    OfferEditPageComponent,
+    OfferCreatePageComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
