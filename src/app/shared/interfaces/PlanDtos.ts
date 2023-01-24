@@ -1,12 +1,13 @@
 export interface IPlanResponse {
   id: number;
   name: string;
-  description: string | null;
+  servicePerMonth: number;
+  offerPerMonth: number;
+  planType: number;
   duration: number;
   price: number;
   createdAt: Date;
   updatedAt: Date | null;
-  postsPerMonth: number;
 }
 
 export interface ICreatePlanRequest {
