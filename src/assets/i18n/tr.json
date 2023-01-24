@@ -57,7 +57,15 @@
     "provider-success-signup-title":"Sağlayıcı Kaydı",
     "subscriber-success-signup-title":"Abone Kaydı",
     "upload-id":"Kimlik belgesi yükle",
-    "id-drop-label":"Veya Kimlik belgesini buraya bırakın"
+    "id-drop-label":"Veya Kimlik belgesini buraya bırakın",
+    "login-title":"Tekrar merhaba",
+    "login-subtitle":"Hesabınıza erişmek için kimlik bilgilerinizi girin.",
+    "login":"Giriş yapmak",
+    "no-account":"Hesabınız yok mu?",
+    "register-now" :"Şimdi üye Ol"
+
+
+
 
 
 

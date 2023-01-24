@@ -1,0 +1,6 @@
+::ng-deep tui-input {
+  text-align: inherit !important;
+}
+::ng-deep tui-input-password {
+  text-align: inherit !important;
+}

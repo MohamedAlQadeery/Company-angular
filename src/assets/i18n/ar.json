@@ -57,7 +57,16 @@
     "provider-success-signup-title":"تسجيل المزود",
     "subscriber-success-signup-title":"تسجيل المشترك",
     "upload-id":"تحميل وثيقة الهوية",
-    "id-drop-label":"أو اسقط وثيقة الهوية هنا"
+    "id-drop-label":"أو اسقط وثيقة الهوية هنا",
+    "login-title":"مرحبا مرة اخرى",
+    "login-subtitle":"أدخل بيانات الاعتماد الخاصة بك للدخول إلى حسابك",
+    "login":"تسجيل دخول",
+    "no-account":"ليس لديك حساب؟",
+    "register-now" :"سجل الان"
+
+    
+
+
 
     
     

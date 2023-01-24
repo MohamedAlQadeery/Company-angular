@@ -57,7 +57,12 @@
     "explore":"Explore",
     "success-signup-content":"Your information was send to the administrator and they will contact you in 24 hours",
     "provider-success-signup-title":"Provider Signup",
-    "subscriber-success-signup-title":"Subscriber Signup"
+    "subscriber-success-signup-title":"Subscriber Signup",
+    "login-title":"Hello Again",
+    "login-subtitle":"Enter your credentials to acces your account.",
+    "login":"Login",
+    "no-account":"Don’t have an account?",
+    "register-now" :"Register Now"
 
 
 }
