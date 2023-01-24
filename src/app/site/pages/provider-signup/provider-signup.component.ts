@@ -29,10 +29,6 @@ export class ProviderSignupComponent implements OnInit {
     { id: 2, name: 'Sport' },
   ];
 
-  fakeDiscount = [
-    { id: 1, name: 20 },
-    { id: 2, name: 10 },
-  ];
   //#endregion
 
   //#region signup form

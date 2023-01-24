@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   baseURL: 'https://localhost:7088',
+  countryApiKey: 'bHFWR1JkMGZOcnZJcWlWSU1xc3puWTFCcERaTE9UTElHa3RZYUJNdg==',
 };
 
 /*
