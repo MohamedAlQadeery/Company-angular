@@ -67,7 +67,11 @@
     "pricing":"Pricing",
     "pricing-plan-subtitle":"Plans for Everyone",
     "subsrcibers":"Subscribers",
-    "users":"Users"
+    "users":"Users",
+    "add":"Add",
+    "service-per-month" :"Service per month",
+    "offer-per-month" :"Offer per month",
+    "choose-plan":"Choose Plan"
 
 
 }
