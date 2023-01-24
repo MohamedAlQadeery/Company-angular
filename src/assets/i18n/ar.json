@@ -62,7 +62,13 @@
     "login-subtitle":"أدخل بيانات الاعتماد الخاصة بك للدخول إلى حسابك",
     "login":"تسجيل دخول",
     "no-account":"ليس لديك حساب؟",
-    "register-now" :"سجل الان"
+    "register-now" :"سجل الان",
+    "pricing-title": "ألق نظرة على جدول الاسعار الخاص بنا",
+    "pricing": "الاسعار",
+    "pricing-plan-subtitle": "خطط للجميع",
+    "subsrcibers": "المشتركين",
+  "users": "المستخدمين"
+    
 
     
 

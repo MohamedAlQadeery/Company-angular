@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { SubscribeNowPageComponent } from './pages/subscribe-now-page/subscribe-now-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { PricingPageComponent } from './pages/pricing-page/pricing-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     ProviderSignupComponent,
     SubscribeNowPageComponent,
     LoginPageComponent,
+    PricingPageComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule],
 })

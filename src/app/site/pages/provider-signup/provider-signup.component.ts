@@ -2,19 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  TuiContextWithImplicit,
-  TuiStringHandler,
-  tuiPure,
-} from '@taiga-ui/cdk';
-import { TuiAlertService } from '@taiga-ui/core';
-import { TuiFileLike } from '@taiga-ui/kit';
+
 import { ToastrService } from 'ngx-toastr';
 import { Observable, Subject, Subscription, map, switchMap, tap } from 'rxjs';
 import { CountryService } from 'src/app/services/country.service';
 import { ProviderService } from 'src/app/services/provider.service';
 import Validation from 'src/app/shared/helpers/validation';
-import { ICountryResponse } from 'src/app/shared/interfaces/CountryDtos';
 
 @Component({
   selector: 'app-provider-signup',

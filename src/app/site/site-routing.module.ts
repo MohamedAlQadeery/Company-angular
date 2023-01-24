@@ -5,6 +5,7 @@ import { ProviderSignupComponent } from './pages/provider-signup/provider-signup
 import { LayoutComponent } from './components/layout/layout.component';
 import { SubscribeNowPageComponent } from './pages/subscribe-now-page/subscribe-now-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { PricingPageComponent } from './pages/pricing-page/pricing-page.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginPageComponent,
+      },
+      {
+        path: 'pricing',
+        component: PricingPageComponent,
       },
     ],
   },

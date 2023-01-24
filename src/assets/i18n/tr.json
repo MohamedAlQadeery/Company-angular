@@ -62,8 +62,12 @@
     "login-subtitle":"Hesabınıza erişmek için kimlik bilgilerinizi girin.",
     "login":"Giriş yapmak",
     "no-account":"Hesabınız yok mu?",
-    "register-now" :"Şimdi üye Ol"
-
+    "register-now" :"Şimdi üye Ol",
+    "pricing-title": "Fiyatlandırma tablomuza bir göz atın",
+    "pricing": "Fiyatlandırma",
+    "pricing-plan-subtitle": "Herkes İçin Planlar",
+    "subsrcibers": "aboneler",
+    "users": "Kullanıcılar"
 
 
 

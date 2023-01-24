@@ -62,7 +62,12 @@
     "login-subtitle":"Enter your credentials to acces your account.",
     "login":"Login",
     "no-account":"Don’t have an account?",
-    "register-now" :"Register Now"
+    "register-now" :"Register Now",
+    "pricing-title":"Have a look to our pricing table",
+    "pricing":"Pricing",
+    "pricing-plan-subtitle":"Plans for Everyone",
+    "subsrcibers":"Subscribers",
+    "users":"Users"
 
 
 }
