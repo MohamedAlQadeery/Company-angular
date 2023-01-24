@@ -25,15 +25,15 @@ export class SelectInputComponent {
   @Input() control: FormControl;
   @Input() label: string;
   @Input() hasStarSymbol: boolean = true; // to add star symbol next to the label
-  @Input() options: { id: number; name: string }[];
+  @Input() options: { id: number | string; name: string }[];
   constructor() {}
 
   @tuiPure
   stringify(
-    items: readonly { id: number; name: string }[]
+    items: readonly { id: number | string; name: string }[]
   ): TuiStringHandler<TuiContextWithImplicit<number>> {
     const map = new Map(
-      items.map(({ id, name }) => [id, name] as [number, string])
+      items?.map(({ id, name }) => [id, name] as [number | string, string])
     );
 
     return ({ $implicit }: TuiContextWithImplicit<number>) =>

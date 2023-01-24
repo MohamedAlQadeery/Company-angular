@@ -37,17 +37,28 @@
                                     [options]="fakeCategories"></app-select-input>
                             </div>
                             <div class="col-md-4 mb-3">
+                                <ng-container *ngIf="countries$ | async as countries;else loadingCountries">
+                                    <!-- <app-select-input [control]="countryControl" label="{{'country' | translate}}"
+                                        [options]="countries"></app-select-input> -->
+
+                                    <app-search-select-input [control]="countryControl"
+                                        placeHolder="{{'country' | translate}}"
+                                        [options]="countries"></app-search-select-input>
+                                </ng-container>
+
+                                <ng-template #loadingCountries>
+                                    <p class="text-danger">Loading Getting Countries...</p>
+                                </ng-template>
 
 
-                                <app-select-input [control]="countryControl" label="{{'country' | translate}}"
-                                    [options]="fakeCountries"></app-select-input>
+
                             </div>
 
                             <div class="col-md-4 mb-3">
 
 
                                 <app-select-input [control]="cityControl" label="{{'city' | translate}}"
-                                    [options]="fakeCities"></app-select-input>
+                                    [options]="cites"></app-select-input>
                             </div>
 
                             <div class="col-md-12 mb-3">

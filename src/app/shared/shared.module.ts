@@ -22,6 +22,8 @@ import { FileInputComponent } from './components/file-input/file-input.component
 import { DateInputComponent } from './components/date-input/date-input.component';
 import { TuiInputDateModule } from '@taiga-ui/kit';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { SearchSelectInputComponent } from './components/search-select-input/search-select-input.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NumberCountInputComponent,
     FileInputComponent,
     DateInputComponent,
+    SearchSelectInputComponent,
   ],
   imports: [
     CommonModule,
@@ -61,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TuiInputCountModule,
     TuiInputDateModule,
     SweetAlert2Module,
+    NgSelectModule,
   ],
   exports: [
     TranslateModule,
@@ -82,6 +86,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DateInputComponent,
     HttpClientModule,
     SweetAlert2Module,
+    SearchSelectInputComponent,
   ],
 })
 export class SharedModule {}

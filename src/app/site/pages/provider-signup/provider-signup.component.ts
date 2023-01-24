@@ -9,8 +9,12 @@ import {
 } from '@taiga-ui/cdk';
 import { TuiAlertService } from '@taiga-ui/core';
 import { TuiFileLike } from '@taiga-ui/kit';
-import { Subject, Subscription, tap } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { Observable, Subject, Subscription, map, switchMap, tap } from 'rxjs';
+import { CountryService } from 'src/app/services/country.service';
+import { ProviderService } from 'src/app/services/provider.service';
 import Validation from 'src/app/shared/helpers/validation';
+import { ICountryResponse } from 'src/app/shared/interfaces/CountryDtos';
 
 @Component({
   selector: 'app-provider-signup',
@@ -20,15 +24,6 @@ import Validation from 'src/app/shared/helpers/validation';
 export class ProviderSignupComponent implements OnInit {
   //#region Fake Options
 
-  fakeCountries = [
-    { id: 1, name: 'Palestine' },
-    { id: 2, name: 'UAE' },
-  ];
-
-  fakeCities = [
-    { id: 1, name: 'Gaza' },
-    { id: 2, name: 'Dubai' },
-  ];
   fakeCategories = [
     { id: 1, name: 'Food' },
     { id: 2, name: 'Sport' },
@@ -47,12 +42,8 @@ export class ProviderSignupComponent implements OnInit {
   categoryControl = new FormControl(this.fakeCategories.at(0)?.id, [
     Validators.required,
   ]);
-  countryControl = new FormControl(this.fakeCountries.at(0)?.id, [
-    Validators.required,
-  ]);
-  cityControl = new FormControl(this.fakeCities.at(0)?.id, [
-    Validators.required,
-  ]);
+  countryControl = new FormControl('', [Validators.required]);
+  cityControl = new FormControl('', [Validators.required]);
 
   addressControl = new FormControl('', [Validators.required]);
   googleLocationControl = new FormControl('', [Validators.required]);
@@ -66,13 +57,16 @@ export class ProviderSignupComponent implements OnInit {
 
   //#endregion
 
-  //#region Subscriptions
-  alertSub: Subscription;
+  //#region Observables
+  countries$: Observable<{ id: number | string; name: string }[]>;
+  cites: { id: number | string; name: string }[];
   //#endregion
   constructor(
-    private _alertService: TuiAlertService,
+    private _toastr: ToastrService,
     private _translate: TranslateService,
-    private _router: Router
+    private _router: Router,
+    private _countryService: CountryService,
+    private _providerService: ProviderService
   ) {}
   ngOnInit(): void {
     this.signupFormGroup = new FormGroup(
@@ -80,33 +74,62 @@ export class ProviderSignupComponent implements OnInit {
         companyName: this.companyNameControl,
         email: this.emailControl,
         country: this.countryControl,
-        category: this.categoryControl,
+        categoryId: this.categoryControl,
         city: this.cityControl,
-        address: this.cityControl,
+        addressOne: this.cityControl,
         googleLocation: this.googleLocationControl,
         website: this.googleLocationControl,
         password: this.passwordControl,
         confirmPassword: this.confirmPasswordControl,
         phone: this.phoneControl,
         discount: this.discount,
-        logo: this.logoControl,
-        photo: this.photoControl,
+        logoFile: this.logoControl,
+        photoFile: this.photoControl,
       },
       {
         validators: [Validation.match('password', 'confirmPassword')],
       }
     );
+
+    this.countries$ = this._countryService.GetAllCountries().pipe(
+      map((res) => {
+        return res.map((c) => ({ id: c.iso2, name: c.name }));
+      })
+    );
+
+    this.countryControl.valueChanges
+      .pipe(
+        switchMap((id) => {
+          return this._countryService.GetCitiesByCountry(id!).pipe(
+            map((res) => {
+              const mappedResult = res.map((c) => ({
+                id: c.name,
+                name: c.name,
+              }));
+              this.cites = mappedResult;
+              return mappedResult;
+            })
+          );
+        })
+      )
+      .subscribe();
   }
 
   HandleOnSubmit() {
-    console.log(this.signupFormGroup.value);
     let messageTitle = this._translate.instant('provider-success-signup-title');
     let messageContent = this._translate.instant('success-signup-content');
-    this.alertSub = this._alertService
-      .open(messageContent, { label: messageTitle })
-      .subscribe();
-
-    this._router.navigate(['/']);
+    this._providerService
+      .RegisterProvider(this.signupFormGroup.value)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this._toastr.success(messageContent, messageTitle);
+          this._router.navigate(['/']);
+        },
+        error: (err) => {
+          this._toastr.error(err);
+        },
+      });
   }
 
   ngOnDestroy(): void {}
