@@ -12,6 +12,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { SubscribeNowPageComponent } from './pages/subscribe-now-page/subscribe-now-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { PricingPageComponent } from './pages/pricing-page/pricing-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PricingPageComponent } from './pages/pricing-page/pricing-page.componen
     SubscribeNowPageComponent,
     LoginPageComponent,
     PricingPageComponent,
+    ProfilePageComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule],
 })

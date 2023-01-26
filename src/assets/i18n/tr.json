@@ -71,7 +71,12 @@
     "add": "Eklemek",
     "service-per-month": "aylık hizmet",
     "offer-per-month": "aylık teklif",
-    "choose-plan": "Plan Seç"
+    "choose-plan": "Plan Seç",
+    "cta-section-title": "Yeni Deneyiminize Başlayın",
+    "cta-section-content": "İşinizi bir sonraki seviyeye taşıyın.",
+    "new-account": "Hesap oluştur",
+    "services-title": "Hizmetleri Keşfedin",
+    "services-content": "Verdiğimiz hizmetler."
 
 
 

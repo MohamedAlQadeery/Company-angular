@@ -6,6 +6,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { SubscribeNowPageComponent } from './pages/subscribe-now-page/subscribe-now-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { PricingPageComponent } from './pages/pricing-page/pricing-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'pricing',
         component: PricingPageComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfilePageComponent,
       },
     ],
   },

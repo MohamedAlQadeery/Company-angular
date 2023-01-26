@@ -71,7 +71,16 @@
     "add":"Add",
     "service-per-month" :"Service per month",
     "offer-per-month" :"Offer per month",
-    "choose-plan":"Choose Plan"
+    "choose-plan":"Choose Plan",
+    "cta-section-title":"Start Your New Experince",
+    "cta-section-content":"Take your business to the next level.",
+    "new-account":"Create Account",
+    "services-title":"Explore Services",
+    "services-content":"Services that we provide."
+    
+
+    
+    
 
 
 }
