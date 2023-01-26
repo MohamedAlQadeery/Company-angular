@@ -8,6 +8,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -18,7 +19,8 @@ export class JwtInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     const token = this._authService.GetToken();
-    if (token) {
+    const baseUrl = environment.baseURL;
+    if (token && request.url.includes(baseUrl)) {
       request = request.clone({
         headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
       });

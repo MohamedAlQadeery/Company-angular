@@ -76,6 +76,11 @@
 
                                             <ng-container *ngIf="isLoggedIn$ | async;else isNotLoggedIn">
                                                 <li>
+                                                    <a routerLink="/profile" routerLinkActive="active">{{'profile'
+                                                        | translate}}</a>
+                                                </li>
+
+                                                <li>
                                                     <a (click)="HandleLogOut()" class="text-decoration-none"
                                                         style="cursor: pointer;">{{'logout'
                                                         | translate}}</a>
