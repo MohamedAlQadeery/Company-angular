@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
+import { tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { LangService } from 'src/app/services/language.service';
 
@@ -20,10 +21,20 @@ export class HeaderComponent {
     private _toastr: ToastrService
   ) {
     translate.setDefaultLang('en');
-    translate.use('en');
   }
 
-  currentLang$ = this._langService.currentLang$;
+  currentLang$ = this._langService.currentLang$.pipe(
+    tap((lang) => {
+      this.translate.use(lang);
+
+      if (lang === 'ar') {
+        this.renderer.setAttribute(document.body, 'dir', 'rtl');
+      } else {
+        this.renderer.removeAttribute(document.body, 'dir');
+      }
+    })
+  );
+
   isLoggedIn$ = this._authService.isLoggedin$;
   changeLanguage(language: string) {
     this.translate.use(language);
