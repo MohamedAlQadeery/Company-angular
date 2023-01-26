@@ -81,7 +81,12 @@
   "profile-page-content": "هنا نقوم بعرض جميع تفاصيل حسابك.",
   "account-info": "معلومات الحساب",
   "edit-profile": "تعديل الملف الشخصي",
-  "cards": "البطاقات"
+  "cards": "البطاقات",
+  "update": "تحديث",
+  "edit-profile-title": "قم بتحديث معلومات حسابك هنا",
+  "loading-categories": "جاري تحميل الفئات ...",
+  "loading-countries": "جاري تحميل البلدان ...",
+  "loading-cities": "الرجاء تحديد البلد أولا"
   
 
     

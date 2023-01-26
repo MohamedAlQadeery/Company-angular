@@ -48,7 +48,7 @@ export class ProviderSignupComponent implements OnInit {
 
   //#region Observables
   countries$: Observable<{ id: number | string; name: string }[]>;
-  cites: { id: number | string; name: string }[];
+  cites$: Observable<{ id: number | string; name: string }[]>;
   //#endregion
   constructor(
     private _toastr: ToastrService,
@@ -86,22 +86,18 @@ export class ProviderSignupComponent implements OnInit {
       })
     );
 
-    this.countryControl.valueChanges
-      .pipe(
-        switchMap((id) => {
-          return this._countryService.GetCitiesByCountry(id!).pipe(
-            map((res) => {
-              const mappedResult = res.map((c) => ({
-                id: c.name,
-                name: c.name,
-              }));
-              this.cites = mappedResult;
-              return mappedResult;
-            })
-          );
-        })
-      )
-      .subscribe();
+    this.cites$ = this.countryControl.valueChanges.pipe(
+      switchMap((id) => {
+        return this._countryService.GetCitiesByCountry(id!).pipe(
+          map((res) => {
+            return res.map((c) => ({
+              id: c.name,
+              name: c.name,
+            }));
+          })
+        );
+      })
+    );
   }
 
   HandleOnSubmit() {

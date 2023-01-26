@@ -81,7 +81,12 @@
     "profile-page-content": "Burada tüm hesap detaylarınızı gösteriyoruz.",
     "account-info": "Hesap bilgisi",
     "edit-profile": "Profili Düzenle",
-    "cards": "kartlar"
+    "cards": "kartlar",
+    "update": "Güncelleme",
+    "edit-profile-title": "Hesap Bilgilerinizi Buradan Güncelleyin",
+    "loading-categories": "Kategoriler Yükleniyor...",
+  "loading-countries": "Ülkeler Yükleniyor...",
+  "loading-cities": "Lütfen önce bir ülke seçin"
 
 
 

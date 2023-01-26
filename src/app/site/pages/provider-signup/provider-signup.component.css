@@ -11,3 +11,7 @@
 ::ng-deep tui-input {
   text-align: inherit !important;
 }
+
+::ng-deep tui-select {
+  text-align: inherit !important;
+}

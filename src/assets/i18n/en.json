@@ -81,7 +81,12 @@
     "profile-page-content":"Here we display all your account details.",
     "account-info":"Account Info",
     "edit-profile":"Edit Profile",
-    "cards":"Cards"
+    "cards":"Cards",
+    "update":"Update",
+    "edit-profile-title":"Update Your Account Information Here",
+    "loading-categories":"Loading Categories...",
+    "loading-countries":"Loading Countries...",
+    "loading-cities":"Please select a country first"
     
 
     

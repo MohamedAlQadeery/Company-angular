@@ -57,8 +57,19 @@
                             <div class="col-md-4 mb-3">
 
 
-                                <app-select-input [control]="cityControl" label="{{'city' | translate}}"
-                                    [options]="cites"></app-select-input>
+
+                                <ng-container *ngIf="cites$ | async as cites;else loadingCites">
+                                    <!-- <app-select-input [control]="countryControl" label="{{'country' | translate}}"
+                        [options]="countries"></app-select-input> -->
+
+                                    <app-search-select-input [control]="cityControl"
+                                        placeHolder="{{'city' | translate}}"
+                                        [options]="cites"></app-search-select-input>
+                                </ng-container>
+
+                                <ng-template #loadingCites>
+                                    <p class="text-danger">Select a country first ...</p>
+                                </ng-template>
                             </div>
 
                             <div class="col-md-12 mb-3">

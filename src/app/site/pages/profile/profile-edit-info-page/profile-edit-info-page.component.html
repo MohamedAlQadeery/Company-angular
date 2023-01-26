@@ -1,1 +1,216 @@
-<p>profile-edit-info-page works!</p>
+<div class="border-4 card p-4 rounded-2">
+    <h3 class="mb-md-3">{{'edit-profile-title' | translate}}</h3>
+
+    <ng-container *ngIf="userType == 2;else providerForm">
+        <form [formGroup]="profileFormGroup" (ngSubmit)="HandleOnSubmit()">
+            <div class="row">
+
+                <div class="col-md-4 mb-3">
+
+                    <app-input-field [control]="sFirstNameControl" label="{{'firstName' |translate}}"></app-input-field>
+
+                </div>
+                <div class="col-md-4 mb-3">
+
+                    <app-input-field [control]="sMidNameControl" label="{{'midName' |translate}}"></app-input-field>
+
+                </div>
+                <div class="col-md-4 mb-3">
+
+                    <app-input-field [control]="sLastNameControl" label="{{'lastName' |translate}}"></app-input-field>
+
+                </div>
+
+
+
+                <div class="col-md-6 mb-3">
+
+
+                    <app-select-input [control]="sGenderControl" label="{{'gender' | translate}}"
+                        [options]="genders"></app-select-input>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <app-date-input [control]="sDobControl" label="{{'dob' | translate}}"></app-date-input>
+                </div>
+
+
+                <div class="col-md-6 mb-3">
+                    <ng-container *ngIf="countries$ | async as countries;else loadingCountries">
+
+
+                        <app-search-select-input [control]="sCountryControl" placeHolder="{{'country' | translate}}"
+                            [options]="countries"></app-search-select-input>
+                    </ng-container>
+
+                    <ng-template #loadingCountries>
+                        <p class="text-danger">{{'loading-countries' | translate}}</p>
+                    </ng-template>
+
+
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+
+                    <ng-container *ngIf="cites$ | async as cites;else loadingCites">
+
+                        <app-search-select-input [control]="sCityControl" placeHolder="{{'city' | translate}}"
+                            [options]="cites"></app-search-select-input>
+                    </ng-container>
+
+                    <ng-template #loadingCites>
+                        <p class="text-danger">{{'loading-cities' | translate}}</p>
+                    </ng-template>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <app-input-field [control]="sAddressControl" label="{{'address' | translate}}"></app-input-field>
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+                    <app-input-field [control]="sPhoneControl" label="{{'phone' | translate}}"></app-input-field>
+                </div>
+
+
+
+
+
+                <div class="col-md-12">
+
+                    <app-file-input [control]="sFileControl" accept="application/pdf"
+                        linklabel="{{'upload-id'|translate}}"
+                        textlabel="{{'id-drop-label'|translate}}"></app-file-input>
+                </div>
+
+
+
+                <div class="col-md-12">
+                    <div class="tui-form__buttons">
+                        <button [disabled]="!profileFormGroup.valid" tuiButton size="m" type="submit"
+                            class="tui-form__button">
+                            {{'update'|translate}}
+                        </button>
+                        <button tuiButton type="button" appearance="flat" size="m" class="tui-form__button">
+                            {{'cancel' |translate}}
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </ng-container>
+
+
+    <ng-template #providerForm>
+        <form [formGroup]="profileFormGroup" (ngSubmit)="HandleOnSubmit()">
+            <div class="row">
+
+                <div class="col-md-12 mb-3">
+
+                    <app-input-field [control]="companyNameControl" label="{{'company' |translate}}"></app-input-field>
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+
+                    <ng-container *ngIf="categories$ |async as categories;else loadingCategories">
+                        <app-select-input [control]="categoryControl" label="{{'category' | translate}}"
+                            [options]="categories"></app-select-input>
+                    </ng-container>
+
+                    <ng-template #loadingCategories>
+                        <p class="text-danger">{{'loading-categories' | translate}}</p>
+                    </ng-template>
+
+                </div>
+                <div class="col-md-4 mb-3">
+                    <ng-container *ngIf="countries$ | async as countries;else loadingCountries">
+                        <!-- <app-select-input [control]="countryControl" label="{{'country' | translate}}"
+                            [options]="countries"></app-select-input> -->
+
+                        <app-search-select-input [control]="countryControl" placeHolder="{{'country' | translate}}"
+                            [options]="countries"></app-search-select-input>
+                    </ng-container>
+
+                    <ng-template #loadingCountries>
+                        <p class="text-danger">{{'loading-countries' | translate}}</p>
+                    </ng-template>
+
+
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+
+                    <ng-container *ngIf="cites$ | async as cites;else loadingCites">
+
+                        <app-search-select-input [control]="cityControl" placeHolder="{{'city' | translate}}"
+                            [options]="cites"></app-search-select-input>
+                    </ng-container>
+
+                    <ng-template #loadingCites>
+                        <p class="text-danger">{{'loading-cities' | translate}}</p>
+                    </ng-template>
+                </div>
+
+                <div class="col-md-12 mb-3">
+
+
+                    <app-input-field [control]="addressControl" label="{{'address' | translate}}"></app-input-field>
+                </div>
+
+                <div class="col-md-12 mb-3">
+
+
+                    <app-input-field [control]="googleLocationControl"
+                        label="{{'google-location-link' | translate}}"></app-input-field>
+                </div>
+
+                <div class="col-md-12 mb-3">
+
+
+                    <app-input-field [control]="websiteControl" label="{{'website' | translate}}"></app-input-field>
+                </div>
+
+
+
+                <div class="col-md-12 mb-4">
+                    <app-input-field [control]="phoneControl" label="{{'phone' | translate}}"></app-input-field>
+                </div>
+
+
+                <div class="col-md-6">
+
+
+                    <app-file-input [control]="logoControl" accept="image/*" linklabel="{{'upload-logo'|translate}}"
+                        textlabel="{{'logo-drop-label'|translate}}"></app-file-input>
+                </div>
+
+                <div class="col-md-6">
+
+                    <app-file-input [control]="photoControl" accept="image/*" linklabel="{{'upload-photo'|translate}}"
+                        textlabel="{{'photo-drop-label'|translate}}"></app-file-input>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="tui-form__buttons">
+                        <button [disabled]="!profileFormGroup.valid" tuiButton size="m" type="submit"
+                            class="tui-form__button">
+                            {{'update'|translate}}
+                        </button>
+                        <button tuiButton type="button" appearance="flat" size="m" class="tui-form__button">
+                            {{'cancel' |translate}}
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </ng-template>
+
+</div>
