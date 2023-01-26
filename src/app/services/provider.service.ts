@@ -10,7 +10,7 @@ import {
   providedIn: 'root',
 })
 export class ProviderService {
-  private baseUrl = environment.baseURL + '/api/provider';
+  private baseUrl = environment.baseURL + '/api/user/provider';
 
   constructor(private _http: HttpClient) {}
 

@@ -27,3 +27,30 @@ export interface IProviderResponse {
   categoryId: number;
   email: string;
 }
+
+export interface ICreateSubscriberRequest {
+  country: string;
+  city: string;
+  addressOne: string;
+  email: string;
+  password: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  genderId: number;
+  birthDate: Date;
+  file: File;
+}
+export interface ISubscriberResponse {
+  id: number;
+  country: string;
+  city: string;
+  addressOne: string;
+  email: string;
+  password: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  genderId: number;
+  birthDate: Date;
+}
