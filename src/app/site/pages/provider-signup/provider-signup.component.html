@@ -33,13 +33,20 @@
                             <div class="col-md-4 mb-3">
 
 
-                                <app-select-input [control]="categoryControl" label="{{'category' | translate}}"
-                                    [options]="fakeCategories"></app-select-input>
+
+                                <ng-container *ngIf="categories$ |async as categories;else loadingCategories">
+                                    <app-select-input [control]="categoryControl" label="{{'category' | translate}}"
+                                        [options]="categories"></app-select-input>
+                                </ng-container>
+
+                                <ng-template #loadingCategories>
+                                    <p class="text-danger">{{'loading-categories' | translate}}</p>
+                                </ng-template>
+
                             </div>
                             <div class="col-md-4 mb-3">
                                 <ng-container *ngIf="countries$ | async as countries;else loadingCountries">
-                                    <!-- <app-select-input [control]="countryControl" label="{{'country' | translate}}"
-                                        [options]="countries"></app-select-input> -->
+
 
                                     <app-search-select-input [control]="countryControl"
                                         placeHolder="{{'country' | translate}}"
@@ -47,7 +54,7 @@
                                 </ng-container>
 
                                 <ng-template #loadingCountries>
-                                    <p class="text-danger">Loading Getting Countries...</p>
+                                    <p class="text-danger">{{'loading-countries' | translate}}</p>
                                 </ng-template>
 
 
@@ -66,9 +73,8 @@
                                         placeHolder="{{'city' | translate}}"
                                         [options]="cites"></app-search-select-input>
                                 </ng-container>
-
                                 <ng-template #loadingCites>
-                                    <p class="text-danger">Select a country first ...</p>
+                                    <p class="text-danger">{{'loading-cities' | translate}}</p>
                                 </ng-template>
                             </div>
 

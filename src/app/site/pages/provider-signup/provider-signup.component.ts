@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { ToastrService } from 'ngx-toastr';
 import { Observable, Subject, Subscription, map, switchMap, tap } from 'rxjs';
+import { CategoryService } from 'src/app/services/category.service';
 import { CountryService } from 'src/app/services/country.service';
 import { ProviderService } from 'src/app/services/provider.service';
 import Validation from 'src/app/shared/helpers/validation';
@@ -15,22 +16,11 @@ import Validation from 'src/app/shared/helpers/validation';
   styleUrls: ['./provider-signup.component.css'],
 })
 export class ProviderSignupComponent implements OnInit {
-  //#region Fake Options
-
-  fakeCategories = [
-    { id: 1, name: 'Food' },
-    { id: 2, name: 'Sport' },
-  ];
-
-  //#endregion
-
   //#region signup form
   signupFormGroup: FormGroup;
   companyNameControl = new FormControl('', [Validators.required]);
   emailControl = new FormControl('', [Validators.required, Validators.email]);
-  categoryControl = new FormControl(this.fakeCategories.at(0)?.id, [
-    Validators.required,
-  ]);
+  categoryControl = new FormControl('', [Validators.required]);
   countryControl = new FormControl('', [Validators.required]);
   cityControl = new FormControl('', [Validators.required]);
 
@@ -49,13 +39,16 @@ export class ProviderSignupComponent implements OnInit {
   //#region Observables
   countries$: Observable<{ id: number | string; name: string }[]>;
   cites$: Observable<{ id: number | string; name: string }[]>;
+  categories$: Observable<{ id: number; name: string }[]>;
+
   //#endregion
   constructor(
     private _toastr: ToastrService,
     private _translate: TranslateService,
     private _router: Router,
     private _countryService: CountryService,
-    private _providerService: ProviderService
+    private _providerService: ProviderService,
+    private _categoryService: CategoryService
   ) {}
   ngOnInit(): void {
     this.signupFormGroup = new FormGroup(
@@ -78,6 +71,12 @@ export class ProviderSignupComponent implements OnInit {
       {
         validators: [Validation.match('password', 'confirmPassword')],
       }
+    );
+
+    this.categories$ = this._categoryService.GetAllCategories().pipe(
+      map((res) => {
+        return res.map((c) => ({ id: c.id, name: c.name }));
+      })
     );
 
     this.countries$ = this._countryService.GetAllCountries().pipe(

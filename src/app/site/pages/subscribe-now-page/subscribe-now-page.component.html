@@ -26,9 +26,14 @@
 
                             <div class="col-md-12 mb-3">
 
+                                <ng-container *ngIf="plans$ |async as plans;else loadingPlans">
+                                    <app-select-input [control]="planControl" label="{{'select-plan' | translate}}"
+                                        [options]="plans"></app-select-input>
+                                </ng-container>
 
-                                <app-select-input [control]="planControl" label="{{'select-plan' | translate}}"
-                                    [options]="plans"></app-select-input>
+                                <ng-template #loadingPlans>
+                                    <p class="text-danger">{{'loading-plans' | translate}}</p>
+                                </ng-template>
                             </div>
 
                             <div class="col-md-4 mb-3">
@@ -62,20 +67,33 @@
                                 <app-date-input [control]="dobControl" label="{{'dob' | translate}}"></app-date-input>
                             </div>
 
-                            <div class="col-md-4 mb-3">
 
-                                <app-select-input [control]="nationalityControl" label="{{'nationality' | translate}}"
-                                    [options]="fakeNationailty"></app-select-input>
+                            <div class="col-md-6 mb-3">
+
+                                <ng-container *ngIf="countries$ | async as countries;else loadingCountries">
+                                    <app-search-select-input [control]="countryControl"
+                                        placeHolder="{{'country' | translate}}"
+                                        [options]="countries"></app-search-select-input>
+                                </ng-container>
+
+                                <ng-template #loadingCountries>
+                                    <p class="text-danger">{{'loading-countries' | translate}}</p>
+                                </ng-template>
+
                             </div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-6 mb-3">
 
-                                <app-select-input [control]="countryControl" label="{{'country' | translate}}"
-                                    [options]="fakeCountries"></app-select-input>
-                            </div>
-                            <div class="col-md-4 mb-3">
 
-                                <app-select-input [control]="cityControl" label="{{'city' | translate}}"
-                                    [options]="fakeCities"></app-select-input>
+                                <ng-container *ngIf="cites$ | async as cites;else loadingCites">
+
+                                    <app-search-select-input [control]="cityControl"
+                                        placeHolder="{{'city' | translate}}"
+                                        [options]="cites"></app-search-select-input>
+                                </ng-container>
+
+                                <ng-template #loadingCites>
+                                    <p class="text-danger">{{'loading-cities' | translate}}</p>
+                                </ng-template>
                             </div>
 
 

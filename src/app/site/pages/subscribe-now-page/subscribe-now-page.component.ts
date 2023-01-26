@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { TuiDay } from '@taiga-ui/cdk';
 import { TuiAlertService } from '@taiga-ui/core';
+import { Observable, map, switchMap } from 'rxjs';
+import { CategoryService } from 'src/app/services/category.service';
+import { CountryService } from 'src/app/services/country.service';
+import { PlanService } from 'src/app/services/plan.service';
 import Validation from 'src/app/shared/helpers/validation';
 
 @Component({
@@ -12,32 +16,13 @@ import Validation from 'src/app/shared/helpers/validation';
   styleUrls: ['./subscribe-now-page.component.css'],
 })
 export class SubscribeNowPageComponent {
-  //#region Fake Options
-
-  fakeCountries = [
-    { id: 1, name: 'Palestine' },
-    { id: 2, name: 'UAE' },
-  ];
-  fakeNationailty = [
-    { id: 1, name: 'Palestinian' },
-    { id: 2, name: 'Emarti' },
-  ];
-
-  fakeCities = [
-    { id: 1, name: 'Gaza' },
-    { id: 2, name: 'Dubai' },
-  ];
+  //#region  Options
 
   genders = [
     { id: 1, name: 'male' },
     { id: 2, name: 'female' },
   ];
 
-  plans = [
-    { id: 1, name: 'First Plan' },
-    { id: 2, name: 'Second Plan' },
-    { id: 3, name: 'Third Plan' },
-  ];
   //#endregion
 
   //#region signup form
@@ -46,19 +31,13 @@ export class SubscribeNowPageComponent {
   midNameControl = new FormControl('', [Validators.required]);
   lastNameControl = new FormControl('', [Validators.required]);
   emailControl = new FormControl('', [Validators.required, Validators.email]);
-  nationalityControl = new FormControl(this.fakeNationailty.at(0)?.id, [
-    Validators.required,
-  ]);
+  // nationalityControl = new FormControl('', [Validators.required]);
   genderControl = new FormControl(this.genders.at(0)?.id, [
     Validators.required,
   ]);
-  countryControl = new FormControl(this.fakeCountries.at(0)?.id, [
-    Validators.required,
-  ]);
-  cityControl = new FormControl(this.fakeCities.at(0)?.id, [
-    Validators.required,
-  ]);
-  planControl = new FormControl(this.plans.at(0)?.id, [Validators.required]);
+  countryControl = new FormControl('', [Validators.required]);
+  cityControl = new FormControl('', [Validators.required]);
+  planControl = new FormControl('', [Validators.required]);
 
   addressControl = new FormControl('', [Validators.required]);
   dobControl = new FormControl(new TuiDay(2023, 1, 1), [Validators.required]);
@@ -69,9 +48,20 @@ export class SubscribeNowPageComponent {
   fileControl = new FormControl('', [Validators.required]);
 
   //#endregion
+
+  //#region Observables
+  countries$: Observable<{ id: number | string; name: string }[]>;
+  cites$: Observable<{ id: number | string; name: string }[]>;
+  categories$: Observable<{ id: number; name: string }[]>;
+  plans$: Observable<{ id: number; name: string }[]>;
+
+  //#endregion
   constructor(
     private _alertService: TuiAlertService,
     private _translate: TranslateService,
+    private _categoryService: CategoryService,
+    private _countryService: CountryService,
+    private _planService: PlanService,
     private _router: Router
   ) {}
   ngOnInit(): void {
@@ -81,7 +71,7 @@ export class SubscribeNowPageComponent {
         midName: this.midNameControl,
         lastName: this.lastNameControl,
         gender: this.genderControl,
-        nationality: this.nationalityControl,
+        // nationality: this.nationalityControl,
         email: this.emailControl,
         dob: this.dobControl,
         city: this.cityControl,
@@ -96,6 +86,37 @@ export class SubscribeNowPageComponent {
       {
         validators: [Validation.match('password', 'confirmPassword')],
       }
+    );
+
+    this.categories$ = this._categoryService.GetAllCategories().pipe(
+      map((res) => {
+        return res.map((c) => ({ id: c.id, name: c.name }));
+      })
+    );
+
+    this.countries$ = this._countryService.GetAllCountries().pipe(
+      map((res) => {
+        return res.map((c) => ({ id: c.iso2, name: c.name }));
+      })
+    );
+    this.plans$ = this._planService.GetAllPlans().pipe(
+      map((res) => {
+        const subPlans = res.filter((p) => p.planType == 2);
+        return subPlans.map((p) => ({ id: p.id, name: p.name }));
+      })
+    );
+
+    this.cites$ = this.countryControl.valueChanges.pipe(
+      switchMap((id) => {
+        return this._countryService.GetCitiesByCountry(id!).pipe(
+          map((res) => {
+            return res.map((c) => ({
+              id: c.name,
+              name: c.name,
+            }));
+          })
+        );
+      })
     );
   }
 
