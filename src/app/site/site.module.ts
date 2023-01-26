@@ -12,7 +12,10 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { SubscribeNowPageComponent } from './pages/subscribe-now-page/subscribe-now-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { PricingPageComponent } from './pages/pricing-page/pricing-page.component';
-import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { ProfileHomePageComponent } from './pages/profile/profile-home-page/profile-home-page.component';
+import { ProfileEditInfoPageComponent } from './pages/profile/profile-edit-info-page/profile-edit-info-page.component';
+import { ProfileCardsPageComponent } from './pages/profile/profile-cards-page/profile-cards-page.component';
+import { ProfileLayoutPageComponent } from './pages/profile/profile-layout-page/profile-layout-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
     SubscribeNowPageComponent,
     LoginPageComponent,
     PricingPageComponent,
-    ProfilePageComponent,
+    ProfileHomePageComponent,
+    ProfileEditInfoPageComponent,
+    ProfileCardsPageComponent,
+    ProfileLayoutPageComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule],
 })
