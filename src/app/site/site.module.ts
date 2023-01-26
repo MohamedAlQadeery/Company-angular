@@ -16,6 +16,7 @@ import { ProfileHomePageComponent } from './pages/profile/profile-home-page/prof
 import { ProfileEditInfoPageComponent } from './pages/profile/profile-edit-info-page/profile-edit-info-page.component';
 import { ProfileCardsPageComponent } from './pages/profile/profile-cards-page/profile-cards-page.component';
 import { ProfileLayoutPageComponent } from './pages/profile/profile-layout-page/profile-layout-page.component';
+import { ProfileCardInfoPageComponent } from './pages/profile/profile-card-info-page/profile-card-info-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ProfileLayoutPageComponent } from './pages/profile/profile-layout-page/
     ProfileEditInfoPageComponent,
     ProfileCardsPageComponent,
     ProfileLayoutPageComponent,
+    ProfileCardInfoPageComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule],
 })

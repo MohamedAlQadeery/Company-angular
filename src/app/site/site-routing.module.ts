@@ -10,6 +10,7 @@ import { ProfileLayoutPageComponent } from './pages/profile/profile-layout-page/
 import { ProfileHomePageComponent } from './pages/profile/profile-home-page/profile-home-page.component';
 import { ProfileEditInfoPageComponent } from './pages/profile/profile-edit-info-page/profile-edit-info-page.component';
 import { ProfileCardsPageComponent } from './pages/profile/profile-cards-page/profile-cards-page.component';
+import { ProfileCardInfoPageComponent } from './pages/profile/profile-card-info-page/profile-card-info-page.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
           { path: 'home', component: ProfileHomePageComponent },
           { path: 'edit', component: ProfileEditInfoPageComponent },
           { path: 'cards', component: ProfileCardsPageComponent },
+          { path: 'cards/:id', component: ProfileCardInfoPageComponent },
         ],
       },
     ],
