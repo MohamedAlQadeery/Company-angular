@@ -87,7 +87,9 @@
   "loading-categories": "جاري تحميل الفئات ...",
   "loading-countries": "جاري تحميل البلدان ...",
   "loading-cities": "الرجاء تحديد البلد أولا",
-  "loading-plans": "تحميل الخطط ...."
+  "loading-plans": "تحميل الخطط ....",
+  "logout":"تسجيل خروج"
+
   
 
     

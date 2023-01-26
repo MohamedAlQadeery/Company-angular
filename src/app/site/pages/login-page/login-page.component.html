@@ -18,13 +18,15 @@
                             <p>{{'login-subtitle' |translate}}</p>
                         </div>
                         <div class="login__form">
-                            <form action="#">
+                            <form [formGroup]="loginFormGroup" (ngSubmit)="HandleOnLogin()">
                                 <div class="login__input-wrapper">
                                     <div class="mb-3">
-                                        <app-input-field label="{{'email' | translate}}"></app-input-field>
+                                        <app-input-field [control]="emailFormControl"
+                                            label="{{'email' | translate}}"></app-input-field>
                                     </div>
                                     <div class="mb-3">
-                                        <app-password-input label="{{'password' | translate}}"></app-password-input>
+                                        <app-password-input [control]="passwordFormControl"
+                                            label="{{'password' | translate}}"></app-password-input>
                                     </div>
                                 </div>
                                 <div class="login__option mb-25 d-sm-flex justify-content-between">
@@ -37,14 +39,16 @@
                                     </div> -->
                                 </div>
                                 <div class="login__btn">
-                                    <a href="profile.html" class="tp-btn w-100">{{'login' | translate}}</a>
+                                    <button [disabled]="!loginFormGroup.valid"
+                                        class="btn btn-primary py-3 login--button w-100" type="submit">{{'login' |
+                                        translate}}</button>
                                 </div>
                             </form>
                             <div class="login__social text-center">
 
                             </div>
                             <div class="login__register-now">
-                                <p>{{'no-account' | translate}} <a href="register.html">{{'register-now'
+                                <p>{{'no-account' | translate}} <a routerLink="/pricing">{{'register-now'
                                         |translate}}</a></p>
                             </div>
                         </div>

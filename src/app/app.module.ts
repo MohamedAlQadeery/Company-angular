@@ -5,9 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -24,7 +25,13 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     }), // ToastrModule added
     SweetAlert2Module.forRoot(),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

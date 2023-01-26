@@ -4,3 +4,7 @@
 ::ng-deep tui-input-password {
   text-align: inherit !important;
 }
+
+.login--button {
+  background-color: #343448;
+}

@@ -45,27 +45,14 @@
                                                     | translate}}</a>
 
                                             </li>
-                                            <li>
-                                                <a routerLink="/subscribe" routerLinkActive="active">{{'subscribe-now'
-                                                    | translate}}</a>
 
-                                            </li>
-                                            <li>
-                                                <a routerLink="/join-provider"
-                                                    routerLinkActive="active">{{'join-as-provider'
-                                                    | translate}}</a>
 
-                                            </li>
                                             <li>
                                                 <a href="home-main.html">{{'offers'
                                                     | translate}}</a>
 
                                             </li>
-                                            <li>
-                                                <a routerLink="/pricing" routerLinkActive="active">{{'pricing'
-                                                    | translate}}</a>
 
-                                            </li>
 
 
                                             <li class="has-dropdown">
@@ -80,11 +67,45 @@
                                                 </ul>
                                             </li>
 
+
                                             <li>
-                                                <a routerLink="/login" routerLinkActive="active">{{'login'
+                                                <a routerLink="/pricing" routerLinkActive="active">{{'pricing'
                                                     | translate}}</a>
 
                                             </li>
+
+                                            <ng-container *ngIf="isLoggedIn$ | async;else isNotLoggedIn">
+                                                <li>
+                                                    <a (click)="HandleLogOut()" class="text-decoration-none"
+                                                        style="cursor: pointer;">{{'logout'
+                                                        | translate}}</a>
+
+                                                </li>
+                                            </ng-container>
+
+                                            <ng-template #isNotLoggedIn>
+                                                <li>
+                                                    <a routerLink="/subscribe"
+                                                        routerLinkActive="active">{{'subscribe-now'
+                                                        | translate}}</a>
+
+                                                </li>
+                                                <li>
+                                                    <a routerLink="/join-provider"
+                                                        routerLinkActive="active">{{'join-as-provider'
+                                                        | translate}}</a>
+
+                                                </li>
+
+                                                <li>
+                                                    <a routerLink="/login" routerLinkActive="active">{{'login'
+                                                        | translate}}</a>
+
+                                                </li>
+                                            </ng-template>
+
+
+
 
 
                                         </ul>
