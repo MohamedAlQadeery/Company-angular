@@ -15,7 +15,7 @@ export class ProfileEditInfoPageComponent implements OnInit {
     private _countryService: CountryService
   ) {}
   profileFormGroup: FormGroup;
-  userType: number = 3; // 1 user , 2 subscripber ,3 provider
+  userType: number = 2; // 1 user , 2 subscripber ,3 provider
 
   //#region Options
   genders = [
@@ -29,7 +29,8 @@ export class ProfileEditInfoPageComponent implements OnInit {
   categories$: Observable<{ id: number; name: string }[]>;
 
   countries$: Observable<{ id: number | string; name: string }[]>;
-  cites$: Observable<{ id: number | string; name: string }[]>;
+  providerCites$: Observable<{ id: number | string; name: string }[]>;
+  subscriberCites$: Observable<{ id: number | string; name: string }[]>;
   //#endregion
   //#region Provider FormControls
   companyNameControl = new FormControl('', [Validators.required]);
@@ -74,7 +75,19 @@ export class ProfileEditInfoPageComponent implements OnInit {
       })
     );
 
-    this.cites$ = this.countryControl.valueChanges.pipe(
+    this.providerCites$ = this.countryControl.valueChanges.pipe(
+      switchMap((id) => {
+        return this._countryService.GetCitiesByCountry(id!).pipe(
+          map((res) => {
+            return res.map((c) => ({
+              id: c.name,
+              name: c.name,
+            }));
+          })
+        );
+      })
+    );
+    this.subscriberCites$ = this.sCountryControl.valueChanges.pipe(
       switchMap((id) => {
         return this._countryService.GetCitiesByCountry(id!).pipe(
           map((res) => {

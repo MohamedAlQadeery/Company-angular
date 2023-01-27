@@ -53,7 +53,7 @@
                 <div class="col-md-6 mb-3">
 
 
-                    <ng-container *ngIf="cites$ | async as cites;else loadingCites">
+                    <ng-container *ngIf="subscriberCites$ | async as cites;else loadingCites">
 
                         <app-search-select-input [control]="sCityControl" placeHolder="{{'city' | translate}}"
                             [options]="cites"></app-search-select-input>
@@ -146,7 +146,7 @@
                 <div class="col-md-4 mb-3">
 
 
-                    <ng-container *ngIf="cites$ | async as cites;else loadingCites">
+                    <ng-container *ngIf="providerCites$ | async as cites;else loadingCites">
 
                         <app-search-select-input [control]="cityControl" placeHolder="{{'city' | translate}}"
                             [options]="cites"></app-search-select-input>
