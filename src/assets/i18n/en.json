@@ -95,7 +95,8 @@
     "description":"Description",
     "back":"Back",
     "add-service-title":"Add New Service Page",
-    "add-service":"Add Service"
+    "add-service":"Add Service",
+    "add-service-success":"Services is added successfully! Waiting for admin to approve it."
   
     
 

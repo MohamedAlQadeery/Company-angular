@@ -95,7 +95,9 @@
  "description":"الوصف",
  "back":"رجوع",
  "add-service-title": "إضافة خدمة جديدة",
-"add-service":"اضافة خدمة"
+"add-service":"اضافة خدمة",
+"add-service-success":"تمت اضافة الخدمة بنجاح , جاري انتظار المشرف ليقوم بالموافقة عليها"
+
  
 
 
