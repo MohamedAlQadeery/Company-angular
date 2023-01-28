@@ -1,82 +1,72 @@
-<div class="border-4 card p-4 rounded-2">
-    <div class="team__details-content pt-40 pl-15 pr-50 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
-        <span class="team__details-subtitle">Founder-CO</span>
-        <h3 class="team__details-title">Moira Baxter</h3>
-        <div class="team__details-contact mb-10">
-            <div class="team__details-contact-item d-flex align-items-center">
-                <!-- for wp if client want to add icon enable it -->
-                <div class="team__details-contact-icon mr-10 d-none">
-                    <span>
-                        <i class="fa-regular fa-envelope"></i>
-                    </span>
-                </div>
-                <div class="team__details-contact-content">
-                    <p><a href="mailto:hello@website.com">hello@website.com</a></p>
-                </div>
-            </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate pellentesque commodo. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit.</p>
-
-        <div class="team__details-social">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
-    </div>
-
-
-
-    <!-- team details about area start -->
-    <div class="team__details-about-border pt-90 pb-65">
-        <div class="row justify-content-center">
-            <div class="team__details-about-content wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                <h3 class="team__details-about-title">About moira baxter</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna adipiscing
-                    <br> praesent velit viverra sit semper lorem eu cursus vel hendrerit elementum morbi
-                    curabitur etiam <br> nibh justo, lorem aliquet donec sed sit mi dignissim at ante massa
-                    mattis.
-                </p>
-
-                <div class="team__details-about-list pt-10 mb-35">
-                    <ol>
-                        <li>Neque sodales ut etiam sit amet nisl purus.</li>
-                        <li>Adipiscing elit aliquam purus viverra suspendisse</li>
-                        <li>Mauris commodo quis imperdiet tincidunt</li>
-                        <li>Adipiscing elit ut aliquam purus </li>
-                    </ol>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit
-                    amet tempor nibh finibus et. Aenean eu enim justo. Vestibulum aliquam hendrerit molestie.
-                    Mauris malesuada nisi sit amet augue accumsan tincidunt. Maecenas tincidunt, velit ac
-                    porttitor pulvinar, tortor eros facilisis libero, vitae commodo nunc quam et ligula.</p>
-
-            </div>
-        </div>
-    </div>
-    <!-- team details about area end -->
-
-    <!-- team details about area start -->
-    <div class="team__details-about-border">
-        <div class="row justify-content-center">
-            <div class="team__details-about-content wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                <h3 class="team__details-about-title">User Attachments</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>Logo</p>
-                        <img src="assets/admin/img/photos/unsplash-1.jpg" class="img-fluid pe-2" alt="Unsplash">
-
+<ng-container *ngIf="userData$ | async as userData">
+    <div class="border-4 card p-4 rounded-2">
+        <div class="team__details-content pt-40 pl-15 pr-50 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+            <span class="team__details-subtitle">{{userRole | titlecase}}</span>
+            <h3 class="team__details-title">{{userName}}</h3>
+            <div class="team__details-contact mb-lg-3 ">
+                <div class="team__details-contact-item d-flex align-items-center">
+                    <!-- for wp if client want to add icon enable it -->
+                    <div class="team__details-contact-icon mr-10 d-none">
+                        <span>
+                            <i class="fa-regular fa-envelope"></i>
+                        </span>
                     </div>
-                    <div class="col-md-6">
-                        <p>Photo</p>
-                        <img src="assets/admin/img/photos/unsplash-2.jpg" class="img-fluid pe-2" alt="Unsplash">
-
+                    <div class="team__details-contact-content">
+                        <p><a [href]="userData.email">{{userData.email}}</a></p>
                     </div>
                 </div>
+            </div>
 
 
+
+            <div class="team__details-social">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
         </div>
+
+
+
+        <!-- team details about area start -->
+        <div class="team__details-about-border pt-90 pb-65 mb-lg-3 ">
+            <div class="row justify-content-center">
+                <div class="team__details-about-content">
+                    <h3 class="team__details-about-title">About {{userName}}</h3>
+                    <p *ngIf="userData.description;else noDescrption">
+                        {{userData.description}}
+                    </p>
+                    <ng-template #noDescrption>
+                        <p class="text-danger">No Description was added yet</p>
+                    </ng-template>
+
+                </div>
+            </div>
+        </div>
+        <!-- team details about area end -->
+
+        <!-- team details about area start -->
+        <div class="team__details-about-border">
+            <div class="row justify-content-center">
+                <div class="team__details-about-content wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                    <h3 class="team__details-about-title">User Attachments</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Logo</p>
+                            <!-- <img [src]="imageUrl + '/'+userData." class="img-fluid pe-2" alt="Unsplash"> -->
+
+                        </div>
+                        <div class="col-md-6">
+                            <p>Photo</p>
+                            <img src="assets/admin/img/photos/unsplash-2.jpg" class="img-fluid pe-2" alt="Unsplash">
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- team details about area end -->
     </div>
-    <!-- team details about area end -->
-</div>
+</ng-container>

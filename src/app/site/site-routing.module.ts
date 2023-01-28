@@ -11,6 +11,9 @@ import { ProfileHomePageComponent } from './pages/profile/profile-home-page/prof
 import { ProfileEditInfoPageComponent } from './pages/profile/profile-edit-info-page/profile-edit-info-page.component';
 import { ProfileCardsPageComponent } from './pages/profile/profile-cards-page/profile-cards-page.component';
 import { ProfileCardInfoPageComponent } from './pages/profile/profile-card-info-page/profile-card-info-page.component';
+import { ProfileServicesListPageComponent } from './pages/profile/profile-services-list-page/profile-services-list-page.component';
+import { ProfileServicesCreatePageComponent } from './pages/profile/profile-services-create-page/profile-services-create-page.component';
+import { ProfileServicesEditPageComponent } from './pages/profile/profile-services-edit-page/profile-services-edit-page.component';
 
 const routes: Routes = [
   {
@@ -46,6 +49,15 @@ const routes: Routes = [
           { path: 'edit', component: ProfileEditInfoPageComponent },
           { path: 'cards', component: ProfileCardsPageComponent },
           { path: 'cards/:id', component: ProfileCardInfoPageComponent },
+          { path: 'services', component: ProfileServicesListPageComponent },
+          {
+            path: 'services/create',
+            component: ProfileServicesCreatePageComponent,
+          },
+          {
+            path: 'services/edit/:id',
+            component: ProfileServicesEditPageComponent,
+          },
         ],
       },
     ],

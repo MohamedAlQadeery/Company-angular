@@ -54,3 +54,29 @@ export interface ISubscriberResponse {
   genderId: number;
   birthDate: Date;
 }
+
+export interface IUserRespose {
+  description: string | null;
+  firstName: string | null;
+  middleName: string | null;
+  lastName: string | null;
+  companyName: string | null;
+  googleLocation: string | null;
+  website: string | null;
+  birthDate: string | null;
+  nationality: string | null;
+  country: string;
+  city: string;
+  addressOne: string;
+  genderId: number | null;
+  isActive: boolean | null;
+  categoryId: number | null;
+  discount: number | null;
+  category: string | null;
+  attachments: string | null;
+  gender: string | null;
+  id: string;
+  userName: string | null;
+  email: string | null;
+  phoneNumber: string | null;
+}
