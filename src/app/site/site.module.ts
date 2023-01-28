@@ -20,6 +20,8 @@ import { ProfileCardInfoPageComponent } from './pages/profile/profile-card-info-
 import { ProfileServicesListPageComponent } from './pages/profile/profile-services-list-page/profile-services-list-page.component';
 import { ProfileServicesCreatePageComponent } from './pages/profile/profile-services-create-page/profile-services-create-page.component';
 import { ProfileServicesEditPageComponent } from './pages/profile/profile-services-edit-page/profile-services-edit-page.component';
+import { ServicesPageComponent } from './pages/services/services-page/services-page.component';
+import { ServicesDetailsComponent } from './pages/services/services-details/services-details.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { ProfileServicesEditPageComponent } from './pages/profile/profile-servic
     ProfileServicesListPageComponent,
     ProfileServicesCreatePageComponent,
     ProfileServicesEditPageComponent,
+    ServicesPageComponent,
+    ServicesDetailsComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule],
 })
