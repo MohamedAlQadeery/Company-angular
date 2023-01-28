@@ -90,7 +90,13 @@
   "loading-plans": "تحميل الخطط ....",
   "logout":"تسجيل خروج",
   "profile": "الصفحة الشخصية",
-  "service-title-page":"الخدمات التي نوفرها."
+  "service-title-page":"الخدمات التي نوفرها.",
+  "title":"العنوان",
+ "description":"الوصف",
+ "back":"رجوع",
+ "add-service-title": "إضافة خدمة جديدة",
+"add-service":"اضافة خدمة"
+ 
 
 
   

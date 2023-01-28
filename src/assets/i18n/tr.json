@@ -90,7 +90,12 @@
   "loading-plans": "Planlar Yükleniyor....",
   "logout": "Çıkış Yap",
   "profile": "Profil",
-  "service-title-page":"Sunmuş olduğumuz hizmet."
+  "service-title-page":"Sunmuş olduğumuz hizmet.",
+  "title":"Başlık",
+ "description":"Açıklama",
+ "back":"geri",
+ "add-service-title": "Yeni Hizmet Ekleme Sayfası",
+ "add-service":"Hizmet Ekle"
 
 
 

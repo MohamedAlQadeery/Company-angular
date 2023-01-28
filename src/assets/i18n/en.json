@@ -90,7 +90,13 @@
     "loading-plans":"Loading Plans....",
     "logout":"Logout",
     "profile":"Profile",
-    "service-title-page":"Service we offer."
+    "service-title-page":"Service we offer.",
+    "title":"Title",
+    "description":"Description",
+    "back":"Back",
+    "add-service-title":"Add New Service Page",
+    "add-service":"Add Service"
+  
     
 
     

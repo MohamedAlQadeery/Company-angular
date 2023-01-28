@@ -1,0 +1,6 @@
+<tui-text-area [formControl]="control" [expandable]="true">
+    {{label}}
+    <span class="tui-required" *ngIf="hasStarSymbol"></span>
+</tui-text-area>
+
+<tui-error [formControl]="control" [error]="[]  | tuiFieldError| async |translateError "></tui-error>

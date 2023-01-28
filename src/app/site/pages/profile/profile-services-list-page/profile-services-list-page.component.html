@@ -1,82 +1,93 @@
-<div class="card p-4">
+<ng-container *ngIf="lang$ | async as lang">
 
-    <h3 class="mb-md-3">Company Services</h3>
+    <div class="card p-4">
 
-
-    <!-- features area start -->
-    <section class="features__area ">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-12 col-md-6">
-                    <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s"
-                        data-wow-duration="1s">
-                        <div class="features__icon-10">
-                            <span>
-                                <img src="https://via.placeholder.com/250x150" alt="">
-
-                            </span>
-                            <span>
-                                <img src="https://via.placeholder.com/250x150" alt="">
-
-                            </span>
-
-                        </div>
-                        <div class="features__content-10">
-                            <h3 class="features__title-10">First Service</h3>
-
-                            <span class="fw-bold">Address</span><br>
-                            <span>Duabi Uae</span><br>
-                            <span class="fw-bold">Call center : </span>
-                            <span>059912312</span><br>
-
-                            <h4 class="fw-bold text-primary mt-md-4">Discount 10%</h4>
-
-                            <div class="features__btn-10 mt-md-4">
-                                <a href="services-details.html" class="tp-btn-border-9">Read More <i
-                                        class="fa-regular fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s"
-                        data-wow-duration="1s">
-                        <div class="features__icon-10">
-                            <span>
-                                <img src="https://via.placeholder.com/250x150" alt="">
-
-                            </span>
-                            <span>
-                                <img src="https://via.placeholder.com/250x150" alt="">
-
-                            </span>
-
-                        </div>
-                        <div class="features__content-10">
-                            <h3 class="features__title-10">First Service</h3>
-
-                            <span class="fw-bold">Address</span><br>
-                            <span>Duabi Uae</span><br>
-                            <span class="fw-bold">Call center : </span>
-                            <span>059912312</span><br>
-
-                            <h4 class="fw-bold text-primary mt-md-4">Discount 10%</h4>
-
-                            <div class="features__btn-10 mt-md-4">
-                                <a href="services-details.html" class="tp-btn-border-9">Read More <i
-                                        class="fa-regular fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
+        <div class="row mb-md-4">
+            <div class="col-md-6">
+                <h3 class="mb-md-3">Company Services</h3>
+            </div>
+            <div class="col-md-6 text-start">
+                <a routerLink="/profile/services/create" class="btn btn-dark"
+                    [ngClass]="lang == 'ar'?'text-start' : 'text-end'">{{'add-service' | translate}}</a>
             </div>
         </div>
-    </section>
-    <!-- features area end -->
-</div>
+
+
+        <!-- features area start -->
+        <section class="features__area ">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12 col-md-6">
+                        <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s"
+                            data-wow-duration="1s">
+                            <div class="features__icon-10">
+                                <span>
+                                    <img src="https://via.placeholder.com/250x150" alt="">
+
+                                </span>
+                                <span>
+                                    <img src="https://via.placeholder.com/250x150" alt="">
+
+                                </span>
+
+                            </div>
+                            <div class="features__content-10">
+                                <h3 class="features__title-10">First Service</h3>
+
+                                <span class="fw-bold">Address</span><br>
+                                <span>Duabi Uae</span><br>
+                                <span class="fw-bold">Call center : </span>
+                                <span>059912312</span><br>
+
+                                <h4 class="fw-bold text-primary mt-md-4">Discount 10%</h4>
+
+                                <div class="features__btn-10 mt-md-4">
+                                    <a href="services-details.html" class="tp-btn-border-9">Read More <i
+                                            class="fa-regular fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s"
+                            data-wow-duration="1s">
+                            <div class="features__icon-10">
+                                <span>
+                                    <img src="https://via.placeholder.com/250x150" alt="">
+
+                                </span>
+                                <span>
+                                    <img src="https://via.placeholder.com/250x150" alt="">
+
+                                </span>
+
+                            </div>
+                            <div class="features__content-10">
+                                <h3 class="features__title-10">First Service</h3>
+
+                                <span class="fw-bold">Address</span><br>
+                                <span>Duabi Uae</span><br>
+                                <span class="fw-bold">Call center : </span>
+                                <span>059912312</span><br>
+
+                                <h4 class="fw-bold text-primary mt-md-4">Discount 10%</h4>
+
+                                <div class="features__btn-10 mt-md-4">
+                                    <a href="services-details.html" class="tp-btn-border-9">Read More <i
+                                            class="fa-regular fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </section>
+        <!-- features area end -->
+    </div>
+</ng-container>
