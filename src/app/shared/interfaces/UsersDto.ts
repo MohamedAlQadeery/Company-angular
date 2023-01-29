@@ -16,6 +16,7 @@ export interface ICreateProviderRequest {
   email: string;
   password: string;
   phoneNumber: string;
+  planId: number;
 }
 export interface IProviderResponse {
   description: string;
@@ -48,6 +49,7 @@ export interface ICreateSubscriberRequest {
   birthDate: Date;
   file: File;
   phoneNumber: string;
+  planId: number;
 }
 export interface ISubscriberResponse {
   id: number;

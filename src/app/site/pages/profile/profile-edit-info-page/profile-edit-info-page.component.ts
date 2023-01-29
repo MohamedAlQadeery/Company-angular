@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, map, switchMap } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { CountryService } from 'src/app/services/country.service';
 
@@ -12,10 +15,13 @@ import { CountryService } from 'src/app/services/country.service';
 export class ProfileEditInfoPageComponent implements OnInit {
   constructor(
     private _categoryService: CategoryService,
-    private _countryService: CountryService
+    private _countryService: CountryService,
+    private _toastr: ToastrService,
+    private _router: Router,
+    private _authService: AuthService
   ) {}
   profileFormGroup: FormGroup;
-  userType: number = 2; // 1 user , 2 subscripber ,3 provider
+  userRole = this._authService.GetUserRole(); // user , subscriber,provider
 
   //#region Options
   genders = [
@@ -61,7 +67,8 @@ export class ProfileEditInfoPageComponent implements OnInit {
   //#endregion
 
   ngOnInit(): void {
-    this.initFormGroup(this.userType);
+    this.initFormGroup();
+    this._toastr.success(this.userRole);
 
     this.categories$ = this._categoryService.GetAllCategories().pipe(
       map((res) => {
@@ -101,8 +108,8 @@ export class ProfileEditInfoPageComponent implements OnInit {
     );
   }
 
-  initFormGroup(userType: number) {
-    if (userType == 2) {
+  initFormGroup() {
+    if (this.userRole == 'subscriber') {
       // user is subscriber
       this.profileFormGroup = new FormGroup({
         firstName: this.sFirstNameControl,
@@ -115,7 +122,7 @@ export class ProfileEditInfoPageComponent implements OnInit {
         phone: this.phoneControl,
         file: this.sFileControl,
       });
-    } else if (userType == 3) {
+    } else if (this.userRole == 'provider') {
       // user is provider
       this.profileFormGroup = new FormGroup({
         companyName: this.companyNameControl,

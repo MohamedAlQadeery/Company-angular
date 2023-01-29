@@ -1,7 +1,7 @@
 <div class="border-4 card p-4 rounded-2">
     <h3 class="mb-md-3">{{'edit-profile-title' | translate}}</h3>
 
-    <ng-container *ngIf="userType == 2;else providerForm">
+    <ng-container *ngIf="userRole == 'subscriber';else providerForm">
         <form [formGroup]="profileFormGroup" (ngSubmit)="HandleOnSubmit()">
             <div class="row">
 

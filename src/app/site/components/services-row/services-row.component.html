@@ -1,44 +1,55 @@
-<div class="row">
+<ng-container *ngIf="services.length > 0;else noServices">
+    <div class="row">
 
 
-    <div [ngClass]="itemsPerPage == 2 ? 'col-md-6': 'col-md-4'" class="col-12 "
-        *ngFor="let service of services | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage}">
-        <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
-            <div class="features__icon-10">
-                <span>
-                    <img [src]="imagesUrl + '/'+service.applicationUser.attachments[0].logo" alt="">
+        <div [ngClass]="itemsPerPage == 2 ? 'col-md-6': 'col-md-4'" class="col-12 "
+            *ngFor="let service of services | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage}">
+            <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+                <div class="features__icon-10">
+                    <span>
+                        <img [src]="imagesUrl + '/'+service.applicationUser.attachments[0].logo" alt="">
 
-                </span><br>
-                <span>
-                    <img [src]="imagesUrl + '/'+service.applicationUser.attachments[0].photo" alt="">
+                    </span><br>
+                    <span>
+                        <img [src]="imagesUrl + '/'+service.applicationUser.attachments[0].photo" alt="">
 
-                </span>
+                    </span>
 
-            </div>
-            <div class="features__content-10">
-                <h3 class="features__title-10">{{service.title}}</h3>
+                </div>
+                <div class="features__content-10">
+                    <h3 class="features__title-10">{{service.title}}</h3>
 
-                <span class="fw-bold">{{'address'|translate}}</span><br>
-                <span>{{service.applicationUser.addressOne}}</span><br>
-                <span class="fw-bold ms-md-1">{{'phone' | translate}}</span>
-                <span>{{service.applicationUser.phoneNumber}}</span><br>
+                    <span class="fw-bold">{{'address'|translate}}</span><br>
+                    <span>{{service.applicationUser.addressOne}}</span><br>
+                    <span class="fw-bold ms-md-1">{{'phone' | translate}}</span>
+                    <span>{{service.applicationUser.phoneNumber}}</span><br>
 
-                <h4 class="fw-bold text-primary mt-md-4">{{'discount' | translate}}
-                    {{service.applicationUser.discount}}%</h4>
+                    <h4 class="fw-bold text-primary mt-md-4">{{'discount' | translate}}
+                        {{service.applicationUser.discount}}%</h4>
 
-                <div class="features__btn-10 mt-md-4">
-                    <a routerLink="/services/1" class="tp-btn-border-9">{{'readmore' | translate}} <i
-                            class="fa-regular fa-angle-right"></i></a>
+                    <div class="features__btn-10 mt-md-4">
+                        <a routerLink="/services/1" class="tp-btn-border-9">{{'readmore' | translate}} <i
+                                class="fa-regular fa-angle-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
+
+
+
     </div>
 
+    <div class="text-center fs-5">
+        <pagination-controls (pageChange)="currentPage = $event" previousLabel="{{'prev' | translate}}"
+            nextLabel="{{'next' | translate}}"></pagination-controls>
+    </div>
+</ng-container>
 
 
-</div>
-
-<div class="text-center fs-5">
-    <pagination-controls (pageChange)="currentPage = $event" previousLabel="{{'prev' | translate}}"
-        nextLabel="{{'next' | translate}}"></pagination-controls>
-</div>
+<ng-template #noServices>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3 class="text-danger">No Services Yet</h3>
+        </div>
+    </div>
+</ng-template>

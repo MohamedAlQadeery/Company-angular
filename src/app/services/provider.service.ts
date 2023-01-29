@@ -30,6 +30,7 @@ export class ProviderService {
     data.append('password', registerProviderRequest.password);
     data.append('photoFile', registerProviderRequest.photoFile);
     data.append('logoFile', registerProviderRequest.logoFile);
+    data.append('planId', registerProviderRequest.planId.toString());
 
     return this._http.post<IProviderResponse>(`${this.baseUrl}/register`, data);
   }

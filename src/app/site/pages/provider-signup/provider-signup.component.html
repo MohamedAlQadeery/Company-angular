@@ -25,6 +25,19 @@
 
                             <div class="col-md-12 mb-3">
 
+                                <ng-container *ngIf="plans$ |async as plans;else loadingPlans">
+                                    <app-select-input [control]="planControl" label="{{'select-plan' | translate}}"
+                                        [options]="plans"></app-select-input>
+                                </ng-container>
+
+                                <ng-template #loadingPlans>
+                                    <p class="text-danger">{{'loading-plans' | translate}}</p>
+                                </ng-template>
+                            </div>
+
+
+                            <div class="col-md-12 mb-3">
+
                                 <app-input-field [control]="companyNameControl"
                                     label="{{'company' |translate}}"></app-input-field>
 
