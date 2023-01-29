@@ -63,7 +63,7 @@ export class ProviderSignupComponent implements OnInit {
         website: this.googleLocationControl,
         password: this.passwordControl,
         confirmPassword: this.confirmPasswordControl,
-        phone: this.phoneControl,
+        phoneNumber: this.phoneControl,
         discount: this.discount,
         logoFile: this.logoControl,
         photoFile: this.photoControl,

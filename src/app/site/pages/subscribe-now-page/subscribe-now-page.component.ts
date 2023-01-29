@@ -78,7 +78,7 @@ export class SubscribeNowPageComponent {
         address: this.cityControl,
         password: this.passwordControl,
         confirmPassword: this.confirmPasswordControl,
-        phone: this.phoneControl,
+        phoneNumber: this.phoneControl,
         plan: this.planControl,
         file: this.fileControl,
       },

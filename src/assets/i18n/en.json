@@ -96,7 +96,12 @@
     "back":"Back",
     "add-service-title":"Add New Service Page",
     "add-service":"Add Service",
-    "add-service-success":"Services is added successfully! Waiting for admin to approve it."
+    "add-service-success":"Services is added successfully! Waiting for admin to approve it.",
+    "readmore":"Read More",
+    "services-subtitle":"Our providers services",
+    "loading-services":"Loading Services..."
+
+    
   
     
 

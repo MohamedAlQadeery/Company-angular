@@ -96,7 +96,12 @@
  "back":"geri",
  "add-service-title": "Yeni Hizmet Ekleme Sayfası",
  "add-service":"Hizmet Ekle",
- "add-service-success":"Hizmet başarıyla eklendi! Yöneticinin onaylamasını bekliyoruz."
+ "add-service-success":"Hizmet başarıyla eklendi! Yöneticinin onaylamasını bekliyoruz.",
+ "readmore" :"daha fazla oku",
+ "services-subtitle":"Sağlayıcılarımızın hizmetleri",
+ "loading-services":"Servisler yükleniyor..."
+
+
 
 
 

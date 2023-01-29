@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import {
   ICreateServiceRequest,
   ICreateServiceResponse,
+  IServiceResponse,
 } from '../shared/interfaces/ServicesDtos';
 
 @Injectable({
@@ -19,5 +20,9 @@ export class ProviderServiceService {
       `${this.baseUrl}`,
       createServiceRequest
     );
+  }
+
+  public GetAllServices() {
+    return this._http.get<IServiceResponse[]>(this.baseUrl);
   }
 }

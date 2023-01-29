@@ -1,3 +1,5 @@
+import { IAttachmentResponse } from './AttachmentDtos';
+
 export interface ICreateProviderRequest {
   description: string;
   googleLocation: string;
@@ -13,6 +15,7 @@ export interface ICreateProviderRequest {
   logoFile: File;
   email: string;
   password: string;
+  phoneNumber: string;
 }
 export interface IProviderResponse {
   description: string;
@@ -26,6 +29,10 @@ export interface IProviderResponse {
   addressOne: string;
   categoryId: number;
   email: string;
+  attachments: IAttachmentResponse[];
+  phoneNumber: string;
+  id: number;
+  isActive: boolean;
 }
 
 export interface ICreateSubscriberRequest {
@@ -40,6 +47,7 @@ export interface ICreateSubscriberRequest {
   genderId: number;
   birthDate: Date;
   file: File;
+  phoneNumber: string;
 }
 export interface ISubscriberResponse {
   id: number;
@@ -53,6 +61,7 @@ export interface ISubscriberResponse {
   lastName: string;
   genderId: number;
   birthDate: Date;
+  isActive: boolean;
 }
 
 export interface IUserRespose {

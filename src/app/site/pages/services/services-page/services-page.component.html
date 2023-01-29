@@ -23,214 +23,81 @@
 <!-- breadcrumb area end -->
 
 
-<section class="services__area mb-md-5">
-    <div class="section-wrapper pt-110 pb-60">
+<ng-container *ngIf="services$ | async as services;else loadingServices">
+    <section class="services__area mb-md-5">
+        <div class="section-wrapper pt-110 pb-60">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-8 col-xl-8 col-lg-10">
+                        <div class="services__section-title-5">
+                            <div class="section__title-wrapper-5 mb-50 text-center">
+                                <span class="section__title-pre-5">{{'services-subtitle' | translate}}</span>
+                                <h3 class="section__title-5">{{'services' | translate}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xxl-8 col-xl-8 col-lg-10">
-                    <div class="services__section-title-5">
-                        <div class="section__title-wrapper-5 mb-50 text-center">
-                            <span class="section__title-pre-5">Subtitle</span>
-                            <h3 class="section__title-5">Section Title</h3>
+            <div class="row">
+                <div class="col-12 col-md-4" *ngFor="let service of services">
+                    <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s"
+                        data-wow-duration="1s">
+                        <div class="features__icon-10">
+                            <span>
+                                <img [src]="imagesUrl + '/'+service.applicationUser.attachments[0].logo" alt="">
+
+                            </span><br>
+                            <span>
+                                <img [src]="imagesUrl + '/'+service.applicationUser.attachments[0].photo" alt="">
+
+                            </span>
+
+                        </div>
+                        <div class="features__content-10">
+                            <h3 class="features__title-10">{{service.title}}</h3>
+
+                            <span class="fw-bold">{{'address'|translate}}</span><br>
+                            <span>{{service.applicationUser.addressOne}}</span><br>
+                            <span class="fw-bold ms-md-1">{{'phone' | translate}}</span>
+                            <span>{{service.applicationUser.phoneNumber}}</span><br>
+
+                            <h4 class="fw-bold text-primary mt-md-4">{{'discount' | translate}}
+                                {{service.applicationUser.discount}}%</h4>
+
+                            <div class="features__btn-10 mt-md-4">
+                                <a routerLink="/services/1" class="tp-btn-border-9">{{'readmore' | translate}} <i
+                                        class="fa-regular fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+</ng-container>
+
+<ng-template #loadingServices>
+    <section class="services__area mb-md-5">
+        <div class="section-wrapper pt-110 pb-60">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-8 col-xl-8 col-lg-10">
+                        <div class="services__section-title-5">
+                            <div class="section__title-wrapper-5 mb-50 text-center">
+                                <h3 class="section__title-5">{{'loading-services' | translate}}</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s"
-                    data-wow-duration="1s">
-                    <div class="features__icon-10">
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
 
-                        </span>
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
-
-                        </span>
-
-                    </div>
-                    <div class="features__content-10">
-                        <h3 class="features__title-10">First Service</h3>
-
-                        <span class="fw-bold">Address</span><br>
-                        <span>Duabi Uae</span><br>
-                        <span class="fw-bold">Call center : </span>
-                        <span>059912312</span><br>
-
-                        <h4 class="fw-bold text-primary mt-md-4">Discount 10%</h4>
-
-                        <div class="features__btn-10 mt-md-4">
-                            <a href="services-details.html" class="tp-btn-border-9">Read More <i
-                                    class="fa-regular fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4">
-                <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s"
-                    data-wow-duration="1s">
-                    <div class="features__icon-10">
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
-
-                        </span>
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
-
-                        </span>
-
-                    </div>
-                    <div class="features__content-10">
-                        <h3 class="features__title-10">First Service</h3>
-
-                        <span class="fw-bold">Address</span><br>
-                        <span>Duabi Uae</span><br>
-                        <span class="fw-bold">Call center : </span>
-                        <span>059912312</span><br>
-
-                        <h4 class="fw-bold text-primary mt-md-4">Discount 10%</h4>
-
-                        <div class="features__btn-10 mt-md-4">
-                            <a href="services-details.html" class="tp-btn-border-9">Read More <i
-                                    class="fa-regular fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s"
-                    data-wow-duration="1s">
-                    <div class="features__icon-10">
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
-
-                        </span>
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
-
-                        </span>
-
-                    </div>
-                    <div class="features__content-10">
-                        <h3 class="features__title-10">First Service</h3>
-
-                        <span class="fw-bold">Address</span><br>
-                        <span>Duabi Uae</span><br>
-                        <span class="fw-bold">Call center : </span>
-                        <span>059912312</span><br>
-
-                        <h4 class="fw-bold text-primary mt-md-4">Discount 10%</h4>
-
-                        <div class="features__btn-10 mt-md-4">
-                            <a href="services-details.html" class="tp-btn-border-9">Read More <i
-                                    class="fa-regular fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s"
-                    data-wow-duration="1s">
-                    <div class="features__icon-10">
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
-
-                        </span>
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
-
-                        </span>
-
-                    </div>
-                    <div class="features__content-10">
-                        <h3 class="features__title-10">First Service</h3>
-
-                        <span class="fw-bold">Address</span><br>
-                        <span>Duabi Uae</span><br>
-                        <span class="fw-bold">Call center : </span>
-                        <span>059912312</span><br>
-
-                        <h4 class="fw-bold text-primary mt-md-4">Discount 10%</h4>
-
-                        <div class="features__btn-10 mt-md-4">
-                            <a href="services-details.html" class="tp-btn-border-9">Read More <i
-                                    class="fa-regular fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4">
-                <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s"
-                    data-wow-duration="1s">
-                    <div class="features__icon-10">
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
-
-                        </span>
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
-
-                        </span>
-
-                    </div>
-                    <div class="features__content-10">
-                        <h3 class="features__title-10">First Service</h3>
-
-                        <span class="fw-bold">Address</span><br>
-                        <span>Duabi Uae</span><br>
-                        <span class="fw-bold">Call center : </span>
-                        <span>059912312</span><br>
-
-                        <h4 class="fw-bold text-primary mt-md-4">Discount 10%</h4>
-
-                        <div class="features__btn-10 mt-md-4">
-                            <a href="services-details.html" class="tp-btn-border-9">Read More <i
-                                    class="fa-regular fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s"
-                    data-wow-duration="1s">
-                    <div class="features__icon-10">
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
-
-                        </span>
-                        <span>
-                            <img src="https://via.placeholder.com/250x150" alt="">
-
-                        </span>
-
-                    </div>
-                    <div class="features__content-10">
-                        <h3 class="features__title-10">First Service</h3>
-
-                        <span class="fw-bold">Address</span><br>
-                        <span>Duabi Uae</span><br>
-                        <span class="fw-bold">Call center : </span>
-                        <span>059912312</span><br>
-
-                        <h4 class="fw-bold text-primary mt-md-4">Discount 10%</h4>
-
-                        <div class="features__btn-10 mt-md-4">
-                            <a href="services-details.html" class="tp-btn-border-9">Read More <i
-                                    class="fa-regular fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-</section>
+    </section>
+</ng-template>
