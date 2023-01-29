@@ -99,7 +99,9 @@
     "add-service-success":"Services is added successfully! Waiting for admin to approve it.",
     "readmore":"Read More",
     "services-subtitle":"Our providers services",
-    "loading-services":"Loading Services..."
+    "loading-services":"Loading Services...",
+    "next":"Next",
+    "prev":"Previous"
 
     
   

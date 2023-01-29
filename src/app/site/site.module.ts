@@ -22,6 +22,7 @@ import { ProfileServicesCreatePageComponent } from './pages/profile/profile-serv
 import { ProfileServicesEditPageComponent } from './pages/profile/profile-services-edit-page/profile-services-edit-page.component';
 import { ServicesPageComponent } from './pages/services/services-page/services-page.component';
 import { ServicesDetailsComponent } from './pages/services/services-details/services-details.component';
+import { ServicesRowComponent } from './components/services-row/services-row.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ServicesDetailsComponent } from './pages/services/services-details/serv
     ProfileServicesEditPageComponent,
     ServicesPageComponent,
     ServicesDetailsComponent,
+    ServicesRowComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule],
 })
