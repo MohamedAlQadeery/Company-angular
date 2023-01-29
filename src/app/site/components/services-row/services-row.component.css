@@ -1,0 +1,14 @@
+.fa-regular {
+  font-family: "Font Awesome 6 Pro" !important;
+  font-weight: 900;
+}
+
+.fa-solid,
+.fas {
+  font-family: "Font Awesome 6 Pro" !important;
+  font-weight: 900;
+}
+
+.features__item-10 {
+  max-height: 650px !important;
+}
