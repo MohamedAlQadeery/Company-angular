@@ -21,12 +21,13 @@ export class SubscriberService {
     data.append('addressOne', registerSubscriberRequest.addressOne);
     data.append('email', registerSubscriberRequest.email);
     data.append('password', registerSubscriberRequest.password);
-    data.append('file', registerSubscriberRequest.file);
+    data.append('InformationFile', registerSubscriberRequest.InformationFile);
     data.append('birthDate', registerSubscriberRequest.birthDate.toString());
     data.append('genderId', registerSubscriberRequest.genderId.toString());
     data.append('firstName', registerSubscriberRequest.firstName);
     data.append('middleName', registerSubscriberRequest.middleName);
     data.append('lastName', registerSubscriberRequest.lastName);
+    data.append('planId', registerSubscriberRequest.planId.toString());
     return this._http.post<ISubscriberResponse>(
       `${this.baseUrl}/register`,
       data

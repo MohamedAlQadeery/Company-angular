@@ -4,3 +4,7 @@
 ::ng-deep tui-select {
   text-align: inherit !important;
 }
+
+::ng-deep tui-input-date {
+  text-align: inherit !important;
+}

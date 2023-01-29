@@ -4,10 +4,12 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { TuiDay } from '@taiga-ui/cdk';
 import { TuiAlertService } from '@taiga-ui/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, map, switchMap } from 'rxjs';
 import { CategoryService } from 'src/app/services/category.service';
 import { CountryService } from 'src/app/services/country.service';
 import { PlanService } from 'src/app/services/plan.service';
+import { SubscriberService } from 'src/app/services/subscriber.service';
 import Validation from 'src/app/shared/helpers/validation';
 
 @Component({
@@ -57,18 +59,19 @@ export class SubscribeNowPageComponent {
 
   //#endregion
   constructor(
-    private _alertService: TuiAlertService,
     private _translate: TranslateService,
     private _categoryService: CategoryService,
     private _countryService: CountryService,
     private _planService: PlanService,
-    private _router: Router
+    private _router: Router,
+    private _toastr: ToastrService,
+    private _subscriberService: SubscriberService
   ) {}
   ngOnInit(): void {
     this.subscribeFormGroup = new FormGroup(
       {
         firstName: this.firstNameControl,
-        midName: this.midNameControl,
+        middleName: this.midNameControl,
         lastName: this.lastNameControl,
         genderId: this.genderControl,
         // nationality: this.nationalityControl,
@@ -80,7 +83,7 @@ export class SubscribeNowPageComponent {
         confirmPassword: this.confirmPasswordControl,
         phoneNumber: this.phoneControl,
         planId: this.planControl,
-        file: this.fileControl,
+        InformationFile: this.fileControl,
       },
 
       {
@@ -121,19 +124,28 @@ export class SubscribeNowPageComponent {
   }
 
   HandleOnSubmit() {
-    const dob: TuiDay = this.subscribeFormGroup.value['dob'];
+    const dob: TuiDay = this.subscribeFormGroup.value['birthDate'];
+
     let formValues = Object.assign({}, this.subscribeFormGroup.value);
-    formValues.dob = `${dob.year}/${dob.month}/${dob.day}`;
+    formValues.birthDate = `${dob.year}/${dob.month + 1}/${dob.day}`;
+
     console.log(formValues);
+    console.log('-----------------');
 
     let messageTitle = this._translate.instant(
       'subscriber-success-signup-title'
     );
     let messageContent = this._translate.instant('success-signup-content');
-    this._alertService
-      .open(messageContent, { label: messageTitle, autoClose: false })
-      .subscribe();
 
-    this._router.navigate(['/']);
+    this._subscriberService.RegisterSubscriber(formValues).subscribe({
+      next: (res) => {
+        console.log(res);
+        this._toastr.success(messageContent, messageTitle);
+        this._router.navigate(['/']);
+      },
+      error: (err) => {
+        this._toastr.error(err);
+      },
+    });
   }
 }

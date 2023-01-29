@@ -20,6 +20,10 @@ tui-input-date {
   text-align: inherit !important;
 }
 
+::ng-deep tui-input-password {
+  text-align: inherit !important;
+}
+
 ::ng-deep svg.ng-star-inserted {
   margin: 0 5px;
 }

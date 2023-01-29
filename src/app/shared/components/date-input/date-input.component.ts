@@ -15,8 +15,8 @@ import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit';
         required: 'required-input-validation',
       },
     },
-    { provide: TUI_DATE_FORMAT, useValue: `YMD` },
-    { provide: TUI_DATE_SEPARATOR, useValue: `/` },
+    // { provide: TUI_DATE_FORMAT, useValue: `YMD` },
+    // { provide: TUI_DATE_SEPARATOR, useValue: `/` },
   ],
 })
 export class DateInputComponent {

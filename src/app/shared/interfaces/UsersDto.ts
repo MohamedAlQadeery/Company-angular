@@ -47,7 +47,7 @@ export interface ICreateSubscriberRequest {
   lastName: string;
   genderId: number;
   birthDate: Date;
-  file: File;
+  InformationFile: File;
   phoneNumber: string;
   planId: number;
 }
