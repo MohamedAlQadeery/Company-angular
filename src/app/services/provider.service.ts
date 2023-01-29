@@ -31,6 +31,7 @@ export class ProviderService {
     data.append('photoFile', registerProviderRequest.photoFile);
     data.append('logoFile', registerProviderRequest.logoFile);
     data.append('planId', registerProviderRequest.planId.toString());
+    data.append('phoneNumber', registerProviderRequest.phoneNumber);
 
     return this._http.post<IProviderResponse>(`${this.baseUrl}/register`, data);
   }

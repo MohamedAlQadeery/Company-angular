@@ -30,8 +30,4 @@ export class ProfileHomePageComponent {
           : res.firstName + ' ' + res.middleName + ' ' + res.lastName;
     })
   );
-
-  GetUserName() {
-    return;
-  }
 }

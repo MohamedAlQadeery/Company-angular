@@ -84,10 +84,23 @@ export interface IUserRespose {
   categoryId: number | null;
   discount: number | null;
   category: string | null;
-  attachments: string | null;
-  gender: string | null;
+  attachments: IAttachmentResponse[];
   id: string;
   userName: string | null;
   email: string | null;
   phoneNumber: string | null;
+}
+
+export interface IUpdateProviderInfo {
+  description: string;
+  googleLocation: string;
+  website: string;
+  companyName: string;
+  country: string;
+  city: string;
+  addressOne: string;
+  categoryId: number;
+  photoFile: File | null;
+  logoFile: File | null;
+  phoneNumber: string;
 }

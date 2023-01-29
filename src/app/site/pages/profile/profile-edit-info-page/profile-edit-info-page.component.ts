@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Observable, map, switchMap } from 'rxjs';
+import { Observable, map, switchMap, tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { CountryService } from 'src/app/services/country.service';
+import { UserService } from 'src/app/services/user.service';
+import { IUserRespose } from 'src/app/shared/interfaces/UsersDto';
 
 @Component({
   selector: 'app-profile-edit-info-page',
@@ -18,11 +20,12 @@ export class ProfileEditInfoPageComponent implements OnInit {
     private _countryService: CountryService,
     private _toastr: ToastrService,
     private _router: Router,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _userService: UserService
   ) {}
   profileFormGroup: FormGroup;
   userRole = this._authService.GetUserRole(); // user , subscriber,provider
-
+  userData$: Observable<IUserRespose>;
   //#region Options
   genders = [
     { id: 1, name: 'male' },
@@ -40,7 +43,7 @@ export class ProfileEditInfoPageComponent implements OnInit {
   //#endregion
   //#region Provider FormControls
   companyNameControl = new FormControl('', [Validators.required]);
-  categoryControl = new FormControl('', [Validators.required]);
+  categoryControl = new FormControl(1, [Validators.required]);
   countryControl = new FormControl('', [Validators.required]);
   cityControl = new FormControl('', [Validators.required]);
   addressControl = new FormControl('', [Validators.required]);
@@ -49,6 +52,7 @@ export class ProfileEditInfoPageComponent implements OnInit {
   phoneControl = new FormControl('', [Validators.required]);
   logoControl = new FormControl('');
   photoControl = new FormControl('');
+  descrptionControl = new FormControl('');
   //#endregion
 
   //#region Subscriber FormControls
@@ -56,7 +60,7 @@ export class ProfileEditInfoPageComponent implements OnInit {
   sFirstNameControl = new FormControl('', [Validators.required]);
   sMidNameControl = new FormControl('', [Validators.required]);
   sLastNameControl = new FormControl('', [Validators.required]);
-  sGenderControl = new FormControl('', [Validators.required]);
+  sGenderControl = new FormControl(1, [Validators.required]);
   sCountryControl = new FormControl('', [Validators.required]);
   sCityControl = new FormControl('', [Validators.required]);
   sAddressControl = new FormControl('', [Validators.required]);
@@ -68,7 +72,6 @@ export class ProfileEditInfoPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.initFormGroup();
-    this._toastr.success(this.userRole);
 
     this.categories$ = this._categoryService.GetAllCategories().pipe(
       map((res) => {
@@ -106,6 +109,31 @@ export class ProfileEditInfoPageComponent implements OnInit {
         );
       })
     );
+
+    this.userData$ = this._userService.GetCurrentUserData().pipe(
+      tap((res) => {
+        console.log(res);
+        if (this.userRole == 'provider') {
+          this.companyNameControl.setValue(res.companyName);
+          this.countryControl.setValue(res.country);
+          this.cityControl.setValue(res.city);
+          this.addressControl.setValue(res.addressOne);
+          this.googleLocationControl.setValue(res.googleLocation);
+          this.websiteControl.setValue(res.website);
+          this.phoneControl.setValue(res.phoneNumber);
+          this.descrptionControl.setValue(res.description);
+        } else if (this.userRole == 'subscriber') {
+          this.sFirstNameControl.setValue(res.firstName);
+          this.sMidNameControl.setValue(res.middleName);
+          this.sLastNameControl.setValue(res.lastName);
+          this.sGenderControl.setValue(res.genderId);
+          this.sDobControl.setValue(res.birthDate);
+          this.sPhoneControl.setValue(res.phoneNumber);
+          this.sCountryControl.setValue(res.country);
+          this.sCityControl.setValue(res.city);
+        }
+      })
+    );
   }
 
   initFormGroup() {
@@ -115,8 +143,8 @@ export class ProfileEditInfoPageComponent implements OnInit {
         firstName: this.sFirstNameControl,
         midName: this.sMidNameControl,
         lastName: this.sLastNameControl,
-        gender: this.sGenderControl,
-        dob: this.sDobControl,
+        genderId: this.sGenderControl,
+        birthDate: this.sDobControl,
         city: this.cityControl,
         address: this.cityControl,
         phone: this.phoneControl,
@@ -135,11 +163,30 @@ export class ProfileEditInfoPageComponent implements OnInit {
         phone: this.phoneControl,
         logoFile: this.logoControl,
         photoFile: this.photoControl,
+        description: this.descrptionControl,
       });
     }
   }
 
   HandleOnSubmit() {
     console.log(this.profileFormGroup.value);
+    console.log('-------------------------------');
+    if (this.userRole == 'provider') {
+      this._userService
+        .UpdateProviderInfo(this.profileFormGroup.value)
+        .subscribe({
+          next: (res) => {
+            console.log(res);
+            this._toastr.success(
+              'Your profile info has been updated successfully,waiting for admin to approve it',
+              'Profile Update success'
+            );
+          },
+          error: (err) => {
+            console.log(err);
+            this._toastr.error(err);
+          },
+        });
+    }
   }
 }
