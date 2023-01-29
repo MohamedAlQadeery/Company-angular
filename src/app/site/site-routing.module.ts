@@ -49,8 +49,7 @@ const routes: Routes = [
           { path: '', component: ProfileHomePageComponent },
           { path: 'home', component: ProfileHomePageComponent },
           { path: 'edit', component: ProfileEditInfoPageComponent },
-          { path: 'cards', component: ProfileCardsPageComponent },
-          { path: 'cards/:id', component: ProfileCardInfoPageComponent },
+          { path: 'card', component: ProfileCardInfoPageComponent },
           { path: 'services', component: ProfileServicesListPageComponent },
           {
             path: 'services/create',

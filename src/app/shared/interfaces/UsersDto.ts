@@ -104,3 +104,15 @@ export interface IUpdateProviderInfo {
   logoFile: File | null;
   phoneNumber: string;
 }
+
+export interface IUpdateSubscriberInfo {
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  genderId: number;
+  birthDate: Date;
+  country: string;
+  city: string;
+  addressOne: string;
+  phoneNumber: string;
+}

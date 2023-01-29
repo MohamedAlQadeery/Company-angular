@@ -78,6 +78,7 @@ export class SubscribeNowPageComponent {
         email: this.emailControl,
         birthDate: this.dobControl,
         city: this.cityControl,
+        country: this.countryControl,
         addressOne: this.addressControl,
         password: this.passwordControl,
         confirmPassword: this.confirmPasswordControl,
@@ -127,6 +128,7 @@ export class SubscribeNowPageComponent {
     const dob: TuiDay = this.subscribeFormGroup.value['birthDate'];
 
     let formValues = Object.assign({}, this.subscribeFormGroup.value);
+    //taiga ui date input bug were you should add 1 for month
     formValues.birthDate = `${dob.year}/${dob.month + 1}/${dob.day}`;
 
     console.log(formValues);

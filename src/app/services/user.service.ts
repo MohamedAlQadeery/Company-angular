@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import {
   IUpdateProviderInfo,
+  IUpdateSubscriberInfo,
   IUserRespose,
 } from '../shared/interfaces/UsersDto';
 import { AuthService } from './auth.service';
@@ -39,5 +40,12 @@ export class UserService {
     data.append('phoneNumber', updateProviderRequest.phoneNumber);
 
     return this._http.put<IUserRespose>(`${this.baseUrl}/provider`, data);
+  }
+
+  UpdateSubscriberInfo(updateSubscriberRequest: IUpdateSubscriberInfo) {
+    return this._http.put<IUserRespose>(
+      `${this.baseUrl}/subscriber`,
+      updateSubscriberRequest
+    );
   }
 }

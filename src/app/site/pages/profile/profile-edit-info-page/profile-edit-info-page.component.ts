@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TuiDay } from '@taiga-ui/cdk';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, map, switchMap, tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -64,7 +65,7 @@ export class ProfileEditInfoPageComponent implements OnInit {
   sCountryControl = new FormControl('', [Validators.required]);
   sCityControl = new FormControl('', [Validators.required]);
   sAddressControl = new FormControl('', [Validators.required]);
-  sDobControl = new FormControl('', [Validators.required]);
+  sDobControl = new FormControl(new TuiDay(2023, 1, 1), [Validators.required]);
   sPhoneControl = new FormControl('', [Validators.required]);
   sFileControl = new FormControl('');
 
@@ -127,10 +128,17 @@ export class ProfileEditInfoPageComponent implements OnInit {
           this.sMidNameControl.setValue(res.middleName);
           this.sLastNameControl.setValue(res.lastName);
           this.sGenderControl.setValue(res.genderId);
-          this.sDobControl.setValue(res.birthDate);
+
+          //taiga ui date input bug were you should minus 1 from month
+          let date: string[] = res.birthDate?.split('-')!;
+          date[2] = date[2].slice(0, 2);
+          this.sDobControl.setValue(
+            new TuiDay(+date[0], +date[1] - 1, +date[2])
+          );
           this.sPhoneControl.setValue(res.phoneNumber);
           this.sCountryControl.setValue(res.country);
           this.sCityControl.setValue(res.city);
+          this.sAddressControl.setValue(res.addressOne);
         }
       })
     );
@@ -141,13 +149,14 @@ export class ProfileEditInfoPageComponent implements OnInit {
       // user is subscriber
       this.profileFormGroup = new FormGroup({
         firstName: this.sFirstNameControl,
-        midName: this.sMidNameControl,
+        middleName: this.sMidNameControl,
         lastName: this.sLastNameControl,
         genderId: this.sGenderControl,
         birthDate: this.sDobControl,
-        city: this.cityControl,
-        address: this.cityControl,
-        phone: this.phoneControl,
+        city: this.sCityControl,
+        country: this.sCountryControl,
+        addressOne: this.sAddressControl,
+        phoneNumber: this.sPhoneControl,
         file: this.sFileControl,
       });
     } else if (this.userRole == 'provider') {
@@ -174,6 +183,22 @@ export class ProfileEditInfoPageComponent implements OnInit {
     if (this.userRole == 'provider') {
       this._userService
         .UpdateProviderInfo(this.profileFormGroup.value)
+        .subscribe({
+          next: (res) => {
+            console.log(res);
+            this._toastr.success(
+              'Your profile info has been updated successfully,waiting for admin to approve it',
+              'Profile Update success'
+            );
+          },
+          error: (err) => {
+            console.log(err);
+            this._toastr.error(err);
+          },
+        });
+    } else if (this.userRole == 'subscriber') {
+      this._userService
+        .UpdateSubscriberInfo(this.profileFormGroup.value)
         .subscribe({
           next: (res) => {
             console.log(res);
