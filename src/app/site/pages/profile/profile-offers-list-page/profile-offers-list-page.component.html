@@ -1,0 +1,17 @@
+<ng-container *ngIf="lang$ | async as lang">
+    <div class="card p-4">
+        <div class="row mb-md-4">
+            <div class="col-md-6">
+                <h3 class="mb-md-3">{{'offers' | translate}}</h3>
+            </div>
+            <div class="col-md-6 text-start">
+                <a routerLink="/profile/offers/create" class="btn btn-dark"
+                    [ngClass]="lang == 'ar'?'text-start' : 'text-end'">{{'add-offer' | translate}}</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</ng-container>

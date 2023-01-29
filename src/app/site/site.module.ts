@@ -23,6 +23,10 @@ import { ProfileServicesEditPageComponent } from './pages/profile/profile-servic
 import { ServicesPageComponent } from './pages/services/services-page/services-page.component';
 import { ServicesDetailsComponent } from './pages/services/services-details/services-details.component';
 import { ServicesRowComponent } from './components/services-row/services-row.component';
+import { ProfileOffersListPageComponent } from './pages/profile/profile-offers-list-page/profile-offers-list-page.component';
+import { ProfileOffersCreatePageComponent } from './pages/profile/profile-offers-create-page/profile-offers-create-page.component';
+import { OffersPageComponent } from './pages/offers/offers-page/offers-page.component';
+import { OffersDetailsComponent } from './pages/offers/offers-details/offers-details.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,10 @@ import { ServicesRowComponent } from './components/services-row/services-row.com
     ServicesPageComponent,
     ServicesDetailsComponent,
     ServicesRowComponent,
+    ProfileOffersListPageComponent,
+    ProfileOffersCreatePageComponent,
+    OffersPageComponent,
+    OffersDetailsComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule],
 })

@@ -16,6 +16,10 @@ import { ProfileServicesCreatePageComponent } from './pages/profile/profile-serv
 import { ProfileServicesEditPageComponent } from './pages/profile/profile-services-edit-page/profile-services-edit-page.component';
 import { ServicesPageComponent } from './pages/services/services-page/services-page.component';
 import { ServicesDetailsComponent } from './pages/services/services-details/services-details.component';
+import { ProfileOffersListPageComponent } from './pages/profile/profile-offers-list-page/profile-offers-list-page.component';
+import { ProfileOffersCreatePageComponent } from './pages/profile/profile-offers-create-page/profile-offers-create-page.component';
+import { OffersPageComponent } from './pages/offers/offers-page/offers-page.component';
+import { OfferDetailsPageComponent } from '../admin/pages/offers/offer-details-page/offer-details-page.component';
 
 const routes: Routes = [
   {
@@ -59,6 +63,11 @@ const routes: Routes = [
             path: 'services/edit/:id',
             component: ProfileServicesEditPageComponent,
           },
+          { path: 'offers', component: ProfileOffersListPageComponent },
+          {
+            path: 'offers/create',
+            component: ProfileOffersCreatePageComponent,
+          },
         ],
       },
 
@@ -69,6 +78,14 @@ const routes: Routes = [
       {
         path: 'services/:id',
         component: ServicesDetailsComponent,
+      },
+      {
+        path: 'offers',
+        component: OffersPageComponent,
+      },
+      {
+        path: 'offers/:id',
+        component: OfferDetailsPageComponent,
       },
     ],
   },

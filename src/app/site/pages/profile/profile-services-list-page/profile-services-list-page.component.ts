@@ -16,5 +16,4 @@ export class ProfileServicesListPageComponent {
   ) {}
   lang$ = this._langService.currentLang$;
   services$ = this._servicesServices.GetCurrentProviderServices();
-  userInfo$ = this._userService.GetCurrentUserData();
 }
