@@ -169,7 +169,7 @@ export class ProfileEditInfoPageComponent implements OnInit {
         addressOne: this.cityControl,
         googleLocation: this.googleLocationControl,
         website: this.googleLocationControl,
-        phone: this.phoneControl,
+        phoneNumber: this.phoneControl,
         logoFile: this.logoControl,
         photoFile: this.photoControl,
         description: this.descrptionControl,

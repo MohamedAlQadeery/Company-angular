@@ -1,15 +1,33 @@
 <!-- portfolio area start -->
 <section class="portfolio__area p-relative portfolio__overlay pt-110 pb-90 fix">
-    <div class="container">
-        <div class="row">
-            <div class="col-xxl-12">
-                <div class="tp-section-wrapper-3 mb-60 text-center">
-                    <span class="tp-section-subtitle-3">Our Providers offers</span>
-                    <h3 class="tp-section-title-3">Offers</h3>
+    <ng-container *ngIf="offers$ | async as offers;else loadingOffers">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-12">
+                    <div class="tp-section-wrapper-3 mb-60 text-center">
+                        <span class="tp-section-subtitle-3">{{'offers-title' | translate}}</span>
+                        <h3 class="tp-section-title-3">{{'offers' | translate}}</h3>
+                    </div>
+                </div>
+            </div>
+            <app-offers-row [offers]="offers" [itemsPerPage]="2"></app-offers-row>
+        </div>
+    </ng-container>
+
+    <ng-template #loadingOffers>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-8 col-xl-8 col-lg-10">
+                    <div class="services__section-title-5">
+                        <div class="section__title-wrapper-5 mb-50 text-center">
+                            <h3 class="section__title-5">{{'loading-offers' | translate}}</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <app-offers-row></app-offers-row>
-    </div>
+    </ng-template>
+
+
 </section>
 <!-- portfolio area end -->

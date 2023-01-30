@@ -104,7 +104,10 @@
  "prev":"Önceki",
  "add-offer":"Teklif Ekle",
  "add-offer-title" :"Yeni Teklif Sayfası Ekle",
- "add-offer-success":"Teklif başarıyla eklendi! Yöneticinin onayı bekleniyor."
+ "add-offer-success":"Teklif başarıyla eklendi! Yöneticinin onayı bekleniyor.",
+ "no-offers": "Henüz teklif eklenmedi",
+"no-services": "Henüz hizmet eklenmedi",
+"offers-title": "Hizmet sağlayıcılarımızın teklifleri"
 
 
 

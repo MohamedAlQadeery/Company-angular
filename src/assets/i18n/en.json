@@ -104,7 +104,11 @@
     "prev":"Previous",
     "add-offer":"Add Offer",
     "add-offer-title" :"Add New Offer Page",
-    "add-offer-success":"Offer is added successfully! Waiting for admin to approve it."
+    "add-offer-success":"Offer is added successfully! Waiting for admin to approve it.",
+    "no-offers":"No offers were added yet",
+    "no-services":"No services were addet yet",
+    "offers-title":"Our Providers offers"
+
 
 
 

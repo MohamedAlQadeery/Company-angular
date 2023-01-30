@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import {
   ICreateOfferRequest,
   ICreateOfferResponse,
+  IOfferResponse,
 } from '../shared/interfaces/OffersDtos';
 
 @Injectable({
@@ -20,5 +21,9 @@ export class OfferService {
     data.append('photo', createOfferRequest.photo);
 
     return this._http.post<ICreateOfferResponse>(this.baseUrl, data);
+  }
+
+  GetAllActiveOffers() {
+    return this._http.get<IOfferResponse[]>(`${this.baseUrl}/active`);
   }
 }

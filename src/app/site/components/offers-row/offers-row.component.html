@@ -1,8 +1,11 @@
 <ng-container *ngIf="offers.length > 0;else NoOffers">
     <div class="row">
-        <div class=" col-12 col-md-6" *ngFor="let offer of offers">
+        <div class=" col-12 col-md-6 mb-sm-4"
+            *ngFor="let offer of offers | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage}">
             <div class="portfolio__item-3 transition-3 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                <div class="portfolio__thumb-3 w-img" data-background="assets/site/img/portfolio/3/portfolio-1.jpg">
+                <!-- data-background="assets/site/img/portfolio/3/portfolio-1.jpg" -->
+                <div class="portfolio__thumb-3 w-img"
+                    [style.backgroundImage]="'url(' + imagesUrl + '/' + offer.attachments.photo + ')'">
                 </div>
                 <div class="portfolio__content-3 transition-3">
                     <!-- <div class="portfolio__tag-3">
@@ -76,13 +79,18 @@
         </div>
 
     </div>
+
+    <div class="text-center fs-5 mt-sm-3">
+        <pagination-controls (pageChange)="currentPage = $event" previousLabel="{{'prev' | translate}}"
+            nextLabel="{{'next' | translate}}"></pagination-controls>
+    </div>
 </ng-container>
 
 
 <ng-template #NoOffers>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h3 class="text-danger">No Offers Yet</h3>
+            <h3 class="text-danger">{{'no-offers' | translate}}</h3>
         </div>
     </div>
 </ng-template>
