@@ -1,0 +1,7 @@
+::ng-deep tui-input {
+  text-align: inherit !important;
+}
+
+::ng-deep tui-text-area {
+  text-align: inherit !important;
+}

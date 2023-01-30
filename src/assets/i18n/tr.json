@@ -101,7 +101,10 @@
  "services-subtitle":"Sağlayıcılarımızın hizmetleri",
  "loading-services":"Servisler yükleniyor...",
  "next":"Sonraki",
- "prev":"Önceki"
+ "prev":"Önceki",
+ "add-offer":"Teklif Ekle",
+ "add-offer-title" :"Yeni Teklif Sayfası Ekle",
+ "add-offer-success":"Teklif başarıyla eklendi! Yöneticinin onayı bekleniyor."
 
 
 

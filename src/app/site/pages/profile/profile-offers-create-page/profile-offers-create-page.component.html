@@ -12,16 +12,20 @@
         <form [formGroup]="offerFormGroup" class="mb-5" (ngSubmit)="HandleOnSubmit()">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="mb-3">
-                        <app-input-field [control]="descriptionControl"
-                            label="{{'description' | translate}}"></app-input-field>
-                    </div>
 
                     <div class="mb-3">
                         <app-file-input [control]="photoControl" accept="image/*"
                             linklabel="{{'upload-photo'|translate}}"
                             textlabel="{{'photo-drop-label'|translate}}"></app-file-input>
                     </div>
+
+                    <div class="mb-3">
+
+                        <app-text-area-input [control]="descriptionControl"
+                            label="{{'description' | translate}}"></app-text-area-input>
+                    </div>
+
+
 
                 </div>
 
