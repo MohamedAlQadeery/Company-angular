@@ -19,4 +19,5 @@ export interface IServiceResponse {
   description: string;
   applicationUser: IProviderResponse;
   isActive: boolean;
+  id: number;
 }

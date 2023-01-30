@@ -28,7 +28,7 @@
                         {{service.applicationUser.discount}}%</h4>
 
                     <div class="features__btn-10 mt-md-4">
-                        <a routerLink="/services/1" class="tp-btn-border-9">{{'readmore' | translate}} <i
+                        <a [routerLink]="['/services',service.id]" class="tp-btn-border-9">{{'readmore' | translate}} <i
                                 class="fa-regular fa-angle-right"></i></a>
                     </div>
                 </div>
