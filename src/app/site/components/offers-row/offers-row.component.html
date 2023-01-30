@@ -12,7 +12,7 @@
                         <a href="#">subtag</a>
                     </div> -->
                     <h3 class="portfolio__title-3">
-                        <a href="portfolio-details.html">{{offer.applicationUser.companyName}}</a>
+                        <a [routerLink]="['/offers',offer.id]">{{offer.applicationUser.companyName}}</a>
                     </h3>
                     <div class="portfolio__meta-3 transition-3">
                         <span>
