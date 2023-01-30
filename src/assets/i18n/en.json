@@ -107,7 +107,12 @@
     "add-offer-success":"Offer is added successfully! Waiting for admin to approve it.",
     "no-offers":"No offers were added yet",
     "no-services":"No services were addet yet",
-    "offers-title":"Our Providers offers"
+    "offers-title":"Our Providers offers",
+    "loading-offer":"Loading offer data",
+    "loading-service":"Loading service data",
+    "offer-desc":"Offer Description",
+    "service-desc":"Service Description",
+    "service-info":"Service Info"
 
 
 

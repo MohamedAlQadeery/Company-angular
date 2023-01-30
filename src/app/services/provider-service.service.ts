@@ -29,4 +29,8 @@ export class ProviderServiceService {
   public GetCurrentProviderServices() {
     return this._http.get<IServiceResponse[]>(`${this.baseUrl}/currentUser`);
   }
+
+  public GetServiceById(id: number) {
+    return this._http.get<IServiceResponse>(`${this.baseUrl}/${id}`);
+  }
 }
