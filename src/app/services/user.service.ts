@@ -38,7 +38,6 @@ export class UserService {
       data.append('logoFile', updateProviderRequest.logoFile);
     }
     data.append('phoneNumber', updateProviderRequest.phoneNumber);
-
     return this._http.put<IUserRespose>(`${this.baseUrl}/provider`, data);
   }
 

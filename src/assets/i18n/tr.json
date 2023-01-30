@@ -107,7 +107,12 @@
  "add-offer-success":"Teklif başarıyla eklendi! Yöneticinin onayı bekleniyor.",
  "no-offers": "Henüz teklif eklenmedi",
 "no-services": "Henüz hizmet eklenmedi",
-"offers-title": "Hizmet sağlayıcılarımızın teklifleri"
+"offers-title": "Hizmet sağlayıcılarımızın teklifleri",
+"loading-offer":"Teklif verileri yükleniyor",
+"loading-service":"Hizmet verileri yükleniyor",
+"offer-desc":"Teklif Açıklaması",
+"service-desc":"Hizmet Tanımı",
+"service-info":"Hizmet Bilgisi"
 
 
 
