@@ -112,7 +112,9 @@
 "loading-service":"جاري تحميل بيانات الخدمة",
 "offer-desc":"وصف العرض",
 "service-desc":"وصف الخدمة",
-"service-info":"معلومات الخدمة"
+"service-info":"معلومات الخدمة",
+"loading-offers": "جارٍ تحميل العروض ...",
+"loading-userdata": "تحميل بيانات المستخدم ..."
 
 
 

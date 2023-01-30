@@ -112,7 +112,10 @@
     "loading-service":"Loading service data",
     "offer-desc":"Offer Description",
     "service-desc":"Service Description",
-    "service-info":"Service Info"
+    "service-info":"Service Info",
+    "loading-offers":"Loading Offers...",
+    "loading-userdata":"Loading User Data..."
+
 
 
 

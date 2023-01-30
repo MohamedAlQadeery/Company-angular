@@ -112,7 +112,9 @@
 "loading-service":"Hizmet verileri yükleniyor",
 "offer-desc":"Teklif Açıklaması",
 "service-desc":"Hizmet Tanımı",
-"service-info":"Hizmet Bilgisi"
+"service-info":"Hizmet Bilgisi",
+"loading-offers": "Teklifler Yükleniyor...",
+"loading-userdata": "Kullanıcı Verileri Yükleniyor..."
 
 
 
