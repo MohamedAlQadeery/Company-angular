@@ -27,6 +27,7 @@ import { ProfileOffersListPageComponent } from './pages/profile/profile-offers-l
 import { ProfileOffersCreatePageComponent } from './pages/profile/profile-offers-create-page/profile-offers-create-page.component';
 import { OffersPageComponent } from './pages/offers/offers-page/offers-page.component';
 import { OffersDetailsComponent } from './pages/offers/offers-details/offers-details.component';
+import { OffersRowComponent } from './components/offers-row/offers-row.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { OffersDetailsComponent } from './pages/offers/offers-details/offers-det
     ProfileOffersCreatePageComponent,
     OffersPageComponent,
     OffersDetailsComponent,
+    OffersRowComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule],
 })
