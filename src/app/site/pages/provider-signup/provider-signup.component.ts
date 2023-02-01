@@ -130,7 +130,8 @@ export class ProviderSignupComponent implements OnInit {
           this._router.navigate(['/']);
         },
         error: (err) => {
-          this._toastr.error(err);
+          console.log(err.error.errors);
+          this._toastr.error(err.error.errors);
         },
       });
   }

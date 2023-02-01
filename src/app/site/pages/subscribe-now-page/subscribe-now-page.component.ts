@@ -152,7 +152,8 @@ export class SubscribeNowPageComponent {
         this._router.navigate(['/']);
       },
       error: (err) => {
-        this._toastr.error(err);
+        console.log(err.error.errors);
+        this._toastr.error(err.error.errors);
       },
     });
   }
