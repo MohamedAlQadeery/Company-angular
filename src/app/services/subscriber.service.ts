@@ -28,6 +28,7 @@ export class SubscriberService {
     data.append('middleName', registerSubscriberRequest.middleName);
     data.append('lastName', registerSubscriberRequest.lastName);
     data.append('planId', registerSubscriberRequest.planId.toString());
+    data.append('phoneNumber', registerSubscriberRequest.phoneNumber);
     return this._http.post<ISubscriberResponse>(
       `${this.baseUrl}/register`,
       data

@@ -64,6 +64,7 @@ export interface ISubscriberResponse {
   genderId: number;
   birthDate: Date;
   isActive: boolean;
+  phoneNumber: string;
 }
 
 export interface IUserRespose {

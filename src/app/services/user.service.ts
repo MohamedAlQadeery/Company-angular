@@ -7,6 +7,7 @@ import {
   IUserRespose,
 } from '../shared/interfaces/UsersDto';
 import { AuthService } from './auth.service';
+import { ICardResponse } from '../shared/interfaces/CardDtos';
 
 @Injectable({
   providedIn: 'root',
@@ -46,5 +47,9 @@ export class UserService {
       `${this.baseUrl}/subscriber`,
       updateSubscriberRequest
     );
+  }
+
+  GetCurrentUserCard() {
+    return this._http.get<ICardResponse>(`${this.baseUrl}/card`);
   }
 }
