@@ -15,6 +15,9 @@ export interface ICreatePlanRequest {
   description: string;
   duration: number;
   price: number;
+  planType: number;
+  servicePerMonth: number;
+  offerPerMonth: number;
 }
 export interface IUpdatePlanRequest {
   id: number;

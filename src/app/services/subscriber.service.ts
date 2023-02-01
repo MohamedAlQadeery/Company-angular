@@ -11,6 +11,7 @@ import {
 })
 export class SubscriberService {
   private baseUrl = environment.baseURL + '/api/user/subscriber';
+  private baseUrl2 = environment.baseURL + '/api/user';
 
   constructor(private _http: HttpClient) {}
 
@@ -33,5 +34,12 @@ export class SubscriberService {
       `${this.baseUrl}/register`,
       data
     );
+  }
+
+  GetNotActiveSubscriber(){
+    return this._http.get<ISubscriberResponse[]>(`${this.baseUrl2}?RoleName=subscriber&&isactive=false`);
+  }
+  ActiveSubscriber(userEmail : string){
+    return this._http.get(`${this.baseUrl2}/Approve/Subscriber/${userEmail}`);
   }
 }

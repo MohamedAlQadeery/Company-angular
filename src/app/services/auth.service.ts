@@ -80,6 +80,22 @@ export class AuthService {
     return role === 'admin';
   }
 
+  isUserProvier() {
+    const role = this.GetFieldFromJWT(
+      'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+    );
+
+    return role === 'provider';
+  }
+
+  isUserSubscriber() {
+    const role = this.GetFieldFromJWT(
+      'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+    );
+
+    return role === 'subscriber';
+  }
+
   GetUserRole() {
     return this.GetFieldFromJWT(
       'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'

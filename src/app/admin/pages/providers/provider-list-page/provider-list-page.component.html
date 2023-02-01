@@ -1,63 +1,56 @@
-<h3 class="fs-2">Providers Page</h3>
+<div class="row mb-3">
+    <div class="col-md-6">
+        <h3 class="mb-3">Provider Page</h3>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card p-4">
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+    </div>
 
-                        <tr>
-                            <th>1</th>
-                            <td><a routerLink="/admin/providers/1">Sample user</a></td>
-                            <td>
-                                <button class="btn btn-info">Edit</button>
+    <!-- <div class="col-md-6 text-end ">
+        <a routerLink="/admin/plans/create" class="btn btn-secondary">Create New Plan</a>
+    </div> -->
+</div>
 
-                                <button class="btn btn-danger mx-2">Delete</button>
-                            </td>
+<div class="card p-4">
+    <div class="row">
+        <div class="col-md-12">
+            <ng-container *ngIf="providers$ | async as providers">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Company Name</th>
+                                <th scope="col">Nationality</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let category of providers;let i=index">
+                                <th>{{i+1}}</th>
+                                <td>{{category.email}}</td>
+                                <td>{{category.companyName}}</td>
+                                <td>{{category.nationality}}</td>
+                                <td>{{category.description}}</td>
+                                <td>
+                                    <!-- <button class="btn btn-info"
+                                        routerLink="/admin/category/edit/{{category.id}}">Edit</button> -->
 
-                        </tr>
-                        <tr>
-                            <th>1</th>
-                            <td><a routerLink="/admin/providers/1">Sample user</a></td>
-                            <td>
-                                <button class="btn btn-info">Edit</button>
+                                    <button class="btn btn-success mx-2"
+                                        [swal]="{icon:'success',
+                                        title: 'Activate Confirmation' ,
+                                        text:'Eveyrthing releated to this category will be Activated too !',
+                                        showCancelButton: true,confirmButtonText: 'Yes,Confirm',cancelButtonText:'Cancel' }"
+                                        (confirm)="HandleOnActivate(category.email)">Activate</button>
 
-                                <button class="btn btn-danger mx-2">Delete</button>
-                            </td>
+                                </td>
+                            </tr>
 
-                        </tr>
-                        <tr>
-                            <th>1</th>
-                            <td><a routerLink="/admin/providers/1">Sample user</a></td>
-                            <td>
-                                <button class="btn btn-info">Edit</button>
+                        </tbody>
+                    </table>
+                </div>
+            </ng-container>
 
-                                <button class="btn btn-danger mx-2">Delete</button>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <th>1</th>
-                            <td><a routerLink="/admin/providers/1">Sample user</a></td>
-                            <td>
-                                <button class="btn btn-info">Edit</button>
-
-                                <button class="btn btn-danger mx-2">Delete</button>
-                            </td>
-
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 </div>
