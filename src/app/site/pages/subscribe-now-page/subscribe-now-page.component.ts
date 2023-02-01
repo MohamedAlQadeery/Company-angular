@@ -6,6 +6,7 @@ import { TuiDay } from '@taiga-ui/cdk';
 import { TuiAlertService } from '@taiga-ui/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, map, switchMap } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { CountryService } from 'src/app/services/country.service';
 import { PlanService } from 'src/app/services/plan.service';
@@ -65,9 +66,14 @@ export class SubscribeNowPageComponent {
     private _planService: PlanService,
     private _router: Router,
     private _toastr: ToastrService,
-    private _subscriberService: SubscriberService
+    private _subscriberService: SubscriberService,
+    private _authService: AuthService
   ) {}
   ngOnInit(): void {
+    if (this._authService.isAuthenticated()) {
+      this._router.navigate(['/']);
+    }
+
     this.subscribeFormGroup = new FormGroup(
       {
         firstName: this.firstNameControl,

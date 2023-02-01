@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { ToastrService } from 'ngx-toastr';
 import { Observable, Subject, Subscription, map, switchMap, tap } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { CountryService } from 'src/app/services/country.service';
 import { PlanService } from 'src/app/services/plan.service';
@@ -53,9 +54,13 @@ export class ProviderSignupComponent implements OnInit {
     private _countryService: CountryService,
     private _providerService: ProviderService,
     private _categoryService: CategoryService,
-    private _planService: PlanService
+    private _planService: PlanService,
+    private _authService: AuthService
   ) {}
   ngOnInit(): void {
+    if (this._authService.isAuthenticated()) {
+      this._router.navigate(['/']);
+    }
     this.signupFormGroup = new FormGroup(
       {
         companyName: this.companyNameControl,
