@@ -1,32 +1,59 @@
 <div class="card p-3">
-    <div class="row mb-3">
-        <div class="col-md-6">
-            <h3 class="mb-3">Create Plan Page</h3>
-
-        </div>
-        <div class="col-md-6 text-end">
-            <a routerLink="/admin/plans" class="btn btn-secondary">Go Back</a>
-        </div>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <h3 class="mb-3">Create Plan Page</h3>
     </div>
-    <form [formGroup]="planFormGroup" class="mb-5" (ngSubmit)="HandleOnSubmit()">
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <app-input-field [control]="nameControl" label="Plan Name"></app-input-field>
-            </div>
-            <div class="col-md-4 mb-3">
-                <app-number-count-input [control]="priceControl" label="Price" [stepValue]="1"
-                    [maxValue]="99999"></app-number-count-input>
-            </div>
-            <div class="col-md-4 mb-3">
-                <app-number-count-input [control]="durationControl" label="Duration(month)" [stepValue]="1"
-                    [maxValue]="12"></app-number-count-input>
-            </div>
-            <div class="col-md-4 mb-3">
-                <app-number-count-input [control]="postsPerMonthContorl" label="Posts Per Month" [stepValue]="1"
-                    [maxValue]="100"></app-number-count-input>
-            </div>
+    <div class="col-md-6 text-end">
+      <a routerLink="/admin/plans" class="btn btn-secondary">Go Back</a>
+    </div>
+  </div>
+  <form [formGroup]="planFormGroup" class="mb-5" (ngSubmit)="HandleOnSubmit()">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <app-input-field
+          [control]="nameControl"
+          label="Plan Name"
+        ></app-input-field>
+      </div>
+      <div class="col-md-4 mb-3">
+        <app-number-count-input
+          [control]="priceControl"
+          label="Price"
+          [stepValue]="1"
+          [maxValue]="99999"
+        ></app-number-count-input>
+      </div>
+      <div class="col-md-4 mb-3">
+        <app-number-count-input
+          [control]="durationControl"
+          label="Duration(month)"
+          [stepValue]="1"
+          [maxValue]="12"
+        ></app-number-count-input>
+      </div>
+      <div class="col-md-4 mb-3">
+        <app-number-count-input
+          [control]="postsPerMonthContorl"
+          label="Posts Per Month"
+          [stepValue]="1"
+          [maxValue]="100"
+        ></app-number-count-input>
+      </div>
+      <div class="col-md-4 mb-3">
+        <app-number-count-input
+          [control]="offerPerMonthContorl"
+          label="Offer Per Month"
+          [stepValue]="1"
+          [maxValue]="100"
+        ></app-number-count-input>
+      </div>
+      <div class="col-md-4 mb-3">
+        
+        <app-select-input [control]="planTypeContorl" label="{{'Plan Type' | translate}}"
+                                        [options]="planTypeOpts"></app-select-input>
+      </div>
 
-            <!-- <div class="col-md-3 mb-3">
+      <!-- <div class="col-md-3 mb-3">
                 <button type="button" (click)="onAddFeature()" class="btn btn-info">
                     Add Plans Features
                 </button>
@@ -41,11 +68,13 @@
                     </p>
                 </div>
             </div> -->
-
-
-        </div>
-        <button [disabled]="!planFormGroup.valid" type="submit" class="btn
-        btn-success">Create</button>
-
-    </form>
+    </div>
+    <button
+      [disabled]="!planFormGroup.valid"
+      type="submit"
+      class="btn btn-success"
+    >
+      Create
+    </button>
+  </form>
 </div>

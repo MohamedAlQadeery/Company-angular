@@ -14,6 +14,7 @@ import { PlansCreatePageComponent } from './pages/plan/plans-create-page/plans-c
 import { OfferListPageComponent } from './pages/offers/offer-list-page/offer-list-page.component';
 import { OfferDetailsPageComponent } from './pages/offers/offer-details-page/offer-details-page.component';
 import { PlansEditPageComponent } from './pages/plan/plans-edit-page/plans-edit-page.component';
+import { ServiceListComponent } from './pages/provider-service/service-list/service-list.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: 'plans/edit/:id', component: PlansEditPageComponent },
       { path: 'offers', component: OfferListPageComponent },
       { path: 'offers/:id', component: OfferDetailsPageComponent },
+      { path: 'services', component: ServiceListComponent },
     ],
   },
 ];

@@ -20,6 +20,9 @@ import { ProfileOffersListPageComponent } from './pages/profile/profile-offers-l
 import { ProfileOffersCreatePageComponent } from './pages/profile/profile-offers-create-page/profile-offers-create-page.component';
 import { OffersPageComponent } from './pages/offers/offers-page/offers-page.component';
 import { OfferDetailsPageComponent } from '../admin/pages/offers/offer-details-page/offer-details-page.component';
+import { ProviderGuard } from '../guards/provider.guard';
+import { SubscriberGuard } from '../guards/subscriber.guard';
+import { ProviderSubscriberGuard } from '../guards/provider-subscriber.guard';
 
 const routes: Routes = [
   {
@@ -47,6 +50,8 @@ const routes: Routes = [
         component: PricingPageComponent,
       },
       {
+        canActivate: [ProviderSubscriberGuard],
+        canActivateChild: [ProviderSubscriberGuard],
         path: 'profile',
         component: ProfileLayoutPageComponent,
         children: [

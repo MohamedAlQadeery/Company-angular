@@ -16,6 +16,8 @@ export interface IOfferResponse {
   id: number;
   description: string;
   isActive: boolean;
+  createdAt:string;
+  updatedAt:string;
   applicationUser: IProviderResponse;
   attachments: IAttachmentResponse; // we take photo from it
 }

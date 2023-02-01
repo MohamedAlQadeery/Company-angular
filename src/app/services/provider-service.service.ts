@@ -26,6 +26,14 @@ export class ProviderServiceService {
     return this._http.get<IServiceResponse[]>(this.baseUrl);
   }
 
+  public GetAllNotActiveServices() {
+    return this._http.get<IServiceResponse[]>(`${this.baseUrl}/GetNotActive`);
+  }
+
+  public ApproveService(id: number) {
+    return this._http.get(`${this.baseUrl}/Approve/${id}`);
+  }
+
   public GetCurrentProviderServices() {
     return this._http.get<IServiceResponse[]>(`${this.baseUrl}/currentUser`);
   }

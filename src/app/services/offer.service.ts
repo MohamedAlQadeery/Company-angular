@@ -24,7 +24,19 @@ export class OfferService {
   }
 
   GetAllActiveOffers() {
-    return this._http.get<IOfferResponse[]>(`${this.baseUrl}/active`);
+    return this._http.get<IOfferResponse[]>(`${this.baseUrl}/Active`);
+  }
+
+  GetAllNotActiveOffers() {
+    return this._http.get<IOfferResponse[]>(`${this.baseUrl}/NotActive`);
+  }
+
+  GetAllOffers() {
+    return this._http.get<IOfferResponse[]>(`${this.baseUrl}`);
+  }
+
+  ActiveOfferById(id: number){
+    return this._http.get<IOfferResponse>(`${this.baseUrl}/Active/${id}`);
   }
 
   GetOfferById(id: number) {

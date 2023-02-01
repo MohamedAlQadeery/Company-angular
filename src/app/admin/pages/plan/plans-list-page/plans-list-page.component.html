@@ -8,3 +8,47 @@
         <a routerLink="/admin/plans/create" class="btn btn-secondary">Create New Plan</a>
     </div>
 </div>
+
+<div class="card p-4">
+    <div class="row">
+        <div class="col-md-12">
+            <ng-container *ngIf="plans$ | async as categories">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Created Date</th>
+                                <th scope="col">Update Date</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let category of categories;let i=index">
+                                <th>{{i+1}}</th>
+                                <td>{{category.name}}</td>
+                                <td>{{category.createdAt | date}}</td>
+                                <td>{{category.updatedAt ?(category.updatedAt | date) : 'Not Updated yet'}} </td>
+                                <td>
+                                    <button class="btn btn-info"
+                                        routerLink="/admin/category/edit/{{category.id}}">Edit</button>
+
+                                    <button class="btn btn-danger mx-2"
+                                        [swal]="{icon:'warning',
+                                        title: 'Delete Confirmation' ,
+                                        text:'Eveyrthing releated to this category will be deleted too !',
+                                        showCancelButton: true,confirmButtonText: 'Yes,Confirm',cancelButtonText:'Cancel' }"
+                                        (confirm)="HandleOnDelete(category.id)">Delete</button>
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+</div>
