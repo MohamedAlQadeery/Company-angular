@@ -28,7 +28,7 @@ export class LoginPageComponent {
 
   ngOnInit(): void {
     if (this._authService.isAuthenticated()) {
-      this._router.navigate(['/home']);
+      this._router.navigate(['/']);
     }
     this.loginFormGroup = new FormGroup({
       email: this.emailFormControl,

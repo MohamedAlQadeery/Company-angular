@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  // baseURL: 'https://bookstoreapi20221224224723.azurewebsites.net',
   baseURL: 'https://localhost:7088',
   countryApiKey: 'bHFWR1JkMGZOcnZJcWlWSU1xc3puWTFCcERaTE9UTElHa3RZYUJNdg==',
 };
