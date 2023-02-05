@@ -22,6 +22,9 @@ import { PlansEditPageComponent } from './pages/plan/plans-edit-page/plans-edit-
 import { OfferEditPageComponent } from './pages/offers/offer-edit-page/offer-edit-page.component';
 import { OfferCreatePageComponent } from './pages/offers/offer-create-page/offer-create-page.component';
 import { ServiceListComponent } from './pages/provider-service/service-list/service-list.component';
+import { StaticPageCreatePageComponent } from './pages/static-page/static-page-create-page/static-page-create-page.component';
+import { StaticPageEditPageComponent } from './pages/static-page/static-page-edit-page/static-page-edit-page.component';
+import { StaticPageListPageComponent } from './pages/static-page/static-page-list-page/static-page-list-page.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,9 @@ import { ServiceListComponent } from './pages/provider-service/service-list/serv
     OfferEditPageComponent,
     OfferCreatePageComponent,
     ServiceListComponent,
+    StaticPageListPageComponent,
+    StaticPageCreatePageComponent,
+    StaticPageEditPageComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

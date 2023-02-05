@@ -3,9 +3,14 @@
 }
 
 .header__area {
-  background: #343448;
+  background: #2f2e78;
 }
 
 .active {
   color: #f50963;
+}
+
+.imageSize{
+  width: 180px;
+  height: 60px;
 }
