@@ -15,6 +15,9 @@ import { OfferListPageComponent } from './pages/offers/offer-list-page/offer-lis
 import { OfferDetailsPageComponent } from './pages/offers/offer-details-page/offer-details-page.component';
 import { PlansEditPageComponent } from './pages/plan/plans-edit-page/plans-edit-page.component';
 import { ServiceListComponent } from './pages/provider-service/service-list/service-list.component';
+import { StaticPageCreatePageComponent } from './pages/static-page/static-page-create-page/static-page-create-page.component';
+import { StaticPageEditPageComponent } from './pages/static-page/static-page-edit-page/static-page-edit-page.component';
+import { StaticPageListPageComponent } from './pages/static-page/static-page-list-page/static-page-list-page.component';
 
 const routes: Routes = [
   {
@@ -35,6 +38,10 @@ const routes: Routes = [
       { path: 'offers', component: OfferListPageComponent },
       { path: 'offers/:id', component: OfferDetailsPageComponent },
       { path: 'services', component: ServiceListComponent },
+      { path: 'StaticPage', component: StaticPageListPageComponent },
+      { path: 'StaticPage/create', component: StaticPageCreatePageComponent },
+      { path: 'StaticPage/edit/:id', component: StaticPageEditPageComponent },
+
     ],
   },
 ];

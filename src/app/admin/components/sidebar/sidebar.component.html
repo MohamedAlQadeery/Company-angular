@@ -1,70 +1,75 @@
 <nav id="sidebar" class="sidebar js-sidebar">
-    <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand" routerLink="/">
-            <img class="imageSize" src="assets/site/img/logo/logo.svg" alt="">
+  <div class="sidebar-content js-simplebar">
+    <a class="sidebar-brand" routerLink="/">
+      <img class="imageSize" src="assets/site/img/logo/logo.svg" alt="" />
+    </a>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-header">Dashboard</li>
+
+      <li
+        class="sidebar-item"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="sidebar-link" routerLink="/admin">
+          <i class="align-middle" data-feather="sliders"></i>
+          <span class="align-middle">Homepage</span>
         </a>
+      </li>
 
-        <ul class="sidebar-nav">
+      <li class="sidebar-header">Users</li>
 
-            <li class="sidebar-header">
-                Dashboard
-            </li>
+      <li class="sidebar-item" routerLinkActive="active">
+        <a class="sidebar-link" routerLink="providers">
+          <i class="align-middle" data-feather="sliders"></i>
+          <span class="align-middle">Providers</span>
+        </a>
+      </li>
 
-            <li class="sidebar-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-                <a class="sidebar-link" routerLink="/admin">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Homepage</span>
-                </a>
-            </li>
+      <li class="sidebar-item" routerLinkActive="active">
+        <a class="sidebar-link" routerLink="subscribers">
+          <i class="align-middle" data-feather="user"></i>
+          <span class="align-middle">Subscribers</span>
+        </a>
+      </li>
 
+      <li class="sidebar-header">Site</li>
 
-            <li class="sidebar-header">
-                Users
-            </li>
+      <li class="sidebar-item" routerLinkActive="active">
+        <a class="sidebar-link" routerLink="category">
+          <i class="align-middle" data-feather="sliders"></i>
+          <span class="align-middle">Categories</span>
+        </a>
+      </li>
 
-            <li class="sidebar-item" routerLinkActive="active">
-                <a class="sidebar-link" routerLink="providers">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Providers</span>
-                </a>
-            </li>
+      <li class="sidebar-item" routerLinkActive="active">
+        <a class="sidebar-link" routerLink="plans">
+          <i class="align-middle" data-feather="sliders"></i>
+          <span class="align-middle">Plans</span>
+        </a>
+      </li>
 
-            <li class="sidebar-item" routerLinkActive="active">
-                <a class="sidebar-link" routerLink="subscribers">
-                    <i class="align-middle" data-feather="user"></i> <span class="align-middle">Subscribers</span>
-                </a>
-            </li>
+      <li class="sidebar-item" routerLinkActive="active">
+        <a class="sidebar-link" routerLink="offers">
+          <i class="align-middle" data-feather="sliders"></i>
+          <span class="align-middle">Offers</span>
+        </a>
+      </li>
 
+      <li class="sidebar-item" routerLinkActive="active">
+        <a class="sidebar-link" routerLink="services">
+          <i class="align-middle" data-feather="sliders"></i>
+          <span class="align-middle">Services</span>
+        </a>
+      </li>
 
-            <li class="sidebar-header">
-                Site
-            </li>
-
-            <li class="sidebar-item" routerLinkActive="active">
-                <a class="sidebar-link" routerLink="category">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Categories</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item" routerLinkActive="active">
-                <a class="sidebar-link" routerLink="plans">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Plans</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item" routerLinkActive="active">
-                <a class="sidebar-link" routerLink="offers">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Offers</span>
-                </a>
-            </li>
-
-
-            <li class="sidebar-item" routerLinkActive="active">
-                <a class="sidebar-link" routerLink="services">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Services</span>
-                </a>
-            </li>
-
-
-        </ul>
-
-    </div>
+      <li class="sidebar-item" routerLinkActive="active">
+        <a class="sidebar-link" routerLink="StaticPage">
+          <i class="align-middle" data-feather="sliders"></i>
+          <span class="align-middle">Static Page</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </nav>
