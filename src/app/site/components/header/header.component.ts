@@ -23,14 +23,20 @@ export class HeaderComponent {
     translate.setDefaultLang('en');
   }
 
+  //#region Language <ul>
+  showLanguageList = false;
+  languageSpanText = 'English';
+  //#endregion
   currentLang$ = this._langService.currentLang$.pipe(
     tap((lang) => {
       this.translate.use(lang);
 
       if (lang === 'ar') {
         this.renderer.setAttribute(document.body, 'dir', 'rtl');
+        this.languageSpanText = 'Arabic';
       } else {
         this.renderer.removeAttribute(document.body, 'dir');
+        this.languageSpanText = lang == 'en' ? 'English' : 'Turkish';
       }
     })
   );
@@ -45,6 +51,7 @@ export class HeaderComponent {
       this.renderer.removeAttribute(document.body, 'dir');
     }
     this._langService.setCurrentLanguage(language);
+    this.showLanguageList = false;
   }
 
   HandleLogOut() {
@@ -53,5 +60,9 @@ export class HeaderComponent {
     this._toastr.success('تم تسجيل الخروج بنجاح', 'تسجيل الخروج', {
       positionClass: 'toast-top-center',
     });
+  }
+
+  ToggleLanguageList() {
+    this.showLanguageList = !this.showLanguageList;
   }
 }
