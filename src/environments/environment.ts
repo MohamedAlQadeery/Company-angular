@@ -9,6 +9,7 @@ export const environment = {
   countryApiKey: 'bHFWR1JkMGZOcnZJcWlWSU1xc3puWTFCcERaTE9UTElHa3RZYUJNdg==',
   endPoints: {
     staticPage: '/api/StaticPage',
+    generalService: '/api/GeneralService',
   },
 };
 
