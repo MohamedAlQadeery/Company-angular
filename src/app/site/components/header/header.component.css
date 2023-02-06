@@ -10,7 +10,24 @@
   color: #f50963;
 }
 
-.imageSize{
+.imageSize {
   width: 180px;
   height: 60px;
+}
+
+ul li a {
+  cursor: pointer;
+}
+
+.mobile-menu ul li a {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.4;
+  color: var(--tp-common-white);
+  width: 100%;
+}
+
+.mobile-menu .menu-counter {
+  counter-reset: count;
 }

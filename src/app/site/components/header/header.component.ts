@@ -27,6 +27,12 @@ export class HeaderComponent {
   showLanguageList = false;
   languageSpanText = 'English';
   //#endregion
+
+  //#region Canvas effects
+  showSearchForm = false;
+  showCanvasNav = false;
+
+  //#endregion
   currentLang$ = this._langService.currentLang$.pipe(
     tap((lang) => {
       this.translate.use(lang);
@@ -64,5 +70,12 @@ export class HeaderComponent {
 
   ToggleLanguageList() {
     this.showLanguageList = !this.showLanguageList;
+  }
+
+  ToggleSearchForm() {
+    this.showSearchForm = !this.showSearchForm;
+  }
+  ToggleCanvasNav() {
+    this.showCanvasNav = !this.showCanvasNav;
   }
 }
