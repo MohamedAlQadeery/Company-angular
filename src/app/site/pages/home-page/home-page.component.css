@@ -3,3 +3,7 @@
   font-family: "Font Awesome 6 Pro" !important;
   font-weight: 400;
 }
+
+.slider__form-input {
+  width: 78%;
+}

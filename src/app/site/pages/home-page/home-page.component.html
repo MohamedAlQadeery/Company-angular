@@ -20,41 +20,116 @@
 </section> -->
 
 <!-- slider area start -->
-<section class="slider__area box-plr-5-245 py-5 d-flex align-items-center p-relative z-index-1 fix">
-    <div class="slider__shape">
-        <img class="slider__shape-5" src="assets/site/img/slider/5/shape/slider-shape-1.png" alt="">
-        <img class="slider__shape-6" src="assets/site/img/slider/5/shape/slider-shape-2.png" alt="">
-        <img class="slider__shape-7" src="assets/site/img/slider/5/shape/slider-shape-3.png" alt="">
-        <img class="slider__shape-8" src="assets/site/img/slider/5/shape/slider-shape-4.png" alt="">
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xxl-6 col-xl-6 col-lg-6">
-                <div class=" slider__content-5">
-                    <!-- <span class="slider__title-pre-5">Digital Experience</span> -->
-                    <h3 class="slider__title-5">{{'company'|translate}}</h3>
-                    <p>{{'homepage-title' | translate}}</p>
+<section class="slider__area p-relative">
+    <div class="slider__active swiper-container">
+        <div class="swiper-wrapper">
+            <div
+                class="slider__item slider__height slider__overlay include-bg pt-100 pb-100 swiper-slide d-flex align-items-center">
+                <div class="slider__bg p-relative include-bg"
+                    style="background-image: url('assets/site/img/homepage/homepage.jpg');"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xxl-12">
+                            <div class="slider__content text-center">
+                                <ng-container *ngIf="lang$ | async as lang">
+                                    <span class="slider__title-pre"
+                                        [ngStyle]="{'letter-spacing': lang=='ar'? '0px' : '8px'}">{{'homepage-title'
+                                        |translate}}</span>
+                                    <h3 class="slider__title">{{'company' | translate}}</h3>
+                                </ng-container>
 
-                    <a href="#" class="tp-btn-blue-sm">{{'aboutus' | translate}}</a>
+
+
+                                <div class="slider__form">
+                                    <form action="#">
+                                        <div class="slider__form-wrapper flex-wrap">
+                                            <div class="slider__form-input">
+                                                <input type="text" placeholder="{{'service-name' | translate}}">
+                                            </div>
+
+                                            <div>
+                                                <button type="button" class="slider-form-btn tp-link-btn-3">{{'search' |
+                                                    translate}}</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="d-none d-lg-block col-xxl-6 col-xl-6 col-lg-6">
-                <div class="slider__thumb-5 text-end scene-2">
-                    <!-- <div class="slider-thumb-5 one">
-                        <img class="slider__thumb-5-1 layer" data-depth=".2"
-                            src="assets/site/img/slider/5/slider-img-1.png" alt="">
-                    </div> -->
-                    <div class="slider-thumb-5 two">
-                        <img class=" slider__thumb-5-2 layer" data-depth=".3"
-                            src="assets/site/img/slider/5/slider-img-2.png" alt="">
+
+        </div>
+    </div>
+
+</section>
+<!-- slider area end -->
+
+
+<!-- about area start -->
+<section id="tpabout" class="about__area pt-120 pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-6 col-xl-6 col-lg-6">
+                <div class="about__thumb-wrapper ml-70 pr-100">
+                    <div class="about__thumb w-img">
+                        <div class="tp-thumb-overlay wow"></div>
+                        <img src="assets/site/img/about/about-img-1.jpg" alt="">
+                    </div>
+                    <div class="about__thumb-text">
+                        <h3 data-text="Expert">Expert</h3>
+                    </div>
+                    <div class="about__experience">
+                        <h4><span data-purecounter-duration="1" data-purecounter-end="12" class="purecounter">0</span>
+                        </h4>
+                        <p>Years <br> Experience</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6">
+                <div class="about__wrapper pr-95 wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
+                    <div class="section__title-wrapper mb-25">
+                        <span class="section__title-pre">Expert Guidance</span>
+                        <h3 class="section__title">
+                            {{'what-they-think' | translate}} <span class="section__title-highlight">{{'aboutus-1' |
+                                translate}}
+                                <svg width="220" height="27" viewBox="0 0 220 27" fill="none">
+                                    <path
+                                        d="M19.6407 15.2948C33.4481 12.464 47.2752 10.3031 61.24 8.63481C48.6133 9.07487 35.9865 9.33103 23.3729 9.29162C22.4743 9.29162 21.7396 8.54942 21.7396 7.64958C21.7462 6.74318 22.4808 6.00754 23.386 6.00754C60.8398 6.12577 138.464 3.57728 175.839 1.69222C185.81 1.18648 195.563 0.739778 205.534 0.477052C208.079 0.41137 210.63 0.280046 213.175 0.188091C214.5 0.142114 217.924 -0.0286769 218.403 0.0041639C219.761 0.0895499 219.964 1.27179 219.984 1.4557C220.036 1.8892 220.003 2.53954 219.242 3.03215C219.19 3.07156 218.895 3.25544 218.232 3.33426C181.198 7.74806 103.764 7.1897 66.6842 11.3079C51.0861 13.0485 35.6783 15.3606 20.3032 18.5133C14.9311 19.6102 11.8678 20.3064 7.57803 21.4493C14.649 23.3081 21.8971 24.3393 29.2173 24.891C29.2173 24.891 19.6407 27.474 12.386 25.9286C5.13134 24.3833 4.9674 24.221 1.33353 23.0321C0.493934 22.7628 0.238148 22.2375 0.133199 21.955C-0.0963783 21.3639 -0.0701445 20.7136 0.539874 20.1159C0.703857 19.9583 1.01869 19.7349 1.51064 19.5773C2.15346 19.3737 3.48499 19.1636 4.08189 18.9994C9.9853 17.3705 13.1535 16.6216 19.6407 15.2948Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+                        </h3>
+                    </div>
+
+                    <p>The city and town name generator uses a database of over five million names across more than 150
+                        countries. If you are looking for a random city or town name to spark a location for a book,
+                        game, or a script, millions of possibilities are at your finger tips. How you use the city or
+                        town name is up to you.</p>
+
+                    <div class="about__author d-sm-flex align-items-center mb-40">
+                        <div class="about__author-inner d-flex align-items-center">
+                            <div class="about__author-thumb mr-10">
+                                <img src="assets/site/img/about/about-author-thumb.jpg" alt="">
+                            </div>
+                            <div class="about__author-content d-sm-flex align-items-center">
+                                <h3 class="about__author-title">Hi, I'm <span>Robert Fox.</span></h3>
+                            </div>
+                        </div>
+                        <div class="about__author-btn">
+                            <span class="about-author-link">let’s talk about ideas</span>
+                        </div>
+                    </div>
+                    <div class="about__btn">
+                        <a href="about.html" class="tp-btn">Discover Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- slider area end -->
-<!-- breadcrumb area end -->
+<!-- about area end -->
 <!-- cta area start -->
 <section class="cta__area cta__style-3 p-relative z-index-1 pt-115 pb-60 grey-bg-7 ">
     <div class="cta__shape">
