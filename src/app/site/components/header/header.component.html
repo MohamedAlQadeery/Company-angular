@@ -11,9 +11,9 @@
 
 <ng-container *ngIf="currentLang$ | async as lang">
     <header [ngClass]="{'lang-ar' : lang=='ar'}">
-        <div class="header__area header__transparent">
+        <div class="header__area " [ngClass]="{'header__white-solid' : !isHomePage,'header__transparent':isHomePage} ">
 
-            <div class="header__top header__border d-none d-lg-block">
+            <div class="header__top header__border d-none d-lg-block" *ngIf="isHomePage">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-10">
@@ -126,7 +126,7 @@
                                             </li>
 
                                             <li class="has-dropdown">
-                                                <a style="color: white;cursor: pointer;">{{'aboutus' | translate}}</a>
+                                                <a routerLink="">{{'aboutus' | translate}}</a>
                                                 <ul class="submenu">
                                                     <li><a href="#">{{'aboutus' | translate}}</a></li>
                                                     <li><a href="#">{{'ourvision' | translate}}</a></li>
@@ -265,7 +265,7 @@
                                         <nav id="mobile-menu" class="ms-md-4">
                                             <ul>
                                                 <li class="has-dropdown">
-                                                    <span class="fs-5" style="color: white;cursor: pointer;"><i
+                                                    <span class="fs-5" style="color: grey;cursor: pointer;"><i
                                                             class="fa-solid fa-user"></i></span>
                                                     <ul class="submenu" style="min-width: 150px;">
                                                         <li><a href="#">{{'login' | translate}}</a></li>
