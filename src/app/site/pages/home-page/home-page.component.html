@@ -20,38 +20,49 @@
 </section> -->
 
 <!-- slider area start -->
-<section class="slider__area box-plr-5-245 py-5 d-flex align-items-center p-relative z-index-1 fix">
-    <div class="slider__shape">
-        <img class="slider__shape-5" src="assets/site/img/slider/5/shape/slider-shape-1.png" alt="">
-        <img class="slider__shape-6" src="assets/site/img/slider/5/shape/slider-shape-2.png" alt="">
-        <img class="slider__shape-7" src="assets/site/img/slider/5/shape/slider-shape-3.png" alt="">
-        <img class="slider__shape-8" src="assets/site/img/slider/5/shape/slider-shape-4.png" alt="">
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xxl-6 col-xl-6 col-lg-6">
-                <div class=" slider__content-5">
-                    <!-- <span class="slider__title-pre-5">Digital Experience</span> -->
-                    <h3 class="slider__title-5">{{'company'|translate}}</h3>
-                    <p>{{'homepage-title' | translate}}</p>
+<section class="slider__area p-relative">
+    <div class="slider__active swiper-container">
+        <div class="swiper-wrapper">
+            <div
+                class="slider__item slider__height slider__overlay include-bg pt-100 pb-100 swiper-slide d-flex align-items-center">
+                <div class="slider__bg p-relative include-bg"
+                    style="background-image: url('assets/site/img/homepage/homepage.jpg');"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xxl-12">
+                            <div class="slider__content text-center">
+                                <ng-container *ngIf="lang$ | async as lang">
+                                    <span class="slider__title-pre"
+                                        [ngStyle]="{'letter-spacing': lang=='ar'? '0px' : '8px'}">{{'homepage-title'
+                                        |translate}}</span>
+                                    <h3 class="slider__title">{{'company' | translate}}</h3>
+                                </ng-container>
 
-                    <a href="#" class="tp-btn-blue-sm">{{'aboutus' | translate}}</a>
-                </div>
-            </div>
-            <div class="d-none d-lg-block col-xxl-6 col-xl-6 col-lg-6">
-                <div class="slider__thumb-5 text-end scene-2">
-                    <!-- <div class="slider-thumb-5 one">
-                        <img class="slider__thumb-5-1 layer" data-depth=".2"
-                            src="assets/site/img/slider/5/slider-img-1.png" alt="">
-                    </div> -->
-                    <div class="slider-thumb-5 two">
-                        <img class=" slider__thumb-5-2 layer" data-depth=".3"
-                            src="assets/site/img/slider/5/slider-img-2.png" alt="">
+
+
+                                <div class="slider__form">
+                                    <form action="#">
+                                        <div class="slider__form-wrapper flex-wrap">
+                                            <div class="slider__form-input">
+                                                <input type="text" placeholder="{{'service-name' | translate}}">
+                                            </div>
+
+                                            <div>
+                                                <button type="button" class="slider-form-btn tp-link-btn-3">{{'search' |
+                                                    translate}}</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+
 </section>
 <!-- slider area end -->
 <!-- breadcrumb area end -->

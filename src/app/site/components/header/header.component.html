@@ -11,7 +11,7 @@
 
 <ng-container *ngIf="currentLang$ | async as lang">
     <header [ngClass]="{'lang-ar' : lang=='ar'}">
-        <div class="header__area">
+        <div class="header__area header__transparent">
 
             <div class="header__top header__border d-none d-lg-block">
                 <div class="container">
@@ -265,7 +265,7 @@
                                         <nav id="mobile-menu" class="ms-md-4">
                                             <ul>
                                                 <li class="has-dropdown">
-                                                    <span style="color: white;cursor: pointer;"><i
+                                                    <span class="fs-5" style="color: white;cursor: pointer;"><i
                                                             class="fa-solid fa-user"></i></span>
                                                     <ul class="submenu" style="min-width: 150px;">
                                                         <li><a href="#">{{'login' | translate}}</a></li>

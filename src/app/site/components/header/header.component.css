@@ -2,9 +2,9 @@
   cursor: pointer;
 }
 
-.header__area {
+/* .header__area {
   background: #2f2e78;
-}
+} */
 
 .active {
   color: #f50963;
@@ -30,4 +30,10 @@ ul li a {
 
 .mobile-menu .menu-counter {
   counter-reset: count;
+}
+
+.fa-solid,
+.fas {
+  font-family: "Font Awesome 6 Pro" !important;
+  font-weight: 900;
 }
