@@ -34,6 +34,12 @@ import { ArticleListPageComponent } from './pages/article/article-list-page/arti
 import { BlogCreatePageComponent } from './pages/blog/blog-create-page/blog-create-page.component';
 import { BlogEditPageComponent } from './pages/blog/blog-edit-page/blog-edit-page.component';
 import { BlogListPageComponent } from './pages/blog/blog-list-page/blog-list-page.component';
+import { FaqCreatePageComponent } from './pages/faq/faq-create-page/faq-create-page.component';
+import { FaqEditPageComponent } from './pages/faq/faq-edit-page/faq-edit-page.component';
+import { FaqListPageComponent } from './pages/faq/faq-list-page/faq-list-page.component';
+import { TeamMemberCreatePageComponent } from './pages/team-member/team-member-create-page/team-member-create-page.component';
+import { TeamMemberEditPageComponent } from './pages/team-member/team-member-edit-page/team-member-edit-page.component';
+import { TeamMemberListPageComponent } from './pages/team-member/team-member-list-page/team-member-list-page.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +74,12 @@ import { BlogListPageComponent } from './pages/blog/blog-list-page/blog-list-pag
     BlogListPageComponent,
     BlogCreatePageComponent,
     BlogEditPageComponent,
+    TeamMemberListPageComponent,
+    TeamMemberCreatePageComponent,
+    TeamMemberEditPageComponent,
+    FaqListPageComponent,
+    FaqCreatePageComponent,
+    FaqEditPageComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

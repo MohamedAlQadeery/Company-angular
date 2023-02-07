@@ -27,6 +27,12 @@ import { ArticleListPageComponent } from './pages/article/article-list-page/arti
 import { BlogCreatePageComponent } from './pages/blog/blog-create-page/blog-create-page.component';
 import { BlogEditPageComponent } from './pages/blog/blog-edit-page/blog-edit-page.component';
 import { BlogListPageComponent } from './pages/blog/blog-list-page/blog-list-page.component';
+import { FaqCreatePageComponent } from './pages/faq/faq-create-page/faq-create-page.component';
+import { FaqEditPageComponent } from './pages/faq/faq-edit-page/faq-edit-page.component';
+import { FaqListPageComponent } from './pages/faq/faq-list-page/faq-list-page.component';
+import { TeamMemberCreatePageComponent } from './pages/team-member/team-member-create-page/team-member-create-page.component';
+import { TeamMemberEditPageComponent } from './pages/team-member/team-member-edit-page/team-member-edit-page.component';
+import { TeamMemberListPageComponent } from './pages/team-member/team-member-list-page/team-member-list-page.component';
 
 const routes: Routes = [
   {
@@ -59,6 +65,12 @@ const routes: Routes = [
       { path: 'Blog', component: BlogListPageComponent },
       { path: 'Blog/create', component: BlogCreatePageComponent },
       { path: 'Blog/edit/:id', component: BlogEditPageComponent },
+      { path: 'TeamMember', component: TeamMemberListPageComponent },
+      { path: 'TeamMember/create', component: TeamMemberCreatePageComponent },
+      { path: 'TeamMember/edit/:id', component: TeamMemberEditPageComponent },
+      { path: 'Faq', component: FaqListPageComponent },
+      { path: 'Faq/create', component: FaqCreatePageComponent },
+      { path: 'Faq/edit/:id', component: FaqEditPageComponent },
 
     ],
   },

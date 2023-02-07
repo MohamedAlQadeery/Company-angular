@@ -1,0 +1,38 @@
+import { Component } from '@angular/core';
+import { TuiDialogService } from '@taiga-ui/core';
+import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
+import { CategoryService } from 'src/app/services/category.service';
+import { StaticPageService } from 'src/app/services/static-page.service';
+import { TeamMemberService } from 'src/app/services/team-member.service';
+import { ICategoryResponse } from 'src/app/shared/interfaces/CategoryDtos';
+
+@Component({
+  selector: 'app-team-member-list-page',
+  templateUrl: './team-member-list-page.component.html',
+  styleUrls: ['./team-member-list-page.component.css'],
+})
+export class TeamMemberListPageComponent {
+  constructor(
+    private _teamMemberService: TeamMemberService,
+    private _toastr: ToastrService
+  ) {}
+  staticPages$ = this._teamMemberService.GetAll();
+
+  HandleOnDelete(id: number) {
+    this._teamMemberService.Delete(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.staticPages$ = this._teamMemberService.GetAll();
+        this._toastr.success(
+          'deleted successfully',
+          'Delete Success'
+        );
+      },
+      error: (err) => {
+        console.log(err);
+        this._toastr.error(err);
+      },
+    });
+  }
+}

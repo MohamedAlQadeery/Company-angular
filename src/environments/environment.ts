@@ -12,6 +12,8 @@ export const environment = {
     generalService: '/api/GeneralService',
     blog: '/api/Blog',
     article: '/api/Article',
+    teamMember: '/api/TeamMember',
+    faq: '/api/Faq',
   },
 };
 
