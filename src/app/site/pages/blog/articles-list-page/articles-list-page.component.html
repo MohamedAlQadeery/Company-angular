@@ -32,8 +32,8 @@
             <div class="col-xxl-12">
                 <div class="section__title-wrapper section-title-sm mb-60">
                     <h3 class="section__title">
-                        Our latest
-                        <span class="section__title-highlight">articles
+                        {{'our-latest' | translate}}
+                        <span class="section__title-highlight">{{'articles' | translate}}
                             <svg width="220" height="27" viewBox="0 0 220 27" fill="none">
                                 <path class="wow"
                                     d="M19.6407 15.2948C33.4481 12.464 47.2752 10.3031 61.24 8.63481C48.6133 9.07487 35.9865 9.33103 23.3729 9.29162C22.4743 9.29162 21.7396 8.54942 21.7396 7.64958C21.7462 6.74318 22.4808 6.00754 23.386 6.00754C60.8398 6.12577 138.464 3.57728 175.839 1.69222C185.81 1.18648 195.563 0.739778 205.534 0.477052C208.079 0.41137 210.63 0.280046 213.175 0.188091C214.5 0.142114 217.924 -0.0286769 218.403 0.0041639C219.761 0.0895499 219.964 1.27179 219.984 1.4557C220.036 1.8892 220.003 2.53954 219.242 3.03215C219.19 3.07156 218.895 3.25544 218.232 3.33426C181.198 7.74806 103.764 7.1897 66.6842 11.3079C51.0861 13.0485 35.6783 15.3606 20.3032 18.5133C14.9311 19.6102 11.8678 20.3064 7.57803 21.4493C14.649 23.3081 21.8971 24.3393 29.2173 24.891C29.2173 24.891 19.6407 27.474 12.386 25.9286C5.13134 24.3833 4.9674 24.221 1.33353 23.0321C0.493934 22.7628 0.238148 22.2375 0.133199 21.955C-0.0963783 21.3639 -0.0701445 20.7136 0.539874 20.1159C0.703857 19.9583 1.01869 19.7349 1.51064 19.5773C2.15346 19.3737 3.48499 19.1636 4.08189 18.9994C9.9853 17.3705 13.1535 16.6216 19.6407 15.2948Z"
@@ -45,663 +45,71 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="blog__grid-item">
-                    <div class="blog__item-10 white-bg transition-3 mb-30 fix">
-                        <div class="blog__thumb-10 w-img fix">
-                            <a href="blog-details.html">
-                                <img src="assets/site/img/blog/grid/blog-grid-1.jpg" alt="">
-                            </a>
-                            <div class="blog__tag-10">
-                                <a href="#">Work Life</a>
-                            </div>
-                        </div>
-                        <div class="blog__content-10">
-                            <div class="blog__content-10-top">
-                                <div class="blog__meta-10-wrapper d-flex align-items-center">
-                                    <div class="blog__meta-10 has-date">
-                                        <span>
-                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M7.5 14C11.0899 14 14 11.0899 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M7.5 3.59961V7.49961L10.1 8.79961" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg> January 21, 2022
-                                        </span>
-                                    </div>
+            <ng-container *ngIf="posts$ | async as posts;else loadingPosts">
+                <div *ngFor="let post of posts | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage}"
+                    class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                    <div class="blog__grid-item">
+                        <div class="blog__item-10 white-bg transition-3 mb-30 fix">
+                            <div class="blog__thumb-10 w-img fix">
+                                <div class="blog__tag-10">
+                                    <a href="#">{{post.blog.title}}</a>
                                 </div>
-                                <h3 class="blog__title-10">
-                                    <a href="blog-details.html">How to Create an Effective Design Portfolio</a>
-                                </h3>
+                            </div>
+                            <div class="blog__content-10">
+                                <div class="blog__content-10-top">
+                                    <div class="blog__meta-10-wrapper d-flex align-items-center">
+                                        <div class="blog__meta-10 has-date">
+                                            <span>
+                                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M7.5 14C11.0899 14 14 11.0899 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14Z"
+                                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <path d="M7.5 3.59961V7.49961L10.1 8.79961" stroke="currentColor"
+                                                        stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>{{post.createdAt | date}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <h3 class="blog__title-10">
+                                        <a [routerLink]="['/blog',post.id]">{{post.title}}</a>
+                                    </h3>
 
-                                <p>Lorem ipsum is simply dummy text ipsum been dummy...</p>
-                            </div>
-                            <div class="blog__content-10-bottom d-flex align-items-center justify-content-between">
-                                <div class="blog__meta-author-10 d-flex align-items-center">
-                                    <div class="blog__meta-author-thumb-10">
-                                        <a href="#">
-                                            <img src="assets/site/img/users/user-1.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blog__meta-author-content-10">
-                                        <span>By<a href="#"> Jason</a></span>
-                                    </div>
                                 </div>
-                                <div class="blog__meta-10 blog-meta-10-2">
-                                    <span>
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12.9718 6.66668C12.9741 7.54659 12.769 8.4146 12.3732 9.20001C11.9039 10.1412 11.1825 10.9328 10.2897 11.4862C9.39697 12.0396 8.36813 12.3329 7.31844 12.3333C6.4406 12.3356 5.57463 12.13 4.79106 11.7333L1 13L2.26369 9.20001C1.86791 8.4146 1.66281 7.54659 1.6651 6.66668C1.66551 5.61452 1.95815 4.58325 2.51025 3.68838C3.06236 2.79352 3.85211 2.0704 4.79106 1.60002C5.57463 1.20331 6.4406 0.997725 7.31844 1.00002H7.65099C9.03729 1.07668 10.3467 1.66319 11.3284 2.64726C12.3102 3.63132 12.8953 4.94378 12.9718 6.33334V6.66668Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>35
-                                    </span>
-                                    <span>
-                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11.0443 7.00397C11.0443 8.43962 9.88694 9.59974 8.45466 9.59974C7.02238 9.59974 5.86499 8.43962 5.86499 7.00397C5.86499 5.56832 7.02238 4.4082 8.45466 4.4082C9.88694 4.4082 11.0443 5.56832 11.0443 7.00397Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M8.45466 13C11.0082 13 13.3881 11.4918 15.0446 8.88157C15.6956 7.85921 15.6956 6.14078 15.0446 5.11843C13.3881 2.50816 11.0082 1 8.45466 1C5.90115 1 3.52126 2.50816 1.86474 5.11843C1.21371 6.14078 1.21371 7.85921 1.86474 8.88157C3.52126 11.4918 5.90115 13 8.45466 13Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>234,5k
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="blog__grid-item">
-                    <div class="blog__item-10 white-bg transition-3 mb-30 fix">
-                        <div class="blog__thumb-10 w-img fix">
-                            <a href="blog-details.html">
-                                <img src="assets/site/img/blog/grid/blog-grid-2.jpg" alt="">
-                            </a>
-                            <div class="blog__tag-10">
-                                <a href="#">Music</a>
-                            </div>
-                        </div>
-                        <div class="blog__content-10">
-                            <div class="blog__content-10-top">
-                                <div class="blog__meta-10-wrapper d-flex align-items-center">
-                                    <div class="blog__meta-10 has-date">
-                                        <span>
-                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M7.5 14C11.0899 14 14 11.0899 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M7.5 3.59961V7.49961L10.1 8.79961" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg> January 22, 2022
-                                        </span>
+                                <div class="blog__content-10-bottom d-flex align-items-center justify-content-between">
+                                    <div class="blog__meta-author-10 d-flex align-items-center">
+                                        <div class="blog__meta-author-thumb-10">
+                                            <a href="#">
+                                                <img src="assets/site/img/users/user-1.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="blog__meta-author-content-10">
+                                            <span>By<a routerLink="">Admin</a></span>
+                                        </div>
                                     </div>
-                                </div>
-                                <h3 class="blog__title-10">
-                                    <a href="blog-details.html">Look at usual things with unusual eyes</a>
-                                </h3>
 
-                                <p>Lorem ipsum is simply dummy text ipsum been dummy...</p>
-                            </div>
-                            <div class="blog__content-10-bottom d-flex align-items-center justify-content-between">
-                                <div class="blog__meta-author-10 d-flex align-items-center">
-                                    <div class="blog__meta-author-thumb-10">
-                                        <a href="#">
-                                            <img src="assets/site/img/users/user-2.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blog__meta-author-content-10">
-                                        <span>By<a href="#"> Shahnewaz</a></span>
-                                    </div>
-                                </div>
-                                <div class="blog__meta-10 blog-meta-10-2">
-                                    <span>
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12.9718 6.66668C12.9741 7.54659 12.769 8.4146 12.3732 9.20001C11.9039 10.1412 11.1825 10.9328 10.2897 11.4862C9.39697 12.0396 8.36813 12.3329 7.31844 12.3333C6.4406 12.3356 5.57463 12.13 4.79106 11.7333L1 13L2.26369 9.20001C1.86791 8.4146 1.66281 7.54659 1.6651 6.66668C1.66551 5.61452 1.95815 4.58325 2.51025 3.68838C3.06236 2.79352 3.85211 2.0704 4.79106 1.60002C5.57463 1.20331 6.4406 0.997725 7.31844 1.00002H7.65099C9.03729 1.07668 10.3467 1.66319 11.3284 2.64726C12.3102 3.63132 12.8953 4.94378 12.9718 6.33334V6.66668Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>35
-                                    </span>
-                                    <span>
-                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11.0443 7.00397C11.0443 8.43962 9.88694 9.59974 8.45466 9.59974C7.02238 9.59974 5.86499 8.43962 5.86499 7.00397C5.86499 5.56832 7.02238 4.4082 8.45466 4.4082C9.88694 4.4082 11.0443 5.56832 11.0443 7.00397Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M8.45466 13C11.0082 13 13.3881 11.4918 15.0446 8.88157C15.6956 7.85921 15.6956 6.14078 15.0446 5.11843C13.3881 2.50816 11.0082 1 8.45466 1C5.90115 1 3.52126 2.50816 1.86474 5.11843C1.21371 6.14078 1.21371 7.85921 1.86474 8.88157C3.52126 11.4918 5.90115 13 8.45466 13Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>234,5k
-                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="blog__grid-item">
-                    <div class="blog__item-10 white-bg transition-3 mb-30 fix">
-                        <div class="blog__thumb-10 w-img fix">
-                            <a href="blog-details.html">
-                                <img src="assets/site/img/blog/grid/blog-grid-3.jpg" alt="">
-                            </a>
-                            <div class="blog__tag-10">
-                                <a href="#">Business</a>
-                            </div>
-                        </div>
-                        <div class="blog__content-10">
-                            <div class="blog__content-10-top">
-                                <div class="blog__meta-10-wrapper d-flex align-items-center">
-                                    <div class="blog__meta-10 has-date">
-                                        <span>
-                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M7.5 14C11.0899 14 14 11.0899 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M7.5 3.59961V7.49961L10.1 8.79961" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg> January 22, 2022
-                                        </span>
-                                    </div>
-                                </div>
-                                <h3 class="blog__title-10">
-                                    <a href="blog-details.html">An economist’s guess is liable good as anybody</a>
-                                </h3>
 
-                                <p>Lorem ipsum is simply dummy text ipsum been dummy...</p>
-                            </div>
-                            <div class="blog__content-10-bottom d-flex align-items-center justify-content-between">
-                                <div class="blog__meta-author-10 d-flex align-items-center">
-                                    <div class="blog__meta-author-thumb-10">
-                                        <a href="#">
-                                            <img src="assets/site/img/users/user-3.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blog__meta-author-content-10">
-                                        <span>By<a href="#"> Cliphon</a></span>
-                                    </div>
-                                </div>
-                                <div class="blog__meta-10 blog-meta-10-2">
-                                    <span>
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12.9718 6.66668C12.9741 7.54659 12.769 8.4146 12.3732 9.20001C11.9039 10.1412 11.1825 10.9328 10.2897 11.4862C9.39697 12.0396 8.36813 12.3329 7.31844 12.3333C6.4406 12.3356 5.57463 12.13 4.79106 11.7333L1 13L2.26369 9.20001C1.86791 8.4146 1.66281 7.54659 1.6651 6.66668C1.66551 5.61452 1.95815 4.58325 2.51025 3.68838C3.06236 2.79352 3.85211 2.0704 4.79106 1.60002C5.57463 1.20331 6.4406 0.997725 7.31844 1.00002H7.65099C9.03729 1.07668 10.3467 1.66319 11.3284 2.64726C12.3102 3.63132 12.8953 4.94378 12.9718 6.33334V6.66668Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>35
-                                    </span>
-                                    <span>
-                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11.0443 7.00397C11.0443 8.43962 9.88694 9.59974 8.45466 9.59974C7.02238 9.59974 5.86499 8.43962 5.86499 7.00397C5.86499 5.56832 7.02238 4.4082 8.45466 4.4082C9.88694 4.4082 11.0443 5.56832 11.0443 7.00397Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M8.45466 13C11.0082 13 13.3881 11.4918 15.0446 8.88157C15.6956 7.85921 15.6956 6.14078 15.0446 5.11843C13.3881 2.50816 11.0082 1 8.45466 1C5.90115 1 3.52126 2.50816 1.86474 5.11843C1.21371 6.14078 1.21371 7.85921 1.86474 8.88157C3.52126 11.4918 5.90115 13 8.45466 13Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>234,5k
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="blog__grid-item">
-                    <div class="blog__item-10 white-bg transition-3 mb-30 fix">
-                        <div class="blog__thumb-10 w-img fix">
-                            <a href="blog-details.html">
-                                <img src="assets/site/img/blog/grid/blog-grid-4.jpg" alt="">
-                            </a>
-                            <div class="blog__tag-10">
-                                <a href="#">Editorial</a>
-                            </div>
-                        </div>
-                        <div class="blog__content-10">
-                            <div class="blog__content-10-top">
-                                <div class="blog__meta-10-wrapper d-flex align-items-center">
-                                    <div class="blog__meta-10 has-date">
-                                        <span>
-                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M7.5 14C11.0899 14 14 11.0899 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M7.5 3.59961V7.49961L10.1 8.79961" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg> January 22, 2022
-                                        </span>
-                                    </div>
-                                </div>
-                                <h3 class="blog__title-10">
-                                    <a href="blog-details.html">How Can Designers Prepare For The Future?</a>
-                                </h3>
+            </ng-container>
 
-                                <p>Lorem ipsum is simply dummy text ipsum been dummy...</p>
-                            </div>
-                            <div class="blog__content-10-bottom d-flex align-items-center justify-content-between">
-                                <div class="blog__meta-author-10 d-flex align-items-center">
-                                    <div class="blog__meta-author-thumb-10">
-                                        <a href="#">
-                                            <img src="assets/site/img/users/user-4.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blog__meta-author-content-10">
-                                        <span>By<a href="#"> Stevne</a></span>
-                                    </div>
-                                </div>
-                                <div class="blog__meta-10 blog-meta-10-2">
-                                    <span>
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12.9718 6.66668C12.9741 7.54659 12.769 8.4146 12.3732 9.20001C11.9039 10.1412 11.1825 10.9328 10.2897 11.4862C9.39697 12.0396 8.36813 12.3329 7.31844 12.3333C6.4406 12.3356 5.57463 12.13 4.79106 11.7333L1 13L2.26369 9.20001C1.86791 8.4146 1.66281 7.54659 1.6651 6.66668C1.66551 5.61452 1.95815 4.58325 2.51025 3.68838C3.06236 2.79352 3.85211 2.0704 4.79106 1.60002C5.57463 1.20331 6.4406 0.997725 7.31844 1.00002H7.65099C9.03729 1.07668 10.3467 1.66319 11.3284 2.64726C12.3102 3.63132 12.8953 4.94378 12.9718 6.33334V6.66668Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>35
-                                    </span>
-                                    <span>
-                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11.0443 7.00397C11.0443 8.43962 9.88694 9.59974 8.45466 9.59974C7.02238 9.59974 5.86499 8.43962 5.86499 7.00397C5.86499 5.56832 7.02238 4.4082 8.45466 4.4082C9.88694 4.4082 11.0443 5.56832 11.0443 7.00397Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M8.45466 13C11.0082 13 13.3881 11.4918 15.0446 8.88157C15.6956 7.85921 15.6956 6.14078 15.0446 5.11843C13.3881 2.50816 11.0082 1 8.45466 1C5.90115 1 3.52126 2.50816 1.86474 5.11843C1.21371 6.14078 1.21371 7.85921 1.86474 8.88157C3.52126 11.4918 5.90115 13 8.45466 13Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>234,5k
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <ng-template #loadingPosts>
+                <div class="col-md-6 text-center">
+                    <h3>Loading Posts</h3>
                 </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="blog__grid-quote mb-30">
-                    <div class="blog__grid-quote-icon">
-                        <span>
-                            <svg width="24" height="20" viewBox="0 0 24 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M18.1161 0C19.2516 0 20.1806 0.232258 20.9032 0.696775C21.6258 1.16129 22.2194 1.75484 22.6839 2.47742C23.2516 3.30323 23.6129 4.20646 23.7677 5.1871C23.9226 6.16775 24 6.96775 24 7.5871C24 10.1161 23.3548 12.4129 22.0645 14.4774C20.7742 16.5419 18.7613 18.2194 16.0258 19.5097L15.329 18.1161C16.929 17.4452 18.2968 16.3871 19.4323 14.9419C20.6194 13.4968 21.2129 12.0258 21.2129 10.529C21.2129 9.90968 21.1355 9.36774 20.9806 8.90323C20.1548 9.5742 19.2 9.90968 18.1161 9.90968C16.7742 9.90968 15.6129 9.47097 14.6323 8.59355C13.6516 7.71613 13.1613 6.50323 13.1613 4.95484C13.1613 3.50968 13.6516 2.32258 14.6323 1.39355C15.6129 0.464517 16.7742 0 18.1161 0ZM4.95484 0C6.09032 0 7.01936 0.232258 7.74194 0.696775C8.46452 1.16129 9.05807 1.75484 9.52258 2.47742C10.0903 3.30323 10.4516 4.20646 10.6065 5.1871C10.7613 6.16775 10.8387 6.96775 10.8387 7.5871C10.8387 10.1161 10.1935 12.4129 8.90323 14.4774C7.6129 16.5419 5.6 18.2194 2.86452 19.5097L2.16774 18.1161C3.76774 17.4452 5.13548 16.3871 6.27097 14.9419C7.45806 13.4968 8.05161 12.0258 8.05161 10.529C8.05161 9.90968 7.97419 9.36774 7.81936 8.90323C6.99355 9.5742 6.03871 9.90968 4.95484 9.90968C3.6129 9.90968 2.45161 9.47097 1.47097 8.59355C0.490323 7.71613 0 6.50323 0 4.95484C0 3.50968 0.490323 2.32258 1.47097 1.39355C2.45161 0.464517 3.6129 0 4.95484 0Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="blog__grid-quote-content">
-                        <span>Social distancing</span>
-                        <p>Never ever think of <br> giving up. Winners never quit and quitters never win. Take all
-                            negative words out your mental dictionary and focus on the...</p>
-                        <cite>Shahnewaz Sakil</cite>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="blog__grid-item">
-                    <div class="blog__item-10 white-bg transition-3 mb-30 fix">
-                        <div class="blog__thumb-10 w-img fix">
-                            <a href="blog-details.html">
-                                <img src="assets/site/img/blog/grid/blog-grid-5.jpg" alt="">
-                            </a>
-                            <div class="blog__tag-10">
-                                <a href="#">Greatives Web</a>
-                            </div>
-                        </div>
-                        <div class="blog__content-10">
-                            <div class="blog__content-10-top">
-                                <div class="blog__meta-10-wrapper d-flex align-items-center">
-                                    <div class="blog__meta-10 has-date">
-                                        <span>
-                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M7.5 14C11.0899 14 14 11.0899 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M7.5 3.59961V7.49961L10.1 8.79961" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg> January 22, 2022
-                                        </span>
-                                    </div>
-                                </div>
-                                <h3 class="blog__title-10">
-                                    <a href="blog-details.html">Lorem ipsum dolor sit amet enim 2</a>
-                                </h3>
+            </ng-template>
 
-                                <p>Lorem ipsum is simply dummy text ipsum been dummy...</p>
-                            </div>
-                            <div class="blog__content-10-bottom d-flex align-items-center justify-content-between">
-                                <div class="blog__meta-author-10 d-flex align-items-center">
-                                    <div class="blog__meta-author-thumb-10">
-                                        <a href="#">
-                                            <img src="assets/site/img/users/user-5.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blog__meta-author-content-10">
-                                        <span>By<a href="#"> Crish</a></span>
-                                    </div>
-                                </div>
-                                <div class="blog__meta-10 blog-meta-10-2">
-                                    <span>
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12.9718 6.66668C12.9741 7.54659 12.769 8.4146 12.3732 9.20001C11.9039 10.1412 11.1825 10.9328 10.2897 11.4862C9.39697 12.0396 8.36813 12.3329 7.31844 12.3333C6.4406 12.3356 5.57463 12.13 4.79106 11.7333L1 13L2.26369 9.20001C1.86791 8.4146 1.66281 7.54659 1.6651 6.66668C1.66551 5.61452 1.95815 4.58325 2.51025 3.68838C3.06236 2.79352 3.85211 2.0704 4.79106 1.60002C5.57463 1.20331 6.4406 0.997725 7.31844 1.00002H7.65099C9.03729 1.07668 10.3467 1.66319 11.3284 2.64726C12.3102 3.63132 12.8953 4.94378 12.9718 6.33334V6.66668Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>35
-                                    </span>
-                                    <span>
-                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11.0443 7.00397C11.0443 8.43962 9.88694 9.59974 8.45466 9.59974C7.02238 9.59974 5.86499 8.43962 5.86499 7.00397C5.86499 5.56832 7.02238 4.4082 8.45466 4.4082C9.88694 4.4082 11.0443 5.56832 11.0443 7.00397Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M8.45466 13C11.0082 13 13.3881 11.4918 15.0446 8.88157C15.6956 7.85921 15.6956 6.14078 15.0446 5.11843C13.3881 2.50816 11.0082 1 8.45466 1C5.90115 1 3.52126 2.50816 1.86474 5.11843C1.21371 6.14078 1.21371 7.85921 1.86474 8.88157C3.52126 11.4918 5.90115 13 8.45466 13Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>234,5k
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="blog__grid-item">
-                    <div class="blog__item-10 white-bg transition-3 mb-30 fix">
-                        <div class="blog__thumb-10 w-img fix">
-                            <a href="blog-details.html">
-                                <img src="assets/site/img/blog/grid/blog-grid-6.jpg" alt="">
-                            </a>
-                            <div class="blog__tag-10">
-                                <a href="#">Architecture</a>
-                            </div>
-                        </div>
-                        <div class="blog__content-10">
-                            <div class="blog__content-10-top">
-                                <div class="blog__meta-10-wrapper d-flex align-items-center">
-                                    <div class="blog__meta-10 has-date">
-                                        <span>
-                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M7.5 14C11.0899 14 14 11.0899 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M7.5 3.59961V7.49961L10.1 8.79961" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg> January 22, 2022
-                                        </span>
-                                    </div>
-                                </div>
-                                <h3 class="blog__title-10">
-                                    <a href="blog-details.html">Never give in except convictions good sense</a>
-                                </h3>
 
-                                <p>Lorem ipsum is simply dummy text ipsum been dummy...</p>
-                            </div>
-                            <div class="blog__content-10-bottom d-flex align-items-center justify-content-between">
-                                <div class="blog__meta-author-10 d-flex align-items-center">
-                                    <div class="blog__meta-author-thumb-10">
-                                        <a href="#">
-                                            <img src="assets/site/img/users/user-6.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blog__meta-author-content-10">
-                                        <span>By<a href="#"> Sara</a></span>
-                                    </div>
-                                </div>
-                                <div class="blog__meta-10 blog-meta-10-2">
-                                    <span>
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12.9718 6.66668C12.9741 7.54659 12.769 8.4146 12.3732 9.20001C11.9039 10.1412 11.1825 10.9328 10.2897 11.4862C9.39697 12.0396 8.36813 12.3329 7.31844 12.3333C6.4406 12.3356 5.57463 12.13 4.79106 11.7333L1 13L2.26369 9.20001C1.86791 8.4146 1.66281 7.54659 1.6651 6.66668C1.66551 5.61452 1.95815 4.58325 2.51025 3.68838C3.06236 2.79352 3.85211 2.0704 4.79106 1.60002C5.57463 1.20331 6.4406 0.997725 7.31844 1.00002H7.65099C9.03729 1.07668 10.3467 1.66319 11.3284 2.64726C12.3102 3.63132 12.8953 4.94378 12.9718 6.33334V6.66668Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>35
-                                    </span>
-                                    <span>
-                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11.0443 7.00397C11.0443 8.43962 9.88694 9.59974 8.45466 9.59974C7.02238 9.59974 5.86499 8.43962 5.86499 7.00397C5.86499 5.56832 7.02238 4.4082 8.45466 4.4082C9.88694 4.4082 11.0443 5.56832 11.0443 7.00397Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M8.45466 13C11.0082 13 13.3881 11.4918 15.0446 8.88157C15.6956 7.85921 15.6956 6.14078 15.0446 5.11843C13.3881 2.50816 11.0082 1 8.45466 1C5.90115 1 3.52126 2.50816 1.86474 5.11843C1.21371 6.14078 1.21371 7.85921 1.86474 8.88157C3.52126 11.4918 5.90115 13 8.45466 13Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>234,5k
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="blog__grid-item">
-                    <div class="blog__item-10 white-bg transition-3 mb-30 fix">
-                        <div class="blog__thumb-10 w-img fix">
-                            <a href="blog-details.html">
-                                <img src="assets/site/img/blog/grid/blog-grid-7.jpg" alt="">
-                            </a>
-                            <div class="blog__tag-10">
-                                <a href="#">Design</a>
-                            </div>
-                        </div>
-                        <div class="blog__content-10">
-                            <div class="blog__content-10-top">
-                                <div class="blog__meta-10-wrapper d-flex align-items-center">
-                                    <div class="blog__meta-10 has-date">
-                                        <span>
-                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M7.5 14C11.0899 14 14 11.0899 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M7.5 3.59961V7.49961L10.1 8.79961" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg> January 22, 2022
-                                        </span>
-                                    </div>
-                                </div>
-                                <h3 class="blog__title-10">
-                                    <a href="blog-details.html">Investment trend monitor: Top trends in 2021</a>
-                                </h3>
-
-                                <p>Lorem ipsum is simply dummy text ipsum been dummy...</p>
-                            </div>
-                            <div class="blog__content-10-bottom d-flex align-items-center justify-content-between">
-                                <div class="blog__meta-author-10 d-flex align-items-center">
-                                    <div class="blog__meta-author-thumb-10">
-                                        <a href="#">
-                                            <img src="assets/site/img/users/user-7.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blog__meta-author-content-10">
-                                        <span>By<a href="#"> Lily</a></span>
-                                    </div>
-                                </div>
-                                <div class="blog__meta-10 blog-meta-10-2">
-                                    <span>
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12.9718 6.66668C12.9741 7.54659 12.769 8.4146 12.3732 9.20001C11.9039 10.1412 11.1825 10.9328 10.2897 11.4862C9.39697 12.0396 8.36813 12.3329 7.31844 12.3333C6.4406 12.3356 5.57463 12.13 4.79106 11.7333L1 13L2.26369 9.20001C1.86791 8.4146 1.66281 7.54659 1.6651 6.66668C1.66551 5.61452 1.95815 4.58325 2.51025 3.68838C3.06236 2.79352 3.85211 2.0704 4.79106 1.60002C5.57463 1.20331 6.4406 0.997725 7.31844 1.00002H7.65099C9.03729 1.07668 10.3467 1.66319 11.3284 2.64726C12.3102 3.63132 12.8953 4.94378 12.9718 6.33334V6.66668Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>35
-                                    </span>
-                                    <span>
-                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11.0443 7.00397C11.0443 8.43962 9.88694 9.59974 8.45466 9.59974C7.02238 9.59974 5.86499 8.43962 5.86499 7.00397C5.86499 5.56832 7.02238 4.4082 8.45466 4.4082C9.88694 4.4082 11.0443 5.56832 11.0443 7.00397Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M8.45466 13C11.0082 13 13.3881 11.4918 15.0446 8.88157C15.6956 7.85921 15.6956 6.14078 15.0446 5.11843C13.3881 2.50816 11.0082 1 8.45466 1C5.90115 1 3.52126 2.50816 1.86474 5.11843C1.21371 6.14078 1.21371 7.85921 1.86474 8.88157C3.52126 11.4918 5.90115 13 8.45466 13Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>234,5k
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="blog__grid-item">
-                    <div class="blog__item-10 white-bg transition-3 mb-30 fix">
-                        <div class="blog__thumb-10 w-img fix">
-                            <a href="blog-details.html">
-                                <img src="assets/site/img/blog/grid/blog-grid-8.jpg" alt="">
-                            </a>
-                            <div class="blog__tag-10">
-                                <a href="#">Travel</a>
-                            </div>
-                        </div>
-                        <div class="blog__content-10">
-                            <div class="blog__content-10-top">
-                                <div class="blog__meta-10-wrapper d-flex align-items-center">
-                                    <div class="blog__meta-10 has-date">
-                                        <span>
-                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M7.5 14C11.0899 14 14 11.0899 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M7.5 3.59961V7.49961L10.1 8.79961" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg> January 22, 2022
-                                        </span>
-                                    </div>
-                                </div>
-                                <h3 class="blog__title-10">
-                                    <a href="blog-details.html">Create a Landing Page That Performs Great</a>
-                                </h3>
-
-                                <p>Lorem ipsum is simply dummy text ipsum been dummy...</p>
-                            </div>
-                            <div class="blog__content-10-bottom d-flex align-items-center justify-content-between">
-                                <div class="blog__meta-author-10 d-flex align-items-center">
-                                    <div class="blog__meta-author-thumb-10">
-                                        <a href="#">
-                                            <img src="assets/site/img/users/user-8.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blog__meta-author-content-10">
-                                        <span>By<a href="#"> Kasam</a></span>
-                                    </div>
-                                </div>
-                                <div class="blog__meta-10 blog-meta-10-2">
-                                    <span>
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12.9718 6.66668C12.9741 7.54659 12.769 8.4146 12.3732 9.20001C11.9039 10.1412 11.1825 10.9328 10.2897 11.4862C9.39697 12.0396 8.36813 12.3329 7.31844 12.3333C6.4406 12.3356 5.57463 12.13 4.79106 11.7333L1 13L2.26369 9.20001C1.86791 8.4146 1.66281 7.54659 1.6651 6.66668C1.66551 5.61452 1.95815 4.58325 2.51025 3.68838C3.06236 2.79352 3.85211 2.0704 4.79106 1.60002C5.57463 1.20331 6.4406 0.997725 7.31844 1.00002H7.65099C9.03729 1.07668 10.3467 1.66319 11.3284 2.64726C12.3102 3.63132 12.8953 4.94378 12.9718 6.33334V6.66668Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>35
-                                    </span>
-                                    <span>
-                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11.0443 7.00397C11.0443 8.43962 9.88694 9.59974 8.45466 9.59974C7.02238 9.59974 5.86499 8.43962 5.86499 7.00397C5.86499 5.56832 7.02238 4.4082 8.45466 4.4082C9.88694 4.4082 11.0443 5.56832 11.0443 7.00397Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M8.45466 13C11.0082 13 13.3881 11.4918 15.0446 8.88157C15.6956 7.85921 15.6956 6.14078 15.0446 5.11843C13.3881 2.50816 11.0082 1 8.45466 1C5.90115 1 3.52126 2.50816 1.86474 5.11843C1.21371 6.14078 1.21371 7.85921 1.86474 8.88157C3.52126 11.4918 5.90115 13 8.45466 13Z"
-                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>234,5k
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="row">
             <div class="col-xxl-12">
-                <div class="tp-pagination mt-20">
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="blog.html" class="tp-pagination-prev prev page-numbers">
-                                    <svg width="16" height="11" viewBox="0 0 16 11" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6.17749 10.105L1.62499 5.55248L6.17749 0.999981" stroke="currentColor"
-                                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M14.3767 5.55249L1.75421 5.55249" stroke="currentColor"
-                                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                    Prev
-                                </a>
-                            </li>
-                            <li>
-                                <a href="blog.html">1</a>
-                            </li>
-                            <li>
-                                <span class="current">2</span>
-                            </li>
-                            <li>
-                                <a href="blog.html">3</a>
-                            </li>
-                            <li>
-                                <a href="blog.html" class="next page-numbers">
-                                    Next
-                                    <svg width="16" height="11" viewBox="0 0 16 11" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9.82422 1L14.3767 5.5525L9.82422 10.105" stroke="currentColor"
-                                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M1.625 5.55249H14.2475" stroke="currentColor" stroke-width="1.5"
-                                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                <pagination-controls (pageChange)="currentPage = $event" previousLabel="{{'prev' | translate}}"
+                    nextLabel="{{'next' | translate}}"></pagination-controls>
             </div>
         </div>
     </div>
