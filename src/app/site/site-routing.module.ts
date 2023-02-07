@@ -23,6 +23,8 @@ import { OfferDetailsPageComponent } from '../admin/pages/offers/offer-details-p
 import { ProviderGuard } from '../guards/provider.guard';
 import { SubscriberGuard } from '../guards/subscriber.guard';
 import { ProviderSubscriberGuard } from '../guards/provider-subscriber.guard';
+import { StaticPageComponent } from './pages/static-page/static-page.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -92,6 +94,11 @@ const routes: Routes = [
         path: 'offers/:id',
         component: OfferDetailsPageComponent,
       },
+      {
+        path: 'page/:pageName',
+        component: StaticPageComponent,
+      },
+      { path: '**', component: PageNotFoundComponent },
     ],
   },
 ];

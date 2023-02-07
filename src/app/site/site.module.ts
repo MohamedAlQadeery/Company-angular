@@ -29,6 +29,8 @@ import { OffersPageComponent } from './pages/offers/offers-page/offers-page.comp
 import { OffersDetailsComponent } from './pages/offers/offers-details/offers-details.component';
 import { OffersRowComponent } from './components/offers-row/offers-row.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { StaticPageComponent } from './pages/static-page/static-page.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -55,6 +57,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     OffersPageComponent,
     OffersDetailsComponent,
     OffersRowComponent,
+    StaticPageComponent,
+    PageNotFoundComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule, SlickCarouselModule],
 })
