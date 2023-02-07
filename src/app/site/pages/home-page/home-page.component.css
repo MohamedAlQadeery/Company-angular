@@ -16,9 +16,11 @@
 /* the slides */
 ::ng-deep .slick-slide {
   margin: 0 27px;
+  width: 270px !important;
 }
 
 /* the parent */
 ::ng-deep .slick-list {
   margin: 0 -27px;
+  max-height: 400px !important;
 }
