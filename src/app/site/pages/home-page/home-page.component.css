@@ -7,3 +7,18 @@
 .slider__form-input {
   width: 78%;
 }
+
+::ng-deep .elements__carousel .slick-dots li.slick-active button {
+  width: 0px !important;
+  background-color: #2f2e78 !important;
+}
+
+/* the slides */
+::ng-deep .slick-slide {
+  margin: 0 27px;
+}
+
+/* the parent */
+::ng-deep .slick-list {
+  margin: 0 -27px;
+}

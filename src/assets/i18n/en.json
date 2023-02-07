@@ -76,7 +76,7 @@
     "cta-section-content":"Take your business to the next level.",
     "new-account":"Create Account",
     "services-title":"Explore Services",
-    "services-content":"Services that we provide.",
+    "services-content":"Services we provide to improve your.",
     "profile-page-title":"Profile Page",
     "profile-page-content":"Here we display all your account details.",
     "account-info":"Account Info",
@@ -123,7 +123,10 @@
     "search":"Search",
     "service-name" :"Enter the name of the service",
     "what-they-think":"What they think",
-    "aboutus-1":"About us"    
+    "aboutus-1":"About us",
+    "project":"Project",
+    "view-all-services":"View All Services"
+
 
 
 

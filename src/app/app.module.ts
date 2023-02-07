@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
