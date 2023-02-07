@@ -15,6 +15,13 @@ export const environment = {
     teamMember: '/api/TeamMember',
     faq: '/api/Faq',
   },
+  images:{
+    small: '/Images/Thumbs/Small/',
+    med: '/Images/Thumbs/Med/',
+    big: '/Images/Thumbs/Big/',
+    team: '/Images/Thumbs/Team/',
+    origen: '/Images/',
+  }
 };
 
 /*

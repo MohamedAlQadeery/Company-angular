@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { TuiDialogService } from '@taiga-ui/core';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { CategoryService } from 'src/app/services/category.service';
 import { StaticPageService } from 'src/app/services/static-page.service';
 import { TeamMemberService } from 'src/app/services/team-member.service';
 import { ICategoryResponse } from 'src/app/shared/interfaces/CategoryDtos';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-team-member-list-page',
@@ -17,6 +18,8 @@ export class TeamMemberListPageComponent {
     private _teamMemberService: TeamMemberService,
     private _toastr: ToastrService
   ) {}
+  baseUrl = environment.baseURL;
+  imagePaths = environment.images; 
   staticPages$ = this._teamMemberService.GetAll();
 
   HandleOnDelete(id: number) {
