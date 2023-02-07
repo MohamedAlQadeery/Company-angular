@@ -25,6 +25,8 @@ import { SubscriberGuard } from '../guards/subscriber.guard';
 import { ProviderSubscriberGuard } from '../guards/provider-subscriber.guard';
 import { StaticPageComponent } from './pages/static-page/static-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { ArticlesListPageComponent } from './pages/blog/articles-list-page/articles-list-page.component';
+import { ArticleDetailsPageComponent } from './pages/blog/article-details-page/article-details-page.component';
 
 const routes: Routes = [
   {
@@ -97,6 +99,14 @@ const routes: Routes = [
       {
         path: 'page/:pageName',
         component: StaticPageComponent,
+      },
+      {
+        path: 'blog',
+        component: ArticlesListPageComponent,
+      },
+      {
+        path: 'blog/:id',
+        component: ArticleDetailsPageComponent,
       },
       { path: '**', component: PageNotFoundComponent },
     ],

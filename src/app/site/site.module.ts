@@ -31,6 +31,8 @@ import { OffersRowComponent } from './components/offers-row/offers-row.component
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { StaticPageComponent } from './pages/static-page/static-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { ArticlesListPageComponent } from './pages/blog/articles-list-page/articles-list-page.component';
+import { ArticleDetailsPageComponent } from './pages/blog/article-details-page/article-details-page.component';
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -59,6 +61,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     OffersRowComponent,
     StaticPageComponent,
     PageNotFoundComponent,
+    ArticlesListPageComponent,
+    ArticleDetailsPageComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule, SlickCarouselModule],
 })
