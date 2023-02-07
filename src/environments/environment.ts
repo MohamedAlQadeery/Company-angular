@@ -12,7 +12,16 @@ export const environment = {
     generalService: '/api/GeneralService',
     blog: '/api/Blog',
     article: '/api/Article',
+    teamMember: '/api/TeamMember',
+    faq: '/api/Faq',
   },
+  images:{
+    small: '/Images/Thumbs/Small/',
+    med: '/Images/Thumbs/Med/',
+    big: '/Images/Thumbs/Big/',
+    team: '/Images/Thumbs/Team/',
+    origen: '/Images/',
+  }
 };
 
 /*

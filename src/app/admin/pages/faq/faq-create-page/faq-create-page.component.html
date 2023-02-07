@@ -1,0 +1,42 @@
+<div class="card p-3">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="mb-3">Create Static Page</h3>
+
+        </div>
+        <div class="col-md-6 text-end">
+            <a routerLink="/admin/StaticPage" class="btn btn-secondary">Go Back</a>
+        </div>
+    </div>
+    <form [formGroup]="categoryFormGroup" class="mb-5" (ngSubmit)="HandleOnSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <app-input-field [control]="qENControl" label="question en"></app-input-field>
+                </div>
+
+                <div class="mb-3">
+                    <app-input-field [control]="aENControl" label="answer en"></app-input-field>
+                </div>
+
+                <div class="mb-3">
+                    <app-input-field [control]="qARControl" label="question ar"></app-input-field>
+                </div>
+
+                <div class="mb-3">
+                    <app-input-field [control]="aARControl" label="answer ar"></app-input-field>
+                </div>
+                <div class="mb-3">
+                    <app-input-field [control]="qTRControl" label="question tr"></app-input-field>
+                </div>
+
+                <div class="mb-3">
+                    <app-input-field [control]="aTRControl" label="answer tr"></app-input-field>
+                </div>
+
+                <button [disabled]="!categoryFormGroup.valid" type="submit" class="btn
+          btn-success">Create</button>
+            </div>
+        </div>
+    </form>
+</div>
