@@ -25,6 +25,9 @@ import { ServiceListComponent } from './pages/provider-service/service-list/serv
 import { StaticPageCreatePageComponent } from './pages/static-page/static-page-create-page/static-page-create-page.component';
 import { StaticPageEditPageComponent } from './pages/static-page/static-page-edit-page/static-page-edit-page.component';
 import { StaticPageListPageComponent } from './pages/static-page/static-page-list-page/static-page-list-page.component';
+import { GeneralServiceCreatePageComponent } from './pages/general-service/general-service-create-page/general-service-create-page.component';
+import { GeneralServiceEditPageComponent } from './pages/general-service/general-service-edit-page/general-service-edit-page.component';
+import { GeneralServiceListPageComponent } from './pages/general-service/general-service-list-page/general-service-list-page.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import { StaticPageListPageComponent } from './pages/static-page/static-page-lis
     StaticPageListPageComponent,
     StaticPageCreatePageComponent,
     StaticPageEditPageComponent,
+    GeneralServiceListPageComponent,
+    GeneralServiceCreatePageComponent,
+    GeneralServiceEditPageComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
