@@ -76,7 +76,7 @@
   "cta-section-content": "خذ عملك الى المستوى التالي.",
   "new-account": "إنشاء حساب",
   "services-title": "اكتشف الخدمات",
-  "services-content": "الخدمات التي نقدمها.",
+  "services-content": "الخدمات التي نقدمها لتطوير",
   "profile-page-title": "الصفحة الشخصية",
   "profile-page-content": "هنا نقوم بعرض جميع تفاصيل حسابك.",
   "account-info": "معلومات الحساب",
@@ -123,7 +123,9 @@
 "search":"بحث",
 "service-name" :"أدخل اسم الخدمة",
 "what-they-think":"ماذا يقولون عن",
-"aboutus-1":"شركتنا"
+"aboutus-1":"شركتنا",
+"project":"مشروعك",
+"view-all-services":"عرض جميع الخدمات"
 
 
 

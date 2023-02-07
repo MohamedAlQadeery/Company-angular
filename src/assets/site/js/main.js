@@ -476,6 +476,17 @@
 
       $(marker).css("height", totalWidth);
 
+      // // 14. Wow Js
+      new WOW().init();
+
+      // // 21. Counter Js
+      // new PureCounter();
+      // new PureCounter({
+      //   filesizing: true,
+      //   selector: ".filesizecount",
+      //   pulse: 2,
+      // });
+
       function anchorWidthCounter() {
         var anchorWidths = 0;
         var a;
