@@ -17,6 +17,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Image</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Created Date</th>
                                 <th scope="col">Update Date</th>
@@ -25,7 +26,8 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let staticPage of staticPages;let i=index">
-                                <th>{{i+1}}</th>
+                                <th>{{i+1}} </th>
+                                <td><img [src]="'https://localhost:7088/Images/Thumbs/Small/'+staticPage.image" alt=""></td>
                                 <td>{{staticPage.name}}</td>
                                 <td>{{staticPage.createdAt | date}}</td>
                                 <td>{{staticPage.updatedAt ?(staticPage.updatedAt | date) : 'Not Updated yet'}} </td>

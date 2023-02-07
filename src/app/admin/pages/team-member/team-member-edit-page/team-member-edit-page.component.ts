@@ -28,7 +28,7 @@ export class TeamMemberEditPageComponent implements OnInit {
   nameControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
   imageControl = new FormControl('', [Validators.required]);
-  imageFileControl = new FormControl(null, [Validators.required]);
+  imageFileControl = new FormControl(null);
 
   ngOnInit(): void {
     this.categoryFormGroup = new FormGroup({
