@@ -28,6 +28,12 @@ import { StaticPageListPageComponent } from './pages/static-page/static-page-lis
 import { GeneralServiceCreatePageComponent } from './pages/general-service/general-service-create-page/general-service-create-page.component';
 import { GeneralServiceEditPageComponent } from './pages/general-service/general-service-edit-page/general-service-edit-page.component';
 import { GeneralServiceListPageComponent } from './pages/general-service/general-service-list-page/general-service-list-page.component';
+import { ArticleCreatePageComponent } from './pages/article/article-create-page/article-create-page.component';
+import { ArticleEditPageComponent } from './pages/article/article-edit-page/article-edit-page.component';
+import { ArticleListPageComponent } from './pages/article/article-list-page/article-list-page.component';
+import { BlogCreatePageComponent } from './pages/blog/blog-create-page/blog-create-page.component';
+import { BlogEditPageComponent } from './pages/blog/blog-edit-page/blog-edit-page.component';
+import { BlogListPageComponent } from './pages/blog/blog-list-page/blog-list-page.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +62,12 @@ import { GeneralServiceListPageComponent } from './pages/general-service/general
     GeneralServiceListPageComponent,
     GeneralServiceCreatePageComponent,
     GeneralServiceEditPageComponent,
+    ArticleListPageComponent,
+    ArticleCreatePageComponent,
+    ArticleEditPageComponent,
+    BlogListPageComponent,
+    BlogCreatePageComponent,
+    BlogEditPageComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

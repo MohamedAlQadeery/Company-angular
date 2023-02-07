@@ -1,0 +1,32 @@
+<div class="card p-3">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="mb-3">Create Article</h3>
+
+        </div>
+        <div class="col-md-6 text-end">
+            <a routerLink="/admin/Article" class="btn btn-secondary">Go Back</a>
+        </div>
+    </div>
+    <form [formGroup]="categoryFormGroup" class="mb-5" (ngSubmit)="HandleOnSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <app-input-field [control]="nameControl" label="Title"></app-input-field>
+                </div>
+
+                <div class="mb-3">
+                    <app-input-field [control]="descriptionControl" label="Content"></app-input-field>
+                </div>
+
+                <div class="mb-3">
+                    <app-select-input [control]="blogIdControl" label="Blogs" [options]="blogs"></app-select-input>
+                </div>
+                
+
+                <button [disabled]="!categoryFormGroup.valid" type="submit" class="btn
+          btn-success">Create</button>
+            </div>
+        </div>
+    </form>
+</div>
