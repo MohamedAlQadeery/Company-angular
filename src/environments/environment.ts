@@ -10,6 +10,8 @@ export const environment = {
   endPoints: {
     staticPage: '/api/StaticPage',
     generalService: '/api/GeneralService',
+    blog: '/api/Blog',
+    article: '/api/Article',
   },
 };
 
