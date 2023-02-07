@@ -127,7 +127,9 @@
     "project":"Project",
     "view-all-services":"View All Services",
     "join-as-user":"Join as normal user",
-    "join-us":"Join us"
+    "join-us":"Join us",
+    "author":"Author",
+    "created-at":"Created At"
 
 
 

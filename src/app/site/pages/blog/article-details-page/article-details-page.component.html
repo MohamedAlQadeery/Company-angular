@@ -26,9 +26,41 @@
     <!-- breadcrumb area end -->
 
 
+
     <!-- event details area start -->
     <section class="event__details-area pt-120 pb-65">
         <div class="container">
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="postbox__main-wrapper">
+                        <div class="postbox__meta-wrapper d-flex align-items-center flex-wrap">
+                            <div class="postbox__meta-item mb-30">
+                                <div class="postbox__meta-author d-flex align-items-center">
+                                    <div class="postbox__meta-author-thumb">
+                                        <a routerLink="/">
+                                            <img src="assets/site/img/users/user-12.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="postbox__meta-content">
+                                        <span class="postbox__meta-type">{{'author'|translate}}</span>
+                                        <p class="postbox__meta-name">Admin</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="postbox__meta-item mb-30">
+                                <div class="postbox__meta-content">
+                                    <span class="postbox__meta-type">{{'created-at' | translate}}</span>
+                                    <p class="postbox__meta-name">{{post.createdAt | date}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
             <div class="row">
                 <div class="col-xl-12" [innerHTML]="post.content">
 
