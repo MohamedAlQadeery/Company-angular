@@ -17,7 +17,9 @@ export class CountryService {
 
   GetAllCountries() {
     return this._http.get<ICountryResponse[]>(`${this.baseUrl}/countries`, {
-      headers: { 'X-CSCAPI-KEY': this.countryApiKey },
+      headers: {
+        'X-CSCAPI-KEY': this.countryApiKey,
+      },
     });
   }
 

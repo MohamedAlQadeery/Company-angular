@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { TuiDay } from '@taiga-ui/cdk';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, map, switchMap, tap } from 'rxjs';
@@ -35,6 +36,33 @@ export class ProfileEditInfoPageComponent implements OnInit {
 
   //#endregion
 
+  editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: 'auto',
+    width: 'auto',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    defaultParagraphSeparator: 'p',
+    defaultFontName: 'Arial',
+    toolbarHiddenButtons: [['bold']],
+    customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText',
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ],
+  };
+
   //#region Observables
   categories$: Observable<{ id: number; name: string }[]>;
 
@@ -45,8 +73,8 @@ export class ProfileEditInfoPageComponent implements OnInit {
   //#region Provider FormControls
   companyNameControl = new FormControl('', [Validators.required]);
   categoryControl = new FormControl(1, [Validators.required]);
-  countryControl = new FormControl('', [Validators.required]);
-  cityControl = new FormControl('', [Validators.required]);
+  countryControl = new FormControl('');
+  cityControl = new FormControl('');
   addressControl = new FormControl('', [Validators.required]);
   googleLocationControl = new FormControl('', [Validators.required]);
   websiteControl = new FormControl('', [Validators.required]);

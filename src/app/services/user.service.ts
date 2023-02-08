@@ -52,4 +52,8 @@ export class UserService {
   GetCurrentUserCard() {
     return this._http.get<ICardResponse>(`${this.baseUrl}/card`);
   }
+
+  GetUserData(email: string) {
+    return this._http.get<IUserRespose>(`${this.baseUrl}/${email}`);
+  }
 }

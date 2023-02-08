@@ -7,11 +7,11 @@
             <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
                 <div class="features__icon-10">
                     <span>
-                        <!-- <img [src]="imagesUrl + '/'+provider.attachments[0].logo" alt=""> -->
+                        <img [src]="imagesUrl + '/'+provider.attachments[0].logo" alt="">
 
                     </span><br>
-                    <span>
-                        <!-- <img [src]="imagesUrl + '/'+provider.attachments[0].photo" alt=""> -->
+                    <span style="width: 347px; margin-left: -35px;">
+                        <img class="w-100" [src]="imagesUrl + '/'+provider.attachments[0].photo" alt="">
 
                     </span>
 
@@ -28,7 +28,8 @@
                         {{provider.discount}}%</h4>
 
                     <div class="features__btn-10 mt-md-4">
-                        <a [routerLink]="['/providers',provider.id]" class="tp-btn-border-9">{{'readmore' | translate}}
+                        <a [routerLink]="['/providers',provider.email]" class="tp-btn-border-9">{{'readmore' |
+                            translate}}
                             <i class="fa-regular fa-angle-right"></i></a>
                     </div>
                 </div>

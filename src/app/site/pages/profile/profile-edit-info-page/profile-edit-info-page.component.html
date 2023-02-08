@@ -188,8 +188,11 @@
                         <app-input-field [control]="phoneControl" label="{{'phone' | translate}}"></app-input-field>
                     </div>
                     <div class="col-md-12 mb-4">
-                        <app-text-area-input [control]="descrptionControl"
-                            label="{{'description' | translate}}"></app-text-area-input>
+                        <!-- <app-text-area-input [control]="descrptionControl"
+                            label="{{'description' | translate}}"></app-text-area-input> -->
+
+                        <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig"
+                            formControlName="description"></angular-editor>
                     </div>
 
 

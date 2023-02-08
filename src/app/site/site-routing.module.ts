@@ -115,7 +115,7 @@ const routes: Routes = [
         component: ProvidersPageComponent,
       },
       {
-        path: 'providers/:id',
+        path: 'providers/:email',
         component: ProviderDetailsPageComponent,
       },
       { path: '**', component: PageNotFoundComponent },
