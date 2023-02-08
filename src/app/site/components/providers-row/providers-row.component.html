@@ -1,0 +1,55 @@
+<ng-container *ngIf="providers.length > 0;else noServices">
+    <div class="row">
+
+
+        <div [ngClass]="itemsPerPage == 2 ? 'col-md-6': 'col-md-4'" class="col-12 "
+            *ngFor="let provider of providers | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage}">
+            <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+                <div class="features__icon-10">
+                    <span>
+                        <!-- <img [src]="imagesUrl + '/'+provider.attachments[0].logo" alt=""> -->
+
+                    </span><br>
+                    <span>
+                        <!-- <img [src]="imagesUrl + '/'+provider.attachments[0].photo" alt=""> -->
+
+                    </span>
+
+                </div>
+                <div class="features__content-10">
+                    <h3 class="features__title-10">{{provider.companyName}}</h3>
+
+                    <span class="fw-bold">{{'address'|translate}}</span><br>
+                    <span>{{provider.addressOne}}</span><br>
+                    <span class="fw-bold ms-md-1">{{'phone' | translate}}</span>
+                    <span>{{provider.phoneNumber}}</span><br>
+
+                    <h4 class="fw-bold text-primary mt-md-4">{{'discount' | translate}}
+                        {{provider.discount}}%</h4>
+
+                    <div class="features__btn-10 mt-md-4">
+                        <a [routerLink]="['/providers',provider.id]" class="tp-btn-border-9">{{'readmore' | translate}}
+                            <i class="fa-regular fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="text-center fs-5">
+        <pagination-controls (pageChange)="currentPage = $event" previousLabel="{{'prev' | translate}}"
+            nextLabel="{{'next' | translate}}"></pagination-controls>
+    </div>
+</ng-container>
+
+
+<ng-template #noServices>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3 class="text-danger">{{'no-providers' | translate}}</h3>
+        </div>
+    </div>
+</ng-template>

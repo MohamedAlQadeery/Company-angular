@@ -36,11 +36,19 @@ export class ProviderService {
     return this._http.post<IProviderResponse>(`${this.baseUrl}/register`, data);
   }
 
-  GetNotActiveProvider(){
-    return this._http.get<IProviderResponse[]>(`${this.baseUrl2}?RoleName=provider&&isactive=false`);
+  GetNotActiveProvider() {
+    return this._http.get<IProviderResponse[]>(
+      `${this.baseUrl2}?RoleName=provider&&isactive=false`
+    );
   }
 
-  ActiveProvider(userEmail : string){
+  ActiveProvider(userEmail: string) {
     return this._http.get(`${this.baseUrl2}/Approve/Provider/${userEmail}`);
+  }
+
+  GetAllProviders() {
+    return this._http.get<IProviderResponse[]>(
+      `${this.baseUrl2}?RoleName=provider&&isactive=true`
+    );
   }
 }

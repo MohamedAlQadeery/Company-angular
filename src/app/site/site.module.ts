@@ -33,6 +33,9 @@ import { StaticPageComponent } from './pages/static-page/static-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ArticlesListPageComponent } from './pages/blog/articles-list-page/articles-list-page.component';
 import { ArticleDetailsPageComponent } from './pages/blog/article-details-page/article-details-page.component';
+import { ProvidersPageComponent } from './pages/providers/providers-page/providers-page.component';
+import { ProviderDetailsPageComponent } from './pages/providers/provider-details-page/provider-details-page.component';
+import { ProvidersRowComponent } from './components/providers-row/providers-row.component';
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -63,6 +66,9 @@ import { ArticleDetailsPageComponent } from './pages/blog/article-details-page/a
     PageNotFoundComponent,
     ArticlesListPageComponent,
     ArticleDetailsPageComponent,
+    ProvidersPageComponent,
+    ProviderDetailsPageComponent,
+    ProvidersRowComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule, SlickCarouselModule],
 })

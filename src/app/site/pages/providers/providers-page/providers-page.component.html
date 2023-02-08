@@ -1,0 +1,90 @@
+<!-- breadcrumb area start -->
+<section class="breadcrumb__area breadcrumb__style-7 breadcrumb__bg-3 p-relative z-index-1 include-bg pt-180 pb-100">
+    <div class="breadcrumb__bg-shape include-bg" data-background="assets/img/breadcrumb/breadcrumb-shape-1.png"></div>
+    <div class="breadcrumb__shape">
+        <img class="breadcrumb__shape-1" src="assets/site/img/breadcrumb/breadcrumb-dot-1.png" alt="">
+        <img class="breadcrumb__shape-2" src="assets/site/img/breadcrumb/breadcrumb-dot-2.png" alt="">
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class=" col-xl-8 col-lg-9">
+                <div class="breadcrumb__content breadcrumb__content-2 p-relative z-index-1 text-center">
+                    <h3 class="breadcrumb__title ">{{'providers-title-page'|translate}}</h3>
+                    <div class="breadcrumb__list mt-md-4">
+                        <span><a routerLink="/">{{'home' | translate}}</a></span>
+                        <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
+                        <span>{{'providers'|translate}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb area end -->
+
+
+<section class="services__area mb-md-5" *ngIf="loadingFinished;else loadingProviders">
+    <div class="section-wrapper pt-110 pb-60">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-8 col-xl-8 col-lg-10">
+                    <div class="services__section-title-5">
+                        <div class="section__title-wrapper-5 mb-50 text-center">
+                            <span class="section__title-pre-5">{{'providers-subtitle' | translate}}</span>
+                            <h3 class="section__title-5">{{'providers' | translate}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form [formGroup]="searchFormGroup" (ngSubmit)="HandleSearch()">
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <app-input-field [hasStarSymbol]="false" [control]="searchControl"
+                            label="{{'keyword-search'|translate}}"></app-input-field>
+                    </div>
+                    <div class="col-md-3">
+                        <ng-container *ngIf="categories$ |async as categories;else loadingCategories">
+                            <app-select-input [control]="categoryControl" [hasStarSymbol]="false"
+                                label="{{'category' | translate}}" [options]="categories"></app-select-input>
+                        </ng-container>
+
+                        <ng-template #loadingCategories>
+                            <p class="text-danger">{{'loading-categories' | translate}}</p>
+                        </ng-template>
+
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn-lg mt-10 btn-info b">{{'search' | translate}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <app-providers-row [providers]="providers" [itemsPerPage]="6"></app-providers-row>
+    </div>
+
+</section>
+
+
+<ng-template #loadingProviders>
+    <section class="services__area mb-md-5">
+        <div class="section-wrapper pt-110 pb-60">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-8 col-xl-8 col-lg-10">
+                        <div class="services__section-title-5">
+                            <div class="section__title-wrapper-5 mb-50 text-center">
+                                <h3 class="section__title-5">{{'loading-providers' | translate}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+</ng-template>

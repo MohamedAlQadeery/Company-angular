@@ -27,6 +27,8 @@ import { StaticPageComponent } from './pages/static-page/static-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ArticlesListPageComponent } from './pages/blog/articles-list-page/articles-list-page.component';
 import { ArticleDetailsPageComponent } from './pages/blog/article-details-page/article-details-page.component';
+import { ProvidersPageComponent } from './pages/providers/providers-page/providers-page.component';
+import { ProviderDetailsPageComponent } from './pages/providers/provider-details-page/provider-details-page.component';
 
 const routes: Routes = [
   {
@@ -107,6 +109,14 @@ const routes: Routes = [
       {
         path: 'blog/:id',
         component: ArticleDetailsPageComponent,
+      },
+      {
+        path: 'providers',
+        component: ProvidersPageComponent,
+      },
+      {
+        path: 'providers/:id',
+        component: ProviderDetailsPageComponent,
       },
       { path: '**', component: PageNotFoundComponent },
     ],
