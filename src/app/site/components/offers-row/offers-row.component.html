@@ -1,8 +1,9 @@
 <ng-container *ngIf="offers.length > 0;else NoOffers">
     <div class="row">
-        <div class=" col-12 col-md-6 mb-sm-4"
+        <div class=" col-12 "
             *ngFor="let offer of offers | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage}">
-            <div class="portfolio__item-3 transition-3 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+            <div class="portfolio__item-3 transition-3 wow fadeInUp mb-md-3" data-wow-delay=".3s"
+                data-wow-duration="1s">
                 <!-- data-background="assets/site/img/portfolio/3/portfolio-1.jpg" -->
                 <div class="portfolio__thumb-3 w-img"
                     [style.backgroundImage]="'url(' + imagesUrl + '/' + offer.attachments.photo + ')'">
@@ -14,7 +15,7 @@
                     <h3 class="portfolio__title-3">
                         <a [routerLink]="['/offers',offer.id]">{{offer.applicationUser.companyName}}</a>
                     </h3>
-                    <div class="portfolio__meta-3 transition-3">
+                    <!-- <div class="portfolio__meta-3 transition-3">
                         <span>
                             <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +74,7 @@
                             </svg>
                             {{offer.applicationUser.phoneNumber}}
                         </span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

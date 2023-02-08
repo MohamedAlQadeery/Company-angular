@@ -105,7 +105,7 @@
     "add-offer":"Add Offer",
     "add-offer-title" :"Add New Offer Page",
     "add-offer-success":"Offer is added successfully! Waiting for admin to approve it.",
-    "no-offers":"No offers were added yet",
+    "no-offers":"No offers were found yet",
     "no-services":"No services were addet yet",
     "offers-title":"Our Providers offers",
     "loading-offer":"Loading offer data",
@@ -129,7 +129,9 @@
     "join-as-user":"Join as normal user",
     "join-us":"Join us",
     "author":"Author",
-    "created-at":"Created At"
+    "created-at":"Created At",
+    "categories":"Categories",
+    "keyword-search":"Enter your keywords..."
 
 
 

@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./offers-row.component.css'],
 })
 export class OffersRowComponent {
-  imagesUrl = `${environment.baseURL}/images/thumbs/med`;
+  imagesUrl = `${environment.baseURL}/images/thumbs/big`;
   currentPage = 1;
   @Input() offers: IOfferResponse[];
   @Input() itemsPerPage = 2;
