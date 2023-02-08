@@ -27,7 +27,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { TuiTextAreaModule } from '@taiga-ui/kit';
 import { TextAreaInputComponent } from './components/text-area-input/text-area-input.component';
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
-
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -71,6 +72,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgSelectModule,
     TuiTextAreaModule,
     NgxPaginationModule,
+    EditorModule,
+    AngularEditorModule,
   ],
   exports: [
     TranslateModule,
@@ -95,6 +98,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SearchSelectInputComponent,
     TextAreaInputComponent,
     NgxPaginationModule,
+    EditorModule,
+    AngularEditorModule,
   ],
 })
 export class SharedModule {}

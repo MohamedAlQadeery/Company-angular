@@ -11,4 +11,8 @@ export class StaticPageService extends BaseService<StaticPage> {
   constructor(_http: HttpClient) {
     super(_http, environment.endPoints.staticPage);
   }
+
+  GetPageByName(pageName: string) {
+    return this._http.get<StaticPage>(`${this.baseUrl}/search/${pageName}`);
+  }
 }

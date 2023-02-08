@@ -54,11 +54,17 @@ const routes: Routes = [
       { path: 'offers/:id', component: OfferDetailsPageComponent },
       { path: 'services', component: ServiceListComponent },
       { path: 'StaticPage', component: StaticPageListPageComponent },
-      { path: 'StaticPage/create', component: StaticPageCreatePageComponent },
+      // { path: 'StaticPage/create', component: StaticPageCreatePageComponent },
       { path: 'StaticPage/edit/:id', component: StaticPageEditPageComponent },
       { path: 'GeneralService', component: GeneralServiceListPageComponent },
-      { path: 'GeneralService/create', component: GeneralServiceCreatePageComponent },
-      { path: 'GeneralService/edit/:id', component: GeneralServiceEditPageComponent },
+      {
+        path: 'GeneralService/create',
+        component: GeneralServiceCreatePageComponent,
+      },
+      {
+        path: 'GeneralService/edit/:id',
+        component: GeneralServiceEditPageComponent,
+      },
       { path: 'Article', component: ArticleListPageComponent },
       { path: 'Article/create', component: ArticleCreatePageComponent },
       { path: 'Article/edit/:id', component: ArticleEditPageComponent },
@@ -71,7 +77,6 @@ const routes: Routes = [
       { path: 'Faq', component: FaqListPageComponent },
       { path: 'Faq/create', component: FaqCreatePageComponent },
       { path: 'Faq/edit/:id', component: FaqEditPageComponent },
-
     ],
   },
 ];
