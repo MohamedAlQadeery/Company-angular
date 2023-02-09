@@ -2,7 +2,9 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { LangService } from 'src/app/services/language.service';
 import { PlanService } from 'src/app/services/plan.service';
+import { TeamMemberService } from 'src/app/services/team-member.service';
 import { IPlanResponse } from 'src/app/shared/interfaces/PlanDtos';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home-page',
@@ -12,11 +14,13 @@ import { IPlanResponse } from 'src/app/shared/interfaces/PlanDtos';
 export class HomePageComponent implements OnInit {
   constructor(
     private _langService: LangService,
-    private _planService: PlanService
+    private _planService: PlanService,
+    private _teamService: TeamMemberService
   ) {}
 
   lang$ = this._langService.currentLang$;
-
+  teamImageUrl = environment.baseURL + environment.images.med;
+  teamMembers$ = this._teamService.GetAll();
   teamSliderConfig = {
     autoplay: false,
     autoplaySpeed: 4000,

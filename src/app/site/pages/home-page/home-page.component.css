@@ -24,3 +24,7 @@
   margin: 0 -27px;
   max-height: 400px !important;
 }
+
+.pricing-content-dir {
+  text-align: initial !important;
+}
