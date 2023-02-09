@@ -1,0 +1,66 @@
+/* .card-front {
+  background-image: url(/assets/site/cards/card-front-2.jpg);
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-back {
+  background-image: url(/assets/site/cards/card-back.jpg);
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.card-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.card-name {
+  position: absolute;
+  bottom: 73px;
+  left: 35px;
+  font-size: 2em;
+  font-weight: bold;
+}
+.card-number {
+  position: absolute;
+  bottom: 45px;
+  left: 35px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.card-date {
+  position: absolute;
+  bottom: 25px;
+  left: 35px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -8,6 +8,7 @@ import {
 } from '../shared/interfaces/UsersDto';
 import { AuthService } from './auth.service';
 import { ICardResponse } from '../shared/interfaces/CardDtos';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -50,7 +51,24 @@ export class UserService {
   }
 
   GetCurrentUserCard() {
-    return this._http.get<ICardResponse>(`${this.baseUrl}/card`);
+    return this._http.get<ICardResponse>(`${this.baseUrl}/card`).pipe(
+      map((res) => {
+        const formatCardNumber = res.cardNumber.match(/.{1,4}/g)?.join('-');
+
+        const expirationDate = new Date(res.expirationDate);
+
+        const formatedDate = expirationDate.toLocaleDateString('en-US', {
+          month: '2-digit',
+          year: '2-digit',
+        });
+
+        return {
+          ...res,
+          cardNumber: formatCardNumber,
+          expirationDate: formatedDate,
+        };
+      })
+    );
   }
 
   GetUserData(email: string) {

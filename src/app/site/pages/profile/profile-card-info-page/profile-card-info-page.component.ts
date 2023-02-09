@@ -9,7 +9,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfileCardInfoPageComponent {
   constructor(private _userService: UserService) {}
-  card$ = this._userService
-    .GetCurrentUserCard()
-    .pipe(tap((res) => console.log(res)));
+  card$ = this._userService.GetCurrentUserCard().pipe(
+    tap((res) => {
+      console.log(res);
+    })
+  );
 }
