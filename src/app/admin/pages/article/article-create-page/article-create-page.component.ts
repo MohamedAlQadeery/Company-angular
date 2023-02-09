@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { ToastrService } from 'ngx-toastr';
+import { Observable, map } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
 import { BlogService } from 'src/app/services/blog.service';
 import { CategoryService } from 'src/app/services/category.service';
@@ -19,19 +21,46 @@ export class ArticleCreatePageComponent implements OnInit {
     private _router: Router,
     private _toastr: ToastrService
   ) {}
-  blogs: { id: number; name: string }[] = [];
   categoryFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
   blogIdControl = new FormControl(null, [Validators.required]);
-  ngOnInit(): void {
-    this._blogService.GetAll().subscribe({
-      next: (res) => {
-        res.map(({ id, title }) => {
-          this.blogs.push({ id: id, name: title });
-        });
+
+  editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: 'auto',
+    width: 'auto',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    defaultParagraphSeparator: 'p',
+    defaultFontName: 'Arial',
+    toolbarHiddenButtons: [['bold']],
+    customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
       },
-    });
+      {
+        name: 'redText',
+        class: 'redText',
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ],
+  };
+
+  blogs$: Observable<{ id: number | string; name: string }[]>;
+
+  ngOnInit(): void {
+    this.blogs$ = this._blogService.GetAll().pipe(
+      map((res) => {
+        return res.map((c) => ({ id: c.id, name: c.title }));
+      })
+    );
 
     this.categoryFormGroup = new FormGroup({
       title: this.nameControl,

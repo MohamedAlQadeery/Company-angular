@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { ToastrService } from 'ngx-toastr';
-import { Observable, switchMap, tap } from 'rxjs';
+import { Observable, map, switchMap, tap } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
 import { BlogService } from 'src/app/services/blog.service';
 import { StaticPageService } from 'src/app/services/static-page.service';
@@ -25,20 +26,40 @@ export class ArticleEditPageComponent implements OnInit {
   ) {}
   category$: Observable<Article>;
   categoryId: number;
-  blogs: { id: number; name: string }[] = [];
 
+  editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: 'auto',
+    width: 'auto',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    defaultParagraphSeparator: 'p',
+    defaultFontName: 'Arial',
+    toolbarHiddenButtons: [['bold']],
+    customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText',
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ],
+  };
+
+  blogs$: Observable<{ id: number | string; name: string }[]>;
   categoryFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
   blogIdControl = new FormControl(0, [Validators.required]);
   ngOnInit(): void {
-    this._blogService.GetAll().subscribe({
-      next: (res) => {
-        res.map(({ id, title }) => {
-          this.blogs.push({ id: id, name: title });
-        });
-      },
-    });
     this.categoryFormGroup = new FormGroup({
       id: new FormControl(null),
       title: this.nameControl,
@@ -50,8 +71,15 @@ export class ArticleEditPageComponent implements OnInit {
       this.categoryId = +para.get('id')!;
     });
 
+    this.blogs$ = this._blogService.GetAll().pipe(
+      map((res) => {
+        return res.map((c) => ({ id: c.id, name: c.title }));
+      })
+    );
+
     this.category$ = this._articleService.GetById(this.categoryId).pipe(
       tap((cat) => {
+        console.log(cat);
         this.nameControl.setValue(cat.title);
         this.descriptionControl.setValue(cat.content);
         this.blogIdControl.setValue(cat.blogId);
