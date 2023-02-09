@@ -524,6 +524,225 @@
 <!-- brand area end -->
 
 
+<!-- Pricing start -->
+<!-- breadcrumb area start -->
+<section class="breadcrumb__area breadcrumb__style-7 breadcrumb__bg-3 p-relative z-index-1 include-bg pt-180 pb-100">
+    <div style="background-color: #171871;" class="breadcrumb__bg-shape include-bg"
+        data-background="assets/img/breadcrumb/breadcrumb-shape-1.png"></div>
+    <div class="breadcrumb__shape">
+        <img class="breadcrumb__shape-1" src="assets/site/img/breadcrumb/breadcrumb-dot-1.png" alt="">
+        <img class="breadcrumb__shape-2" src="assets/site/img/breadcrumb/breadcrumb-dot-2.png" alt="">
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class=" col-xl-8 col-lg-9">
+                <div class="breadcrumb__content breadcrumb__content-2 p-relative z-index-1 text-center">
+                    <h3 class="breadcrumb__title">{{'pricing-title'|translate}}</h3>
+                    <!-- <div class="breadcrumb__list">
+                        <span><a routerLink="/">{{'home' | translate}}</a></span>
+                        <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
+                        <span>{{'pricing'|translate}}</span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb area end -->
+
+<ng-container *ngIf="plans$ | async;else loading">
+    <!-- pricing area start -->
+    <section class="pricing__area p-relative z-index-1 black-bg-5 pt-110 pb-120">
+        <div class="pricing__shape">
+            <img class="pricing__shape-1" src="assets/img/price/price-shape-1.png" alt="">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-6">
+                    <div class="section__title-wrapper-3 text-center mb-60">
+                        <span class="section__title-pre-3 has-center fs-2 mb-4">{{'providers' | translate}}</span>
+                        <h3 class="section__title-3 has-gradient">{{'pricing-plan-subtitle' | translate}} </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="providerPlans.length > 0;else emptyProviderPlans">
+                <div class="col-lg-12 col-md-6" *ngFor="let plan of providerPlans">
+                    <div class="pricing__item mb-20 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                        <div class="row align-items-center">
+                            <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                <div class="pricing__content pricing-content-dir text-center text-lg-start">
+                                    <div class="pricing__category">
+                                        <span>{{plan.name}}</span>
+                                    </div>
+                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency"> USD</span>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6">
+                                <div class="pricing__feature d-lg-flex align-items-center justify-content-between">
+                                    <div class="pricing__feature-left">
+                                        <ul>
+                                            <li> {{'add' |translate}} {{plan.servicePerMonth}} {{'service-per-month'
+                                                |translate}}</li>
+                                            <!-- <li>24 hours turnaround</li> -->
+                                        </ul>
+                                    </div>
+                                    <div class="pricing__feature-right">
+                                        <ul>
+                                            <li>{{'add' |translate}} {{plan.offerPerMonth}} {{'offer-per-month'
+                                                |translate}}</li>
+                                            <!-- <li class="has-denied">All photos delivered on usb</li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                <div class="pricing__btn text-center ">
+                                    <a routerLink="/join-provider" class="tp-btn-border-3">{{'choose-plan' |
+                                        translate}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <ng-template #emptyProviderPlans>
+                <div class="row justify-content-center">
+                    <div class="col-md-7">
+                        <h3 class="text-danger">No Plans Added Yet</h3>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </section>
+    <!-- pricing area end -->
+    <!-- pricing area start -->
+    <section class="pricing__area p-relative z-index-1 blue-bg pt-110 pb-120">
+        <div class="pricing__shape">
+            <img class="pricing__shape-1" src="assets/img/price/price-shape-1.png" alt="">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-6">
+                    <div class="section__title-wrapper-3 text-center mb-60">
+                        <span class="section__title-pre-3 has-center fs-2 mb-4">{{'subsrcibers' | translate}}</span>
+                        <h3 class="section__title-3 has-gradient">{{'pricing-plan-subtitle' | translate}} </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-6" *ngFor="let plan of subsriberPlans">
+                    <div class="pricing__item mb-20 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                        <div class="row align-items-center">
+                            <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                <div class="pricing__content pricing-content-dir text-center text-lg-start">
+                                    <div class="pricing__category">
+                                        <span>{{plan.name}}</span>
+                                    </div>
+                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency"> USD</span>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6">
+                                <div class="pricing__feature d-lg-flex align-items-center justify-content-between">
+                                    <div class="pricing__feature-left">
+                                        <ul>
+                                            <li> {{'add' |translate}} {{plan.servicePerMonth}} {{'service-per-month'
+                                                |translate}}</li>
+                                            <!-- <li>24 hours turnaround</li> -->
+                                        </ul>
+                                    </div>
+                                    <div class="pricing__feature-right">
+                                        <ul>
+                                            <li>{{'add' |translate}} {{plan.offerPerMonth}} {{'offer-per-month'
+                                                |translate}}</li>
+                                            <!-- <li class="has-denied">All photos delivered on usb</li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                <div class="pricing__btn text-center ">
+                                    <a routerLink="/join-subscriber" class="tp-btn-border-3">{{'choose-plan'
+                                        |translate}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- pricing area end -->
+    <section class="pricing__area p-relative z-index-1 bg-secondary pt-110 pb-120">
+        <div class="pricing__shape">
+            <img class="pricing__shape-1" src="assets/img/price/price-shape-1.png" alt="">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-6">
+                    <div class="section__title-wrapper-3 text-center mb-60">
+                        <span class="section__title-pre-3 has-center fs-2 mb-4">{{'users' | translate}}</span>
+                        <h3 class="section__title-3 has-gradient">{{'pricing-plan-subtitle' | translate}} </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-6" *ngFor="let plan of userPlans">
+                    <div class="bg-dark pricing__item mb-20 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                        <div class="row align-items-center">
+                            <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                <div class="pricing__content pricing-content-dir text-center text-lg-start">
+                                    <div class="pricing__category">
+                                        <span>{{plan.name}}</span>
+                                    </div>
+                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency"> USD</span>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6">
+                                <div class="pricing__feature d-lg-flex align-items-center justify-content-between">
+                                    <div class="pricing__feature-left">
+                                        <ul>
+                                            <li> {{'add' |translate}} {{plan.servicePerMonth}} {{'service-per-month'
+                                                |translate}}</li>
+                                            <!-- <li>24 hours turnaround</li> -->
+                                        </ul>
+                                    </div>
+                                    <div class="pricing__feature-right">
+                                        <ul>
+                                            <li>{{'add' |translate}} {{plan.offerPerMonth}} {{'offer-per-month'
+                                                |translate}}</li>
+                                            <!-- <li class="has-denied">All photos delivered on usb</li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                <div class="pricing__btn text-center ">
+                                    <a routerLink="/join-subscriber" class="tp-btn-border-3">{{'choose-plan' |
+                                        translate}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- pricing area end -->
+</ng-container>
+
+<ng-template #loading>
+    <p class="text-danger">Getting plans ....</p>
+</ng-template>
+
+<!-- Pricing End -->
 <!-- faq area start -->
 <section class="faq__area pb-120">
     <div class="container">

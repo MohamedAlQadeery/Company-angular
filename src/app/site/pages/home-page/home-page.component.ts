@@ -1,14 +1,19 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { LangService } from 'src/app/services/language.service';
+import { PlanService } from 'src/app/services/plan.service';
+import { IPlanResponse } from 'src/app/shared/interfaces/PlanDtos';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
 })
-export class HomePageComponent {
-  constructor(private _langService: LangService) {}
+export class HomePageComponent implements OnInit {
+  constructor(
+    private _langService: LangService,
+    private _planService: PlanService
+  ) {}
 
   lang$ = this._langService.currentLang$;
 
@@ -54,4 +59,22 @@ export class HomePageComponent {
       },
     ],
   };
+
+  //#region Pricing
+  userPlans: IPlanResponse[] = [];
+  subsriberPlans: IPlanResponse[] = [];
+  providerPlans: IPlanResponse[] = [];
+  plans$: Observable<IPlanResponse[]>;
+
+  //#endregion
+
+  ngOnInit(): void {
+    this.plans$ = this._planService.GetAllPlans().pipe(
+      tap((res) => {
+        this.userPlans = res.filter((p) => p.planType == 1);
+        this.subsriberPlans = res.filter((p) => p.planType == 2);
+        this.providerPlans = res.filter((p) => p.planType == 3);
+      })
+    );
+  }
 }
