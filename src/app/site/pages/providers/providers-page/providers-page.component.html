@@ -63,7 +63,11 @@
     </div>
 
     <div class="container">
-        <app-providers-row [providers]="providers" [itemsPerPage]="6"></app-providers-row>
+        <ng-container *ngIf="lang$ | async as lang">
+
+            <app-providers-row [providers]="providers" [itemsPerPage]="6" [isRtl]="lang =='ar'"></app-providers-row>
+        </ng-container>
+
     </div>
 
 </section>

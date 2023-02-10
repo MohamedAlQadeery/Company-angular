@@ -10,7 +10,8 @@
                         <img [src]="imagesUrl + '/'+provider.attachments[0].logo" alt="">
 
                     </span><br>
-                    <span style="width: 347px; margin-left: -35px;">
+                    <span style="width: 347px;"
+                        [ngStyle]="{'margin-left': !isRtl ? '-35px' : '0px','margin-right': !isRtl ? '0px' : '-35px'}">
                         <img class="w-100" [src]="imagesUrl + '/'+provider.attachments[0].photo" alt="">
 
                     </span>

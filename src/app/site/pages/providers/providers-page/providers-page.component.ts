@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, map, tap } from 'rxjs';
 import { CategoryService } from 'src/app/services/category.service';
+import { LangService } from 'src/app/services/language.service';
 import { ProviderService } from 'src/app/services/provider.service';
 import { IProviderResponse } from 'src/app/shared/interfaces/UsersDto';
 import { environment } from 'src/environments/environment';
@@ -14,7 +15,8 @@ import { environment } from 'src/environments/environment';
 export class ProvidersPageComponent implements OnInit {
   constructor(
     private _providerService: ProviderService,
-    private _categoryService: CategoryService
+    private _categoryService: CategoryService,
+    private _langService: LangService
   ) {}
 
   imagesUrl = `${environment.baseURL}/images/thumbs/small`;
@@ -30,7 +32,7 @@ export class ProvidersPageComponent implements OnInit {
 
   //#region observables
   categories$: Observable<{ id: number; name: string }[]>;
-
+  lang$ = this._langService.currentLang$;
   //#endregion
 
   ngOnInit(): void {

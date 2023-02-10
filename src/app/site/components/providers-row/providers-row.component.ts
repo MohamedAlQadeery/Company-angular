@@ -13,4 +13,5 @@ export class ProvidersRowComponent {
   currentPage = 1;
   @Input() providers: IProviderResponse[];
   @Input() itemsPerPage = 2;
+  @Input() isRtl = false;
 }
