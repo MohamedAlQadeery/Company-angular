@@ -121,7 +121,28 @@
 "our-services":"Hizmetlerimiz",
 "our-blog":"Blogumuz",
 "search":"Arama",
-"service-name" :"Servis ismi girin"
+"service-name" :"Servis ismi girin",
+"author": "Yazar",
+"created-at": "Oluşturuldu",
+"categories": "Kategoriler",
+"keyword-search": "Anahtar kelime girin...",
+"read-more": "Devamını oku",
+"select-pleace": "Lütfen seçin",
+"loading-blogs": "Bloglar Yükleniyor",
+"our": "Bizim",
+"team": "Takım",
+"user-signup-page": "Normal Kullanıcı Kayıt Sayfası",
+"user-signup-heading": "Size en uygun olanı seçin",
+"providers-title-page": "Sağlayıcılarımız",
+"providers-subtitle": "Sağlayıcılarımızı görüntüleyebilirsiniz",
+"years": "Yıllar",
+"experince": "Deneyim",
+"experts": "Uzmanlar",
+"aboutus-content": "Sağlık planınızı yönetmenize yardımcı olacak ve üyelerimize en iyi şekilde yardım etmenizi sağlayacak bilgiye sahip olmanızı sağlayacak, 24/7 ücretsiz olarak kullanabileceğiniz kendinize göre eğitimli eğitim seansları ve kursların kütüphanesini kullanın.",
+"404-title":"Üzgünüz! Sayfa bulunamadı",
+"404-content":"Üzgünüz, bu utanç verici. Arama yapmak istediğiniz sayfa bulunamadı.",
+"404-btn":"Ana Sayfaya Dön"
+
 
 
 

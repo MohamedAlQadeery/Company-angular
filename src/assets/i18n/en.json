@@ -140,7 +140,15 @@
     "user-signup-page":"Normal User Signup page",
     "user-signup-heading":"Choose a plan that's right for you",
     "providers-title-page" : "Our Providers",
-    "providers-subtitle":"Here you can browse our providers"
+    "providers-subtitle":"Here you can browse our providers",
+    "years":"Years",
+    "experince":"Experince",
+    "experts":"Experts",
+    "aboutus-content":"Use our library of self-paced courses and instructor-led training sessions, available 24/7 at no cost. These learning opportunities will assist you in administering your patient’s health plan and provide you with the knowledge to best assist our members.",
+    "404-title":"Oops! Page not found",
+    "404-content":"Whoops, this is embarassing. Looks like the page you were looking for wasn't found.",
+    "404-btn":"Back To Home"
+
 
 
 
