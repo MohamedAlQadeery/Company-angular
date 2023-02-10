@@ -151,7 +151,7 @@ export class ProfileEditInfoPageComponent implements OnInit {
           this.websiteControl.setValue(res.website);
           this.phoneControl.setValue(res.phoneNumber);
           this.descrptionControl.setValue(res.description);
-        } else if (this.userRole == 'subscriber') {
+        } else {
           this.sFirstNameControl.setValue(res.firstName);
           this.sMidNameControl.setValue(res.middleName);
           this.sLastNameControl.setValue(res.lastName);
@@ -173,7 +173,7 @@ export class ProfileEditInfoPageComponent implements OnInit {
   }
 
   initFormGroup() {
-    if (this.userRole == 'subscriber') {
+    if (this.userRole != 'provider') {
       // user is subscriber
       this.profileFormGroup = new FormGroup({
         firstName: this.sFirstNameControl,
@@ -224,7 +224,7 @@ export class ProfileEditInfoPageComponent implements OnInit {
             this._toastr.error(err);
           },
         });
-    } else if (this.userRole == 'subscriber') {
+    } else {
       this._userService
         .UpdateSubscriberInfo(this.profileFormGroup.value)
         .subscribe({
