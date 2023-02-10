@@ -29,6 +29,7 @@ import { ArticlesListPageComponent } from './pages/blog/articles-list-page/artic
 import { ArticleDetailsPageComponent } from './pages/blog/article-details-page/article-details-page.component';
 import { ProvidersPageComponent } from './pages/providers/providers-page/providers-page.component';
 import { ProviderDetailsPageComponent } from './pages/providers/provider-details-page/provider-details-page.component';
+import { UserSignupComponent } from './pages/user-signup/user-signup.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
       {
         path: 'subscribe',
         component: SubscribeNowPageComponent,
+      },
+      {
+        path: 'user-signup',
+        component: UserSignupComponent,
       },
       {
         path: 'login',
@@ -118,6 +123,7 @@ const routes: Routes = [
         path: 'providers/:email',
         component: ProviderDetailsPageComponent,
       },
+
       { path: '**', component: PageNotFoundComponent },
     ],
   },

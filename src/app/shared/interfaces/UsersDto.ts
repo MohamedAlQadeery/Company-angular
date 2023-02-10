@@ -117,3 +117,19 @@ export interface IUpdateSubscriberInfo {
   addressOne: string;
   phoneNumber: string;
 }
+
+export interface ICreateNormalUserRequest {
+  country: string;
+  city: string;
+  addressOne: string;
+  email: string;
+  password: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  genderId: number;
+  birthDate: Date;
+  InformationFile: File;
+  phoneNumber: string;
+  planId: number;
+}

@@ -37,6 +37,7 @@ import { ProvidersPageComponent } from './pages/providers/providers-page/provide
 import { ProviderDetailsPageComponent } from './pages/providers/provider-details-page/provider-details-page.component';
 import { ProvidersRowComponent } from './components/providers-row/providers-row.component';
 import { ProfileReadmoreComponent } from './pages/profile/profile-readmore/profile-readmore.component';
+import { UserSignupComponent } from './pages/user-signup/user-signup.component';
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -71,6 +72,7 @@ import { ProfileReadmoreComponent } from './pages/profile/profile-readmore/profi
     ProviderDetailsPageComponent,
     ProvidersRowComponent,
     ProfileReadmoreComponent,
+    UserSignupComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule, SlickCarouselModule],
 })

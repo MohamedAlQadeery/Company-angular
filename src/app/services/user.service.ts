@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import {
+  ICreateNormalUserRequest,
   IUpdateProviderInfo,
   IUpdateSubscriberInfo,
   IUserRespose,
@@ -73,5 +74,26 @@ export class UserService {
 
   GetUserData(email: string) {
     return this._http.get<IUserRespose>(`${this.baseUrl}/${email}`);
+  }
+
+  RegisterNormalUser(registerNormalUserRequest: ICreateNormalUserRequest) {
+    const data = new FormData();
+    data.append('country', registerNormalUserRequest.country);
+    data.append('city', registerNormalUserRequest.city);
+    data.append('addressOne', registerNormalUserRequest.addressOne);
+    data.append('email', registerNormalUserRequest.email);
+    data.append('password', registerNormalUserRequest.password);
+    data.append('InformationFile', registerNormalUserRequest.InformationFile);
+    data.append('birthDate', registerNormalUserRequest.birthDate.toString());
+    data.append('genderId', registerNormalUserRequest.genderId.toString());
+    data.append('firstName', registerNormalUserRequest.firstName);
+    data.append('middleName', registerNormalUserRequest.middleName);
+    data.append('lastName', registerNormalUserRequest.lastName);
+    data.append('planId', registerNormalUserRequest.planId.toString());
+    data.append('phoneNumber', registerNormalUserRequest.phoneNumber);
+    return this._http.post<IUserRespose>(
+      `${this.baseUrl}/normalUser/register`,
+      data
+    );
   }
 }

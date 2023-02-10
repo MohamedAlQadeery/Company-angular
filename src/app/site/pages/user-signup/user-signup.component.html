@@ -1,0 +1,234 @@
+<!-- contact area start -->
+<section class="tp-section-area p-relative z-index-1 tp-section-spacing ">
+    <div class="tp-section-bg include-bg" data-background="assets/site/img/contact/contact-bg.png"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-8">
+                <div class="tp-section-wrapper-2 text-center">
+                    <span class="tp-section-subtitle-2 subtitle-mb-7">{{'user-signup-page' | translate}}</span>
+                    <h3 class="tp-section-title-2 font-70">{{'user-signup-heading' |translate}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- contact area end -->
+
+<!-- contact form area start -->
+<section class="contact__form-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="contact__form-2 contact__style-2 contact__translate">
+                    <form [formGroup]="userFormGroup" (ngSubmit)="HandleOnSubmit()">
+                        <div class="row">
+
+
+                            <div class="col-md-12 mb-3">
+
+                                <ng-container *ngIf="plans$ |async as plans;else loadingPlans">
+                                    <app-select-input [control]="planControl" label="{{'select-plan' | translate}}"
+                                        [options]="plans"></app-select-input>
+                                </ng-container>
+
+                                <ng-template #loadingPlans>
+                                    <p class="text-danger">{{'loading-plans' | translate}}</p>
+                                </ng-template>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+
+                                <app-input-field [control]="firstNameControl"
+                                    label="{{'firstName' |translate}}"></app-input-field>
+
+                            </div>
+                            <div class="col-md-4 mb-3">
+
+                                <app-input-field [control]="midNameControl"
+                                    label="{{'midName' |translate}}"></app-input-field>
+
+                            </div>
+                            <div class="col-md-4 mb-3">
+
+                                <app-input-field [control]="lastNameControl"
+                                    label="{{'lastName' |translate}}"></app-input-field>
+
+                            </div>
+
+
+
+                            <div class="col-md-6 mb-3">
+
+
+                                <app-select-input [control]="genderControl" label="{{'gender' | translate}}"
+                                    [options]="genders"></app-select-input>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <app-date-input [control]="dobControl" label="{{'dob' | translate}}"></app-date-input>
+                            </div>
+
+
+                            <div class="col-md-6 mb-3">
+
+                                <ng-container *ngIf="countries$ | async as countries;else loadingCountries">
+                                    <app-search-select-input [control]="countryControl"
+                                        placeHolder="{{'country' | translate}}"
+                                        [options]="countries"></app-search-select-input>
+                                </ng-container>
+
+                                <ng-template #loadingCountries>
+                                    <p class="text-danger">{{'loading-countries' | translate}}</p>
+                                </ng-template>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+
+
+                                <ng-container *ngIf="cites$ | async as cites;else loadingCites">
+
+                                    <app-search-select-input [control]="cityControl"
+                                        placeHolder="{{'city' | translate}}"
+                                        [options]="cites"></app-search-select-input>
+                                </ng-container>
+
+                                <ng-template #loadingCites>
+                                    <p class="text-danger">{{'loading-cities' | translate}}</p>
+                                </ng-template>
+                            </div>
+
+
+                            <div class="col-md-6 mb-4">
+                                <app-input-field [control]="addressControl"
+                                    label="{{'address' | translate}}"></app-input-field>
+                            </div>
+
+
+                            <div class="col-md-6 mb-4">
+                                <app-input-field [control]="phoneControl"
+                                    label="{{'phone' | translate}}"></app-input-field>
+                            </div>
+
+
+                            <div class="col-md-4 mb-4">
+                                <app-input-field [control]="emailControl"
+                                    label="{{'email' | translate}}"></app-input-field>
+                            </div>
+                            <div class="col-md-4 mb-4">
+
+                                <app-password-input [control]="passwordControl"
+                                    label="{{'password' | translate}}"></app-password-input>
+
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <app-password-input [control]="confirmPasswordControl"
+                                    label="{{'confirm-password' | translate}}"></app-password-input>
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <app-file-input [control]="fileControl" accept="application/pdf"
+                                    linklabel="{{'upload-id'|translate}}"
+                                    textlabel="{{'id-drop-label'|translate}}"></app-file-input>
+                            </div>
+
+
+                            <div class=" col-md-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="footer__qrcode-thumb mr-10">
+                                        <i class="fa-solid fa-lock fs-1"></i>
+                                    </div>
+                                    <div class="footer__qrcode-content">
+                                        <p>{{'info-secure' |translate}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="tui-form__buttons">
+                                    <button [disabled]="!userFormGroup.valid" tuiButton size="m" type="submit"
+                                        class="tui-form__button">
+                                        {{'pay-get-card'|translate}}
+                                    </button>
+                                    <button tuiButton type="button" appearance="flat" size="m" class="tui-form__button">
+                                        {{'cancel' |translate}}
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- contact form area end -->
+
+<!-- contact location box area start -->
+<section class="contact__loacation-box-area pt-120 pb-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="contact__location-box text-center white-bg mb-30">
+                    <div class="contact__location-box-icon">
+                        <img src="assets/site/img/contact/contact-location-2.png" alt="">
+                    </div>
+                    <div class="contact__location-box-content">
+                        <h3 class="contact__location-box-title">Sany Francisco</h3>
+
+                        <div class="contact__location-box-info">
+                            <p><a href="mailto:location@website.com">location@website.com</a></p>
+                            <p><a href="tel:686-324-6838">686-324-6838</a></p>
+                        </div>
+
+                        <div class="contact__location-box-btn">
+                            <a href="https://www.google.com/maps/place/102+Thompson+St,+New+York,+NY+10012,+USA/@40.7255437,-74.004061,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2598c338f691d:0x6d5f394e7a1962cc!8m2!3d40.7255397!4d-74.0018723"
+                                target="_blank" class="tp-btn-border">View Location</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="contact__location-box text-center white-bg mb-30">
+                    <div class="contact__location-box-icon">
+                        <img src="assets/site/img/contact/contact-location-1.png" alt="">
+                    </div>
+                    <div class="contact__location-box-content">
+                        <h3 class="contact__location-box-title">Paris</h3>
+
+                        <div class="contact__location-box-info">
+                            <p><a href="mailto:location@website.com">location@website.com</a></p>
+                            <p><a href="tel:686-324-6838">686-324-6838</a></p>
+                        </div>
+
+                        <div class="contact__location-box-btn">
+                            <a href="https://www.google.com/maps/place/102+Thompson+St,+New+York,+NY+10012,+USA/@40.7255437,-74.004061,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2598c338f691d:0x6d5f394e7a1962cc!8m2!3d40.7255397!4d-74.0018723"
+                                target="_blank" class="tp-btn-border">View Location</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="contact__location-box text-center white-bg mb-30">
+                    <div class="contact__location-box-icon">
+                        <img src="assets/site/img/contact/contact-location-3.png" alt="">
+                    </div>
+                    <div class="contact__location-box-content">
+                        <h3 class="contact__location-box-title">Egpyt</h3>
+
+                        <div class="contact__location-box-info">
+                            <p><a href="mailto:location@website.com">location@website.com</a></p>
+                            <p><a href="tel:686-324-6838">686-324-6838</a></p>
+                        </div>
+
+                        <div class="contact__location-box-btn">
+                            <a href="https://www.google.com/maps/place/102+Thompson+St,+New+York,+NY+10012,+USA/@40.7255437,-74.004061,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2598c338f691d:0x6d5f394e7a1962cc!8m2!3d40.7255397!4d-74.0018723"
+                                target="_blank" class="tp-btn-border">View Location</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- contact location box area end -->
