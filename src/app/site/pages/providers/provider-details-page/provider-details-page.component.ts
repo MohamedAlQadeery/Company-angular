@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 import { ProviderService } from 'src/app/services/provider.service';
 import { UserService } from 'src/app/services/user.service';
 import {
@@ -29,7 +29,8 @@ export class ProviderDetailsPageComponent {
       switchMap((para) => {
         let email = para.get('email')!;
         return this._userService.GetUserData(email);
-      })
+      }),
+      tap((res) => console.log(res))
     );
   }
 }

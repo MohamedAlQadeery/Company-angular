@@ -141,7 +141,9 @@
 "aboutus-content": "Sağlık planınızı yönetmenize yardımcı olacak ve üyelerimize en iyi şekilde yardım etmenizi sağlayacak bilgiye sahip olmanızı sağlayacak, 24/7 ücretsiz olarak kullanabileceğiniz kendinize göre eğitimli eğitim seansları ve kursların kütüphanesini kullanın.",
 "404-title":"Üzgünüz! Sayfa bulunamadı",
 "404-content":"Üzgünüz, bu utanç verici. Arama yapmak istediğiniz sayfa bulunamadı.",
-"404-btn":"Ana Sayfaya Dön"
+"404-btn":"Ana Sayfaya Dön",
+"provider-desc":"Sağlayıcı Açıklaması",
+"provider-info":"Sağlayıcı Bilgisi"
 
 
 

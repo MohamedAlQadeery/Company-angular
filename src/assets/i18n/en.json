@@ -147,7 +147,9 @@
     "aboutus-content":"Use our library of self-paced courses and instructor-led training sessions, available 24/7 at no cost. These learning opportunities will assist you in administering your patient’s health plan and provide you with the knowledge to best assist our members.",
     "404-title":"Oops! Page not found",
     "404-content":"Whoops, this is embarassing. Looks like the page you were looking for wasn't found.",
-    "404-btn":"Back To Home"
+    "404-btn":"Back To Home",
+    "provider-desc":"Provider Description",
+    "provider-info":"Provider Information"
 
 
 

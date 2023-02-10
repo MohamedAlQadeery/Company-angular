@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import {
@@ -73,7 +73,13 @@ export class UserService {
   }
 
   GetUserData(email: string) {
-    return this._http.get<IUserRespose>(`${this.baseUrl}/${email}`);
+    // userEmail
+    let params = new HttpParams();
+    params = params.append('userEmail', email);
+
+    return this._http.get<IUserRespose>(`${this.baseUrl}/GetUserData`, {
+      params,
+    });
   }
 
   RegisterNormalUser(registerNormalUserRequest: ICreateNormalUserRequest) {

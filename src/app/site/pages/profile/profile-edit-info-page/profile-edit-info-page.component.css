@@ -8,3 +8,8 @@
 ::ng-deep tui-input-date {
   text-align: inherit !important;
 }
+
+::ng-deep .fa {
+  font-family: var(--fa-style-family, "Font Awesome 6 Pro") !important;
+  font-weight: var(--fa-style, 900) !important;
+}
