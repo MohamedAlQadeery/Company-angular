@@ -20,14 +20,14 @@
 .card-name {
   position: absolute;
   bottom: 73px;
-  left: 35px;
+  left: 6px;
   font-size: 2em;
   font-weight: bold;
 }
 .card-number {
   position: absolute;
   bottom: 45px;
-  left: 35px;
+  left: 6px;
   font-size: 1.5em;
   font-weight: bold;
 }
@@ -35,7 +35,7 @@
 .card-date {
   position: absolute;
   bottom: 25px;
-  left: 35px;
+  left: 6px;
   font-size: 1.5em;
   font-weight: bold;
 }
