@@ -19,6 +19,9 @@ export class OfferService {
     const data = new FormData();
     data.append('description', createOfferRequest.description);
     data.append('photo', createOfferRequest.photo);
+    if (createOfferRequest.url) {
+      data.append('url', createOfferRequest.url);
+    }
 
     return this._http.post<ICreateOfferResponse>(this.baseUrl, data);
   }
@@ -35,7 +38,7 @@ export class OfferService {
     return this._http.get<IOfferResponse[]>(`${this.baseUrl}`);
   }
 
-  ActiveOfferById(id: number){
+  ActiveOfferById(id: number) {
     return this._http.get<IOfferResponse>(`${this.baseUrl}/Active/${id}`);
   }
 

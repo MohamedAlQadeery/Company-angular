@@ -12,8 +12,10 @@
                     <!-- <div class="portfolio__tag-3">
                         <a href="#">subtag</a>
                     </div> -->
-                    <h3 class="portfolio__title-3">
-                        <a [routerLink]="['/offers',offer.id]">{{offer.applicationUser.companyName}}</a>
+                    <h3 class="portfolio__title-3" *ngIf="offer.url">
+                        <!-- <a [routerLink]="['/offers',offer.id]">{{offer.applicationUser.companyName}}</a> -->
+                        <a [href]="offer.url">{{'url' | translate}}</a>
+
                     </h3>
                     <!-- <div class="portfolio__meta-3 transition-3">
                         <span>

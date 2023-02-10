@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { tap } from 'rxjs';
 import { OfferService } from 'src/app/services/offer.service';
 
 @Component({
   selector: 'app-offer-list-page',
   templateUrl: './offer-list-page.component.html',
-  styleUrls: ['./offer-list-page.component.css']
+  styleUrls: ['./offer-list-page.component.css'],
 })
 export class OfferListPageComponent {
   constructor(
     private _planService: OfferService,
     private _toastr: ToastrService
   ) {}
-  plans$ = this._planService.GetAllNotActiveOffers();
+  plans$ = this._planService
+    .GetAllNotActiveOffers()
+    .pipe(tap((res) => console.log(res)));
 
   HandleOnActivate(id: number) {
     this._planService.ActiveOfferById(id).subscribe({

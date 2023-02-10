@@ -30,6 +30,7 @@ export interface IProviderResponse {
   addressOne: string;
   categoryId: number;
   email: string;
+  userName: string;
   attachments: IAttachmentResponse[];
   phoneNumber: string;
   id: number;

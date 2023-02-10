@@ -4,6 +4,7 @@ import { IProviderResponse } from './UsersDto';
 export interface ICreateOfferRequest {
   description: string;
   photo: File;
+  url: string | null;
 }
 
 export interface ICreateOfferResponse {
@@ -16,8 +17,9 @@ export interface IOfferResponse {
   id: number;
   description: string;
   isActive: boolean;
-  createdAt:string;
-  updatedAt:string;
+  createdAt: Date;
+  updatedAt: string;
+  url: string | null;
   applicationUser: IProviderResponse;
   attachments: IAttachmentResponse; // we take photo from it
 }

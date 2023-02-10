@@ -17,6 +17,7 @@ export class OffersPageComponent implements OnInit {
   ) {}
   offers$: Observable<IOfferResponse[]> =
     this._offerService.GetAllActiveOffers();
+
   lang$ = this._langService.currentLang$;
 
   searchFormGroup: FormGroup;

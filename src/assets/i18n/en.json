@@ -149,7 +149,9 @@
     "404-content":"Whoops, this is embarassing. Looks like the page you were looking for wasn't found.",
     "404-btn":"Back To Home",
     "provider-desc":"Provider Description",
-    "provider-info":"Provider Information"
+    "provider-info":"Provider Information",
+    "url":"Link"
+    
 
 
 
