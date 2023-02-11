@@ -98,7 +98,7 @@
                                 </span>{{'services' | translate}}
                             </a>
                         </li> -->
-                        <li *ngIf="userRole =='provider'" class="nav-item wow fadeInUp" role="presentation"
+                        <li *ngIf="userRole !='subscriber'" class="nav-item wow fadeInUp" role="presentation"
                             data-wow-delay=".1s" data-wow-duration="1s">
                             <a class="nav-link" routerLink="/profile/offers" routerLinkActive="active">
                                 <span>
