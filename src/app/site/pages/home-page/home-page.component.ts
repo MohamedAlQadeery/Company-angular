@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { FaqService } from 'src/app/services/faq.service';
+import { GeneralServiceService } from 'src/app/services/general-service.service';
 import { LangService } from 'src/app/services/language.service';
 import { PlanService } from 'src/app/services/plan.service';
 import { TeamMemberService } from 'src/app/services/team-member.service';
@@ -17,7 +18,8 @@ export class HomePageComponent implements OnInit {
     private _langService: LangService,
     private _planService: PlanService,
     private _teamService: TeamMemberService,
-    private _faqService: FaqService
+    private _faqService: FaqService,
+    private _genralServices: GeneralServiceService
   ) {}
 
   lang$ = this._langService.currentLang$;
@@ -81,6 +83,12 @@ export class HomePageComponent implements OnInit {
     ar: 'Arabic',
     tr: 'Turkish',
   };
+  //#endregion
+
+  //#region Observables
+  generalServices$ = this._genralServices
+    .GetAll()
+    .pipe(map((res) => res.slice(0, 4)));
   //#endregion
 
   ngOnInit(): void {
