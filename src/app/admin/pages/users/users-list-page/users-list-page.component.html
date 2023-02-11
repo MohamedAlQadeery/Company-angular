@@ -1,6 +1,6 @@
 <div class="row mb-3">
     <div class="col-md-6">
-        <h3 class="mb-3">Subscribers Page</h3>
+        <h3 class="mb-3">Users Page</h3>
 
     </div>
 
@@ -12,7 +12,7 @@
 <div class="card p-4">
     <div class="row">
         <div class="col-md-12">
-            <ng-container *ngIf="subscribers$ | async as subscribers">
+            <ng-container *ngIf="users$ | async as users">
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -25,11 +25,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let category of subscribers;let i=index">
+                            <tr *ngFor="let user of users;let i=index">
                                 <th>{{i+1}}</th>
-                                <td>{{category.email}}</td>
-                                <td>{{category.country}}</td>
-                                <td>{{category.city}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.country}}</td>
+                                <td>{{user.city}}</td>
                                 <td>
                                     <!-- <button class="btn btn-info"
                                         routerLink="/admin/category/edit/{{category.id}}">Edit</button> -->
@@ -37,9 +37,9 @@
                                     <button class="btn btn-success mx-2"
                                         [swal]="{icon:'success',
                                         title: 'Activate Confirmation' ,
-                                        text:'Eveyrthing releated to this category will be Activated too !',
+                                        text:'Eveyrthing releated to this user will be Activated too !',
                                         showCancelButton: true,confirmButtonText: 'Yes,Confirm',cancelButtonText:'Cancel' }"
-                                        (confirm)="HandleOnActivate(category.email)">Activate</button>
+                                        (confirm)="HandleOnActivate(user.email!)">Activate</button>
 
                                 </td>
                             </tr>

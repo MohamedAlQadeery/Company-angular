@@ -23,7 +23,11 @@ export class ProviderSubscriberGuard implements CanActivate, CanActivateChild {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.authService.isUserProvier() || this.authService.isUserSubscriber()) {
+    if (
+      this.authService.isUserProvier() ||
+      this.authService.isUserSubscriber() ||
+      this.authService.isUserNormalUser()
+    ) {
       return true;
     }
     this.router.navigate(['/']);
@@ -37,7 +41,11 @@ export class ProviderSubscriberGuard implements CanActivate, CanActivateChild {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.authService.isUserProvier() || this.authService.isUserSubscriber()) {
+    if (
+      this.authService.isUserProvier() ||
+      this.authService.isUserSubscriber() ||
+      this.authService.isUserNormalUser()
+    ) {
       return true;
     }
     this.router.navigate(['/']);

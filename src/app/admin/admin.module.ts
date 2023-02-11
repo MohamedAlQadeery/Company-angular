@@ -40,6 +40,7 @@ import { FaqListPageComponent } from './pages/faq/faq-list-page/faq-list-page.co
 import { TeamMemberCreatePageComponent } from './pages/team-member/team-member-create-page/team-member-create-page.component';
 import { TeamMemberEditPageComponent } from './pages/team-member/team-member-edit-page/team-member-edit-page.component';
 import { TeamMemberListPageComponent } from './pages/team-member/team-member-list-page/team-member-list-page.component';
+import { UsersListPageComponent } from './pages/users/users-list-page/users-list-page.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { TeamMemberListPageComponent } from './pages/team-member/team-member-lis
     FaqListPageComponent,
     FaqCreatePageComponent,
     FaqEditPageComponent,
+    UsersListPageComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

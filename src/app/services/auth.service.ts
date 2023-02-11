@@ -95,6 +95,13 @@ export class AuthService {
 
     return role === 'subscriber';
   }
+  isUserNormalUser() {
+    const role = this.GetFieldFromJWT(
+      'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+    );
+
+    return role === 'user';
+  }
 
   GetUserRole() {
     return this.GetFieldFromJWT(

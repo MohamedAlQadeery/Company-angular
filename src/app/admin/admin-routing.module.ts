@@ -33,6 +33,7 @@ import { FaqListPageComponent } from './pages/faq/faq-list-page/faq-list-page.co
 import { TeamMemberCreatePageComponent } from './pages/team-member/team-member-create-page/team-member-create-page.component';
 import { TeamMemberEditPageComponent } from './pages/team-member/team-member-edit-page/team-member-edit-page.component';
 import { TeamMemberListPageComponent } from './pages/team-member/team-member-list-page/team-member-list-page.component';
+import { UsersListPageComponent } from './pages/users/users-list-page/users-list-page.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
       { path: 'providers/:id', component: ProviderDetailsPageComponent },
       { path: 'subscribers', component: SubscriberListPageComponent },
       { path: 'subscribers/:id', component: SubscriberDetailsPageComponent },
+      { path: 'users', component: UsersListPageComponent },
       { path: 'category', component: CategoryListPageComponent },
       { path: 'category/create', component: CategoryCreatePageComponent },
       { path: 'category/edit/:id', component: CategoryEditPageComponent },

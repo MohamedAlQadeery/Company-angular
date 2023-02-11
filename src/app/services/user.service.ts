@@ -102,4 +102,10 @@ export class UserService {
       data
     );
   }
+
+  GetAllDisabledNormalUsers() {
+    return this._http.get<IUserRespose[]>(
+      `${this.baseUrl}?RoleName=user&&isactive=false`
+    );
+  }
 }

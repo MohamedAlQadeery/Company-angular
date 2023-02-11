@@ -2,7 +2,7 @@
     <h3 class="mb-md-3">{{'edit-profile-title' | translate}}</h3>
 
     <ng-container *ngIf="userData$ | async as userData;else loadingData">
-        <ng-container *ngIf="userRole == 'subscriber';else providerForm">
+        <ng-container *ngIf="userRole != 'provider';else providerForm">
 
             <form [formGroup]="profileFormGroup" (ngSubmit)="HandleOnSubmit()">
                 <div class="row">
