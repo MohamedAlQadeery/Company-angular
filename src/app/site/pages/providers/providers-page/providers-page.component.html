@@ -38,12 +38,12 @@
             </div>
 
             <form [formGroup]="searchFormGroup" (ngSubmit)="HandleSearch()">
-                <div class="row justify-content-center">
-                    <div class="col-md-4">
+                <div class="row ">
+                    <div class="col-md-6">
                         <app-input-field [hasStarSymbol]="false" [control]="searchControl"
                             label="{{'keyword-search'|translate}}"></app-input-field>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <ng-container *ngIf="categories$ |async as categories;else loadingCategories">
                             <app-select-input [control]="categoryControl" [hasStarSymbol]="false"
                                 label="{{'category' | translate}}" [options]="categories"></app-select-input>
@@ -55,7 +55,7 @@
 
                     </div>
                     <div class="col-md-2">
-                        <button type="submit" class="btn-lg mt-10 btn-info b">{{'search' | translate}}</button>
+                        <button type="submit" class="btn-lg mt-10 btn-info w-100 h-75">{{'search' | translate}}</button>
                     </div>
                 </div>
             </form>

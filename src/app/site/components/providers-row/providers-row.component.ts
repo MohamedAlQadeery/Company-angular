@@ -12,6 +12,6 @@ export class ProvidersRowComponent {
   imagesUrl = `${environment.baseURL}/images/thumbs/small`;
   currentPage = 1;
   @Input() providers: IProviderResponse[];
-  @Input() itemsPerPage = 2;
+  @Input() itemsPerPage = 6;
   @Input() isRtl = false;
 }
