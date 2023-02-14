@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { LoaderInterceptor } from './helpers/loader.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,11 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
       multi: true,
     },
   ],
