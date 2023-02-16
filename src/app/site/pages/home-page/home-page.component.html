@@ -376,40 +376,38 @@
                 </div>
             </div>
         </div>
-        <div class="brand__item-wrapper-6 d-flex flex-wrap justify-content-between mt-2 ">
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-1.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-2.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-3.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-4.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-5.png" alt="">
-            </div>
-        </div>
-        <div class="brand__item-wrapper-6 d-flex flex-wrap justify-content-between">
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-6.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-7.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-8.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-9.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-10.png" alt="">
+        <div class="row">
+            <div class="col-12">
+
+                <ng-container *ngIf="providers$ |async as providers;else loadingProvidersLogo">
+                    <div class="elements__carousel p-relative" dir="ltr">
+                        <ngx-slick-carousel class="elements__carousel-active" #slickModal="slick-carousel"
+                            [config]="logosSliderConfig">
+
+                            <div *ngFor="let provider of providers" ngxSlickItem
+                                class=" elements__carousel-item brand__item-6">
+                                <img class="img img-thumbnail" [src]="imagesUrl + '/'+provider.attachments[0].logo"
+                                    alt="">
+                            </div>
+
+
+
+                        </ngx-slick-carousel>
+                    </div>
+                </ng-container>
+
+                <ng-template #loadingProvidersLogo>
+                    <h3>Loading Logos </h3>
+
+                </ng-template>
+
+
             </div>
         </div>
+
+
+
+
     </div>
 </section>
 <!-- brand area end -->
