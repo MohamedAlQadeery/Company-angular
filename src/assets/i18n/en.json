@@ -126,7 +126,7 @@
     "aboutus-1":"About us",
     "project":"Project",
     "view-all-services":"View All Services",
-    "join-as-user":"Join as normal user",
+    "join-as-user":"Join as User",
     "join-us":"Join us",
     "author":"Author",
     "created-at":"Created At",
@@ -150,7 +150,11 @@
     "404-btn":"Back To Home",
     "provider-desc":"Provider Description",
     "provider-info":"Provider Information",
-    "url":"Link"
+    "url":"Link",
+    "our-latest":"Our Latest",
+    "articles":"Articles",
+    "blog":"Our Blog"
+
     
 
 
