@@ -25,6 +25,8 @@ export class UserService {
   UpdateProviderInfo(updateProviderRequest: IUpdateProviderInfo) {
     const data = new FormData();
     data.append('description', updateProviderRequest.description);
+    data.append('descriptionAr', updateProviderRequest.descriptionAr);
+    data.append('descriptionTr', updateProviderRequest.descriptionTr);
     data.append('companyName', updateProviderRequest.companyName);
     data.append('googleLocation', updateProviderRequest.googleLocation);
     data.append('website', updateProviderRequest.website);
