@@ -7,8 +7,7 @@
 }
 
 .imageSize {
-  width: 180px;
-  height: 60px;
+  height: 79px;
 }
 
 ul li a {
@@ -32,4 +31,8 @@ ul li a {
 .fas {
   font-family: "Font Awesome 6 Pro" !important;
   font-weight: 900;
+}
+
+.logo-border {
+  padding: 0;
 }
