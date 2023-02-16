@@ -37,6 +37,7 @@ export class ProviderSignupComponent implements OnInit {
   discount = new FormControl(0, [Validators.required]);
   logoControl = new FormControl('', [Validators.required]);
   photoControl = new FormControl('', [Validators.required]);
+  termControl = new FormControl(false, [Validators.requiredTrue]);
 
   //#endregion
 
@@ -78,6 +79,7 @@ export class ProviderSignupComponent implements OnInit {
         logoFile: this.logoControl,
         photoFile: this.photoControl,
         planId: this.planControl,
+        term: this.termControl,
       },
       {
         validators: [Validation.match('password', 'confirmPassword')],
