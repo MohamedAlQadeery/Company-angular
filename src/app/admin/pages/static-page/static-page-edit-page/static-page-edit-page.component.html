@@ -1,51 +1,64 @@
-<ng-container *ngIf="(page$ | async) as page ;else loading">
-    <div class="card p-3">
-        <div class="row">
-            <div class="col-md-6">
-                <h3 class="mb-3">Update {{page.pageName}} Page</h3>
+<ng-container *ngIf="page$ | async as page; else loading">
+  <div class="card p-3">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="mb-3">Update {{ page.pageName }} Page</h3>
+      </div>
+      <div class="col-md-6 text-end">
+        <a routerLink="/admin/StaticPage" class="btn btn-secondary">Go Back</a>
+      </div>
+    </div>
 
-            </div>
-            <div class="col-md-6 text-end">
-                <a routerLink="/admin/StaticPage" class="btn btn-secondary">Go Back</a>
-            </div>
-        </div>
-
-
-        <form [formGroup]="pageFormGroup" class="mb-5" (ngSubmit)="HandleOnSubmit()">
-            <div class="row">
-                <!-- <div class="col-md-6"> -->
-                <!-- <div class="mb-3">
+    <form
+      [formGroup]="pageFormGroup"
+      class="mb-5"
+      (ngSubmit)="HandleOnSubmit()"
+    >
+      <div class="row">
+        <!-- <div class="col-md-6"> -->
+        <!-- <div class="mb-3">
                         <app-input-field [control]="nameControl" label="Name"></app-input-field>
                     </div> -->
-                <!-- 
+        <!-- 
                     <div class="mb-3">
                         <app-input-field [control]="descriptionControl" label="Description"></app-input-field>
                     </div> -->
 
-
-                <!-- <editor formControlName="description"
+        <!-- <editor formControlName="description"
                         [init]="{ plugins: 'lists link image table code help wordcount', image_title: true,  automatic_uploads: true,  file_picker_types: 'image'}"
                         [apiKey]="'viu7iheo67c7hd37l79fj339zcuf22rsgvethpl7r6ycj3m7'">
                     </editor> -->
 
-                <!-- </div> -->
-                <div class="col-md-12">
-                    <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig"
-                        formControlName="description"></angular-editor>
+        <!-- </div> -->
+        <div class="col-md-12">
+            <app-file-input [control]="headerImageFile"></app-file-input>
+          <angular-editor
+            [placeholder]="'Enter text here EN...'"
+            [config]="editorConfig"
+            formControlName="description"
+          ></angular-editor>
+          <angular-editor
+            [placeholder]="'Enter text here TR...'"
+            [config]="editorConfig"
+            formControlName="descriptionAR"
+          ></angular-editor>
+          <angular-editor
+            [placeholder]="'Enter text here TR...'"
+            [config]="editorConfig"
+            formControlName="descriptionTR"
+          ></angular-editor>
 
-                    <button [disabled]="!pageFormGroup.valid" type="submit" class="btn
-          btn-success mt-md-3">Update</button>
-                </div>
-            </div>
-        </form>
-
-    </div>
-
-
+          <button
+            [disabled]="!pageFormGroup.valid"
+            type="submit"
+            class="btn btn-success mt-md-3"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </ng-container>
 
-
-
-<ng-template #loading>
-    Loading stuff...
-</ng-template>
+<ng-template #loading> Loading stuff... </ng-template>

@@ -17,6 +17,8 @@ export class PlansCreatePageComponent implements OnInit {
 ];
   planFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
+  nameARControl = new FormControl('', [Validators.required]);
+  nameTRControl = new FormControl('', [Validators.required]);
   priceControl = new FormControl(0, [Validators.required]);
   durationControl = new FormControl(0, [Validators.required]);
   postsPerMonthContorl = new FormControl(0, [Validators.required]);
@@ -30,6 +32,8 @@ export class PlansCreatePageComponent implements OnInit {
   ngOnInit(): void {
     this.planFormGroup = new FormGroup({
       name: this.nameControl,
+      nameAR: this.nameARControl,
+      nameTR: this.nameTRControl,
       price: this.priceControl,
       duration: this.durationControl,
       servicePerMonth: this.postsPerMonthContorl,

@@ -27,12 +27,20 @@ export class CategoryEditPageComponent implements OnInit {
 
   categoryFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
+  nameARControl = new FormControl('', [Validators.required]);
+  nameTRControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
+  descriptionARControl = new FormControl('', [Validators.required]);
+  descriptionTRControl = new FormControl('', [Validators.required]);
 
   ngOnInit(): void {
     this.categoryFormGroup = new FormGroup({
       name: this.nameControl,
+      nameAr: this.nameARControl,
+      nameTR: this.nameTRControl,
       description: this.descriptionControl,
+      descriptionAR: this.descriptionARControl,
+      descriptionTR: this.descriptionTRControl,
     });
 
     this._activedRoute.paramMap.subscribe((para) => {
@@ -45,17 +53,17 @@ export class CategoryEditPageComponent implements OnInit {
         tap((cat) => {
           this.nameControl.setValue(cat.name);
           this.descriptionControl.setValue(cat.description);
+          this.nameARControl.setValue(cat.nameAr);
+          this.descriptionARControl.setValue(cat.descriptionAR);
+          this.nameTRControl.setValue(cat.nameTR);
+          this.descriptionTRControl.setValue(cat.descriptionTR);
         })
       );
   }
 
   HandleOnSubmit() {
-    const updateRequest: IUpdateCategoryRequest = {
-      name: this.nameControl.value!,
-      description: this.descriptionControl.value!,
-      id: this.categoryId,
-    };
-
+    const updateRequest: IUpdateCategoryRequest = this.categoryFormGroup.value;
+    updateRequest.id = this.categoryId;
     this._categoryService
       .UpdateCategory(updateRequest, this.categoryId)
       .subscribe({

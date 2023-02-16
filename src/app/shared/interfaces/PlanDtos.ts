@@ -1,6 +1,8 @@
 export interface IPlanResponse {
   id: number;
   name: string;
+  nameAR: string;
+  nameTR: string;
   servicePerMonth: number;
   offerPerMonth: number;
   planType: number;
@@ -12,6 +14,8 @@ export interface IPlanResponse {
 
 export interface ICreatePlanRequest {
   name: string;
+  nameAR: string;
+  nameTR: string;
   description: string;
   duration: number;
   price: number;
@@ -22,6 +26,8 @@ export interface ICreatePlanRequest {
 export interface IUpdatePlanRequest {
   id: number;
   name: string;
+  nameAR: string;
+  nameTR: string;
   description: string;
   duration: number;
   price: number;

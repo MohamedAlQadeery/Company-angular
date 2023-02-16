@@ -19,6 +19,24 @@
                     <app-input-field [control]="descriptionControl" label="Description"></app-input-field>
                 </div>
 
+                <div class="mb-3">
+                    <app-input-field [control]="nameARControl" label="Service NameAR"></app-input-field>
+                </div>
+
+                <div class="mb-3">
+                    <app-input-field [control]="descriptionARControl" label="DescriptionAR"></app-input-field>
+                </div>
+
+                <div class="mb-3">
+                    <app-input-field [control]="nameTRControl" label="Service NameTR"></app-input-field>
+                </div>
+
+                <div class="mb-3">
+                    <app-input-field [control]="descriptionTRControl" label="DescriptionTR"></app-input-field>
+                </div>
+                <div class="mb-3">
+                    <app-file-input [control]="photoFile" label="Photo"></app-file-input>
+                </div>
 
                 <button [disabled]="!categoryFormGroup.valid" type="submit" class="btn
           btn-success">Create</button>

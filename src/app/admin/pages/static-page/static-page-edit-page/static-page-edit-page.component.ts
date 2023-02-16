@@ -26,6 +26,10 @@ export class StaticPageEditPageComponent implements OnInit {
   pageFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
+  descriptionARControl = new FormControl('', [Validators.required]);
+  descriptionTRControl = new FormControl('', [Validators.required]);
+  headerImage = new FormControl('');
+  headerImageFile = new FormControl('');
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -59,6 +63,10 @@ export class StaticPageEditPageComponent implements OnInit {
       id: new FormControl(null),
       pageName: this.nameControl,
       description: this.descriptionControl,
+      descriptionAR: this.descriptionARControl,
+      descriptionTR: this.descriptionTRControl,
+      headerImage: this.headerImage,
+      headerImageFile:this.headerImageFile
     });
 
     this._activedRoute.paramMap.subscribe((para) => {
@@ -69,12 +77,16 @@ export class StaticPageEditPageComponent implements OnInit {
       tap((cat) => {
         this.nameControl.setValue(cat.pageName);
         this.descriptionControl.setValue(cat.description);
+        this.descriptionARControl.setValue(cat.descriptionAR);
+        this.descriptionTRControl.setValue(cat.descriptionTR);
+        this.headerImage.setValue(cat.headerImage);
       })
     );
   }
 
   HandleOnSubmit() {
     this.pageFormGroup.value.id = this.pageId;
+    console.log(this.pageFormGroup.value);
     this._staticPageService
       .Update(this.pageFormGroup.value, this.pageId)
       .subscribe({
@@ -89,6 +101,7 @@ export class StaticPageEditPageComponent implements OnInit {
         },
         error: (err) => {
           this._toastr.error(err.message);
+          console.log(err);
         },
       });
   }

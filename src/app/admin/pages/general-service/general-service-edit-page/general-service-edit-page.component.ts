@@ -26,13 +26,26 @@ export class GeneralServiceEditPageComponent implements OnInit {
 
   categoryFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
+  nameARControl = new FormControl('', [Validators.required]);
+  nameTRControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
+  descriptionARControl = new FormControl('', [Validators.required]);
+  descriptionTRControl = new FormControl('', [Validators.required]);
+  photo = new FormControl('');
+  photoFile = new FormControl('');
 
   ngOnInit(): void {
     this.categoryFormGroup = new FormGroup({
       id: new FormControl(null),
       name: this.nameControl,
+      nameAR: this.nameARControl,
+      nameTR: this.nameTRControl,
       description: this.descriptionControl,
+      descriptionAR: this.descriptionARControl,
+      descriptionTR: this.descriptionTRControl,
+      photo: this.photo,
+      photoFile: this.photoFile,
+
     });
 
     this._activedRoute.paramMap.subscribe((para) => {
@@ -45,19 +58,26 @@ export class GeneralServiceEditPageComponent implements OnInit {
         tap((cat) => {
           this.nameControl.setValue(cat.name);
           this.descriptionControl.setValue(cat.description);
+          this.nameARControl.setValue(cat.nameAR);
+          this.descriptionARControl.setValue(cat.descriptionAR);
+          this.nameTRControl.setValue(cat.nameTR);
+          this.descriptionTRControl.setValue(cat.descriptionTR);
+          this.photo.setValue(cat.photo);
         })
       );
   }
 
   HandleOnSubmit() {
     this.categoryFormGroup.value.id = this.categoryId;
+    console.log(this.categoryFormGroup.value);
+    let {name} = this.categoryFormGroup.value.name;
     this._generalService
       .Update(this.categoryFormGroup.value, this.categoryId)
       .subscribe({
         next: (res) => {
           console.log(res);
           this._toastr.success(
-            `${res.name} has been updated successfully !`,
+            `${name} has been updated successfully !`,
             'Gneral Service Updated'
           );
 

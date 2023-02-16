@@ -18,12 +18,20 @@ export class CategoryCreatePageComponent implements OnInit {
 
   categoryFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
+  nameARControl = new FormControl('', [Validators.required]);
+  nameTRControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
+  descriptionARControl = new FormControl('', [Validators.required]);
+  descriptionTRControl = new FormControl('', [Validators.required]);
 
   ngOnInit(): void {
     this.categoryFormGroup = new FormGroup({
       name: this.nameControl,
+      nameAR: this.nameARControl,
+      nameTR: this.nameTRControl,
       description: this.descriptionControl,
+      descriptionAR: this.descriptionARControl,
+      descriptionTR: this.descriptionTRControl,
     });
   }
 
