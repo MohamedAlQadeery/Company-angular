@@ -4,8 +4,10 @@
 
         <div [ngClass]="itemsPerPage == 2 ? 'col-md-6': 'col-md-4'" class="col-12 "
             *ngFor="let provider of providers | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage}">
-            <div class="features__item-10 transition-3 mb-30 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
-                <div class="features__icon-10">
+            <div style="max-height: 725px;"
+                class="  text-center text-md-start features__item-10 transition-3 mb-30 wow fadeInUp"
+                data-wow-delay=".5s" data-wow-duration="1s">
+                <div class="features__icon-10 text-center">
                     <span>
                         <img [src]="imagesUrl + '/'+provider.attachments[0].logo" alt="">
 

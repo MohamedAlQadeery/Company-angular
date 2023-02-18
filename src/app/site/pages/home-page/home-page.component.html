@@ -19,6 +19,9 @@
     </div>
 </section> -->
 
+
+
+
 <!-- slider area start -->
 <section class="slider__area p-relative">
     <div class="slider__active swiper-container">
@@ -42,7 +45,7 @@
 
                                 <div class="slider__form">
                                     <form action="#">
-                                        <div class="slider__form-wrapper flex-wrap">
+                                        <div class="d-sm-flex justify-content-center slider__form-wrapper flex-wrap">
                                             <div class="slider__form-input">
                                                 <input type="text" placeholder="{{'service-name' | translate}}">
                                             </div>
@@ -373,40 +376,38 @@
                 </div>
             </div>
         </div>
-        <div class="brand__item-wrapper-6 d-flex flex-wrap justify-content-between mt-2 ">
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-1.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-2.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-3.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-4.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-5.png" alt="">
-            </div>
-        </div>
-        <div class="brand__item-wrapper-6 d-flex flex-wrap justify-content-between">
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-6.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-7.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-8.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-9.png" alt="">
-            </div>
-            <div class="brand__item-6">
-                <img src="assets/site/img/brand/6/brand-10.png" alt="">
+        <div class="row">
+            <div class="col-12">
+
+                <ng-container *ngIf="providers$ |async as providers;else loadingProvidersLogo">
+                    <div class="elements__carousel p-relative" dir="ltr">
+                        <ngx-slick-carousel class="elements__carousel-active" #slickModal="slick-carousel"
+                            [config]="logosSliderConfig">
+
+                            <div *ngFor="let provider of providers" ngxSlickItem
+                                class=" elements__carousel-item brand__item-6">
+                                <img class="img img-thumbnail" [src]="imagesUrl + '/'+provider.attachments[0].logo"
+                                    alt="">
+                            </div>
+
+
+
+                        </ngx-slick-carousel>
+                    </div>
+                </ng-container>
+
+                <ng-template #loadingProvidersLogo>
+                    <h3>Loading Logos </h3>
+
+                </ng-template>
+
+
             </div>
         </div>
+
+
+
+
     </div>
 </section>
 <!-- brand area end -->
@@ -442,7 +443,7 @@
     <!-- pricing area start -->
     <section class="pricing__area p-relative z-index-1 black-bg-5 pt-110 pb-120">
         <div class="pricing__shape">
-            <img class="pricing__shape-1" src="../../../../assets/site/img/price/price-shape-1.png" alt="">
+            <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
         </div>
         <div class="container">
             <div class="row justify-content-center">
@@ -510,7 +511,7 @@
     <!-- pricing area start -->
     <section class="pricing__area p-relative z-index-1 blue-bg pt-110 pb-120">
         <div class="pricing__shape">
-            <img class="pricing__shape-1" src="assets/img/price/price-shape-1.png" alt="">
+            <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
         </div>
         <div class="container">
             <div class="row justify-content-center">
@@ -568,7 +569,7 @@
     <!-- pricing area end -->
     <section class="pricing__area p-relative z-index-1 bg-secondary pt-110 pb-120">
         <div class="pricing__shape">
-            <img class="pricing__shape-1" src="assets/img/price/price-shape-1.png" alt="">
+            <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
         </div>
         <div class="container">
             <div class="row justify-content-center">

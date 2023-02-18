@@ -187,14 +187,6 @@
                     <div class="col-md-12 mb-4">
                         <app-input-field [control]="phoneControl" label="{{'phone' | translate}}"></app-input-field>
                     </div>
-                    <div class="col-md-12 mb-4">
-                        <!-- <app-text-area-input [control]="descrptionControl"
-                            label="{{'description' | translate}}"></app-text-area-input> -->
-
-                        <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig"
-                            formControlName="description"></angular-editor>
-                    </div>
-
 
                     <div class="col-md-6">
 
@@ -209,6 +201,31 @@
                             linklabel="{{'upload-photo'|translate}}"
                             textlabel="{{'photo-drop-label'|translate}}"></app-file-input>
                     </div>
+
+                    <div class="col-md-12 mb-4">
+                        <!-- <app-text-area-input [control]="descrptionControl"
+                            label="{{'description' | translate}}"></app-text-area-input> -->
+                        <label class="form-label">Arabic Readmore</label>
+                        <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig"
+                            formControlName="descriptionAr"></angular-editor>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <!-- <app-text-area-input [control]="descrptionControl"
+                            label="{{'description' | translate}}"></app-text-area-input> -->
+                        <label class="form-label">English Readmore</label>
+                        <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig"
+                            formControlName="description"></angular-editor>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <!-- <app-text-area-input [control]="descrptionControl"
+                            label="{{'description' | translate}}"></app-text-area-input> -->
+                        <label class="form-label">Turkey Readmore</label>
+                        <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig"
+                            formControlName="descriptionTr"></angular-editor>
+                    </div>
+
+
+
 
 
                     <div class="col-md-12">

@@ -81,7 +81,9 @@ export class ProfileEditInfoPageComponent implements OnInit {
   phoneControl = new FormControl('', [Validators.required]);
   logoControl = new FormControl('');
   photoControl = new FormControl('');
-  descrptionControl = new FormControl('');
+  descrptionArControl = new FormControl('');
+  descrptionEnControl = new FormControl('');
+  descrptionTrControl = new FormControl('');
   //#endregion
 
   //#region Subscriber FormControls
@@ -150,7 +152,9 @@ export class ProfileEditInfoPageComponent implements OnInit {
           this.googleLocationControl.setValue(res.googleLocation);
           this.websiteControl.setValue(res.website);
           this.phoneControl.setValue(res.phoneNumber);
-          this.descrptionControl.setValue(res.description);
+          this.descrptionEnControl.setValue(res.description);
+          this.descrptionArControl.setValue(res.descriptionAr);
+          this.descrptionTrControl.setValue(res.descriptionTr);
         } else {
           this.sFirstNameControl.setValue(res.firstName);
           this.sMidNameControl.setValue(res.middleName);
@@ -174,7 +178,7 @@ export class ProfileEditInfoPageComponent implements OnInit {
 
   initFormGroup() {
     if (this.userRole != 'provider') {
-      // user is subscriber
+      // user is subscriber/normal user
       this.profileFormGroup = new FormGroup({
         firstName: this.sFirstNameControl,
         middleName: this.sMidNameControl,
@@ -200,7 +204,9 @@ export class ProfileEditInfoPageComponent implements OnInit {
         phoneNumber: this.phoneControl,
         logoFile: this.logoControl,
         photoFile: this.photoControl,
-        description: this.descrptionControl,
+        description: this.descrptionEnControl,
+        descriptionAr: this.descrptionArControl,
+        descriptionTr: this.descrptionTrControl,
       });
     }
   }

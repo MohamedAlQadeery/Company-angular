@@ -2,6 +2,8 @@ import { IAttachmentResponse } from './AttachmentDtos';
 
 export interface ICreateProviderRequest {
   description: string;
+  descriptionAr: string;
+  descriptionTr: string;
   googleLocation: string;
   website: string;
   discount: number;
@@ -20,6 +22,8 @@ export interface ICreateProviderRequest {
 }
 export interface IProviderResponse {
   description: string;
+  descriptionAr: string;
+  descriptionTr: string;
   googleLocation: string;
   website: string;
   discount: number;
@@ -70,6 +74,8 @@ export interface ISubscriberResponse {
 
 export interface IUserRespose {
   description: string | null;
+  descriptionAr: string | null;
+  descriptionTr: string | null;
   firstName: string | null;
   middleName: string | null;
   lastName: string | null;
@@ -95,6 +101,8 @@ export interface IUserRespose {
 
 export interface IUpdateProviderInfo {
   description: string;
+  descriptionAr: string;
+  descriptionTr: string;
   googleLocation: string;
   website: string;
   companyName: string;

@@ -29,6 +29,7 @@ import { TextAreaInputComponent } from './components/text-area-input/text-area-i
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { TuiCheckboxLabeledModule } from '@taiga-ui/kit';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -74,6 +75,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgxPaginationModule,
     EditorModule,
     AngularEditorModule,
+    TuiCheckboxLabeledModule,
   ],
   exports: [
     TranslateModule,
@@ -100,6 +102,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgxPaginationModule,
     EditorModule,
     AngularEditorModule,
+    TuiCheckboxLabeledModule,
   ],
 })
 export class SharedModule {}

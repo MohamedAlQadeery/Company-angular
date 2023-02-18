@@ -52,7 +52,7 @@
                         <div class="blog__item-10 white-bg transition-3 mb-30 fix">
                             <div class="blog__thumb-10 w-img fix">
                                 <div class="blog__tag-10">
-                                    <a href="#">{{post.blog.title}}</a>
+                                    <a [routerLink]="['/blog',post.id]">{{post.blog.title}}</a>
                                 </div>
                             </div>
                             <div class="blog__content-10">
@@ -81,12 +81,12 @@
                                 <div class="blog__content-10-bottom d-flex align-items-center justify-content-between">
                                     <div class="blog__meta-author-10 d-flex align-items-center">
                                         <div class="blog__meta-author-thumb-10">
-                                            <a href="#">
+                                            <a [routerLink]="['/blog',post.id]">
                                                 <img src="assets/site/img/users/user-1.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="blog__meta-author-content-10">
-                                            <span>By <a routerLink="">Admin</a></span>
+                                            <span> <a routerLink="">Admin</a></span>
                                         </div>
                                     </div>
 

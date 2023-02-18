@@ -49,6 +49,7 @@ export class SubscribeNowPageComponent {
   confirmPasswordControl = new FormControl('', [Validators.required]);
   phoneControl = new FormControl('', [Validators.required]);
   fileControl = new FormControl('', [Validators.required]);
+  termControl = new FormControl(false, [Validators.requiredTrue]);
 
   //#endregion
 
@@ -91,6 +92,7 @@ export class SubscribeNowPageComponent {
         phoneNumber: this.phoneControl,
         planId: this.planControl,
         InformationFile: this.fileControl,
+        term: this.termControl,
       },
 
       {

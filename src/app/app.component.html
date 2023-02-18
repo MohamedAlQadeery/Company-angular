@@ -1,3 +1,31 @@
 <tui-root>
     <router-outlet></router-outlet>
+
+    <!-- pre loader area start -->
+    <div id="loading" *ngIf="loader$ | async">
+        <div class="transition-3   wow fadeInUp" id="loading-center" data-wow-duration="1s">
+            <div id="loading-center-absolute">
+                <!-- loading content here -->
+                <div class="preloader__content text-center">
+                    <div class="preloader__logo">
+                        <img src="assets/site/img/logo/logo-black.svg" class="w-50" alt="">
+                    </div>
+                    <div id="tp-loading-bar" class="preloader__bar">
+                        <div id="tp-loading-line" class="preloader__bar-inner"></div>
+                    </div>
+                    <h3 class="preloader__title">IPS</h3>
+                    <div class="preloader__with-text ">
+                        <div class="preloader__with-text-wrapper">
+                            <span data-text-preloader="I" class="preloader__title-2">I</span>
+                            <span data-text-preloader="P" class="preloader__title-2">P</span>
+                            <span data-text-preloader="S" class="preloader__title-2">S</span>
+
+                        </div>
+                    </div>
+                    <p class="preloader__loading">Loading</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- pre loader area end -->
 </tui-root>
