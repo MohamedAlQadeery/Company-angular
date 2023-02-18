@@ -20,13 +20,21 @@ export class TeamMemberCreatePageComponent implements OnInit {
 
   categoryFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
+  nameARControl = new FormControl('', [Validators.required]);
+  nameTRControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
+  descriptionARControl = new FormControl('', [Validators.required]);
+  descriptionTRControl = new FormControl('', [Validators.required]);
   imageFileControl = new FormControl(null, [Validators.required]);
 
   ngOnInit(): void {
     this.categoryFormGroup = new FormGroup({
       name: this.nameControl,
+      nameAR: this.nameARControl,
+      nameTR: this.nameTRControl,
       jopTitle: this.descriptionControl,
+      jopTitleAR: this.descriptionARControl,
+      jopTitleTR: this.descriptionTRControl,
       imageFile: this.imageFileControl,
     });
   }

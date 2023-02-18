@@ -26,7 +26,11 @@ export class TeamMemberEditPageComponent implements OnInit {
 
   categoryFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
+  nameARControl = new FormControl('', [Validators.required]);
+  nameTRControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
+  descriptionARControl = new FormControl('', [Validators.required]);
+  descriptionTRControl = new FormControl('', [Validators.required]);
   imageControl = new FormControl('', [Validators.required]);
   imageFileControl = new FormControl(null);
 
@@ -34,7 +38,11 @@ export class TeamMemberEditPageComponent implements OnInit {
     this.categoryFormGroup = new FormGroup({
       id: new FormControl(null),
       name: this.nameControl,
+      nameAR: this.nameARControl,
+      nameTR: this.nameTRControl,
       jopTitle: this.descriptionControl,
+      jopTitleAR: this.descriptionARControl,
+      jopTitleTR: this.descriptionTRControl,
       image: this.imageControl,
       imageFile: this.imageFileControl,
     });
@@ -47,6 +55,12 @@ export class TeamMemberEditPageComponent implements OnInit {
       tap((cat) => {
         this.nameControl.setValue(cat.name);
         this.descriptionControl.setValue(cat.jopTitle);
+        this.nameARControl.setValue(cat.nameAR);
+        this.descriptionARControl.setValue(cat.jopTitleAR);
+
+        this.nameTRControl.setValue(cat.nameTR);
+        this.descriptionTRControl.setValue(cat.jopTitleTR);
+
         this.imageControl.setValue(cat.image);
       })
     );
