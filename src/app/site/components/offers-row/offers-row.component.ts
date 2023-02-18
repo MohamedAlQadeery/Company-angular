@@ -12,4 +12,5 @@ export class OffersRowComponent {
   currentPage = 1;
   @Input() offers: IOfferResponse[];
   @Input() itemsPerPage = 2;
+  @Input() lang = 'en';
 }

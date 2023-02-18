@@ -1,5 +1,5 @@
 <!-- portfolio area start -->
-<section class="portfolio__area p-relative portfolio__overlay pt-110 pb-90 fix">
+<section class="portfolio__area p-relative portfolio__overlay pt-110 pb-90 fix" *ngIf="lang$ | async as lang">
     <ng-container *ngIf="offers$ | async as offers;else loadingOffers">
         <div class="container">
 
@@ -81,7 +81,7 @@
                 <!-- </div> -->
                 <div class="col-lg-12">
 
-                    <app-offers-row [offers]="offers" [itemsPerPage]="2"></app-offers-row>
+                    <app-offers-row [offers]="offers" [itemsPerPage]="2" [lang]="lang"></app-offers-row>
                 </div>
             </div>
 

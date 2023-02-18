@@ -19,6 +19,8 @@ export class OfferService {
     const data = new FormData();
     data.append('description', createOfferRequest.description);
     data.append('photo', createOfferRequest.photo);
+    data.append('photoAr', createOfferRequest.photoAr);
+    data.append('photoTr', createOfferRequest.photoTr);
     if (createOfferRequest.url) {
       data.append('url', createOfferRequest.url);
     }

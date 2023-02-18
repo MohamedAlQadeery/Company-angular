@@ -24,13 +24,18 @@ export class ProfileOffersCreatePageComponent implements OnInit {
   //#region Form Controls
   offerFormGroup: FormGroup;
   descriptionControl = new FormControl('default', [Validators.required]);
-  photoControl = new FormControl('', [Validators.required]);
+  photoEnControl = new FormControl('', [Validators.required]);
+  photoArControl = new FormControl('', [Validators.required]);
+  photoTrControl = new FormControl('', [Validators.required]);
+
   urlControl = new FormControl('');
   //#endregion
   ngOnInit(): void {
     this.offerFormGroup = new FormGroup({
       description: this.descriptionControl,
-      photo: this.photoControl,
+      photo: this.photoEnControl,
+      photoAr: this.photoArControl,
+      photoTr: this.photoTrControl,
       url: this.urlControl,
     });
   }

@@ -13,7 +13,7 @@
 
         <ng-container *ngIf="offers$ | async as offers;else loadingOffers">
             <div class="container">
-                <app-offers-row [offers]="offers" [itemsPerPage]="2"></app-offers-row>
+                <app-offers-row [offers]="offers" [itemsPerPage]="2" [lang]="lang"></app-offers-row>
             </div>
         </ng-container>
 

@@ -14,8 +14,18 @@
                 <div class="col-md-8">
 
                     <div class="mb-3">
-                        <app-file-input [control]="photoControl" accept="image/*"
-                            linklabel="{{'upload-photo'|translate}}"
+                        <app-file-input [control]="photoEnControl" accept="image/*"
+                            linklabel="{{'upload-photo-en'|translate}}"
+                            textlabel="{{'photo-drop-label'|translate}}"></app-file-input>
+                    </div>
+                    <div class="mb-3">
+                        <app-file-input [control]="photoArControl" accept="image/*"
+                            linklabel="{{'upload-photo-ar'|translate}}"
+                            textlabel="{{'photo-drop-label'|translate}}"></app-file-input>
+                    </div>
+                    <div class="mb-3">
+                        <app-file-input [control]="photoTrControl" accept="image/*"
+                            linklabel="{{'upload-photo-tr'|translate}}"
                             textlabel="{{'photo-drop-label'|translate}}"></app-file-input>
                     </div>
 
