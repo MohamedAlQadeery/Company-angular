@@ -230,7 +230,7 @@
             </div>
 
         </div>
-        <div class="row">
+        <div class="row" *ngIf="lang$ | async as lang" [ngSwitch]="lang">
             <ng-container *ngIf="generalServices$|async as services;else loadingGeneralServices">
                 <div *ngFor="let service of services" class="col-xxl-3 col-xl-3 col-lg-4 col-md-6">
                     <div class="services__item transition-3 mb-30 fix wow fadeInUp" data-wow-delay=".3s"
@@ -241,7 +241,7 @@
                             <img class="services__shape-2" src="assets/site/img/services/shape/services-shape-2.png"
                                 alt="">
                         </div>
-                        <div class="services__item-inner">
+                        <div *ngSwitchCase="'en'" class="services__item-inner">
                             <div class="services__icon">
                                 <span>
                                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -269,6 +269,74 @@
                                     <a routerLink="">{{service.name}}</a>
                                 </h3>
                                 <p>{{service.description}}</p>
+
+                                <!-- <div class="services__btn">
+                                    <a href="services-details.html" class="tp-btn-border">{{'explore'|translate}}</a>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div *ngSwitchCase="'ar'" class="services__item-inner">
+                            <div class="services__icon">
+                                <span>
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M37.67 22.5229L35.8725 20.7644L20.7302 35.8871L22.5473 37.7042C24.0713 39.2282 25.6539 39.9902 27.217 39.9902C28.7801 39.9902 30.3627 39.2282 31.8867 37.7042L37.67 31.9208C40.7766 28.7947 40.7766 25.649 37.67 22.5229Z"
+                                            fill="currentColor" />
+                                        <path
+                                            d="M17.4478 2.30065C14.3803 -0.766883 11.1564 -0.766883 8.0889 2.30065L2.28599 8.08402C-0.761998 11.1516 -0.761998 14.3754 2.28599 17.4429L4.08353 19.2405L19.2258 4.09818L17.4478 2.30065Z"
+                                            fill="currentColor" />
+                                        <path opacity="0.2"
+                                            d="M39.1746 4.27436C36.6151 10.6634 30.7731 19.0063 25.2046 24.4575C24.4035 19.4166 20.3786 15.4699 15.2986 14.7665C20.7694 9.1785 29.1709 3.25836 35.5795 0.679292C36.7127 0.249447 37.846 0.5816 38.5494 1.28498C39.2918 2.02744 39.6435 3.14113 39.1746 4.27436Z"
+                                            fill="currentColor" />
+                                        <path
+                                            d="M25.2046 24.4574C24.2277 25.4148 23.2508 26.294 22.3129 27.0365L18.4638 30.1236C17.9754 30.4752 17.4869 30.7683 16.9398 31.0028C16.9398 30.6316 16.9008 30.2603 16.8617 29.8696C16.6468 28.2479 15.9043 26.7043 14.5952 25.3953C13.2471 24.0666 11.6449 23.3046 9.98416 23.0897C9.5934 23.0506 9.18309 23.0311 8.81186 23.0506C9.02678 22.445 9.35894 21.8783 9.76924 21.4094L12.8172 17.5603C13.5402 16.642 14.3803 15.7042 15.2986 14.7664C20.3786 15.4697 24.4035 19.4165 25.2046 24.4574Z"
+                                            fill="currentColor" />
+                                        <path opacity="0.2"
+                                            d="M16.9398 31.003C16.9398 33.1522 16.1192 35.2038 14.5561 36.7473C13.3643 37.9587 11.7621 38.7793 9.80828 39.0138L5.02137 39.5413C2.40322 39.8344 0.156303 37.5875 0.449379 34.9498L0.976916 30.1433C1.44584 25.8644 5.02137 23.129 8.81182 23.0509C9.18305 23.0313 9.59336 23.0509 9.98413 23.09C11.6449 23.3049 13.247 24.0669 14.5952 25.3955C15.9043 26.7046 16.6467 28.2481 16.8617 29.8698C16.9007 30.2606 16.9398 30.6318 16.9398 31.003Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="services__content">
+                                <h3 class="services__title">
+                                    <a routerLink="">{{service.nameAR}}</a>
+                                </h3>
+                                <p>{{service.descriptionAR}}</p>
+
+                                <!-- <div class="services__btn">
+                                    <a href="services-details.html" class="tp-btn-border">{{'explore'|translate}}</a>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div *ngSwitchCase="'tr'" class="services__item-inner">
+                            <div class="services__icon">
+                                <span>
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M37.67 22.5229L35.8725 20.7644L20.7302 35.8871L22.5473 37.7042C24.0713 39.2282 25.6539 39.9902 27.217 39.9902C28.7801 39.9902 30.3627 39.2282 31.8867 37.7042L37.67 31.9208C40.7766 28.7947 40.7766 25.649 37.67 22.5229Z"
+                                            fill="currentColor" />
+                                        <path
+                                            d="M17.4478 2.30065C14.3803 -0.766883 11.1564 -0.766883 8.0889 2.30065L2.28599 8.08402C-0.761998 11.1516 -0.761998 14.3754 2.28599 17.4429L4.08353 19.2405L19.2258 4.09818L17.4478 2.30065Z"
+                                            fill="currentColor" />
+                                        <path opacity="0.2"
+                                            d="M39.1746 4.27436C36.6151 10.6634 30.7731 19.0063 25.2046 24.4575C24.4035 19.4166 20.3786 15.4699 15.2986 14.7665C20.7694 9.1785 29.1709 3.25836 35.5795 0.679292C36.7127 0.249447 37.846 0.5816 38.5494 1.28498C39.2918 2.02744 39.6435 3.14113 39.1746 4.27436Z"
+                                            fill="currentColor" />
+                                        <path
+                                            d="M25.2046 24.4574C24.2277 25.4148 23.2508 26.294 22.3129 27.0365L18.4638 30.1236C17.9754 30.4752 17.4869 30.7683 16.9398 31.0028C16.9398 30.6316 16.9008 30.2603 16.8617 29.8696C16.6468 28.2479 15.9043 26.7043 14.5952 25.3953C13.2471 24.0666 11.6449 23.3046 9.98416 23.0897C9.5934 23.0506 9.18309 23.0311 8.81186 23.0506C9.02678 22.445 9.35894 21.8783 9.76924 21.4094L12.8172 17.5603C13.5402 16.642 14.3803 15.7042 15.2986 14.7664C20.3786 15.4697 24.4035 19.4165 25.2046 24.4574Z"
+                                            fill="currentColor" />
+                                        <path opacity="0.2"
+                                            d="M16.9398 31.003C16.9398 33.1522 16.1192 35.2038 14.5561 36.7473C13.3643 37.9587 11.7621 38.7793 9.80828 39.0138L5.02137 39.5413C2.40322 39.8344 0.156303 37.5875 0.449379 34.9498L0.976916 30.1433C1.44584 25.8644 5.02137 23.129 8.81182 23.0509C9.18305 23.0313 9.59336 23.0509 9.98413 23.09C11.6449 23.3049 13.247 24.0669 14.5952 25.3955C15.9043 26.7046 16.6467 28.2481 16.8617 29.8698C16.9007 30.2606 16.9398 30.6318 16.9398 31.003Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="services__content">
+                                <h3 class="services__title">
+                                    <a routerLink="">{{service.nameTR}}</a>
+                                </h3>
+                                <p>{{service.descriptionTR}}</p>
 
                                 <!-- <div class="services__btn">
                                     <a href="services-details.html" class="tp-btn-border">{{'explore'|translate}}</a>
@@ -440,8 +508,8 @@
     <!-- pricing area start -->
     <section class="pricing__area p-relative z-index-1 black-bg-5 pt-110 pb-120">
         <!-- <div class="pricing__shape">
-            <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
-        </div> -->
+                <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
+            </div> -->
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-6">
@@ -461,7 +529,8 @@
                                     <div class="pricing__category">
                                         <span>{{plan.name}}</span>
                                     </div>
-                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency"> USD</span>
+                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency">
+                                            USD</span>
                                     </h3>
                                 </div>
                             </div>
@@ -508,8 +577,8 @@
     <!-- pricing area start -->
     <section class="pricing__area p-relative z-index-1 blue-bg pt-110 pb-120">
         <!-- <div class="pricing__shape">
-            <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
-        </div> -->
+                <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
+            </div> -->
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-6">
@@ -528,7 +597,8 @@
                                     <div class="pricing__category">
                                         <span>{{plan.name}}</span>
                                     </div>
-                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency"> USD</span>
+                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency">
+                                            USD</span>
                                     </h3>
                                 </div>
                             </div>
@@ -566,8 +636,8 @@
     <!-- pricing area end -->
     <section class="pricing__area p-relative z-index-1 bg-secondary pt-110 pb-120">
         <!-- <div class="pricing__shape">
-            <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
-        </div> -->
+                <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
+            </div> -->
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-6">
@@ -586,7 +656,8 @@
                                     <div class="pricing__category">
                                         <span>{{plan.name}}</span>
                                     </div>
-                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency"> USD</span>
+                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency">
+                                            USD</span>
                                     </h3>
                                 </div>
                             </div>
@@ -627,6 +698,7 @@
 <ng-template #loading>
     <p class="text-danger">Getting plans ....</p>
 </ng-template>
+
 
 <!-- Pricing End -->
 <!-- faq area start -->
