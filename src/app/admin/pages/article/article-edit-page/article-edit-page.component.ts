@@ -57,13 +57,21 @@ export class ArticleEditPageComponent implements OnInit {
   blogs$: Observable<{ id: number | string; name: string }[]>;
   categoryFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
+  nameTRControl = new FormControl('', [Validators.required]);
+  nameARControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
+  descriptionARControl = new FormControl('', [Validators.required]);
+  descriptionTRControl = new FormControl('', [Validators.required]);
   blogIdControl = new FormControl(0, [Validators.required]);
   ngOnInit(): void {
     this.categoryFormGroup = new FormGroup({
       id: new FormControl(null),
       title: this.nameControl,
+      titleAR: this.nameARControl,
+      titleTR: this.nameTRControl,
       content: this.descriptionControl,
+      contentAR: this.descriptionARControl,
+      contentTR: this.descriptionTRControl,
       blogId: this.blogIdControl,
     });
 
@@ -81,8 +89,12 @@ export class ArticleEditPageComponent implements OnInit {
       tap((cat) => {
         console.log(cat);
         this.nameControl.setValue(cat.title);
+        this.nameARControl.setValue(cat.titleAR);
+        this.nameTRControl.setValue(cat.titleTR);
         this.descriptionControl.setValue(cat.content);
-        this.blogIdControl.setValue(cat.blogId);
+        this.descriptionARControl.setValue(cat.contentAR);
+        this.descriptionTRControl.setValue(cat.contentTR);
+        this.blogIdControl.setValue(cat.blog.id);
       })
     );
   }

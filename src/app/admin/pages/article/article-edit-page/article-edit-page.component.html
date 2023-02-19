@@ -13,12 +13,38 @@
 
         <form [formGroup]="categoryFormGroup" class="mb-5" (ngSubmit)="HandleOnSubmit()">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <app-input-field [control]="nameControl" label="Title"></app-input-field>
+                <div class="col">
+                    <div class="row mb-3">
+                        <div class="mb-3">
+                            <app-input-field [control]="nameControl" label="Title"></app-input-field>
+                        </div>
+                        <div class="mb-3">
+                            <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig"
+                                formControlName="content"></angular-editor>
+                        </div>
                     </div>
+    
+                    <div class="row mb-3">
+                        <div class="mb-3">
+                            <app-input-field [control]="nameARControl" label="TitleAR"></app-input-field>
+                        </div>
+                        <div class="mb-3">
+                            <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig"
+                                formControlName="contentAR"></angular-editor>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="mb-3">
+                            <app-input-field [control]="nameTRControl" label="TitleTR"></app-input-field>
+                        </div>
+                        <div class="mb-3">
+                            <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig"
+                                formControlName="contentTR"></angular-editor>
+                        </div>
+                    </div>
+                </div>
 
-
+                <div class="col-md-12">
 
                     <div class="mb-3">
                         <ng-container *ngIf="blogs$ |async as blogs;else loadingBlogs">
@@ -30,16 +56,6 @@
                             <p class="text-danger">{{'loading-categories' | translate}}</p>
                         </ng-template>
 
-                    </div>
-
-
-                </div>
-
-                <div class="col-md-12">
-
-                    <div class="mb-3">
-                        <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig"
-                            formControlName="content"></angular-editor>
                     </div>
                     <button [disabled]="!categoryFormGroup.valid" type="submit" class="btn
                     btn-success">Update</button>

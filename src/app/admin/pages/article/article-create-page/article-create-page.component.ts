@@ -23,7 +23,11 @@ export class ArticleCreatePageComponent implements OnInit {
   ) {}
   categoryFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
+  nameTRControl = new FormControl('', [Validators.required]);
+  nameARControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
+  descriptionARControl = new FormControl('', [Validators.required]);
+  descriptionTRControl = new FormControl('', [Validators.required]);
   blogIdControl = new FormControl(null, [Validators.required]);
 
   editorConfig: AngularEditorConfig = {
@@ -64,7 +68,11 @@ export class ArticleCreatePageComponent implements OnInit {
 
     this.categoryFormGroup = new FormGroup({
       title: this.nameControl,
+      titleAR: this.nameARControl,
+      titleTR: this.nameTRControl,
       content: this.descriptionControl,
+      contentAR: this.descriptionARControl,
+      contentTR: this.descriptionTRControl,
       blogId: this.blogIdControl,
     });
   }

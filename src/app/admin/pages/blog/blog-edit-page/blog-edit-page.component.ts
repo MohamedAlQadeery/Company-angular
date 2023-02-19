@@ -26,13 +26,21 @@ export class BlogEditPageComponent implements OnInit {
 
   categoryFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
+  nameARControl = new FormControl('', [Validators.required]);
+  nameTRControl = new FormControl('', [Validators.required]);
   descriptionControl = new FormControl('', [Validators.required]);
+  descriptionTRControl = new FormControl('', [Validators.required]);
+  descriptionARControl = new FormControl('', [Validators.required]);
 
   ngOnInit(): void {
     this.categoryFormGroup = new FormGroup({
       id: new FormControl(null),
       title: this.nameControl,
+      titleTR: this.nameTRControl,
+      titleAR: this.nameARControl,
       content: this.descriptionControl,
+      contentAR: this.descriptionARControl,
+      contentTR: this.descriptionTRControl,
     });
 
     this._activedRoute.paramMap.subscribe((para) => {
@@ -44,7 +52,11 @@ export class BlogEditPageComponent implements OnInit {
       .pipe(
         tap((cat) => {
           this.nameControl.setValue(cat.title);
+          this.nameTRControl.setValue(cat.titleTR);
+          this.nameARControl.setValue(cat.titleAR);
           this.descriptionControl.setValue(cat.content);
+          this.descriptionTRControl.setValue(cat.contentTR);
+          this.descriptionARControl.setValue(cat.contentAR);
         })
       );
   }

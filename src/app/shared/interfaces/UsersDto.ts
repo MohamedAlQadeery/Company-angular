@@ -1,4 +1,5 @@
 import { IAttachmentResponse } from './AttachmentDtos';
+import { Review } from './review';
 
 export interface ICreateProviderRequest {
   description: string;
@@ -37,8 +38,9 @@ export interface IProviderResponse {
   userName: string;
   attachments: IAttachmentResponse[];
   phoneNumber: string;
-  id: number;
+  id: string;
   isActive: boolean;
+  review: Review | null;
 }
 
 export interface ICreateSubscriberRequest {

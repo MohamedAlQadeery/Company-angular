@@ -14,12 +14,32 @@
         <form [formGroup]="categoryFormGroup" class="mb-5" (ngSubmit)="HandleOnSubmit()">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="mb-3">
-                        <app-input-field [control]="nameControl" label="Title"></app-input-field>
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3">
+                            <app-input-field [control]="nameControl" label="Title"></app-input-field>
+                        </div>
+        
+                        <div class="col-md-6 mb-3">
+                            <app-input-field [control]="descriptionControl" label="Content"></app-input-field>
+                        </div>
                     </div>
-
-                    <div class="mb-3">
-                        <app-input-field [control]="descriptionControl" label="Content"></app-input-field>
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3">
+                            <app-input-field [control]="nameARControl" label="TitleAR"></app-input-field>
+                        </div>
+        
+                        <div class="col-md-6 mb-3">
+                            <app-input-field [control]="descriptionARControl" label="ContentAR"></app-input-field>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3">
+                            <app-input-field [control]="nameTRControl" label="TitleTR"></app-input-field>
+                        </div>
+        
+                        <div class="col-md-6 mb-3">
+                            <app-input-field [control]="descriptionTRControl" label="ContentTR"></app-input-field>
+                        </div>
                     </div>
 
 

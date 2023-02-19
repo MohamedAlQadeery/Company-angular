@@ -5,6 +5,7 @@ import {
   ICreateProviderRequest,
   IProviderResponse,
 } from '../shared/interfaces/UsersDto';
+import { Review } from '../shared/interfaces/review';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,7 @@ import {
 export class ProviderService {
   private baseUrl = environment.baseURL + '/api/user/provider';
   private baseUrl2 = environment.baseURL + '/api/user';
+  private reviewURL = environment.baseURL + '/api/Review';
   constructor(private _http: HttpClient) {}
 
   RegisterProvider(registerProviderRequest: ICreateProviderRequest) {
@@ -50,5 +52,12 @@ export class ProviderService {
     return this._http.get<IProviderResponse[]>(
       `${this.baseUrl2}?RoleName=provider&&isactive=true`
     );
+  }
+
+  ReviewProvider(review: Review) {
+    return this._http.post(`${this.reviewURL}`, review);
+  }
+  UpdateProvider(review: Review) {
+    return this._http.put(`${this.reviewURL}`, review);
   }
 }
