@@ -148,7 +148,18 @@
 "our-latest": "En Son Haberlerimiz",
 "articles": "Makaleler",
 "blog":"Blog",
-"terms" : "Kullanım Şartları ve Gizlilik Politikasını okudum ve kabul ediyorum"
+"terms" : "Kullanım Şartları ve Gizlilik Politikasını okudum ve kabul ediyorum",
+"fullname": "Adı Soyadı",
+"message": "Mesaj",
+"contact-title": "BİZİ TANIYIN",
+"contact-subtitle": "Aklınızda bir şey var mı? Konuşalım.",
+"contact-info": "İletişim Bilgileri",
+"location": "Konum",
+"social-media": "Sosyal Medya",
+"social-media-subtitle": "Sosyal medyada takip edin",
+"send-message": "Mesaj gönder",
+"contact-footer-title": "Danışmak için arayın",
+"footer-title": "İletişim Kur"
 
 
 
