@@ -9,11 +9,7 @@
       </div>
     </div>
 
-    <form
-      [formGroup]="pageFormGroup"
-      class="mb-5"
-      (ngSubmit)="HandleOnSubmit()"
-    >
+    <form [formGroup]="pageFormGroup" class="mb-5" (ngSubmit)="HandleOnSubmit()">
       <div class="row">
         <!-- <div class="col-md-6"> -->
         <!-- <div class="mb-3">
@@ -30,33 +26,38 @@
                     </editor> -->
 
         <!-- </div> -->
-        <div class="col-md-12">
-            <app-file-input [control]="headerImageFile"></app-file-input>
-          <angular-editor
-            [placeholder]="'Enter text here EN...'"
-            [config]="editorConfig"
-            formControlName="description"
-          ></angular-editor>
-          <angular-editor
-            [placeholder]="'Enter text here TR...'"
-            [config]="editorConfig"
-            formControlName="descriptionAR"
-          ></angular-editor>
-          <angular-editor
-            [placeholder]="'Enter text here TR...'"
-            [config]="editorConfig"
-            formControlName="descriptionTR"
-          ></angular-editor>
+        <div class="col-md-12 mb-3">
+          <app-file-input [control]="headerImageFile"></app-file-input>
+        </div>
+        <div class="col-md-12 mb-3">
+          <label class="form-label">English Description</label>
+          <angular-editor [placeholder]="'Enter text here EN...'" [config]="editorConfig"
+            formControlName="description"></angular-editor>
+        </div>
 
-          <button
-            [disabled]="!pageFormGroup.valid"
-            type="submit"
-            class="btn btn-success mt-md-3"
-          >
+        <div class="col-md-12 mb-3">
+          <label class="form-label">Arabic Description</label>
+
+          <angular-editor [placeholder]="'Enter text here AR...'" [config]="editorConfig"
+            formControlName="descriptionAR"></angular-editor>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label class="form-label">Turkey Description</label>
+
+          <angular-editor [placeholder]="'Enter text here TR...'" [config]="editorConfig"
+            formControlName="descriptionTR"></angular-editor>
+        </div>
+
+
+        <div class="col-md-12">
+          <button [disabled]="!pageFormGroup.valid" type="submit" class="btn btn-success mt-md-3">
             Update
           </button>
         </div>
+
       </div>
+
     </form>
   </div>
 </ng-container>

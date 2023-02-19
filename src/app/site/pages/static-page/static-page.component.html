@@ -31,9 +31,18 @@
     <section class="event__details-area pt-60 pb-65">
         <div class="container">
             <div class="row">
-                <div class="col-xl-12" [innerHTML]="page.description">
+                <ng-container *ngIf="lang$ | async as lang" [ngSwitch]="lang">
+                    <div *ngSwitchCase="'en'" class="col-xl-12" [innerHTML]="page.description">
 
-                </div>
+                    </div>
+                    <div *ngSwitchCase="'ar'" class="col-xl-12" [innerHTML]="page.descriptionAR">
+
+                    </div>
+                    <div *ngSwitchCase="'tr'" class="col-xl-12" [innerHTML]="page.descriptionTR">
+
+                    </div>
+                </ng-container>
+
 
 
             </div>
