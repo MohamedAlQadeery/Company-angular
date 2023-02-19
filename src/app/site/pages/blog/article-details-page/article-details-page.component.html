@@ -1,99 +1,111 @@
-<ng-container *ngIf="post$ | async as post;else loadingPost">
-    <!-- breadcrumb area start -->
-    <section
-        class="breadcrumb__area breadcrumb__style-7 breadcrumb__bg-3 p-relative z-index-1 include-bg pt-180 pb-100">
-        <div class="breadcrumb__bg-shape include-bg" data-background="assets/img/breadcrumb/breadcrumb-shape-1.png">
-        </div>
-        <div class="breadcrumb__shape">
-            <img class="breadcrumb__shape-1" src="assets/img/breadcrumb/breadcrumb-dot-1.png" alt="">
-            <img class="breadcrumb__shape-2" src="assets/img/breadcrumb/breadcrumb-dot-2.png" alt="">
-        </div>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class=" col-xl-8 col-lg-9">
-                    <div class="breadcrumb__content breadcrumb__content-2 p-relative z-index-1 text-center">
-                        <h3 class="breadcrumb__title">{{post.title}}</h3>
-                        <div class="breadcrumb__list">
-                            <span><a routerLink="/blog">{{'blog' | translate}}</a></span>
-                            <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-                            <span>{{post.title}}</span>
+<ng-container *ngIf="lang$ | async as lang" [ngSwitch]="lang">
+    <ng-container *ngIf="post$ | async as post;else loadingPost">
+        <!-- breadcrumb area start -->
+        <section
+            class="breadcrumb__area breadcrumb__style-7 breadcrumb__bg-3 p-relative z-index-1 include-bg pt-180 pb-100">
+            <div class="breadcrumb__bg-shape include-bg" data-background="assets/img/breadcrumb/breadcrumb-shape-1.png">
+            </div>
+            <div class="breadcrumb__shape">
+                <img class="breadcrumb__shape-1" src="assets/img/breadcrumb/breadcrumb-dot-1.png" alt="">
+                <img class="breadcrumb__shape-2" src="assets/img/breadcrumb/breadcrumb-dot-2.png" alt="">
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class=" col-xl-8 col-lg-9">
+                        <div class="breadcrumb__content breadcrumb__content-2 p-relative z-index-1 text-center">
+                            <h3 *ngSwitchCase="'en'" class="breadcrumb__title">{{post.title}}</h3>
+                            <h3 *ngSwitchCase="'ar'" class="breadcrumb__title">{{post.titleAR}}</h3>
+                            <h3 *ngSwitchCase="'tr'" class="breadcrumb__title">{{post.titleTR}}</h3>
+                            <div class="breadcrumb__list">
+                                <span><a routerLink="/blog">{{'blog' | translate}}</a></span>
+                                <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
+                                <span *ngSwitchCase="'en'">{{post.title}}</span>
+                                <span *ngSwitchCase="'ar'">{{post.titleAR}}</span>
+                                <span *ngSwitchCase="'tr'">{{post.titleTR}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- breadcrumb area end -->
+        </section>
+        <!-- breadcrumb area end -->
 
 
 
-    <!-- event details area start -->
-    <section class="event__details-area pt-120 pb-65">
-        <div class="container">
+        <!-- event details area start -->
+        <section class="event__details-area pt-120 pb-65">
+            <div class="container">
 
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="postbox__main-wrapper">
-                        <div class="postbox__meta-wrapper d-flex align-items-center flex-wrap">
-                            <div class="postbox__meta-item mb-30">
-                                <div class="postbox__meta-author d-flex align-items-center">
-                                    <div class="postbox__meta-author-thumb">
-                                        <a routerLink="/">
-                                            <img src="assets/site/img/users/user-12.jpg" alt="">
-                                        </a>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="postbox__main-wrapper">
+                            <div class="postbox__meta-wrapper d-flex align-items-center flex-wrap">
+                                <div class="postbox__meta-item mb-30">
+                                    <div class="postbox__meta-author d-flex align-items-center">
+                                        <div class="postbox__meta-author-thumb">
+                                            <a routerLink="/">
+                                                <img src="assets/site/img/users/user-12.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="postbox__meta-content">
+                                            <span class="postbox__meta-type">{{'author'|translate}}</span>
+                                            <p class="postbox__meta-name">Admin</p>
+                                        </div>
                                     </div>
+                                </div>
+                                <div class="postbox__meta-item mb-30">
                                     <div class="postbox__meta-content">
-                                        <span class="postbox__meta-type">{{'author'|translate}}</span>
-                                        <p class="postbox__meta-name">Admin</p>
+                                        <span class="postbox__meta-type">{{'created-at' | translate}}</span>
+                                        <p class="postbox__meta-name">{{post.createdAt | date}}</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="postbox__meta-item mb-30">
-                                <div class="postbox__meta-content">
-                                    <span class="postbox__meta-type">{{'created-at' | translate}}</span>
-                                    <p class="postbox__meta-name">{{post.createdAt | date}}</p>
-                                </div>
+
                             </div>
 
                         </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div *ngSwitchCase="'en'" class="col-xl-12" [innerHTML]="post.content">
+
+                    </div>
+                    <div *ngSwitchCase="'ar'" class="col-xl-12" [innerHTML]="post.contentAR">
+
+                    </div>
+                    <div *ngSwitchCase="'tr'" class="col-xl-12" [innerHTML]="post.contentTR">
 
                     </div>
                 </div>
-
             </div>
-            <div class="row">
-                <div class="col-xl-12" [innerHTML]="post.content">
 
+
+
+
+
+
+        </section>
+        <!-- event details area end -->
+    </ng-container>
+
+
+    <ng-template #loadingPost>
+        <!-- event details area start -->
+        <section class="event__details-area pt-120 pb-65">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <h3>Loading Article</h3>
+                    </div>
                 </div>
             </div>
-        </div>
 
 
 
 
 
 
-    </section>
-    <!-- event details area end -->
+        </section>
+        <!-- event details area end -->
+    </ng-template>
 </ng-container>
-
-
-<ng-template #loadingPost>
-    <!-- event details area start -->
-    <section class="event__details-area pt-120 pb-65">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <h3>Loading Article</h3>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-    </section>
-    <!-- event details area end -->
-</ng-template>
