@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, switchMap, tap } from 'rxjs';
+import { LangService } from 'src/app/services/language.service';
 import { ProviderService } from 'src/app/services/provider.service';
 import { UserService } from 'src/app/services/user.service';
 import {
@@ -17,12 +18,14 @@ import { environment } from 'src/environments/environment';
 export class ProviderDetailsPageComponent {
   constructor(
     private _userService: UserService,
-    private _activeRoute: ActivatedRoute
+    private _activeRoute: ActivatedRoute,
+    private _langService: LangService
   ) {}
 
   imagesUrl = `${environment.baseURL}/images/thumbs/big`;
   smallImagesUrl = `${environment.baseURL}/images/thumbs/small`;
   provider$: Observable<IUserRespose>;
+  lang$ = this._langService.currentLang$;
 
   ngOnInit(): void {
     this.provider$ = this._activeRoute.paramMap.pipe(

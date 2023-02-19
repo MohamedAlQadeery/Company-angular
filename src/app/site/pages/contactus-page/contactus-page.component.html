@@ -1,0 +1,112 @@
+<!-- contact area start -->
+<section class="tp-section-area p-relative z-index-1 tp-section-spacing">
+    <div class="tp-section-bg include-bg" data-background="assets/site/img/contact/contact-bg.png"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <div class="tp-section-wrapper-2 text-center">
+                    <span class="tp-section-subtitle-2 subtitle-mb-9">{{'contact-title' | translate}}</span>
+                    <h3 class="tp-section-title-2 font-70">{{'contact-subtitle' | translate}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- contact area end -->
+
+<div class="contact__item-area contact__translate-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="contact__item text-center mb-30 transition-3 white-bg">
+                    <div class="contact__icon">
+                        <img src="assets/site/img/contact/icon/contact-icon-1.png" alt="">
+                    </div>
+                    <div class="contact__content">
+                        <span class="contact-item-subtitle">{{'contact-info' | translate}}</span>
+                        <p><a href="mailto:location@website.com">location@website.com</a></p>
+                        <p><a href="tel:602-762-472-96">+(602) 762 472 96</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="contact__item text-center mb-30 transition-3 white-bg">
+                    <div class="contact__icon">
+                        <img src="assets/site/img/contact/icon/contact-icon-3.png" alt="">
+                    </div>
+                    <div class="contact__content">
+                        <span class="contact-item-subtitle">{{'location' | translate}}</span>
+                        <p><a href="https://www.google.com/maps/place/102+Thompson+St,+New+York,+NY+10012,+USA/@40.7255437,-74.004061,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2598c338f691d:0x6d5f394e7a1962cc!8m2!3d40.7255397!4d-74.0018723"
+                                target="_blank">88 New South Head Rd, Triple, New York</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="contact__item text-center mb-30 transition-3 white-bg">
+                    <div class="contact__icon">
+                        <img src="assets/site/img/contact/icon/contact-icon-2.png" alt="">
+                    </div>
+                    <div class="contact__content">
+                        <span class="contact-item-subtitle">{{'social-media' | translate}}</span>
+                        <p>{{'social-media-subtitle' | translate}}</p>
+                        <div class="contact__social">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- contact form area start -->
+<section class="contact__form-area pt-90 mb-md-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="contact__form-2">
+                    <h3 class="contact__form-2-title">{{'send-message' | translate}}</h3>
+                    <form id="contact-form" [formGroup]="contactFormGroup" (ngSubmit)="HandleOnSubmit()">
+                        <div class="row">
+                            <div class="col-md-4 mb-md-3">
+                                <app-input-field [control]="nameControl"
+                                    label="{{'fullname' |translate}}"></app-input-field>
+                            </div>
+                            <div class="col-md-4 mb-md-3">
+                                <app-input-field [control]="emailControl"
+                                    label="{{'email' |translate}}"></app-input-field>
+                            </div>
+                            <div class="col-md-4 mb-md-3">
+                                <app-input-field [control]="phoneControl"
+                                    label="{{'phone' |translate}}"></app-input-field>
+                            </div>
+                            <div class="col-md-12 mb-md-3">
+                                <app-text-area-input [control]="messageControl"
+                                    label="{{'message' | translate}}"></app-text-area-input>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="contact__btn-2">
+                                    <button [disabled]="!contactFormGroup.valid"
+                                        [ngClass]="{'disabled-btn': !contactFormGroup.valid}" type="submit"
+                                        class="tp-btn">{{'send-message' | translate}}</button>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <!-- for wp = this will hide in style one -->
+                                <div class="contact__form-call float-md-end">
+                                    <span>{{'contact-footer-title' | translate}}</span>
+                                    <p><a href="tel:2236-384-870"><i class="fa-solid fa-phone-flip"></i> +2236 384
+                                            870</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- contact form area end -->

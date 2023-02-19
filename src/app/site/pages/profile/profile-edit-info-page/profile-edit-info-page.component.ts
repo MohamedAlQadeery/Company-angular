@@ -153,8 +153,8 @@ export class ProfileEditInfoPageComponent implements OnInit {
           this.websiteControl.setValue(res.website);
           this.phoneControl.setValue(res.phoneNumber);
           this.descrptionEnControl.setValue(res.description);
-          this.descrptionArControl.setValue(res.descriptionAr);
-          this.descrptionTrControl.setValue(res.descriptionTr);
+          this.descrptionArControl.setValue(res.descriptionAR);
+          this.descrptionTrControl.setValue(res.descriptionTR);
         } else {
           this.sFirstNameControl.setValue(res.firstName);
           this.sMidNameControl.setValue(res.middleName);

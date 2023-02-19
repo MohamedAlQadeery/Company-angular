@@ -30,6 +30,7 @@ import { ArticleDetailsPageComponent } from './pages/blog/article-details-page/a
 import { ProvidersPageComponent } from './pages/providers/providers-page/providers-page.component';
 import { ProviderDetailsPageComponent } from './pages/providers/provider-details-page/provider-details-page.component';
 import { UserSignupComponent } from './pages/user-signup/user-signup.component';
+import { ContactusPageComponent } from './pages/contactus-page/contactus-page.component';
 
 const routes: Routes = [
   {
@@ -122,6 +123,10 @@ const routes: Routes = [
       {
         path: 'providers/:email',
         component: ProviderDetailsPageComponent,
+      },
+      {
+        path: 'contactus',
+        component: ContactusPageComponent,
       },
 
       { path: '**', component: PageNotFoundComponent },

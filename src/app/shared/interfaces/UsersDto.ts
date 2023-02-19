@@ -74,8 +74,8 @@ export interface ISubscriberResponse {
 
 export interface IUserRespose {
   description: string | null;
-  descriptionAr: string | null;
-  descriptionTr: string | null;
+  descriptionAR: string | null;
+  descriptionTR: string | null;
   firstName: string | null;
   middleName: string | null;
   lastName: string | null;
