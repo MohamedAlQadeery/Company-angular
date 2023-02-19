@@ -14,14 +14,15 @@ export const environment = {
     article: '/api/Article',
     teamMember: '/api/TeamMember',
     faq: '/api/Faq',
+    contact: '/api/ContactUs',
   },
-  images:{
+  images: {
     small: '/Images/Thumbs/Small/',
     med: '/Images/Thumbs/Med/',
     big: '/Images/Thumbs/Big/',
     team: '/Images/Thumbs/Team/',
     origen: '/Images/',
-  }
+  },
 };
 
 /*

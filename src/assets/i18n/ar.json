@@ -165,7 +165,10 @@
 "social-media-subtitle": "تابعنا على وسائل التواصل الاجتماعي",
 "send-message": "ارسل رسالة",
 "contact-footer-title": "اتصل بنا للتشاور",
-"footer-title": "ابقى على تواصل"
+"footer-title": "ابقى على تواصل",
+"success-message-sent-title": "تم إرسال الرسالة بنجاح",
+"success-message-sent-content": "لقد تلقينا رسالتك وسنتواصل معك قريبًا"
+
 
 
 
