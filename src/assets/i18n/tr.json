@@ -161,7 +161,9 @@
 "contact-footer-title": "Danışmak için arayın",
 "footer-title": "İletişim Kur",
 "success-message-sent-title": "Mesaj Başarıyla Gönderildi",
-"success-message-sent-content": "Mesajınızı aldık, yakında sizinle iletişim kuracağız"
+"success-message-sent-content": "Mesajınızı aldık, yakında sizinle iletişim kuracağız",
+"provider-name":"Sağlayıcı ismi girin"
+
 
 
 

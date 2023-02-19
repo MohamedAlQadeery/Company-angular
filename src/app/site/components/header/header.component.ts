@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Output, Renderer2 } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  Renderer2,
+} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, NavigationEnd, Router, Scroll } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +18,7 @@ import { LangService } from 'src/app/services/language.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     private renderer: Renderer2,
@@ -60,6 +67,18 @@ export class HeaderComponent {
   );
 
   isLoggedIn$ = this._authService.isLoggedin$;
+
+  //#region Search FormControl
+  searchFormGroup: FormGroup;
+
+  //#endregion
+
+  ngOnInit(): void {
+    this.searchFormGroup = new FormGroup({
+      name: new FormControl(''),
+    });
+  }
+
   changeLanguage(language: string) {
     this.translate.use(language);
 
@@ -89,5 +108,14 @@ export class HeaderComponent {
   }
   ToggleCanvasNav() {
     this.showCanvasNav = !this.showCanvasNav;
+  }
+
+  HandleOnSubmit() {
+    const providerName = this.searchFormGroup.value['name'];
+    this.searchFormGroup.reset();
+    this.showSearchForm = false;
+    this._router.navigate(['/providers'], {
+      queryParams: { name: providerName },
+    });
   }
 }

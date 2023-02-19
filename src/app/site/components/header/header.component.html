@@ -459,10 +459,10 @@
                         </div>
                     </div>
                     <div class="search__form">
-                        <form action="#">
+                        <form [formGroup]="searchFormGroup" (ngSubmit)="HandleOnSubmit()">
                             <div class="search__input">
-                                <input class="search-input-field" type="text"
-                                    placeholder="{{'service-name' | translate}}">
+                                <input formControlName="name" class="search-input-field" type="text"
+                                    placeholder="{{'provider-name' | translate}}">
                                 <span class="search-focus-border"></span>
                                 <button type="submit">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"

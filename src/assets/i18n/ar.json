@@ -167,7 +167,8 @@
 "contact-footer-title": "اتصل بنا للتشاور",
 "footer-title": "ابقى على تواصل",
 "success-message-sent-title": "تم إرسال الرسالة بنجاح",
-"success-message-sent-content": "لقد تلقينا رسالتك وسنتواصل معك قريبًا"
+"success-message-sent-content": "لقد تلقينا رسالتك وسنتواصل معك قريبًا",
+"provider-name":"ادخل اسم المزود"
 
 
 
