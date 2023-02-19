@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, map, tap } from 'rxjs';
 import { CategoryService } from 'src/app/services/category.service';
 import { LangService } from 'src/app/services/language.service';
@@ -16,7 +17,8 @@ export class ProvidersPageComponent implements OnInit {
   constructor(
     private _providerService: ProviderService,
     private _categoryService: CategoryService,
-    private _langService: LangService
+    private _langService: LangService,
+    private _actviedRoute: ActivatedRoute
   ) {}
 
   imagesUrl = `${environment.baseURL}/images/thumbs/small`;
@@ -40,7 +42,11 @@ export class ProvidersPageComponent implements OnInit {
       this.originalProviders = res;
       this.providers = res;
       this.loadingFinished = true;
-      console.log(this.providers);
+
+      let searchParams = this._actviedRoute.snapshot.queryParams;
+      if (searchParams['name']) {
+        this.HandleSearchFromQuery(searchParams['name']);
+      }
     });
 
     this.searchFormGroup = new FormGroup({
@@ -74,5 +80,17 @@ export class ProvidersPageComponent implements OnInit {
     });
 
     this.searchFormGroup.reset();
+  }
+
+  HandleSearchFromQuery(name: string) {
+    this.providers = this.originalProviders.filter((provider) => {
+      if (!provider.companyName.toLowerCase().includes(name.toLowerCase())) {
+        return false;
+      }
+
+      return true;
+    });
+
+    console.log(this.providers);
   }
 }

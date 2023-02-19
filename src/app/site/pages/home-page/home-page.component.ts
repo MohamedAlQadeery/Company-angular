@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable, map, tap } from 'rxjs';
 import { FaqService } from 'src/app/services/faq.service';
 import { GeneralServiceService } from 'src/app/services/general-service.service';
@@ -21,7 +23,8 @@ export class HomePageComponent implements OnInit {
     private _teamService: TeamMemberService,
     private _faqService: FaqService,
     private _genralServices: GeneralServiceService,
-    private _providerServices: ProviderService
+    private _providerServices: ProviderService,
+    private _router: Router
   ) {}
 
   lang$ = this._langService.currentLang$;
@@ -30,6 +33,7 @@ export class HomePageComponent implements OnInit {
 
   imagesUrl = `${environment.baseURL}/images/thumbs/small`;
 
+  //#region Sliders Configs
   teamSliderConfig = {
     autoplay: false,
     autoplaySpeed: 4000,
@@ -114,6 +118,7 @@ export class HomePageComponent implements OnInit {
       },
     ],
   };
+  //#endregion
 
   //#region Pricing
   userPlans: IPlanResponse[] = [];
@@ -143,6 +148,10 @@ export class HomePageComponent implements OnInit {
 
   //#endregion
 
+  //#region Search FormControl
+  searchFormGroup: FormGroup;
+
+  //#endregion
   ngOnInit(): void {
     this.plans$ = this._planService.GetAllPlans().pipe(
       tap((res) => {
@@ -151,5 +160,17 @@ export class HomePageComponent implements OnInit {
         this.providerPlans = res.filter((p) => p.planType == 3);
       })
     );
+
+    this.searchFormGroup = new FormGroup({
+      name: new FormControl(''),
+    });
+  }
+
+  HandleOnSubmit() {
+    const providerName = this.searchFormGroup.value['name'];
+    this.searchFormGroup.reset();
+    this._router.navigate(['/providers'], {
+      queryParams: { name: providerName },
+    });
   }
 }

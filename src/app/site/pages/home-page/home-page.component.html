@@ -44,14 +44,15 @@
 
 
                                 <div class="slider__form">
-                                    <form action="#">
+                                    <form [formGroup]="searchFormGroup" (ngSubmit)="HandleOnSubmit()">
                                         <div class="d-sm-flex justify-content-center slider__form-wrapper flex-wrap">
                                             <div class="slider__form-input">
-                                                <input type="text" placeholder="{{'service-name' | translate}}">
+                                                <input formControlName="name" type="text"
+                                                    placeholder="{{'service-name' | translate}}">
                                             </div>
 
                                             <div>
-                                                <button type="button" class="slider-form-btn tp-link-btn-3">{{'search' |
+                                                <button type="submit" class="slider-form-btn tp-link-btn-3">{{'search' |
                                                     translate}}</button>
                                             </div>
                                         </div>
