@@ -1,5 +1,7 @@
-<!-- breadcrumb area start -->
-<!-- <section class="breadcrumb__area breadcrumb__style-6 p-relative include-bg pt-200 pb-120 mb-5">
+<ng-container *ngIf="lang$ |async as lang" [ngSwitch]="lang">
+
+    <!-- breadcrumb area start -->
+    <!-- <section class="breadcrumb__area breadcrumb__style-6 p-relative include-bg pt-200 pb-120 mb-5">
     <div class="breadcrumb__bg-2 breadcrumb__overlay include-bg"
         data-background="assets/site/img/breadcrumb/breadcrumb-bg-6.jpg"></div>
     <div class="container">
@@ -22,94 +24,97 @@
 
 
 
-<!-- slider area start -->
-<section class="slider__area p-relative">
-    <div class="slider__active swiper-container">
-        <div class="swiper-wrapper">
-            <div
-                class="slider__item slider__height slider__overlay include-bg pt-100 pb-100 swiper-slide d-flex align-items-center">
-                <div class="slider__bg p-relative include-bg"
-                    style="background-image: url('assets/site/img/homepage/homepage.jpg');"></div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-xxl-12">
-                            <div class="slider__content text-center">
-                                <ng-container *ngIf="lang$ | async as lang">
+    <!-- slider area start -->
+    <section class="slider__area p-relative">
+        <div class="slider__active swiper-container">
+            <div class="swiper-wrapper">
+                <div
+                    class="slider__item slider__height slider__overlay include-bg pt-100 pb-100 swiper-slide d-flex align-items-center">
+                    <div class="slider__bg p-relative include-bg"
+                        style="background-image: url('assets/site/img/homepage/homepage.jpg');"></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-xxl-12">
+                                <div class="slider__content text-center">
+
                                     <span class="slider__title-pre"
                                         [ngStyle]="{'letter-spacing': lang=='ar'? '0px' : '8px'}">{{'homepage-title'
                                         |translate}}</span>
                                     <h3 class="slider__title">{{'company' | translate}}</h3>
-                                </ng-container>
 
 
 
-                                <div class="slider__form">
-                                    <form [formGroup]="searchFormGroup" (ngSubmit)="HandleOnSubmit()">
-                                        <div class="d-sm-flex justify-content-center slider__form-wrapper flex-wrap">
-                                            <div class="slider__form-input">
-                                                <input formControlName="name" type="text"
-                                                    placeholder="{{'provider-name' | translate}}">
+
+                                    <div class="slider__form">
+                                        <form [formGroup]="searchFormGroup" (ngSubmit)="HandleOnSubmit()">
+                                            <div
+                                                class="d-sm-flex justify-content-center slider__form-wrapper flex-wrap">
+                                                <div class="slider__form-input">
+                                                    <input formControlName="name" type="text"
+                                                        placeholder="{{'provider-name' | translate}}">
+                                                </div>
+
+                                                <div>
+                                                    <button type="submit"
+                                                        class="slider-form-btn tp-link-btn-3">{{'search' |
+                                                        translate}}</button>
+                                                </div>
                                             </div>
-
-                                            <div>
-                                                <button type="submit" class="slider-form-btn tp-link-btn-3">{{'search' |
-                                                    translate}}</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-
         </div>
-    </div>
 
-</section>
-<!-- slider area end -->
+    </section>
+    <!-- slider area end -->
 
 
-<!-- about area start -->
-<section id="tpabout" class="about__area pt-120 pb-120">
-    <div class="container">
-        <div class="row">
-            <div class="col-xxl-6 col-xl-6 col-lg-6">
-                <div class="about__thumb-wrapper ml-70 pr-100">
-                    <div class="about__thumb w-img">
-                        <div class="tp-thumb-overlay wow"></div>
-                        <img src="assets/site/img/about/about-img-1.jpg" alt="">
-                    </div>
-                    <div class="about__thumb-text">
-                        <h3 data-text="Expert">Expert</h3>
-                    </div>
-                    <div class="about__experience">
-                        <h4><span data-purecounter-duration="1" data-purecounter-end="12" class="purecounter">0</span>
-                        </h4>
-                        <p>{{'years' | translate}} <br> {{'experince' | translate}}</p>
+    <!-- about area start -->
+    <section id="tpabout" class="about__area pt-120 pb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-6 col-xl-6 col-lg-6">
+                    <div class="about__thumb-wrapper ml-70 pr-100">
+                        <div class="about__thumb w-img">
+                            <div class="tp-thumb-overlay wow"></div>
+                            <img src="assets/site/img/about/about-img-1.jpg" alt="">
+                        </div>
+                        <div class="about__thumb-text">
+                            <h3 data-text="Expert">Expert</h3>
+                        </div>
+                        <div class="about__experience">
+                            <h4><span data-purecounter-duration="1" data-purecounter-end="12"
+                                    class="purecounter">0</span>
+                            </h4>
+                            <p>{{'years' | translate}} <br> {{'experince' | translate}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xxl-6 col-xl-6 col-lg-6">
-                <div class="about__wrapper pr-95 wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
-                    <div class="section__title-wrapper mb-25">
-                        <span class="section__title-pre">{{'experts' | translate}}</span>
-                        <h3 class="section__title">
-                            {{'what-they-think' | translate}} <span class="section__title-highlight">{{'aboutus-1' |
-                                translate}}
-                                <svg width="220" height="27" viewBox="0 0 220 27" fill="none">
-                                    <path
-                                        d="M19.6407 15.2948C33.4481 12.464 47.2752 10.3031 61.24 8.63481C48.6133 9.07487 35.9865 9.33103 23.3729 9.29162C22.4743 9.29162 21.7396 8.54942 21.7396 7.64958C21.7462 6.74318 22.4808 6.00754 23.386 6.00754C60.8398 6.12577 138.464 3.57728 175.839 1.69222C185.81 1.18648 195.563 0.739778 205.534 0.477052C208.079 0.41137 210.63 0.280046 213.175 0.188091C214.5 0.142114 217.924 -0.0286769 218.403 0.0041639C219.761 0.0895499 219.964 1.27179 219.984 1.4557C220.036 1.8892 220.003 2.53954 219.242 3.03215C219.19 3.07156 218.895 3.25544 218.232 3.33426C181.198 7.74806 103.764 7.1897 66.6842 11.3079C51.0861 13.0485 35.6783 15.3606 20.3032 18.5133C14.9311 19.6102 11.8678 20.3064 7.57803 21.4493C14.649 23.3081 21.8971 24.3393 29.2173 24.891C29.2173 24.891 19.6407 27.474 12.386 25.9286C5.13134 24.3833 4.9674 24.221 1.33353 23.0321C0.493934 22.7628 0.238148 22.2375 0.133199 21.955C-0.0963783 21.3639 -0.0701445 20.7136 0.539874 20.1159C0.703857 19.9583 1.01869 19.7349 1.51064 19.5773C2.15346 19.3737 3.48499 19.1636 4.08189 18.9994C9.9853 17.3705 13.1535 16.6216 19.6407 15.2948Z"
-                                        fill="currentColor" />
-                                </svg>
-                            </span>
-                        </h3>
-                    </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6">
+                    <div class="about__wrapper pr-95 wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
+                        <div class="section__title-wrapper mb-25">
+                            <span class="section__title-pre">{{'experts' | translate}}</span>
+                            <h3 class="section__title">
+                                {{'what-they-think' | translate}} <span class="section__title-highlight">{{'aboutus-1' |
+                                    translate}}
+                                    <svg width="220" height="27" viewBox="0 0 220 27" fill="none">
+                                        <path
+                                            d="M19.6407 15.2948C33.4481 12.464 47.2752 10.3031 61.24 8.63481C48.6133 9.07487 35.9865 9.33103 23.3729 9.29162C22.4743 9.29162 21.7396 8.54942 21.7396 7.64958C21.7462 6.74318 22.4808 6.00754 23.386 6.00754C60.8398 6.12577 138.464 3.57728 175.839 1.69222C185.81 1.18648 195.563 0.739778 205.534 0.477052C208.079 0.41137 210.63 0.280046 213.175 0.188091C214.5 0.142114 217.924 -0.0286769 218.403 0.0041639C219.761 0.0895499 219.964 1.27179 219.984 1.4557C220.036 1.8892 220.003 2.53954 219.242 3.03215C219.19 3.07156 218.895 3.25544 218.232 3.33426C181.198 7.74806 103.764 7.1897 66.6842 11.3079C51.0861 13.0485 35.6783 15.3606 20.3032 18.5133C14.9311 19.6102 11.8678 20.3064 7.57803 21.4493C14.649 23.3081 21.8971 24.3393 29.2173 24.891C29.2173 24.891 19.6407 27.474 12.386 25.9286C5.13134 24.3833 4.9674 24.221 1.33353 23.0321C0.493934 22.7628 0.238148 22.2375 0.133199 21.955C-0.0963783 21.3639 -0.0701445 20.7136 0.539874 20.1159C0.703857 19.9583 1.01869 19.7349 1.51064 19.5773C2.15346 19.3737 3.48499 19.1636 4.08189 18.9994C9.9853 17.3705 13.1535 16.6216 19.6407 15.2948Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </span>
+                            </h3>
+                        </div>
 
-                    <p>{{'aboutus-content' | translate}}</p>
+                        <p>{{'aboutus-content' | translate}}</p>
 
-                    <!-- <div class="about__author d-sm-flex align-items-center mb-40">
+                        <!-- <div class="about__author d-sm-flex align-items-center mb-40">
                         <div class="about__author-inner d-flex align-items-center">
                             <div class="about__author-thumb mr-10">
                                 <img src="assets/site/img/about/about-author-thumb.jpg" alt="">
@@ -125,83 +130,83 @@
                     <div class="about__btn">
                         <a href="about.html" class="tp-btn">Discover Now</a>
                     </div> -->
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- about area end -->
-
-<!-- counter area start -->
-<section class="counter__area counter__border pb-110">
-    <div class="container">
-        <div class="counter__inner black-bg fix">
-            <div class="counter__shape">
-                <img class="counter__shape-1 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".3s"
-                    src="assets/site/img/counter/counter-shape-1.png" alt="">
-                <img class="counter__shape-2 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".7s"
-                    src="assets/site/img/counter/counter-shape-2.png" alt="">
-                <img class="counter__shape-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s"
-                    src="assets/site/img/counter/counter-shape-3.png" alt="">
-                <img class="counter__shape-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.2s"
-                    src="assets/site/img/counter/counter-shape-4.png" alt="">
-
-                <img class="counter__shape-5 wow fadeInLeft" data-wow-duration="1s"
-                    src="assets/site/img/counter/counter-shape-circle-1.png" alt="">
-                <img class="counter__shape-6 wow fadeInRight" data-wow-duration="1s"
-                    src="assets/site/img/counter/counter-shape-circle-2.png" alt="">
-
-                <img class="counter__shape-7 wow fadeInUp" data-wow-duration="1s"
-                    src="assets/site/img/counter/counter-shape-line-1.png" alt="">
-                <img class="counter__shape-8 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s"
-                    src="assets/site/img/counter/counter-shape-line-2.png" alt="">
-                <img class="counter__shape-9 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s"
-                    src="assets/site/img/counter/counter-shape-line-3.png" alt="">
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xxl-4 col-xl-4 col-lg-4">
-                    <div class="counter__item">
-                        <div class="counter__content">
-                            <p>Cups of Coffee</p>
-                            <h3 class="counter__title">+<span data-purecounter-duration="1" data-purecounter-end="914"
-                                    class="purecounter">0</span>K</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-4 col-xl-4 col-lg-4">
-                    <div class="counter__item">
-                        <div class="counter__content">
-                            <p>Happy Clients</p>
-                            <h3 class="counter__title">+<span data-purecounter-duration="1" data-purecounter-end="123"
-                                    class="purecounter">0</span>K</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-4 col-xl-4 col-lg-4">
-                    <div class="counter__item">
-                        <div class="counter__content">
-                            <p>Review</p>
-                            <h3 class="counter__title">+<span data-purecounter-duration="1" data-purecounter-end="76"
-                                    class="purecounter">0</span>K</h3>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- counter area end -->
+    </section>
+    <!-- about area end -->
+
+    <!-- counter area start -->
+    <section class="counter__area counter__border pb-110">
+        <div class="container">
+            <div class="counter__inner black-bg fix">
+                <div class="counter__shape">
+                    <img class="counter__shape-1 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".3s"
+                        src="assets/site/img/counter/counter-shape-1.png" alt="">
+                    <img class="counter__shape-2 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".7s"
+                        src="assets/site/img/counter/counter-shape-2.png" alt="">
+                    <img class="counter__shape-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s"
+                        src="assets/site/img/counter/counter-shape-3.png" alt="">
+                    <img class="counter__shape-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.2s"
+                        src="assets/site/img/counter/counter-shape-4.png" alt="">
+
+                    <img class="counter__shape-5 wow fadeInLeft" data-wow-duration="1s"
+                        src="assets/site/img/counter/counter-shape-circle-1.png" alt="">
+                    <img class="counter__shape-6 wow fadeInRight" data-wow-duration="1s"
+                        src="assets/site/img/counter/counter-shape-circle-2.png" alt="">
+
+                    <img class="counter__shape-7 wow fadeInUp" data-wow-duration="1s"
+                        src="assets/site/img/counter/counter-shape-line-1.png" alt="">
+                    <img class="counter__shape-8 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s"
+                        src="assets/site/img/counter/counter-shape-line-2.png" alt="">
+                    <img class="counter__shape-9 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s"
+                        src="assets/site/img/counter/counter-shape-line-3.png" alt="">
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xxl-4 col-xl-4 col-lg-4">
+                        <div class="counter__item">
+                            <div class="counter__content">
+                                <p>Cups of Coffee</p>
+                                <h3 class="counter__title">+<span data-purecounter-duration="1"
+                                        data-purecounter-end="914" class="purecounter">0</span>K</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-4">
+                        <div class="counter__item">
+                            <div class="counter__content">
+                                <p>Happy Clients</p>
+                                <h3 class="counter__title">+<span data-purecounter-duration="1"
+                                        data-purecounter-end="123" class="purecounter">0</span>K</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-4">
+                        <div class="counter__item">
+                            <div class="counter__content">
+                                <p>Review</p>
+                                <h3 class="counter__title">+<span data-purecounter-duration="1"
+                                        data-purecounter-end="76" class="purecounter">0</span>K</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- counter area end -->
 
 
 
 
 
-<!-- services area start -->
-<section class="services__area pt-100 pb-90">
-    <div class="container">
+    <!-- services area start -->
+    <section class="services__area pt-100 pb-90">
+        <div class="container">
 
 
-        <!--         
+            <!--         
         <div class="row justify-content-center">
             <div class="col-xxl-7 col-xl-8 col-lg-9">
                 <div class="section__title-wrapper-7 text-center mb-60">
@@ -212,175 +217,175 @@
         </div> -->
 
 
-        <div class="row align-items-end">
-            <div class="col-xxl-7 col-xl-5 col-lg-8 col-md-8 col-sm-8">
-                <div class="section__title-wrapper mb-60">
-                    <h3 class="section__title">
-                        {{'services-content' | translate}}
-                        <span class="section__title-highlight">{{'project' | translate}}
-                            <svg width="220" height="27" viewBox="0 0 220 27" fill="none">
-                                <path
-                                    d="M19.6407 15.2948C33.4481 12.464 47.2752 10.3031 61.24 8.63481C48.6133 9.07487 35.9865 9.33103 23.3729 9.29162C22.4743 9.29162 21.7396 8.54942 21.7396 7.64958C21.7462 6.74318 22.4808 6.00754 23.386 6.00754C60.8398 6.12577 138.464 3.57728 175.839 1.69222C185.81 1.18648 195.563 0.739778 205.534 0.477052C208.079 0.41137 210.63 0.280046 213.175 0.188091C214.5 0.142114 217.924 -0.0286769 218.403 0.0041639C219.761 0.0895499 219.964 1.27179 219.984 1.4557C220.036 1.8892 220.003 2.53954 219.242 3.03215C219.19 3.07156 218.895 3.25544 218.232 3.33426C181.198 7.74806 103.764 7.1897 66.6842 11.3079C51.0861 13.0485 35.6783 15.3606 20.3032 18.5133C14.9311 19.6102 11.8678 20.3064 7.57803 21.4493C14.649 23.3081 21.8971 24.3393 29.2173 24.891C29.2173 24.891 19.6407 27.474 12.386 25.9286C5.13134 24.3833 4.9674 24.221 1.33353 23.0321C0.493934 22.7628 0.238148 22.2375 0.133199 21.955C-0.0963783 21.3639 -0.0701445 20.7136 0.539874 20.1159C0.703857 19.9583 1.01869 19.7349 1.51064 19.5773C2.15346 19.3737 3.48499 19.1636 4.08189 18.9994C9.9853 17.3705 13.1535 16.6216 19.6407 15.2948Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </span>
+            <div class="row align-items-end">
+                <div class="col-xxl-7 col-xl-5 col-lg-8 col-md-8 col-sm-8">
+                    <div class="section__title-wrapper mb-60">
+                        <h3 class="section__title">
+                            {{'services-content' | translate}}
+                            <span class="section__title-highlight">{{'project' | translate}}
+                                <svg width="220" height="27" viewBox="0 0 220 27" fill="none">
+                                    <path
+                                        d="M19.6407 15.2948C33.4481 12.464 47.2752 10.3031 61.24 8.63481C48.6133 9.07487 35.9865 9.33103 23.3729 9.29162C22.4743 9.29162 21.7396 8.54942 21.7396 7.64958C21.7462 6.74318 22.4808 6.00754 23.386 6.00754C60.8398 6.12577 138.464 3.57728 175.839 1.69222C185.81 1.18648 195.563 0.739778 205.534 0.477052C208.079 0.41137 210.63 0.280046 213.175 0.188091C214.5 0.142114 217.924 -0.0286769 218.403 0.0041639C219.761 0.0895499 219.964 1.27179 219.984 1.4557C220.036 1.8892 220.003 2.53954 219.242 3.03215C219.19 3.07156 218.895 3.25544 218.232 3.33426C181.198 7.74806 103.764 7.1897 66.6842 11.3079C51.0861 13.0485 35.6783 15.3606 20.3032 18.5133C14.9311 19.6102 11.8678 20.3064 7.57803 21.4493C14.649 23.3081 21.8971 24.3393 29.2173 24.891C29.2173 24.891 19.6407 27.474 12.386 25.9286C5.13134 24.3833 4.9674 24.221 1.33353 23.0321C0.493934 22.7628 0.238148 22.2375 0.133199 21.955C-0.0963783 21.3639 -0.0701445 20.7136 0.539874 20.1159C0.703857 19.9583 1.01869 19.7349 1.51064 19.5773C2.15346 19.3737 3.48499 19.1636 4.08189 18.9994C9.9853 17.3705 13.1535 16.6216 19.6407 15.2948Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
 
-                    </h3>
+                        </h3>
+                    </div>
                 </div>
+
             </div>
-
-        </div>
-        <div class="row" *ngIf="lang$ | async as lang" [ngSwitch]="lang">
-            <ng-container *ngIf="generalServices$|async as services;else loadingGeneralServices">
-                <div *ngFor="let service of services" class="col-xxl-3 col-xl-3 col-lg-4 col-md-6">
-                    <div class="services__item transition-3 mb-30 fix wow fadeInUp" data-wow-delay=".3s"
-                        data-wow-duration="1s">
-                        <div class="services__shape">
-                            <img class="services__shape-1" src="assets/site/img/services/shape/services-shape-1.png"
-                                alt="">
-                            <img class="services__shape-2" src="assets/site/img/services/shape/services-shape-2.png"
-                                alt="">
-                        </div>
-                        <div *ngSwitchCase="'en'" class="services__item-inner">
-                            <div class="services__icon">
-                                <span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M37.67 22.5229L35.8725 20.7644L20.7302 35.8871L22.5473 37.7042C24.0713 39.2282 25.6539 39.9902 27.217 39.9902C28.7801 39.9902 30.3627 39.2282 31.8867 37.7042L37.67 31.9208C40.7766 28.7947 40.7766 25.649 37.67 22.5229Z"
-                                            fill="currentColor" />
-                                        <path
-                                            d="M17.4478 2.30065C14.3803 -0.766883 11.1564 -0.766883 8.0889 2.30065L2.28599 8.08402C-0.761998 11.1516 -0.761998 14.3754 2.28599 17.4429L4.08353 19.2405L19.2258 4.09818L17.4478 2.30065Z"
-                                            fill="currentColor" />
-                                        <path opacity="0.2"
-                                            d="M39.1746 4.27436C36.6151 10.6634 30.7731 19.0063 25.2046 24.4575C24.4035 19.4166 20.3786 15.4699 15.2986 14.7665C20.7694 9.1785 29.1709 3.25836 35.5795 0.679292C36.7127 0.249447 37.846 0.5816 38.5494 1.28498C39.2918 2.02744 39.6435 3.14113 39.1746 4.27436Z"
-                                            fill="currentColor" />
-                                        <path
-                                            d="M25.2046 24.4574C24.2277 25.4148 23.2508 26.294 22.3129 27.0365L18.4638 30.1236C17.9754 30.4752 17.4869 30.7683 16.9398 31.0028C16.9398 30.6316 16.9008 30.2603 16.8617 29.8696C16.6468 28.2479 15.9043 26.7043 14.5952 25.3953C13.2471 24.0666 11.6449 23.3046 9.98416 23.0897C9.5934 23.0506 9.18309 23.0311 8.81186 23.0506C9.02678 22.445 9.35894 21.8783 9.76924 21.4094L12.8172 17.5603C13.5402 16.642 14.3803 15.7042 15.2986 14.7664C20.3786 15.4697 24.4035 19.4165 25.2046 24.4574Z"
-                                            fill="currentColor" />
-                                        <path opacity="0.2"
-                                            d="M16.9398 31.003C16.9398 33.1522 16.1192 35.2038 14.5561 36.7473C13.3643 37.9587 11.7621 38.7793 9.80828 39.0138L5.02137 39.5413C2.40322 39.8344 0.156303 37.5875 0.449379 34.9498L0.976916 30.1433C1.44584 25.8644 5.02137 23.129 8.81182 23.0509C9.18305 23.0313 9.59336 23.0509 9.98413 23.09C11.6449 23.3049 13.247 24.0669 14.5952 25.3955C15.9043 26.7046 16.6467 28.2481 16.8617 29.8698C16.9007 30.2606 16.9398 30.6318 16.9398 31.003Z"
-                                            fill="currentColor" />
-                                    </svg>
-                                </span>
+            <div class="row">
+                <ng-container *ngIf="generalServices$|async as services;else loadingGeneralServices">
+                    <div *ngFor="let service of services" class="col-xxl-3 col-xl-3 col-lg-4 col-md-6">
+                        <div class="services__item transition-3 mb-30 fix wow fadeInUp" data-wow-delay=".3s"
+                            data-wow-duration="1s">
+                            <div class="services__shape">
+                                <img class="services__shape-1" src="assets/site/img/services/shape/services-shape-1.png"
+                                    alt="">
+                                <img class="services__shape-2" src="assets/site/img/services/shape/services-shape-2.png"
+                                    alt="">
                             </div>
-                            <div class="services__content">
-                                <h3 class="services__title">
-                                    <a routerLink="">{{service.name}}</a>
-                                </h3>
-                                <p>{{service.description}}</p>
+                            <div *ngSwitchCase="'en'" class="services__item-inner">
+                                <div class="services__icon">
+                                    <span>
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M37.67 22.5229L35.8725 20.7644L20.7302 35.8871L22.5473 37.7042C24.0713 39.2282 25.6539 39.9902 27.217 39.9902C28.7801 39.9902 30.3627 39.2282 31.8867 37.7042L37.67 31.9208C40.7766 28.7947 40.7766 25.649 37.67 22.5229Z"
+                                                fill="currentColor" />
+                                            <path
+                                                d="M17.4478 2.30065C14.3803 -0.766883 11.1564 -0.766883 8.0889 2.30065L2.28599 8.08402C-0.761998 11.1516 -0.761998 14.3754 2.28599 17.4429L4.08353 19.2405L19.2258 4.09818L17.4478 2.30065Z"
+                                                fill="currentColor" />
+                                            <path opacity="0.2"
+                                                d="M39.1746 4.27436C36.6151 10.6634 30.7731 19.0063 25.2046 24.4575C24.4035 19.4166 20.3786 15.4699 15.2986 14.7665C20.7694 9.1785 29.1709 3.25836 35.5795 0.679292C36.7127 0.249447 37.846 0.5816 38.5494 1.28498C39.2918 2.02744 39.6435 3.14113 39.1746 4.27436Z"
+                                                fill="currentColor" />
+                                            <path
+                                                d="M25.2046 24.4574C24.2277 25.4148 23.2508 26.294 22.3129 27.0365L18.4638 30.1236C17.9754 30.4752 17.4869 30.7683 16.9398 31.0028C16.9398 30.6316 16.9008 30.2603 16.8617 29.8696C16.6468 28.2479 15.9043 26.7043 14.5952 25.3953C13.2471 24.0666 11.6449 23.3046 9.98416 23.0897C9.5934 23.0506 9.18309 23.0311 8.81186 23.0506C9.02678 22.445 9.35894 21.8783 9.76924 21.4094L12.8172 17.5603C13.5402 16.642 14.3803 15.7042 15.2986 14.7664C20.3786 15.4697 24.4035 19.4165 25.2046 24.4574Z"
+                                                fill="currentColor" />
+                                            <path opacity="0.2"
+                                                d="M16.9398 31.003C16.9398 33.1522 16.1192 35.2038 14.5561 36.7473C13.3643 37.9587 11.7621 38.7793 9.80828 39.0138L5.02137 39.5413C2.40322 39.8344 0.156303 37.5875 0.449379 34.9498L0.976916 30.1433C1.44584 25.8644 5.02137 23.129 8.81182 23.0509C9.18305 23.0313 9.59336 23.0509 9.98413 23.09C11.6449 23.3049 13.247 24.0669 14.5952 25.3955C15.9043 26.7046 16.6467 28.2481 16.8617 29.8698C16.9007 30.2606 16.9398 30.6318 16.9398 31.003Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="services__content">
+                                    <h3 class="services__title">
+                                        <a routerLink="">{{service.name}}</a>
+                                    </h3>
+                                    <p>{{service.description}}</p>
 
-                                <!-- <div class="services__btn">
+                                    <!-- <div class="services__btn">
                                     <a href="services-details.html" class="tp-btn-border">{{'explore'|translate}}</a>
                                 </div> -->
+                                </div>
                             </div>
-                        </div>
-                        <div *ngSwitchCase="'ar'" class="services__item-inner">
-                            <div class="services__icon">
-                                <span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M37.67 22.5229L35.8725 20.7644L20.7302 35.8871L22.5473 37.7042C24.0713 39.2282 25.6539 39.9902 27.217 39.9902C28.7801 39.9902 30.3627 39.2282 31.8867 37.7042L37.67 31.9208C40.7766 28.7947 40.7766 25.649 37.67 22.5229Z"
-                                            fill="currentColor" />
-                                        <path
-                                            d="M17.4478 2.30065C14.3803 -0.766883 11.1564 -0.766883 8.0889 2.30065L2.28599 8.08402C-0.761998 11.1516 -0.761998 14.3754 2.28599 17.4429L4.08353 19.2405L19.2258 4.09818L17.4478 2.30065Z"
-                                            fill="currentColor" />
-                                        <path opacity="0.2"
-                                            d="M39.1746 4.27436C36.6151 10.6634 30.7731 19.0063 25.2046 24.4575C24.4035 19.4166 20.3786 15.4699 15.2986 14.7665C20.7694 9.1785 29.1709 3.25836 35.5795 0.679292C36.7127 0.249447 37.846 0.5816 38.5494 1.28498C39.2918 2.02744 39.6435 3.14113 39.1746 4.27436Z"
-                                            fill="currentColor" />
-                                        <path
-                                            d="M25.2046 24.4574C24.2277 25.4148 23.2508 26.294 22.3129 27.0365L18.4638 30.1236C17.9754 30.4752 17.4869 30.7683 16.9398 31.0028C16.9398 30.6316 16.9008 30.2603 16.8617 29.8696C16.6468 28.2479 15.9043 26.7043 14.5952 25.3953C13.2471 24.0666 11.6449 23.3046 9.98416 23.0897C9.5934 23.0506 9.18309 23.0311 8.81186 23.0506C9.02678 22.445 9.35894 21.8783 9.76924 21.4094L12.8172 17.5603C13.5402 16.642 14.3803 15.7042 15.2986 14.7664C20.3786 15.4697 24.4035 19.4165 25.2046 24.4574Z"
-                                            fill="currentColor" />
-                                        <path opacity="0.2"
-                                            d="M16.9398 31.003C16.9398 33.1522 16.1192 35.2038 14.5561 36.7473C13.3643 37.9587 11.7621 38.7793 9.80828 39.0138L5.02137 39.5413C2.40322 39.8344 0.156303 37.5875 0.449379 34.9498L0.976916 30.1433C1.44584 25.8644 5.02137 23.129 8.81182 23.0509C9.18305 23.0313 9.59336 23.0509 9.98413 23.09C11.6449 23.3049 13.247 24.0669 14.5952 25.3955C15.9043 26.7046 16.6467 28.2481 16.8617 29.8698C16.9007 30.2606 16.9398 30.6318 16.9398 31.003Z"
-                                            fill="currentColor" />
-                                    </svg>
-                                </span>
-                            </div>
-                            <div class="services__content">
-                                <h3 class="services__title">
-                                    <a routerLink="">{{service.nameAR}}</a>
-                                </h3>
-                                <p>{{service.descriptionAR}}</p>
+                            <div *ngSwitchCase="'ar'" class="services__item-inner">
+                                <div class="services__icon">
+                                    <span>
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M37.67 22.5229L35.8725 20.7644L20.7302 35.8871L22.5473 37.7042C24.0713 39.2282 25.6539 39.9902 27.217 39.9902C28.7801 39.9902 30.3627 39.2282 31.8867 37.7042L37.67 31.9208C40.7766 28.7947 40.7766 25.649 37.67 22.5229Z"
+                                                fill="currentColor" />
+                                            <path
+                                                d="M17.4478 2.30065C14.3803 -0.766883 11.1564 -0.766883 8.0889 2.30065L2.28599 8.08402C-0.761998 11.1516 -0.761998 14.3754 2.28599 17.4429L4.08353 19.2405L19.2258 4.09818L17.4478 2.30065Z"
+                                                fill="currentColor" />
+                                            <path opacity="0.2"
+                                                d="M39.1746 4.27436C36.6151 10.6634 30.7731 19.0063 25.2046 24.4575C24.4035 19.4166 20.3786 15.4699 15.2986 14.7665C20.7694 9.1785 29.1709 3.25836 35.5795 0.679292C36.7127 0.249447 37.846 0.5816 38.5494 1.28498C39.2918 2.02744 39.6435 3.14113 39.1746 4.27436Z"
+                                                fill="currentColor" />
+                                            <path
+                                                d="M25.2046 24.4574C24.2277 25.4148 23.2508 26.294 22.3129 27.0365L18.4638 30.1236C17.9754 30.4752 17.4869 30.7683 16.9398 31.0028C16.9398 30.6316 16.9008 30.2603 16.8617 29.8696C16.6468 28.2479 15.9043 26.7043 14.5952 25.3953C13.2471 24.0666 11.6449 23.3046 9.98416 23.0897C9.5934 23.0506 9.18309 23.0311 8.81186 23.0506C9.02678 22.445 9.35894 21.8783 9.76924 21.4094L12.8172 17.5603C13.5402 16.642 14.3803 15.7042 15.2986 14.7664C20.3786 15.4697 24.4035 19.4165 25.2046 24.4574Z"
+                                                fill="currentColor" />
+                                            <path opacity="0.2"
+                                                d="M16.9398 31.003C16.9398 33.1522 16.1192 35.2038 14.5561 36.7473C13.3643 37.9587 11.7621 38.7793 9.80828 39.0138L5.02137 39.5413C2.40322 39.8344 0.156303 37.5875 0.449379 34.9498L0.976916 30.1433C1.44584 25.8644 5.02137 23.129 8.81182 23.0509C9.18305 23.0313 9.59336 23.0509 9.98413 23.09C11.6449 23.3049 13.247 24.0669 14.5952 25.3955C15.9043 26.7046 16.6467 28.2481 16.8617 29.8698C16.9007 30.2606 16.9398 30.6318 16.9398 31.003Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="services__content">
+                                    <h3 class="services__title">
+                                        <a routerLink="">{{service.nameAR}}</a>
+                                    </h3>
+                                    <p>{{service.descriptionAR}}</p>
 
-                                <!-- <div class="services__btn">
+                                    <!-- <div class="services__btn">
                                     <a href="services-details.html" class="tp-btn-border">{{'explore'|translate}}</a>
                                 </div> -->
+                                </div>
                             </div>
-                        </div>
-                        <div *ngSwitchCase="'tr'" class="services__item-inner">
-                            <div class="services__icon">
-                                <span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M37.67 22.5229L35.8725 20.7644L20.7302 35.8871L22.5473 37.7042C24.0713 39.2282 25.6539 39.9902 27.217 39.9902C28.7801 39.9902 30.3627 39.2282 31.8867 37.7042L37.67 31.9208C40.7766 28.7947 40.7766 25.649 37.67 22.5229Z"
-                                            fill="currentColor" />
-                                        <path
-                                            d="M17.4478 2.30065C14.3803 -0.766883 11.1564 -0.766883 8.0889 2.30065L2.28599 8.08402C-0.761998 11.1516 -0.761998 14.3754 2.28599 17.4429L4.08353 19.2405L19.2258 4.09818L17.4478 2.30065Z"
-                                            fill="currentColor" />
-                                        <path opacity="0.2"
-                                            d="M39.1746 4.27436C36.6151 10.6634 30.7731 19.0063 25.2046 24.4575C24.4035 19.4166 20.3786 15.4699 15.2986 14.7665C20.7694 9.1785 29.1709 3.25836 35.5795 0.679292C36.7127 0.249447 37.846 0.5816 38.5494 1.28498C39.2918 2.02744 39.6435 3.14113 39.1746 4.27436Z"
-                                            fill="currentColor" />
-                                        <path
-                                            d="M25.2046 24.4574C24.2277 25.4148 23.2508 26.294 22.3129 27.0365L18.4638 30.1236C17.9754 30.4752 17.4869 30.7683 16.9398 31.0028C16.9398 30.6316 16.9008 30.2603 16.8617 29.8696C16.6468 28.2479 15.9043 26.7043 14.5952 25.3953C13.2471 24.0666 11.6449 23.3046 9.98416 23.0897C9.5934 23.0506 9.18309 23.0311 8.81186 23.0506C9.02678 22.445 9.35894 21.8783 9.76924 21.4094L12.8172 17.5603C13.5402 16.642 14.3803 15.7042 15.2986 14.7664C20.3786 15.4697 24.4035 19.4165 25.2046 24.4574Z"
-                                            fill="currentColor" />
-                                        <path opacity="0.2"
-                                            d="M16.9398 31.003C16.9398 33.1522 16.1192 35.2038 14.5561 36.7473C13.3643 37.9587 11.7621 38.7793 9.80828 39.0138L5.02137 39.5413C2.40322 39.8344 0.156303 37.5875 0.449379 34.9498L0.976916 30.1433C1.44584 25.8644 5.02137 23.129 8.81182 23.0509C9.18305 23.0313 9.59336 23.0509 9.98413 23.09C11.6449 23.3049 13.247 24.0669 14.5952 25.3955C15.9043 26.7046 16.6467 28.2481 16.8617 29.8698C16.9007 30.2606 16.9398 30.6318 16.9398 31.003Z"
-                                            fill="currentColor" />
-                                    </svg>
-                                </span>
-                            </div>
-                            <div class="services__content">
-                                <h3 class="services__title">
-                                    <a routerLink="">{{service.nameTR}}</a>
-                                </h3>
-                                <p>{{service.descriptionTR}}</p>
+                            <div *ngSwitchCase="'tr'" class="services__item-inner">
+                                <div class="services__icon">
+                                    <span>
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M37.67 22.5229L35.8725 20.7644L20.7302 35.8871L22.5473 37.7042C24.0713 39.2282 25.6539 39.9902 27.217 39.9902C28.7801 39.9902 30.3627 39.2282 31.8867 37.7042L37.67 31.9208C40.7766 28.7947 40.7766 25.649 37.67 22.5229Z"
+                                                fill="currentColor" />
+                                            <path
+                                                d="M17.4478 2.30065C14.3803 -0.766883 11.1564 -0.766883 8.0889 2.30065L2.28599 8.08402C-0.761998 11.1516 -0.761998 14.3754 2.28599 17.4429L4.08353 19.2405L19.2258 4.09818L17.4478 2.30065Z"
+                                                fill="currentColor" />
+                                            <path opacity="0.2"
+                                                d="M39.1746 4.27436C36.6151 10.6634 30.7731 19.0063 25.2046 24.4575C24.4035 19.4166 20.3786 15.4699 15.2986 14.7665C20.7694 9.1785 29.1709 3.25836 35.5795 0.679292C36.7127 0.249447 37.846 0.5816 38.5494 1.28498C39.2918 2.02744 39.6435 3.14113 39.1746 4.27436Z"
+                                                fill="currentColor" />
+                                            <path
+                                                d="M25.2046 24.4574C24.2277 25.4148 23.2508 26.294 22.3129 27.0365L18.4638 30.1236C17.9754 30.4752 17.4869 30.7683 16.9398 31.0028C16.9398 30.6316 16.9008 30.2603 16.8617 29.8696C16.6468 28.2479 15.9043 26.7043 14.5952 25.3953C13.2471 24.0666 11.6449 23.3046 9.98416 23.0897C9.5934 23.0506 9.18309 23.0311 8.81186 23.0506C9.02678 22.445 9.35894 21.8783 9.76924 21.4094L12.8172 17.5603C13.5402 16.642 14.3803 15.7042 15.2986 14.7664C20.3786 15.4697 24.4035 19.4165 25.2046 24.4574Z"
+                                                fill="currentColor" />
+                                            <path opacity="0.2"
+                                                d="M16.9398 31.003C16.9398 33.1522 16.1192 35.2038 14.5561 36.7473C13.3643 37.9587 11.7621 38.7793 9.80828 39.0138L5.02137 39.5413C2.40322 39.8344 0.156303 37.5875 0.449379 34.9498L0.976916 30.1433C1.44584 25.8644 5.02137 23.129 8.81182 23.0509C9.18305 23.0313 9.59336 23.0509 9.98413 23.09C11.6449 23.3049 13.247 24.0669 14.5952 25.3955C15.9043 26.7046 16.6467 28.2481 16.8617 29.8698C16.9007 30.2606 16.9398 30.6318 16.9398 31.003Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="services__content">
+                                    <h3 class="services__title">
+                                        <a routerLink="">{{service.nameTR}}</a>
+                                    </h3>
+                                    <p>{{service.descriptionTR}}</p>
 
-                                <!-- <div class="services__btn">
+                                    <!-- <div class="services__btn">
                                     <a href="services-details.html" class="tp-btn-border">{{'explore'|translate}}</a>
                                 </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </ng-container>
+                </ng-container>
 
 
-            <ng-template #loadingGeneralServices></ng-template>
+                <ng-template #loadingGeneralServices></ng-template>
 
 
 
-        </div>
-    </div>
-</section>
-<!-- services area end -->
-
-
-<!-- team area start -->
-<section class="elements__carousel-area pt-50 pb-90">
-    <div class="container">
-
-        <div class="row align-items-end">
-            <div class="col-xxl-7 col-xl-5 col-lg-8 col-md-8 col-sm-8">
-                <div class="section__title-wrapper mb-60">
-                    <h3 class="section__title">
-                        {{'our' | translate}}
-                        <span class="section__title-highlight">{{'team' | translate}}
-                            <svg width="220" height="27" viewBox="0 0 220 27" fill="none">
-                                <path
-                                    d="M19.6407 15.2948C33.4481 12.464 47.2752 10.3031 61.24 8.63481C48.6133 9.07487 35.9865 9.33103 23.3729 9.29162C22.4743 9.29162 21.7396 8.54942 21.7396 7.64958C21.7462 6.74318 22.4808 6.00754 23.386 6.00754C60.8398 6.12577 138.464 3.57728 175.839 1.69222C185.81 1.18648 195.563 0.739778 205.534 0.477052C208.079 0.41137 210.63 0.280046 213.175 0.188091C214.5 0.142114 217.924 -0.0286769 218.403 0.0041639C219.761 0.0895499 219.964 1.27179 219.984 1.4557C220.036 1.8892 220.003 2.53954 219.242 3.03215C219.19 3.07156 218.895 3.25544 218.232 3.33426C181.198 7.74806 103.764 7.1897 66.6842 11.3079C51.0861 13.0485 35.6783 15.3606 20.3032 18.5133C14.9311 19.6102 11.8678 20.3064 7.57803 21.4493C14.649 23.3081 21.8971 24.3393 29.2173 24.891C29.2173 24.891 19.6407 27.474 12.386 25.9286C5.13134 24.3833 4.9674 24.221 1.33353 23.0321C0.493934 22.7628 0.238148 22.2375 0.133199 21.955C-0.0963783 21.3639 -0.0701445 20.7136 0.539874 20.1159C0.703857 19.9583 1.01869 19.7349 1.51064 19.5773C2.15346 19.3737 3.48499 19.1636 4.08189 18.9994C9.9853 17.3705 13.1535 16.6216 19.6407 15.2948Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </span>
-
-                    </h3>
-                </div>
             </div>
-
         </div>
-        <!-- <div class="row">
+    </section>
+    <!-- services area end -->
+
+
+    <!-- team area start -->
+    <section class="elements__carousel-area pt-50 pb-90">
+        <div class="container">
+
+            <div class="row align-items-end">
+                <div class="col-xxl-7 col-xl-5 col-lg-8 col-md-8 col-sm-8">
+                    <div class="section__title-wrapper mb-60">
+                        <h3 class="section__title">
+                            {{'our' | translate}}
+                            <span class="section__title-highlight">{{'team' | translate}}
+                                <svg width="220" height="27" viewBox="0 0 220 27" fill="none">
+                                    <path
+                                        d="M19.6407 15.2948C33.4481 12.464 47.2752 10.3031 61.24 8.63481C48.6133 9.07487 35.9865 9.33103 23.3729 9.29162C22.4743 9.29162 21.7396 8.54942 21.7396 7.64958C21.7462 6.74318 22.4808 6.00754 23.386 6.00754C60.8398 6.12577 138.464 3.57728 175.839 1.69222C185.81 1.18648 195.563 0.739778 205.534 0.477052C208.079 0.41137 210.63 0.280046 213.175 0.188091C214.5 0.142114 217.924 -0.0286769 218.403 0.0041639C219.761 0.0895499 219.964 1.27179 219.984 1.4557C220.036 1.8892 220.003 2.53954 219.242 3.03215C219.19 3.07156 218.895 3.25544 218.232 3.33426C181.198 7.74806 103.764 7.1897 66.6842 11.3079C51.0861 13.0485 35.6783 15.3606 20.3032 18.5133C14.9311 19.6102 11.8678 20.3064 7.57803 21.4493C14.649 23.3081 21.8971 24.3393 29.2173 24.891C29.2173 24.891 19.6407 27.474 12.386 25.9286C5.13134 24.3833 4.9674 24.221 1.33353 23.0321C0.493934 22.7628 0.238148 22.2375 0.133199 21.955C-0.0963783 21.3639 -0.0701445 20.7136 0.539874 20.1159C0.703857 19.9583 1.01869 19.7349 1.51064 19.5773C2.15346 19.3737 3.48499 19.1636 4.08189 18.9994C9.9853 17.3705 13.1535 16.6216 19.6407 15.2948Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+
+                        </h3>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="row">
 
             <div class="col-12">
                 <div class="section__title-wrapper mb-60 text-end">
@@ -398,321 +403,402 @@
             </div>
 
         </div> -->
-        <div class="row">
-            <div class="col-xl-12">
+            <div class="row">
+                <div class="col-xl-12">
 
-                <ng-container *ngIf="teamMembers$ | async as team;else loadingTeam">
-                    <div class="elements__carousel p-relative" dir="ltr">
-                        <ngx-slick-carousel class="elements__carousel-active" #slickModal="slick-carousel"
-                            [config]="teamSliderConfig">
+                    <ng-container *ngIf="teamMembers$ | async as team;else loadingTeam">
+                        <div class="elements__carousel p-relative" dir="ltr">
+                            <ngx-slick-carousel class="elements__carousel-active" #slickModal="slick-carousel"
+                                [config]="teamSliderConfig">
 
-                            <div ngxSlickItem class="elements__carousel-item w-img" *ngFor="let member of team">
-                                <img [src]="teamImageUrl + '/'+member.image" [alt]="member.name">
-                                <div class="team__content">
-                                    <h3 class="team__title">
-                                        <a routerLink="">{{member.name}}</a>
-                                    </h3>
-                                    <span class="team__designation">{{member.jopTitle}}</span>
+                                <div ngxSlickItem class="elements__carousel-item w-img" *ngFor="let member of team">
+                                    <img [src]="teamImageUrl + '/'+member.image" [alt]="member.name">
+                                    <div class="team__content">
+                                        <h3 class="team__title">
+                                            <a routerLink="">{{member.name}}</a>
+                                        </h3>
+                                        <span class="team__designation">{{member.jopTitle}}</span>
+                                    </div>
                                 </div>
-                            </div>
 
 
-                        </ngx-slick-carousel>
+                            </ngx-slick-carousel>
 
-                    </div>
-                </ng-container>
-
-
-                <ng-template #loadingTeam>
-                    <h3>Loading Team </h3>
-                </ng-template>
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- team area end -->
+                        </div>
+                    </ng-container>
 
 
-<!-- brand area start -->
-<section class="brand__area grey-bg-7 pt-110 pb-70">
-    <div class="container">
-        <div class="row">
-            <div class="col-xxl-12">
-                <div class="tp-section-wrapper-3 mb-60 text-center">
-                    <!-- <span class="tp-section-subtitle-3">Modern & Clean Design</span> -->
-                    <h3 class="tp-section-title-3">{{'providers' | translate}}</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-
-                <ng-container *ngIf="providers$ |async as providers;else loadingProvidersLogo">
-                    <div class="elements__carousel p-relative" dir="ltr">
-                        <ngx-slick-carousel class="elements__carousel-active" #slickModal="slick-carousel"
-                            [config]="logosSliderConfig">
-
-                            <div *ngFor="let provider of providers" ngxSlickItem
-                                class=" elements__carousel-item brand__item-6">
-                                <img class="img img-thumbnail" [src]="imagesUrl + '/'+provider.attachments[0].logo"
-                                    alt="">
-                            </div>
-
-
-
-                        </ngx-slick-carousel>
-                    </div>
-                </ng-container>
-
-                <ng-template #loadingProvidersLogo>
-                    <h3>Loading Logos </h3>
-
-                </ng-template>
-
-
-            </div>
-        </div>
-
-
-
-
-    </div>
-</section>
-<!-- brand area end -->
-
-
-<!-- Pricing start -->
-<!-- breadcrumb area start -->
-<section class="breadcrumb__area breadcrumb__style-7 breadcrumb__bg-3 p-relative z-index-1 include-bg pt-180 pb-100">
-    <div style="background-color: #171871;" class="breadcrumb__bg-shape include-bg"
-        data-background="assets/img/breadcrumb/breadcrumb-shape-1.png"></div>
-    <div class="breadcrumb__shape">
-        <img class="breadcrumb__shape-1" src="assets/site/img/breadcrumb/breadcrumb-dot-1.png" alt="">
-        <img class="breadcrumb__shape-2" src="assets/site/img/breadcrumb/breadcrumb-dot-2.png" alt="">
-    </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class=" col-xl-8 col-lg-9">
-                <div class="breadcrumb__content breadcrumb__content-2 p-relative z-index-1 text-center">
-                    <h3 class="breadcrumb__title">{{'pricing-title'|translate}}</h3>
+                    <ng-template #loadingTeam>
+                        <h3>Loading Team </h3>
+                    </ng-template>
 
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- breadcrumb area end -->
+    </section>
+    <!-- team area end -->
 
-<ng-container *ngIf="plans$ | async;else loading">
-    <!-- pricing area start -->
-    <section class="pricing__area p-relative z-index-1 black-bg-5 pt-110 pb-120">
-        <!-- <div class="pricing__shape">
-                <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
-            </div> -->
+
+    <!-- brand area start -->
+    <section class="brand__area grey-bg-7 pt-110 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-12">
+                    <div class="tp-section-wrapper-3 mb-60 text-center">
+                        <!-- <span class="tp-section-subtitle-3">Modern & Clean Design</span> -->
+                        <h3 class="tp-section-title-3">{{'providers' | translate}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                    <ng-container *ngIf="providers$ |async as providers;else loadingProvidersLogo">
+                        <div class="elements__carousel p-relative" dir="ltr">
+                            <ngx-slick-carousel class="elements__carousel-active" #slickModal="slick-carousel"
+                                [config]="logosSliderConfig">
+
+                                <div *ngFor="let provider of providers" ngxSlickItem
+                                    class=" elements__carousel-item brand__item-6">
+                                    <img class="img img-thumbnail" [src]="imagesUrl + '/'+provider.attachments[0].logo"
+                                        alt="">
+                                </div>
+
+
+
+                            </ngx-slick-carousel>
+                        </div>
+                    </ng-container>
+
+                    <ng-template #loadingProvidersLogo>
+                        <h3>Loading Logos </h3>
+
+                    </ng-template>
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </section>
+    <!-- brand area end -->
+
+
+    <!-- Pricing start -->
+    <!-- breadcrumb area start -->
+    <section
+        class="breadcrumb__area breadcrumb__style-7 breadcrumb__bg-3 p-relative z-index-1 include-bg pt-180 pb-100">
+        <div style="background-color: #171871;" class="breadcrumb__bg-shape include-bg"
+            data-background="assets/img/breadcrumb/breadcrumb-shape-1.png"></div>
+        <div class="breadcrumb__shape">
+            <img class="breadcrumb__shape-1" src="assets/site/img/breadcrumb/breadcrumb-dot-1.png" alt="">
+            <img class="breadcrumb__shape-2" src="assets/site/img/breadcrumb/breadcrumb-dot-2.png" alt="">
+        </div>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xxl-6">
-                    <div class="section__title-wrapper-3 text-center mb-60">
-                        <span class="section__title-pre-3 has-center fs-2 mb-4">{{'providers' | translate}}</span>
-                        <h3 class="section__title-3 has-gradient">{{'pricing-plan-subtitle' | translate}} </h3>
+                <div class=" col-xl-8 col-lg-9">
+                    <div class="breadcrumb__content breadcrumb__content-2 p-relative z-index-1 text-center">
+                        <h3 class="breadcrumb__title">{{'pricing-title'|translate}}</h3>
+
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    <!-- breadcrumb area end -->
 
-            <div class="row" *ngIf="providerPlans.length > 0;else emptyProviderPlans">
-                <div class="col-lg-12 col-md-6" *ngFor="let plan of providerPlans">
-                    <div class="pricing__item mb-20 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                        <div class="row align-items-center">
-                            <div class="col-xxl-3 col-xl-3 col-lg-3">
-                                <div class="pricing__content pricing-content-dir text-center text-lg-start">
-                                    <div class="pricing__category">
-                                        <span>{{plan.name}}</span>
-                                    </div>
-                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency">
-                                            USD</span>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="col-xxl-6 col-xl-6 col-lg-6">
-                                <div class="pricing__feature d-lg-flex align-items-center justify-content-between">
-                                    <div class="pricing__feature-left">
-                                        <ul>
-                                            <li> {{'add' |translate}} {{plan.servicePerMonth}} {{'service-per-month'
-                                                |translate}}</li>
-                                            <!-- <li>24 hours turnaround</li> -->
-                                        </ul>
-                                    </div>
-                                    <div class="pricing__feature-right">
-                                        <ul>
-                                            <li>{{'add' |translate}} {{plan.offerPerMonth}} {{'offer-per-month'
-                                                |translate}}</li>
-                                            <!-- <li class="has-denied">All photos delivered on usb</li> -->
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xxl-3 col-xl-3 col-lg-3">
-                                <div class="pricing__btn text-center ">
-                                    <a routerLink="/join-provider" class="tp-btn-border-3">{{'choose-plan' |
-                                        translate}}</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-            <ng-template #emptyProviderPlans>
+    <ng-container *ngIf="plans$ | async;else loading">
+        <!-- pricing area start -->
+        <section class="pricing__area p-relative z-index-1 black-bg-5 pt-110 pb-120">
+            <!-- <div class="pricing__shape">
+                <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
+            </div> -->
+            <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-7">
-                        <h3 class="text-danger">No Plans Added Yet</h3>
-                    </div>
-                </div>
-            </ng-template>
-        </div>
-    </section>
-    <!-- pricing area end -->
-    <!-- pricing area start -->
-    <section class="pricing__area p-relative z-index-1 blue-bg pt-110 pb-120">
-        <!-- <div class="pricing__shape">
-                <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
-            </div> -->
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xxl-6">
-                    <div class="section__title-wrapper-3 text-center mb-60">
-                        <span class="section__title-pre-3 has-center fs-2 mb-4">{{'subsrcibers' | translate}}</span>
-                        <h3 class="section__title-3 has-gradient">{{'pricing-plan-subtitle' | translate}} </h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-6" *ngFor="let plan of subsriberPlans">
-                    <div class="pricing__item mb-20 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                        <div class="row align-items-center">
-                            <div class="col-xxl-3 col-xl-3 col-lg-3">
-                                <div class="pricing__content pricing-content-dir text-center text-lg-start">
-                                    <div class="pricing__category">
-                                        <span>{{plan.name}}</span>
-                                    </div>
-                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency">
-                                            USD</span>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="col-xxl-6 col-xl-6 col-lg-6">
-                                <div class="pricing__feature d-lg-flex align-items-center justify-content-between">
-                                    <div class="pricing__feature-left">
-                                        <ul>
-                                            <li> {{'add' |translate}} {{plan.servicePerMonth}} {{'service-per-month'
-                                                |translate}}</li>
-                                            <!-- <li>24 hours turnaround</li> -->
-                                        </ul>
-                                    </div>
-                                    <div class="pricing__feature-right">
-                                        <ul>
-                                            <li>{{'add' |translate}} {{plan.offerPerMonth}} {{'offer-per-month'
-                                                |translate}}</li>
-                                            <!-- <li class="has-denied">All photos delivered on usb</li> -->
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xxl-3 col-xl-3 col-lg-3">
-                                <div class="pricing__btn text-center ">
-                                    <a routerLink="/join-subscriber" class="tp-btn-border-3">{{'choose-plan'
-                                        |translate}}</a>
-                                </div>
-                            </div>
+                    <div class="col-xxl-6">
+                        <div class="section__title-wrapper-3 text-center mb-60">
+                            <span class="section__title-pre-3 has-center fs-2 mb-4">{{'providers' | translate}}</span>
+                            <h3 class="section__title-3 has-gradient">{{'pricing-plan-subtitle' | translate}} </h3>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-    <!-- pricing area end -->
-    <section class="pricing__area p-relative z-index-1 bg-secondary pt-110 pb-120">
-        <!-- <div class="pricing__shape">
-                <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
-            </div> -->
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xxl-6">
-                    <div class="section__title-wrapper-3 text-center mb-60">
-                        <span class="section__title-pre-3 has-center fs-2 mb-4">{{'users' | translate}}</span>
-                        <h3 class="section__title-3 has-gradient">{{'pricing-plan-subtitle' | translate}} </h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-6" *ngFor="let plan of userPlans">
-                    <div class="bg-dark pricing__item mb-20 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                        <div class="row align-items-center">
-                            <div class="col-xxl-3 col-xl-3 col-lg-3">
-                                <div class="pricing__content pricing-content-dir text-center text-lg-start">
-                                    <div class="pricing__category">
-                                        <span>{{plan.name}}</span>
+                <div class="row" *ngIf="providerPlans.length > 0;else emptyProviderPlans">
+                    <div class="col-lg-12 col-md-6" *ngFor="let plan of providerPlans">
+                        <div *ngSwitchCase="'en'" class="pricing__item mb-20 wow fadeInUp" data-wow-delay=".3s"
+                            data-wow-duration="1s">
+                            <div class="row align-items-center">
+                                <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                    <div class="pricing__content pricing-content-dir text-center text-lg-start">
+                                        <div class="pricing__category">
+                                            <span>{{plan.name}}</span>
+                                        </div>
+                                        <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency">
+                                                USD</span>
+                                        </h3>
                                     </div>
-                                    <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency">
-                                            USD</span>
-                                    </h3>
                                 </div>
-                            </div>
-                            <div class="col-xxl-6 col-xl-6 col-lg-6">
-                                <div class="pricing__feature d-lg-flex align-items-center justify-content-between">
-                                    <div class="pricing__feature-left">
-                                        <ul>
-                                            <li> {{'add' |translate}} {{plan.servicePerMonth}} {{'service-per-month'
-                                                |translate}}</li>
-                                            <!-- <li>24 hours turnaround</li> -->
-                                        </ul>
+                                <div class="col-xxl-6 col-xl-6 col-lg-6">
+                                    <div class="pricing__feature d-lg-flex align-items-center justify-content-between">
+                                        <div class="pricing__feature-left">
+                                            <ul>
+                                                <li> {{'add' |translate}} {{plan.servicePerMonth}} {{'service-per-month'
+                                                    |translate}}</li>
+                                                <!-- <li>24 hours turnaround</li> -->
+                                            </ul>
+                                        </div>
+                                        <div class="pricing__feature-right">
+                                            <ul>
+                                                <li>{{'add' |translate}} {{plan.offerPerMonth}} {{'offer-per-month'
+                                                    |translate}}</li>
+                                                <!-- <li class="has-denied">All photos delivered on usb</li> -->
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="pricing__feature-right">
-                                        <ul>
-                                            <li>{{'add' |translate}} {{plan.offerPerMonth}} {{'offer-per-month'
-                                                |translate}}</li>
-                                            <!-- <li class="has-denied">All photos delivered on usb</li> -->
-                                        </ul>
+                                </div>
+                                <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                    <div class="pricing__btn text-center ">
+                                        <a routerLink="/join-provider" class="tp-btn-border-3">{{'choose-plan' |
+                                            translate}}</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xxl-3 col-xl-3 col-lg-3">
-                                <div class="pricing__btn text-center ">
-                                    <a routerLink="/join-subscriber" class="tp-btn-border-3">{{'choose-plan' |
-                                        translate}}</a>
+                        </div>
+                        <div *ngSwitchCase="'ar'" class="pricing__item mb-20 wow fadeInUp" data-wow-delay=".3s"
+                            data-wow-duration="1s">
+                            <div class="row align-items-center">
+                                <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                    <div class="pricing__content pricing-content-dir text-center text-lg-start">
+                                        <div class="pricing__category">
+                                            <span>{{plan.nameAR}}</span>
+                                        </div>
+                                        <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency">
+                                                USD</span>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-6 col-xl-6 col-lg-6">
+                                    <div class="pricing__feature d-lg-flex align-items-center justify-content-between">
+                                        <div class="pricing__feature-left">
+                                            <ul>
+                                                <li> {{'add' |translate}} {{plan.servicePerMonth}} {{'service-per-month'
+                                                    |translate}}</li>
+                                                <!-- <li>24 hours turnaround</li> -->
+                                            </ul>
+                                        </div>
+                                        <div class="pricing__feature-right">
+                                            <ul>
+                                                <li>{{'add' |translate}} {{plan.offerPerMonth}} {{'offer-per-month'
+                                                    |translate}}</li>
+                                                <!-- <li class="has-denied">All photos delivered on usb</li> -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                    <div class="pricing__btn text-center ">
+                                        <a routerLink="/join-provider" class="tp-btn-border-3">{{'choose-plan' |
+                                            translate}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div *ngSwitchCase="'tr'" class="pricing__item mb-20 wow fadeInUp" data-wow-delay=".3s"
+                            data-wow-duration="1s">
+                            <div class="row align-items-center">
+                                <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                    <div class="pricing__content pricing-content-dir text-center text-lg-start">
+                                        <div class="pricing__category">
+                                            <span>{{plan.nameTR}}</span>
+                                        </div>
+                                        <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency">
+                                                USD</span>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-6 col-xl-6 col-lg-6">
+                                    <div class="pricing__feature d-lg-flex align-items-center justify-content-between">
+                                        <div class="pricing__feature-left">
+                                            <ul>
+                                                <li> {{'add' |translate}} {{plan.servicePerMonth}} {{'service-per-month'
+                                                    |translate}}</li>
+                                                <!-- <li>24 hours turnaround</li> -->
+                                            </ul>
+                                        </div>
+                                        <div class="pricing__feature-right">
+                                            <ul>
+                                                <li>{{'add' |translate}} {{plan.offerPerMonth}} {{'offer-per-month'
+                                                    |translate}}</li>
+                                                <!-- <li class="has-denied">All photos delivered on usb</li> -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                    <div class="pricing__btn text-center ">
+                                        <a routerLink="/join-provider" class="tp-btn-border-3">{{'choose-plan' |
+                                            translate}}</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
-
+                <ng-template #emptyProviderPlans>
+                    <div class="row justify-content-center">
+                        <div class="col-md-7">
+                            <h3 class="text-danger">No Plans Added Yet</h3>
+                        </div>
+                    </div>
+                </ng-template>
             </div>
-        </div>
-    </section>
-    <!-- pricing area end -->
-</ng-container>
+        </section>
+        <!-- pricing area end -->
+        <!-- pricing area start -->
+        <section class="pricing__area p-relative z-index-1 blue-bg pt-110 pb-120">
+            <!-- <div class="pricing__shape">
+                <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
+            </div> -->
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-6">
+                        <div class="section__title-wrapper-3 text-center mb-60">
+                            <span class="section__title-pre-3 has-center fs-2 mb-4">{{'subsrcibers' | translate}}</span>
+                            <h3 class="section__title-3 has-gradient">{{'pricing-plan-subtitle' | translate}} </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-6" *ngFor="let plan of subsriberPlans">
+                        <div class="pricing__item mb-20 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                            <div class="row align-items-center">
+                                <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                    <div class="pricing__content pricing-content-dir text-center text-lg-start">
+                                        <div class="pricing__category">
+                                            <span>{{plan.name}}</span>
+                                        </div>
+                                        <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency">
+                                                USD</span>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-6 col-xl-6 col-lg-6">
+                                    <div class="pricing__feature d-lg-flex align-items-center justify-content-between">
+                                        <div class="pricing__feature-left">
+                                            <ul>
+                                                <li> {{'add' |translate}} {{plan.servicePerMonth}} {{'service-per-month'
+                                                    |translate}}</li>
+                                                <!-- <li>24 hours turnaround</li> -->
+                                            </ul>
+                                        </div>
+                                        <div class="pricing__feature-right">
+                                            <ul>
+                                                <li>{{'add' |translate}} {{plan.offerPerMonth}} {{'offer-per-month'
+                                                    |translate}}</li>
+                                                <!-- <li class="has-denied">All photos delivered on usb</li> -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                    <div class="pricing__btn text-center ">
+                                        <a routerLink="/join-subscriber" class="tp-btn-border-3">{{'choose-plan'
+                                            |translate}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-<ng-template #loading>
-    <p class="text-danger">Getting plans ....</p>
-</ng-template>
-
-
-<!-- Pricing End -->
-<!-- faq area start -->
-<section class="faq__area pb-120">
-    <div class="container">
-        <div class="faq__inner p-relative">
-            <div class="faq__text d-none d-lg-block">
-                <h3 data-text="faq">{{'faq'|translate}}</h3>
+                </div>
             </div>
-            <div class="row justify-content-end">
-                <div class="col-xxl-9 col-xl-9 col-lg-9">
+        </section>
+        <!-- pricing area end -->
+        <section class="pricing__area p-relative z-index-1 bg-secondary pt-110 pb-120">
+            <!-- <div class="pricing__shape">
+                <img class="pricing__shape-1" src="assets/site/img/price/price-shape-1.png" alt="">
+            </div> -->
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-6">
+                        <div class="section__title-wrapper-3 text-center mb-60">
+                            <span class="section__title-pre-3 has-center fs-2 mb-4">{{'users' | translate}}</span>
+                            <h3 class="section__title-3 has-gradient">{{'pricing-plan-subtitle' | translate}} </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-6" *ngFor="let plan of userPlans">
+                        <div class="bg-dark pricing__item mb-20 wow fadeInUp" data-wow-delay=".3s"
+                            data-wow-duration="1s">
+                            <div class="row align-items-center">
+                                <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                    <div class="pricing__content pricing-content-dir text-center text-lg-start">
+                                        <div class="pricing__category">
+                                            <span>{{plan.name}}</span>
+                                        </div>
+                                        <h3 class="pricing__title">${{plan.price}}<span class="pricing-currency">
+                                                USD</span>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-6 col-xl-6 col-lg-6">
+                                    <div class="pricing__feature d-lg-flex align-items-center justify-content-between">
+                                        <div class="pricing__feature-left">
+                                            <ul>
+                                                <li> {{'add' |translate}} {{plan.servicePerMonth}} {{'service-per-month'
+                                                    |translate}}</li>
+                                                <!-- <li>24 hours turnaround</li> -->
+                                            </ul>
+                                        </div>
+                                        <div class="pricing__feature-right">
+                                            <ul>
+                                                <li>{{'add' |translate}} {{plan.offerPerMonth}} {{'offer-per-month'
+                                                    |translate}}</li>
+                                                <!-- <li class="has-denied">All photos delivered on usb</li> -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-3 col-xl-3 col-lg-3">
+                                    <div class="pricing__btn text-center ">
+                                        <a routerLink="/join-subscriber" class="tp-btn-border-3">{{'choose-plan' |
+                                            translate}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <ng-container *ngIf="lang$ | async as lang">
-                        <ng-container *ngIf="faq$ | async as faq;else loadingFaq" [ngSwitch]="lang">
+                </div>
+            </div>
+        </section>
+        <!-- pricing area end -->
+    </ng-container>
+
+    <ng-template #loading>
+        <p class="text-danger">Getting plans ....</p>
+    </ng-template>
+
+
+    <!-- Pricing End -->
+    <!-- faq area start -->
+    <section class="faq__area pb-120">
+        <div class="container">
+            <div class="faq__inner p-relative">
+                <div class="faq__text d-none d-lg-block">
+                    <h3 data-text="faq">{{'faq'|translate}}</h3>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-xxl-9 col-xl-9 col-lg-9">
+
+                        <ng-container *ngIf="faq$ | async as faq;else loadingFaq">
                             <div class="faq__wrapper tp-accordion pt-65">
                                 <div class="accordion" id="faqaccordion">
                                     <div *ngFor="let question of faq;let i = index" class="accordion-item">
@@ -742,18 +828,18 @@
                                 </div>
                             </div>
                         </ng-container>
-                    </ng-container>
 
 
 
-                    <ng-template #loadingFaq>
-                        <h3>Loading FAQ</h3>
-                    </ng-template>
+                        <ng-template #loadingFaq>
+                            <h3>Loading FAQ</h3>
+                        </ng-template>
 
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- faq area end -->
+    </section>
+    <!-- faq area end -->
+</ng-container>
