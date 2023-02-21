@@ -22,8 +22,8 @@ export class SubscribeNowPageComponent {
   //#region  Options
 
   genders = [
-    { id: 2, name: 'male' },
-    { id: 3, name: 'female' },
+    { id: 1, name: 'male' },
+    { id: 2, name: 'female' },
   ];
 
   //#endregion
