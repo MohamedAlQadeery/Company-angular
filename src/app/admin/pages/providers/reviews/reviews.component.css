@@ -1,0 +1,4 @@
+::ng-deep .number-input {
+  width: 50% !important;
+  margin: auto !important;
+}

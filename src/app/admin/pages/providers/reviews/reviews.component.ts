@@ -16,6 +16,7 @@ export class ReviewsComponent {
   providers$ = this._providerService.GetAllProviders();
 
   HandleOnReview(providerId: string, starts: string) {
+    console.log(starts);
     if (starts.trim() == '' || +starts < 1 || +starts > 5) {
       this._toastr.warning('Plz Enter Valid Value 1-5');
 

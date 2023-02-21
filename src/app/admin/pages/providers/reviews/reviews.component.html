@@ -34,31 +34,33 @@
                 <td>{{ category.description }}</td>
                 <td>
                   {{
-                    category.review ? category.review.stars : "Not reviewed Yet"
+                  category.review ? category.review.stars : "Not reviewed Yet"
                   }}
                 </td>
                 <td>
                   <!-- <button class="btn btn-info"
                                         routerLink="/admin/category/edit/{{category.id}}">Edit</button> -->
 
-                  <button
-                    class="btn btn-success mx-2"
-                    [swal]="{
+                  <button class="btn btn-success mx-2" [swal]="{
                       icon: 'success',
                       title: 'Review Confirmation',
                       text: 'Review success',
-                      input: 'number',
+                    input:'number',
+                    inputAttributes: {
+                      placeholder: 'Enter a number'
 
-                      showCancelButton: true,
-                      confirmButtonText: 'Yes,Confirm',
-                      cancelButtonText: 'Cancel'
-                    }"
-                    (confirm)="
-                      category.review
-                        ? HandleOnUpdateReview(category.review, $event)
-                        : HandleOnReview(category.id, $event)
-                    "
-                  >
+                    },
+                    customClass: {
+                      input: 'number-input'
+                    },
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes,Confirm',
+                    cancelButtonText: 'Cancel'
+                    }" (confirm)="
+                    category.review
+                    ? HandleOnUpdateReview(category.review, $event)
+                    : HandleOnReview(category.id, $event)
+                    ">
                     Review
                   </button>
                 </td>
