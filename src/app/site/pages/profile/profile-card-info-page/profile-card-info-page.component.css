@@ -40,6 +40,14 @@
   font-weight: bold;
 }
 
+.card-qrcode {
+  position: absolute;
+  bottom: 15px;
+  right: 19px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 .top-left {
   position: absolute;
   top: 8px;
@@ -63,4 +71,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+::ng-deep canvas {
+  height: 77px !important;
+  width: 80px !important;
 }

@@ -11,6 +11,12 @@
                         titlecase}}</div>
                     <div class="card-number">{{card.cardNumber}}</div>
                     <div class="card-date">Expires {{card.expirationDate }}</div>
+                    <div class="card-qrcode">
+                        <qrcode [qrdata]="cardQrCode" [width]="5" [errorCorrectionLevel]="'M'">
+                        </qrcode>
+
+                    </div>
+
 
                 </div>
                 <!-- <img src="assets/site/cards/card-front-2.jpg" alt="card-front"> -->
@@ -23,6 +29,8 @@
                 </div>
 
             </div>
+
+
         </div>
 
 

@@ -30,6 +30,7 @@ import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { TuiCheckboxLabeledModule } from '@taiga-ui/kit';
+import { QRCodeModule } from 'angularx-qrcode';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -76,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EditorModule,
     AngularEditorModule,
     TuiCheckboxLabeledModule,
+    QRCodeModule,
   ],
   exports: [
     TranslateModule,
@@ -103,6 +105,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EditorModule,
     AngularEditorModule,
     TuiCheckboxLabeledModule,
+    QRCodeModule,
   ],
 })
 export class SharedModule {}
