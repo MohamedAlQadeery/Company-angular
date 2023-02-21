@@ -60,4 +60,8 @@ export class ProviderService {
   UpdateProvider(review: Review) {
     return this._http.put(`${this.reviewURL}`, review);
   }
+
+  GetAllReviews() {
+    return this._http.get<Review[]>(this.reviewURL);
+  }
 }

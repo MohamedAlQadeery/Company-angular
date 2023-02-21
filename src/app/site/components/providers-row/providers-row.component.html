@@ -30,19 +30,11 @@
                     <h4 class="fw-bold text-primary mt-md-4">{{'discount' | translate}}
                         {{provider.discount}}%</h4>
                     <div class="product__rating d-flex">
-                        <span>
+                        <span *ngFor="let star of [].constructor(provider.stars); let i = index">
                             <i class="icon_star"></i>
                         </span>
-                        <span>
-                            <i class="icon_star"></i>
-                        </span>
-                        <span>
-                            <i class="icon_star"></i>
-                        </span>
-                        <span>
-                            <i class="icon_star"></i>
-                        </span>
-                        <span>
+
+                        <span *ngFor="let star of [].constructor(5-provider.stars); let i = index">
                             <i class="icon_star_alt"></i>
                         </span>
                     </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, map, tap } from 'rxjs';
+import { Observable, map, switchMap, tap } from 'rxjs';
 import { CategoryService } from 'src/app/services/category.service';
 import { LangService } from 'src/app/services/language.service';
 import { ProviderService } from 'src/app/services/provider.service';
@@ -17,6 +17,7 @@ export class ProvidersPageComponent implements OnInit {
   constructor(
     private _providerService: ProviderService,
     private _categoryService: CategoryService,
+
     private _langService: LangService,
     private _actviedRoute: ActivatedRoute
   ) {}
@@ -35,10 +36,25 @@ export class ProvidersPageComponent implements OnInit {
   //#region observables
   categories$: Observable<{ id: number; name: string }[]>;
   lang$ = this._langService.currentLang$;
+  providersWithReviews$: Observable<IProviderResponse[]>;
+
   //#endregion
 
   ngOnInit(): void {
-    this._providerService.GetAllProviders().subscribe((res) => {
+    this.providersWithReviews$ = this._providerService.GetAllReviews().pipe(
+      switchMap((rev) => {
+        return this._providerService.GetAllProviders().pipe(
+          map((res) => {
+            return res.map((p) => {
+              const stars = rev.find((r) => r.providerId == p.id)?.stars;
+              return { ...p, stars } as IProviderResponse;
+            });
+          })
+        );
+      })
+    );
+    this.providersWithReviews$.subscribe((res) => {
+      console.log(res);
       this.originalProviders = res;
       this.providers = res;
       this.loadingFinished = true;

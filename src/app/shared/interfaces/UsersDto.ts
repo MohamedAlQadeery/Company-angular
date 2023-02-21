@@ -41,6 +41,7 @@ export interface IProviderResponse {
   id: string;
   isActive: boolean;
   review: Review | null;
+  stars: number;
 }
 
 export interface ICreateSubscriberRequest {
