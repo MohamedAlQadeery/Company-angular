@@ -283,7 +283,7 @@
                                     <div class="main-menu  main-menu-ff-space ">
                                         <nav id="mobile-menu" class="ms-md-4">
                                             <ul>
-                                                <li class="has-dropdown">
+                                                <li class="has-dropdown d-none d-md-block">
                                                     <span class="fs-5" style="color: grey;cursor: pointer;"><i
                                                             class="fa-solid fa-user"></i></span>
                                                     <ul class="submenu" style="min-width: 175px;">
@@ -362,6 +362,28 @@
                             <li><a routerLink="blog">{{'our-blog' | translate}}</a>
                             </li>
 
+                            <ng-container *ngIf="isLoggedIn$ | async;else NotLogged">
+
+
+                                <li>
+                                    <a routerLink="/profile" routerLinkActive="active">{{'profile'
+                                        | translate}}</a>
+                                </li>
+
+                                <li>
+                                    <a (click)="HandleLogOut()" class="text-decoration-none"
+                                        style="cursor: pointer;">{{'logout'
+                                        | translate}}</a>
+
+                                </li>
+
+                            </ng-container>
+
+                            <ng-template #NotLogged>
+                                <li><a routerLink="/login">{{'login' | translate}}</a></li>
+
+                            </ng-template>
+
                         </ul>
                     </nav>
                 </div>
@@ -379,6 +401,28 @@
                                     translate}}</a></li>
                             <li><a routerLink="blog">{{'our-blog' | translate}}</a>
                             </li>
+
+                            <ng-container *ngIf="isLoggedIn$ | async;else NotLogged">
+
+
+                                <li>
+                                    <a routerLink="/profile" routerLinkActive="active">{{'profile'
+                                        | translate}}</a>
+                                </li>
+
+                                <li>
+                                    <a (click)="HandleLogOut()" class="text-decoration-none"
+                                        style="cursor: pointer;">{{'logout'
+                                        | translate}}</a>
+
+                                </li>
+
+                            </ng-container>
+
+                            <ng-template #NotLogged>
+                                <li><a routerLink="/login">{{'login' | translate}}</a></li>
+
+                            </ng-template>
 
                         </ul>
                     </nav>
@@ -399,7 +443,7 @@
                             <div class="offcanvas__info-item">
                                 <h4 class="offcanvas__info-item-title">Information</h4>
                                 <p><a href="tel:964-742-44-763">+964 742 44 763</a></p>
-                                <p><a href="mailto:support@harry.com">support@harry.com</a></p>
+                                <p><a href="mailto:support@harry.com">support@IPS.com</a></p>
                             </div>
                             <div class="offcanvas__info-item">
                                 <h4 class="offcanvas__info-item-title">Address</h4>
