@@ -4,6 +4,7 @@ import { Observable, switchMap } from 'rxjs';
 import { LangService } from 'src/app/services/language.service';
 import { StaticPageService } from 'src/app/services/static-page.service';
 import { StaticPage } from 'src/app/shared/interfaces/StaticPage';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-static-page',
@@ -16,6 +17,8 @@ export class StaticPageComponent implements OnInit {
     private _route: ActivatedRoute,
     private _langService: LangService
   ) {}
+
+  imagesUrl = `${environment.baseURL}/images/`;
 
   pageName: string;
   page$: Observable<StaticPage>;

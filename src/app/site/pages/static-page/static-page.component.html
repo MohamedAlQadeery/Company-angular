@@ -1,7 +1,7 @@
 <!-- breadcrumb area start -->
 
 <ng-container *ngIf="page$ | async as page;else loadingPage">
-    <section
+    <!-- <section
         class="breadcrumb__area breadcrumb__style-7 breadcrumb__bg-3 p-relative z-index-1 include-bg pt-180 pb-100">
         <div class="breadcrumb__bg-shape include-bg" data-background="assets/img/breadcrumb/breadcrumb-shape-1.png">
         </div>
@@ -23,7 +23,23 @@
                 </div>
             </div>
         </div>
+    </section> -->
+
+    <!-- about top area start -->
+    <section class="about__heading about__heading-overlay about__spacing include-bg jarallax"
+        [ngStyle]="{'background-image': 'url(' + imagesUrl + '/'+page.headerImage+ ')'}">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10">
+                    <div class="about__heading-content text-center p-relative z-index-1">
+                        <!-- <span class="about__heading-subtitle">About us</span> -->
+                        <h3 class="about__heading-title">{{page.pageName | translate}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+    <!-- about top area end -->
     <!-- breadcrumb area end -->
 
 

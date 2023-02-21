@@ -15,7 +15,11 @@ export class ProfileCardInfoPageComponent {
     tap((res) => {
       console.log(res);
       this.cardQrCode =
-        environment.baseURL + `/api/Subscriber/GetCard?id=${res.id}`;
+        environment.baseURL +
+        `/api/Subscriber/GetCard?cardNumber=${res.cardNumber?.replaceAll(
+          '-',
+          ''
+        )}`;
 
       console.log(this.cardQrCode);
     })
