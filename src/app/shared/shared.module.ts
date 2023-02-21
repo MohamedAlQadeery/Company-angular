@@ -31,6 +31,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { TuiCheckboxLabeledModule } from '@taiga-ui/kit';
 import { QRCodeModule } from 'angularx-qrcode';
+import { TuiDialogModule } from '@taiga-ui/core';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -78,6 +79,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularEditorModule,
     TuiCheckboxLabeledModule,
     QRCodeModule,
+    TuiDialogModule,
   ],
   exports: [
     TranslateModule,
@@ -106,6 +108,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularEditorModule,
     TuiCheckboxLabeledModule,
     QRCodeModule,
+    TuiDialogModule,
   ],
 })
 export class SharedModule {}

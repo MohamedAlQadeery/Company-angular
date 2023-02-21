@@ -8,7 +8,7 @@
 <div class="card p-4">
     <div class="row">
         <div class="col-md-12">
-            <ng-container *ngIf="categories$ | async as categories">
+            <ng-container *ngIf="messages$ | async as messages">
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -17,26 +17,31 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone Number</th>
-                                <th scope="col">Message</th>
+                                <!-- <th scope="col">Message</th> -->
                                 <th scope="col">Created Date</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let category of categories;let i=index">
+                            <tr *ngFor="let message of messages;let i=index">
                                 <th>{{i+1}}</th>
-                                <td>{{category.name}}</td>
-                                <td>{{category.emailAddres}}</td>
-                                <td>{{category.phoneNumber}}</td>
-                                <td>{{category.message}}</td>
-                                <td>{{category.createdAt | date}}</td>
+                                <td>{{message.name}}</td>
+                                <td>{{message.emailAddres}}</td>
+                                <td>{{message.phoneNumber}}</td>
+                                <!-- <td>{{message.message}}</td> -->
+                                <td>{{message.createdAt | date}}</td>
                                 <td>
-                                    <button class="btn btn-danger mx-2"
+                                    <button tuiButton type="button" size="m"
+                                        class="tui-space_right-3 tui-space_bottom-3" (click)="showDialog(message)">
+                                        Show
+                                    </button>
+                                    <button tuiButton type="button" size="m" appearance="secondary-destructive"
+                                        class="tui-space_right-3 tui-space_bottom-3"
                                         [swal]="{icon:'warning',
                                         title: 'Delete Confirmation' ,
                                         text:'Eveyrthing releated to this will be deleted too !',
                                         showCancelButton: true,confirmButtonText: 'Yes,Confirm',cancelButtonText:'Cancel' }"
-                                        (confirm)="HandleOnDelete(category.id)">Delete</button>
+                                        (confirm)="HandleOnDelete(message.id)">Delete</button>
 
                                 </td>
                             </tr>
