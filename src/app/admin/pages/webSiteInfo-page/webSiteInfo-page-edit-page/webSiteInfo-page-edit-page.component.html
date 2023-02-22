@@ -1,0 +1,126 @@
+<ng-container *ngIf="page$ | async as page; else loading">
+  <div class="card p-3">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="mb-3">Update {{ page.name }} Page</h3>
+      </div>
+      <div class="col-md-6 text-end">
+        <a routerLink="/admin/WebSiteInfo" class="btn btn-secondary">Go Back</a>
+      </div>
+    </div>
+
+    <form
+      [formGroup]="pageFormGroup"
+      class="mb-5"
+      (ngSubmit)="HandleOnSubmit()"
+    >
+      <div class="row">
+        <!-- <div class="col-md-6"> -->
+        <!-- <div class="mb-3">
+                        <app-input-field [control]="nameControl" label="Name"></app-input-field>
+                    </div> -->
+        <!-- 
+                    <div class="mb-3">
+                        <app-input-field [control]="aboutUsControl" label="aboutUs"></app-input-field>
+                    </div> -->
+
+        <!-- <editor formControlName="aboutUs"
+                        [init]="{ plugins: 'lists link image table code help wordcount', image_title: true,  automatic_uploads: true,  file_picker_types: 'image'}"
+                        [apiKey]="'viu7iheo67c7hd37l79fj339zcuf22rsgvethpl7r6ycj3m7'">
+                    </editor> -->
+
+        <!-- </div> -->
+        <div class="mb-3">
+          <app-input-field
+            [control]="nameControl"
+            label="Name"
+          ></app-input-field>
+        </div>
+        <div class="mb-3">
+          <app-input-field
+            [control]="nameARControl"
+            label="NameAR"
+          ></app-input-field>
+        </div>
+        <div class="mb-3">
+          <app-input-field
+            [control]="nameTRControl"
+            label="NameTR"
+          ></app-input-field>
+        </div>
+
+        <div class="mb-3">
+          <app-input-field
+            [control]="emailControl"
+            label="Email"
+          ></app-input-field>
+        </div>
+        <div class="mb-3">
+          <app-input-field
+            [control]="phoneNumberControl"
+            label="PhoneNumber"
+          ></app-input-field>
+        </div>
+        <div class="mb-3">
+          <app-input-field
+            [control]="expYearsControl"
+            label="Exp Years"
+          ></app-input-field>
+        </div>
+        <div class="mb-3">
+          <app-input-field
+            [control]="workingTimeStartControl"
+            label="Start Working Time"
+          ></app-input-field>
+        </div>
+
+        <div class="mb-3">
+          <app-input-field
+            [control]="workingTimeEndControl"
+            label="End Working Time"
+          ></app-input-field>
+        </div>
+        <div class="col-md-12 mb-3">
+          <label class="form-label">English aboutUs</label>
+          <angular-editor
+            [placeholder]="'Enter text here EN...'"
+            [config]="editorConfig"
+            formControlName="aboutUs"
+          ></angular-editor>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label class="form-label">Arabic aboutUs</label>
+
+          <angular-editor
+            [placeholder]="'Enter text here AR...'"
+            [config]="editorConfig"
+            formControlName="aboutUsAR"
+          ></angular-editor>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label class="form-label">Turkey aboutUs</label>
+
+          <angular-editor
+            [placeholder]="'Enter text here TR...'"
+            [config]="editorConfig"
+            formControlName="aboutUsTR"
+          ></angular-editor>
+        </div>
+
+        <div class="col-md-12">
+          <button
+            [disabled]="!pageFormGroup.valid"
+            type="submit"
+            class="btn btn-success mt-md-3"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-container>
+
+<ng-template #loading> Loading stuff... </ng-template>

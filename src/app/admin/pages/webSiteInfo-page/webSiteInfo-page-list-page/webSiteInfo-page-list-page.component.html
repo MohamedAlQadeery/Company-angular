@@ -1,0 +1,45 @@
+<div class="row mb-3">
+    <div class="col-md-6">
+        <h3 class="mb-3">WebSiteIfno Page</h3>
+
+    </div>
+
+
+</div>
+<div class="card p-4">
+    <div class="row">
+        <div class="col-md-12">
+            <ng-container *ngIf="webSiteInfos$ | async as webSiteInfos">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Created Date</th>
+                                <th scope="col">Update Date</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let webSiteInfo of webSiteInfos;let i=index">
+                                <th>{{i+1}}</th>
+                                <td>{{webSiteInfo.name}}</td>
+                                <td>{{webSiteInfo.createdAt | date}}</td>
+                                <td>{{webSiteInfo.updatedAt ?(webSiteInfo.updatedAt | date) : 'Not Updated yet'}} </td>
+                                <td>
+                                    <button class="btn btn-info"
+                                        routerLink="/admin/WebSiteInfo/edit/{{webSiteInfo.id}}">Edit</button>
+
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+</div>

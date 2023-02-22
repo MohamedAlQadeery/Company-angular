@@ -15,6 +15,7 @@ export const environment = {
     teamMember: '/api/TeamMember',
     faq: '/api/Faq',
     contact: '/api/ContactUs',
+    webSiteInfo: '/api/WebSiteInfo'
   },
   images: {
     small: '/Images/Thumbs/Small/',

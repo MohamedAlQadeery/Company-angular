@@ -36,6 +36,9 @@ import { TeamMemberListPageComponent } from './pages/team-member/team-member-lis
 import { UsersListPageComponent } from './pages/users/users-list-page/users-list-page.component';
 import { ListPageComponent } from './pages/contact-us/list-page/list-page.component';
 import { ReviewsComponent } from './pages/providers/reviews/reviews.component';
+import { WebSiteInfoPageListPageComponent } from './pages/webSiteInfo-page/webSiteInfo-page-list-page/webSiteInfo-page-list-page.component';
+import { WebSiteInfoPageCreatePageComponent } from './pages/webSiteInfo-page/webSiteInfo-page-create-page/webSiteInfo-page-create-page.component';
+import { WebSiteInfoPageEditPageComponent } from './pages/webSiteInfo-page/webSiteInfo-page-edit-page/webSiteInfo-page-edit-page.component';
 
 const routes: Routes = [
   {
@@ -83,6 +86,10 @@ const routes: Routes = [
       { path: 'Faq/edit/:id', component: FaqEditPageComponent },
       { path: 'Contact-Us', component: ListPageComponent },
       { path: 'Review', component: ReviewsComponent },
+      { path: 'WebSiteInfo', component: WebSiteInfoPageListPageComponent },
+      { path: 'WebSiteInfo/create', component: WebSiteInfoPageCreatePageComponent },
+      { path: 'WebSiteInfo/edit/:id', component: WebSiteInfoPageEditPageComponent },
+
     ],
   },
 ];
