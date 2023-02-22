@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { ContactusService } from 'src/app/services/contactus.service';
+import { WebSiteInfoService } from 'src/app/services/webSiteInfo.service';
 
 @Component({
   selector: 'app-contactus-page',
@@ -15,9 +16,11 @@ export class ContactusPageComponent implements OnInit {
     private _toastr: ToastrService,
     private _router: Router,
     private _contactService: ContactusService,
-    private _translate: TranslateService
+    private _translate: TranslateService,
+    private _infoService: WebSiteInfoService
   ) {}
 
+  info$ = this._infoService.GetById(1);
   //#region Form Controls
   contactFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
