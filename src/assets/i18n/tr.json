@@ -148,7 +148,7 @@
 "our-latest": "En Son Haberlerimiz",
 "articles": "Makaleler",
 "blog":"Blog",
-"terms" : "Kullanım Şartları ve Gizlilik Politikasını okudum ve kabul ediyorum",
+"terms-con" : "Kullanım Şartları ve Gizlilik Politikasını okudum ve kabul ediyorum",
 "fullname": "Adı Soyadı",
 "message": "Mesaj",
 "contact-title": "BİZİ TANIYIN",
@@ -162,7 +162,9 @@
 "footer-title": "İletişim Kur",
 "success-message-sent-title": "Mesaj Başarıyla Gönderildi",
 "success-message-sent-content": "Mesajınızı aldık, yakında sizinle iletişim kuracağız",
-"provider-name":"Sağlayıcı ismi girin"
+"provider-name":"Sağlayıcı ismi girin",
+"term": "şartlar ve koşullar"
+
 
 
 

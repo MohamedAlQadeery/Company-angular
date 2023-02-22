@@ -154,7 +154,7 @@
     "our-latest":"Our Latest",
     "articles":"Articles",
     "blog":"Our Blog",
-    "terms" : "I have read and agree to the Terms of Use and Privacy Policy",
+    "terms-con" : "I have read and agree to the Terms of Use and Privacy Policy",
     "fullname":"Full Name",
     "message" : "Message",
     "contact-title":"GET TO KNOW US",
@@ -168,7 +168,8 @@
     "footer-title":"Get in Touch",
     "success-message-sent-title":"Message Sent Successfully",
     "success-message-sent-content":"We have recieved your message we will contact you soon",
-    "provider-name":"Enter the name of the provider"
+    "provider-name":"Enter the name of the provider",
+    "term":"terms and conditions"
 
 
 
