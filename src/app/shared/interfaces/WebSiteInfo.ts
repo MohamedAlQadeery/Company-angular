@@ -1,4 +1,4 @@
-import { BaseModel } from "./base/base";
+import { BaseModel } from './base/base';
 
 export interface WebSiteInfo extends BaseModel {
   name: string;
@@ -6,8 +6,10 @@ export interface WebSiteInfo extends BaseModel {
   nameTR: string;
   email: string;
   phoneNumber: string;
-  workingTimeStart: Date;
-  workingTimeEnd: Date;
+  // workingTimeStart: Date;
+  // workingTimeEnd: Date;
+  socialLink: string;
+  locarionMapLink: string;
   aboutUs: string;
   aboutUsAR: string;
   aboutUsTR: string;

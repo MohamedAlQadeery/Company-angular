@@ -30,6 +30,8 @@ export class WebSiteInfoPageEditPageComponent implements OnInit {
   nameARControl = new FormControl('', [Validators.required]);
   nameTRControl = new FormControl('', [Validators.required]);
   emailControl = new FormControl('', [Validators.required]);
+  socialLinkControl = new FormControl('', [Validators.required]);
+  locarionMapLinkControl = new FormControl('', [Validators.required]);
   aboutUsControl = new FormControl('', [Validators.required]);
   aboutUsARControl = new FormControl('', [Validators.required]);
   aboutUsTRControl = new FormControl('', [Validators.required]);
@@ -76,8 +78,10 @@ export class WebSiteInfoPageEditPageComponent implements OnInit {
       aboutUsAR: this.aboutUsARControl,
       aboutUsTR: this.aboutUsTRControl,
       phoneNumber: this.phoneNumberControl,
-      workingTimeStart : this.workingTimeStartControl,
-      workingTimeEnd : this.workingTimeEndControl,
+      locarionMapLink: this.locarionMapLinkControl,
+      socialLink: this.socialLinkControl,
+      // workingTimeStart : this.workingTimeStartControl,
+      // workingTimeEnd : this.workingTimeEndControl,
       expYears : this.expYearsControl,
     });
 
@@ -95,8 +99,10 @@ export class WebSiteInfoPageEditPageComponent implements OnInit {
         this.aboutUsARControl.setValue(cat.aboutUsAR);
         this.aboutUsTRControl.setValue(cat.aboutUsTR);
         this.phoneNumberControl.setValue(cat.phoneNumber);
-        this.workingTimeStartControl.setValue(cat.workingTimeStart.toString());
-        this.workingTimeEndControl.setValue(cat.workingTimeEnd.toString());
+        this.locarionMapLinkControl.setValue(cat.locarionMapLink);
+        this.socialLinkControl.setValue(cat.socialLink);
+        // this.workingTimeStartControl.setValue(cat.workingTimeStart.toString());
+        // this.workingTimeEndControl.setValue(cat.workingTimeEnd.toString());
         this.expYearsControl.setValue(cat.expYears);
       })
     );
