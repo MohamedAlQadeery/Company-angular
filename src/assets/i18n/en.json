@@ -126,7 +126,7 @@
     "aboutus-1":"About us",
     "project":"Project",
     "view-all-services":"View All Services",
-    "join-as-user":"Join as User",
+    "join-as-user":"Join as advertiser",
     "join-us":"Join us",
     "author":"Author",
     "created-at":"Created At",
@@ -169,7 +169,7 @@
     "success-message-sent-title":"Message Sent Successfully",
     "success-message-sent-content":"We have recieved your message we will contact you soon",
     "provider-name":"Enter the name of the provider",
-    "term":"terms and conditions"
+    "term":"Terms and conditions"
 
 
 
