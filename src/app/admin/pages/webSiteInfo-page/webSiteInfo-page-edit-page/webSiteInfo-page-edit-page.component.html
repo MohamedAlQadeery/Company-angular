@@ -9,11 +9,7 @@
       </div>
     </div>
 
-    <form
-      [formGroup]="pageFormGroup"
-      class="mb-5"
-      (ngSubmit)="HandleOnSubmit()"
-    >
+    <form [formGroup]="pageFormGroup" class="mb-5" (ngSubmit)="HandleOnSubmit()">
       <div class="row">
         <!-- <div class="col-md-6"> -->
         <!-- <div class="mb-3">
@@ -31,90 +27,62 @@
 
         <!-- </div> -->
         <div class="mb-3">
-          <app-input-field
-            [control]="nameControl"
-            label="Name"
-          ></app-input-field>
+          <app-input-field [control]="nameControl" label="Name"></app-input-field>
         </div>
         <div class="mb-3">
-          <app-input-field
-            [control]="nameARControl"
-            label="NameAR"
-          ></app-input-field>
+          <app-input-field [control]="nameARControl" label="NameAR"></app-input-field>
         </div>
         <div class="mb-3">
-          <app-input-field
-            [control]="nameTRControl"
-            label="NameTR"
-          ></app-input-field>
+          <app-input-field [control]="nameTRControl" label="NameTR"></app-input-field>
         </div>
 
         <div class="mb-3">
-          <app-input-field
-            [control]="emailControl"
-            label="Email"
-          ></app-input-field>
+          <app-input-field [control]="emailControl" label="Email"></app-input-field>
         </div>
         <div class="mb-3">
-          <app-input-field
-            [control]="phoneNumberControl"
-            label="PhoneNumber"
-          ></app-input-field>
+          <app-input-field [control]="phoneNumberControl" label="PhoneNumber"></app-input-field>
         </div>
         <div class="mb-3">
-          <app-input-field
-            [control]="expYearsControl"
-            label="Exp Years"
-          ></app-input-field>
+          <app-input-field [control]="expYearsControl" label="Exp Years"></app-input-field>
         </div>
         <div class="mb-3">
-          <app-input-field
-            [control]="workingTimeStartControl"
-            label="Start Working Time"
-          ></app-input-field>
+          <app-input-field [control]="workingTimeStartControl" label="Start Working Time"></app-input-field>
         </div>
 
         <div class="mb-3">
-          <app-input-field
-            [control]="workingTimeEndControl"
-            label="End Working Time"
-          ></app-input-field>
+          <app-input-field [control]="workingTimeEndControl" label="End Working Time"></app-input-field>
         </div>
         <div class="col-md-12 mb-3">
           <label class="form-label">English aboutUs</label>
-          <angular-editor
+          <!-- <angular-editor
             [placeholder]="'Enter text here EN...'"
             [config]="editorConfig"
             formControlName="aboutUs"
-          ></angular-editor>
+          ></angular-editor> -->
+          <app-text-area-input [control]="aboutUsControl" [hasStarSymbol]="false"></app-text-area-input>
         </div>
 
         <div class="col-md-12 mb-3">
           <label class="form-label">Arabic aboutUs</label>
 
-          <angular-editor
-            [placeholder]="'Enter text here AR...'"
-            [config]="editorConfig"
-            formControlName="aboutUsAR"
-          ></angular-editor>
+          <!-- <angular-editor [placeholder]="'Enter text here AR...'" [config]="editorConfig"
+            formControlName="aboutUsAR"></angular-editor> -->
+          <app-text-area-input [control]="aboutUsARControl" [hasStarSymbol]="false"></app-text-area-input>
+
         </div>
 
         <div class="col-md-12 mb-3">
           <label class="form-label">Turkey aboutUs</label>
 
-          <angular-editor
-            [placeholder]="'Enter text here TR...'"
-            [config]="editorConfig"
-            formControlName="aboutUsTR"
-          ></angular-editor>
+          <!-- <angular-editor [placeholder]="'Enter text here TR...'" [config]="editorConfig"
+            formControlName="aboutUsTR"></angular-editor> -->
+
+          <app-text-area-input [control]="aboutUsTRControl" [hasStarSymbol]="false"></app-text-area-input>
+
         </div>
 
         <div class="col-md-12">
-          <button
-            [disabled]="!pageFormGroup.valid"
-            type="submit"
-            class="btn btn-success mt-md-3"
-          >
+          <button [disabled]="!pageFormGroup.valid" type="submit" class="btn btn-success mt-md-3">
             Update
           </button>
         </div>

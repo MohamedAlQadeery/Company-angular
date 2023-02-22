@@ -8,6 +8,7 @@ import { LangService } from 'src/app/services/language.service';
 import { PlanService } from 'src/app/services/plan.service';
 import { ProviderService } from 'src/app/services/provider.service';
 import { TeamMemberService } from 'src/app/services/team-member.service';
+import { WebSiteInfoService } from 'src/app/services/webSiteInfo.service';
 import { IPlanResponse } from 'src/app/shared/interfaces/PlanDtos';
 import { environment } from 'src/environments/environment';
 
@@ -24,7 +25,8 @@ export class HomePageComponent implements OnInit {
     private _faqService: FaqService,
     private _genralServices: GeneralServiceService,
     private _providerServices: ProviderService,
-    private _router: Router
+    private _router: Router,
+    private _infoService: WebSiteInfoService
   ) {}
 
   lang$ = this._langService.currentLang$;
@@ -146,6 +148,7 @@ export class HomePageComponent implements OnInit {
     .GetAllProviders()
     .pipe(map((res) => res.slice(0, 8)));
 
+  info$ = this._infoService.GetById(1);
   //#endregion
 
   //#region Search FormControl

@@ -2,6 +2,7 @@ import { Component, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { tap } from 'rxjs';
 import { LangService } from 'src/app/services/language.service';
+import { WebSiteInfoService } from 'src/app/services/webSiteInfo.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,13 +13,15 @@ export class FooterComponent {
   constructor(
     private _langService: LangService,
     private translate: TranslateService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private _infoService: WebSiteInfoService
   ) {}
 
   //#region Language <ul>
   showLanguageList = false;
   languageSpanText = 'English';
   //#endregion
+  info$ = this._infoService.GetById(1);
 
   //#endregion
   currentLang$ = this._langService.currentLang$.pipe(

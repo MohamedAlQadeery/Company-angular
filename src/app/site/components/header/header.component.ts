@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 import { filter, map, tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { LangService } from 'src/app/services/language.service';
+import { WebSiteInfoService } from 'src/app/services/webSiteInfo.service';
 
 @Component({
   selector: 'app-header',
@@ -25,7 +26,8 @@ export class HeaderComponent implements OnInit {
     private _langService: LangService,
     private _authService: AuthService,
     private _router: Router,
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
+    private _infoService: WebSiteInfoService
   ) {
     translate.setDefaultLang('en');
   }
@@ -67,6 +69,7 @@ export class HeaderComponent implements OnInit {
   );
 
   isLoggedIn$ = this._authService.isLoggedin$;
+  info$ = this._infoService.GetById(1);
 
   //#region Search FormControl
   searchFormGroup: FormGroup;
