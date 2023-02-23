@@ -110,4 +110,21 @@ export class UserService {
       `${this.baseUrl}?RoleName=user&&isactive=false`
     );
   }
+
+  DisactiveUser(email:string){
+    return this._http.delete(`${this.baseUrl}/${email}`);
+  }
+
+  ActivateUser(email:string){
+    return this._http.get(`${this.baseUrl}/ActivateUser/${email}`);
+  }
+
+  DeleteUser(email:string){
+    return this._http.delete(`${this.baseUrl}/DeleteUser/${email}`);
+  }
+
+  GetAllUsers()
+  {
+    return this._http.get<IUserRespose[]>(`${this.baseUrl}`);
+  }
 }

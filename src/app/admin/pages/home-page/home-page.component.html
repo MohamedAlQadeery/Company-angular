@@ -1,1 +1,80 @@
-<p>home-page works!</p>
+<div class="row mb-3">
+  <div class="col-md-6">
+    <h3 class="mb-3">Users Page</h3>
+  </div>
+</div>
+
+<div class="card p-4">
+  <div class="row">
+    <div class="col-md-12">
+      <ng-container *ngIf="plans$ | async as categories">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Name</th>
+                <th scope="col">IsActive</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categories; let i = index">
+                  <th>{{ i + 1 }}</th>
+                  <td>{{ category.email! }}</td>
+                  <td>{{ category.companyName ?? category.firstName }}</td>
+                  <td>{{ category.isActive }}</td>
+                  <td>
+                    <button
+                    *ngIf="!category.isActive"
+                      class="btn btn-outline-success"
+                      [swal]="{
+                        icon: 'info',
+                        title: 'Activate Confirmation',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes,Confirm',
+                        cancelButtonText: 'Cancel'
+                      }"
+                      (confirm)="HandleOnActivate(category.email!)"
+                    >
+                      Activate
+                    </button>
+
+                    <button
+                    *ngIf="category.isActive"
+                      class="btn btn-outline-danger"
+                      [swal]="{
+                        icon: 'warning',
+                        title: 'Activate Confirmation',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes,Confirm',
+                        cancelButtonText: 'Cancel'
+                      }"
+                      (confirm)="HandleOnDisactive(category.email!)"
+                    >
+                      Disactivate
+                    </button>
+
+                    <button
+                      class="btn btn-danger mx-2"
+                      [swal]="{
+                        icon: 'warning',
+                        title: 'Delete Confirmation',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes,Confirm',
+                        cancelButtonText: 'Cancel'
+                      }"
+                      (confirm)="HandleOnDelete(category.email!)"
+                    >
+                      Delete
+                    </button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

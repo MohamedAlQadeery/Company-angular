@@ -60,9 +60,19 @@
         ></app-number-count-input>
       </div>
       <div class="col-md-4 mb-3">
-        
-        <app-select-input [control]="planTypeContorl" label="{{'Plan Type' | translate}}"
-                                        [options]="planTypeOpts"></app-select-input>
+        <app-select-input
+          [control]="planTypeContorl"
+          label="{{ 'Plan Type' | translate }}"
+          [options]="planTypeOpts"
+        ></app-select-input>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <app-select-input
+          [control]="planColorContorl"
+          label="{{ 'Plan Color' | translate }}"
+          [options]="PlanCardColor"
+        ></app-select-input>
       </div>
 
       <!-- <div class="col-md-3 mb-3">

@@ -4,7 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, tap } from 'rxjs';
 import { PlanService } from 'src/app/services/plan.service';
-import { IPlanResponse, IUpdatePlanRequest } from 'src/app/shared/interfaces/PlanDtos';
+import {
+  IPlanResponse,
+  IUpdatePlanRequest,
+} from 'src/app/shared/interfaces/PlanDtos';
 
 @Component({
   selector: 'app-plans-edit-page',
@@ -12,11 +15,18 @@ import { IPlanResponse, IUpdatePlanRequest } from 'src/app/shared/interfaces/Pla
   styleUrls: ['./plans-edit-page.component.css'],
 })
 export class PlansEditPageComponent {
-  planTypeOpts = [{ id: 1, name: 'Normal User' }
-  ,
-  { id: 2, name: 'Subscriber' }
-  ,{ id: 3, name: 'Provider' }
+  planTypeOpts = [
+    { id: 1, name: 'Normal User' },
+    { id: 2, name: 'Subscriber' },
+    { id: 3, name: 'Provider' },
   ];
+
+  PlanCardColor = [
+    { id: 0, name: 'Bronze' },
+    { id: 1, name: 'Silver' },
+    { id: 2, name: 'Gold' },
+  ];
+
   constructor(
     private _activedRoute: ActivatedRoute,
     private _router: Router,
@@ -35,6 +45,7 @@ export class PlansEditPageComponent {
   postsPerMonthContorl = new FormControl(0, [Validators.required]);
   offerPerMonthContorl = new FormControl(0, [Validators.required]);
   planTypeContorl = new FormControl(1, [Validators.required]);
+  planColorContorl = new FormControl(1, [Validators.required]);
 
   ngOnInit(): void {
     this.planFormGroup = new FormGroup({
@@ -46,12 +57,14 @@ export class PlansEditPageComponent {
       servicePerMonth: this.postsPerMonthContorl,
       offerPerMonth: this.offerPerMonthContorl,
       planType: this.planTypeContorl,
+      planCardColor: this.planColorContorl
+
       // features: new FormArray([]),
     });
     this._activedRoute.paramMap.subscribe((para) => {
       this.planId = +para.get('id')!;
     });
-     
+
     this.plan$ = this._planService.GetPlanById(this.planId).pipe(
       tap((plan: IPlanResponse) => {
         this.nameControl.setValue(plan.name);
@@ -61,6 +74,7 @@ export class PlansEditPageComponent {
         this.durationControl.setValue(plan.duration);
         this.postsPerMonthContorl.setValue(plan.servicePerMonth);
         this.planTypeContorl.setValue(plan.planType);
+        this.planColorContorl.setValue(plan.planCardColor);
       })
     );
   }

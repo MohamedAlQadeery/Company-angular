@@ -1,3 +1,5 @@
+// planCardColor => 0 Bronze, 1 Silver, 2 Gold
+
 export interface IPlanResponse {
   id: number;
   name: string;
@@ -6,6 +8,7 @@ export interface IPlanResponse {
   servicePerMonth: number;
   offerPerMonth: number;
   planType: number;
+  planCardColor: number;
   duration: number;
   price: number;
   createdAt: Date;
@@ -20,6 +23,7 @@ export interface ICreatePlanRequest {
   duration: number;
   price: number;
   planType: number;
+  planCardColor: number;
   servicePerMonth: number;
   offerPerMonth: number;
 }

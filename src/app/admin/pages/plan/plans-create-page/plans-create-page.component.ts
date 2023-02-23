@@ -10,11 +10,17 @@ import { PlanService } from 'src/app/services/plan.service';
   styleUrls: ['./plans-create-page.component.css'],
 })
 export class PlansCreatePageComponent implements OnInit {
-  planTypeOpts = [{ id: 1, name: 'Normal User' }
-,
-{ id: 2, name: 'Subscriber' }
-,{ id: 3, name: 'Provider' }
-];
+  planTypeOpts = [
+    { id: 1, name: 'Normal User' },
+    { id: 2, name: 'Subscriber' },
+    { id: 3, name: 'Provider' }
+  ];
+  PlanCardColor = [
+    {id:0, name: 'Bronze'},
+    {id:1, name: 'Silver'},
+    {id:2, name: 'Gold'}
+  ];
+
   planFormGroup: FormGroup;
   nameControl = new FormControl('', [Validators.required]);
   nameARControl = new FormControl('', [Validators.required]);
@@ -24,6 +30,7 @@ export class PlansCreatePageComponent implements OnInit {
   postsPerMonthContorl = new FormControl(0, [Validators.required]);
   offerPerMonthContorl = new FormControl(0, [Validators.required]);
   planTypeContorl = new FormControl(1, [Validators.required]);
+  planColorContorl = new FormControl(1, [Validators.required]);
   constructor(
     private _planService: PlanService,
     private _router: Router,
@@ -39,6 +46,7 @@ export class PlansCreatePageComponent implements OnInit {
       servicePerMonth: this.postsPerMonthContorl,
       planType: this.planTypeContorl,
       offerPerMonth: this.offerPerMonthContorl,
+      planCardColor: this.planColorContorl
       // features: new FormArray([]),
     });
   }
