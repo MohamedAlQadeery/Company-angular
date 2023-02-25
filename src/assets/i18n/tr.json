@@ -164,7 +164,9 @@
 "success-message-sent-content": "Mesajınızı aldık, yakında sizinle iletişim kuracağız",
 "provider-name":"Sağlayıcı ismi girin",
 "term": "şartlar ve koşullar",
-"join-as-user":"reklamveren olarak katıl"
+"join-as-user":"reklamveren olarak katıl",
+"no-providers":"No Providers were found"
+
 
 
 
