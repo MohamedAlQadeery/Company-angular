@@ -46,7 +46,7 @@ export class ProvidersPageComponent implements OnInit {
         return this._providerService.GetAllProviders().pipe(
           map((res) => {
             return res.map((p) => {
-              const stars = rev.find((r) => r.providerId == p.id)?.stars;
+              const stars = rev.find((r) => r.providerId == p.id)?.stars ?? 0;
               return { ...p, stars } as IProviderResponse;
             });
           })

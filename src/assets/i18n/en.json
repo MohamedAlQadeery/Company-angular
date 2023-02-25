@@ -169,7 +169,8 @@
     "success-message-sent-title":"Message Sent Successfully",
     "success-message-sent-content":"We have recieved your message we will contact you soon",
     "provider-name":"Enter the name of the provider",
-    "term":"Terms and conditions"
+    "term":"Terms and conditions",
+    "no-providers":"No Providers were found"
 
 
 
