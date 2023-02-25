@@ -39,6 +39,7 @@ import { ProvidersRowComponent } from './components/providers-row/providers-row.
 import { ProfileReadmoreComponent } from './pages/profile/profile-readmore/profile-readmore.component';
 import { UserSignupComponent } from './pages/user-signup/user-signup.component';
 import { ContactusPageComponent } from './pages/contactus-page/contactus-page.component';
+import { CardInfoComponent } from './pages/card-info/card-info.component';
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -75,6 +76,7 @@ import { ContactusPageComponent } from './pages/contactus-page/contactus-page.co
     ProfileReadmoreComponent,
     UserSignupComponent,
     ContactusPageComponent,
+    CardInfoComponent,
   ],
   imports: [CommonModule, SiteRoutingModule, SharedModule, SlickCarouselModule],
 })

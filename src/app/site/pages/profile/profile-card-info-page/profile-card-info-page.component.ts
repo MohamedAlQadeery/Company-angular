@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
@@ -9,19 +10,22 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./profile-card-info-page.component.css'],
 })
 export class ProfileCardInfoPageComponent {
-  constructor(private _userService: UserService) {}
-  cardQrCode: string;
+  constructor(
+    private _userService: UserService,
+    private _activeRoute: ActivatedRoute
+  ) {}
+  cardQrCode: string = 'www.facebook.com';
   card$ = this._userService.GetCurrentUserCard().pipe(
     tap((res) => {
       console.log(res);
-      this.cardQrCode =
-        environment.baseURL +
-        `/api/Subscriber/GetCard?cardNumber=${res.cardNumber?.replaceAll(
-          '-',
-          ''
-        )}`;
+      // this.cardQrCode =
+      //   environment.baseURL +
+      //   `/api/Subscriber/GetCard?cardNumber=${res.cardNumber?.replaceAll(
+      //     '-',
+      //     ''
+      //   )}`;
 
-      console.log(this.cardQrCode);
+      console.log(this._activeRoute.url);
     })
   );
 }
