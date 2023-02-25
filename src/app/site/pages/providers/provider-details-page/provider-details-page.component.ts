@@ -22,7 +22,7 @@ export class ProviderDetailsPageComponent {
     private _langService: LangService
   ) {}
 
-  imagesUrl = `${environment.baseURL}/images/thumbs/big`;
+  imagesUrl = `${environment.baseURL}/images`;
   smallImagesUrl = `${environment.baseURL}/images/thumbs/small`;
   provider$: Observable<IUserRespose>;
   lang$ = this._langService.currentLang$;
