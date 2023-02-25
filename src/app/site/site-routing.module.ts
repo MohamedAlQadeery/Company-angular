@@ -31,6 +31,7 @@ import { ProvidersPageComponent } from './pages/providers/providers-page/provide
 import { ProviderDetailsPageComponent } from './pages/providers/provider-details-page/provider-details-page.component';
 import { UserSignupComponent } from './pages/user-signup/user-signup.component';
 import { ContactusPageComponent } from './pages/contactus-page/contactus-page.component';
+import { CardInfoComponent } from './pages/card-info/card-info.component';
 
 const routes: Routes = [
   {
@@ -127,6 +128,10 @@ const routes: Routes = [
       {
         path: 'contactus',
         component: ContactusPageComponent,
+      },
+      {
+        path: 'card/:card',
+        component: CardInfoComponent,
       },
 
       { path: '**', component: PageNotFoundComponent },

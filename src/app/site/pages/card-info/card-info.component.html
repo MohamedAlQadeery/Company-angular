@@ -1,1 +1,47 @@
-<p>card-info works!</p>
+<div class="card p-4">
+    <ng-container *ngIf="card$ | async as card;else loadingCard">
+        <h3 class="mb-4">Card Details Page</h3>
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-md-6 mb-3">
+                <!-- <img src="https://via.placeholder.com/500x300" alt="card" class="img "> -->
+                <div class="card-container">
+                    <img src="assets/site/cards/card-front-2.png" alt="Snow" style="width:100%;">
+                    <div class="card-name">{{card.applicationUser.firstName+' '+card.applicationUser.lastName |
+                        titlecase}}</div>
+                    <div class="card-number">{{card.cardNumber}}</div>
+                    <div class="card-date">Expires {{card.expirationDate }}</div>
+                    <div class="card-qrcode">
+                        <qrcode [qrdata]="cardQrCode" [width]="5" [errorCorrectionLevel]="'M'">
+                        </qrcode>
+
+                    </div>
+
+
+                </div>
+                <!-- <img src="assets/site/cards/card-front-2.jpg" alt="card-front"> -->
+
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+                <div class="card-container">
+                    <img src="assets/site/cards/card-back.png" alt="Snow" style="width:100%;">
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </ng-container>
+
+    <ng-template #loadingCard>
+        <h3 class="text-danger">{{'loading-card' | translate}}</h3>
+    </ng-template>
+
+
+
+
+
+</div>
