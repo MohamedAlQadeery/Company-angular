@@ -10,3 +10,10 @@
 
 
 </tui-files>
+
+<tui-error *ngIf="control.getError('required')">
+    File is required.
+</tui-error>
+<tui-error *ngIf="control.getError('dimensions')">
+    File must be exactly 1080x1080 pixels.
+</tui-error>
