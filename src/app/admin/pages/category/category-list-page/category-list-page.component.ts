@@ -16,7 +16,8 @@ export class CategoryListPageComponent {
     private _toastr: ToastrService
   ) {}
   categories$ = this._categoryService.GetAllCategories();
-
+  itemsPerPage = 8;
+  currentPage = 1;
   HandleOnDelete(id: number) {
     this._categoryService.DeleteCategory(id).subscribe({
       next: (res) => {

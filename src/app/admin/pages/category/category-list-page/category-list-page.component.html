@@ -24,7 +24,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let category of categories;let i=index">
+                            <tr
+                                *ngFor="let category of categories | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage};let i=index">
                                 <th>{{i+1}}</th>
                                 <td>{{category.name}}</td>
                                 <td>{{category.createdAt | date}}</td>
@@ -45,6 +46,9 @@
 
                         </tbody>
                     </table>
+                </div>
+                <div class="text-center fs-5">
+                    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
                 </div>
             </ng-container>
 

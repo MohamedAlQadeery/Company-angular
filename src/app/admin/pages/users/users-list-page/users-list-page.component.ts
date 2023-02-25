@@ -15,6 +15,8 @@ export class UsersListPageComponent {
     private _toastr: ToastrService
   ) {}
   users$ = this._userService.GetAllDisabledNormalUsers();
+  itemsPerPage = 8;
+  currentPage = 1;
 
   HandleOnActivate(userEmail: string) {
     this._providerService.ActiveProvider(userEmail).subscribe({

@@ -13,6 +13,9 @@ export class OfferListPageComponent {
     private _planService: OfferService,
     private _toastr: ToastrService
   ) {}
+
+  itemsPerPage = 8;
+  currentPage = 1;
   plans$ = this._planService
     .GetAllNotActiveOffers()
     .pipe(tap((res) => console.log(res)));

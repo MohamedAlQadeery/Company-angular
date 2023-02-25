@@ -23,7 +23,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let message of messages;let i=index">
+                            <tr
+                                *ngFor="let message of messages | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage};let i=index">
                                 <th>{{i+1}}</th>
                                 <td>{{message.name}}</td>
                                 <td>{{message.emailAddres}}</td>
@@ -48,6 +49,10 @@
 
                         </tbody>
                     </table>
+                </div>
+
+                <div class="text-center fs-5">
+                    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
                 </div>
             </ng-container>
 

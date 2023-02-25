@@ -5,7 +5,7 @@ import { SubscriberService } from 'src/app/services/subscriber.service';
 @Component({
   selector: 'app-subscriber-list-page',
   templateUrl: './subscriber-list-page.component.html',
-  styleUrls: ['./subscriber-list-page.component.css']
+  styleUrls: ['./subscriber-list-page.component.css'],
 })
 export class SubscriberListPageComponent {
   constructor(
@@ -13,8 +13,9 @@ export class SubscriberListPageComponent {
     private _toastr: ToastrService
   ) {}
   subscribers$ = this._subscriberService.GetNotActiveSubscriber();
-
-  HandleOnActivate(userEmail : string) {
+  itemsPerPage = 8;
+  currentPage = 1;
+  HandleOnActivate(userEmail: string) {
     this._subscriberService.ActiveSubscriber(userEmail).subscribe({
       next: (res) => {
         console.log(res);

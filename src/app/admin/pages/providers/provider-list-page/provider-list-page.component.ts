@@ -13,8 +13,9 @@ export class ProviderListPageComponent {
     private _toastr: ToastrService
   ) {}
   providers$ = this._providerService.GetNotActiveProvider();
-
-  HandleOnActivate(userEmail : string) {
+  itemsPerPage = 8;
+  currentPage = 1;
+  HandleOnActivate(userEmail: string) {
     this._providerService.ActiveProvider(userEmail).subscribe({
       next: (res) => {
         console.log(res);

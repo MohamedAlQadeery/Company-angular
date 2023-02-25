@@ -25,7 +25,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let offer of offers;let i=index">
+                            <tr
+                                *ngFor="let offer of offers| paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage};let i=index">
                                 <th>{{i+1}}</th>
                                 <td>{{offer.applicationUser.userName}}</td>
                                 <td>{{offer.createdAt | date}}</td>
@@ -46,6 +47,10 @@
 
                         </tbody>
                     </table>
+                </div>
+
+                <div class="text-center fs-5">
+                    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
                 </div>
             </ng-container>
 

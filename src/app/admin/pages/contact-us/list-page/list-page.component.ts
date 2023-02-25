@@ -17,6 +17,8 @@ export class ListPageComponent {
   ) {}
   messages$ = this._contactUsService.GetAll();
 
+  itemsPerPage = 8;
+  currentPage = 1;
   HandleOnDelete(id: number) {
     this._contactUsService.Delete(id).subscribe({
       next: (res) => {

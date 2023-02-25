@@ -7,7 +7,7 @@
 <div class="card p-4">
   <div class="row">
     <div class="col-md-12">
-      <ng-container *ngIf="plans$ | async as categories">
+      <ng-container *ngIf="users$ | async as users">
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
@@ -20,59 +20,50 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let category of categories; let i = index">
-                  <th>{{ i + 1 }}</th>
-                  <td>{{ category.email! }}</td>
-                  <td>{{ category.companyName ?? category.firstName }}</td>
-                  <td>{{ category.isActive }}</td>
-                  <td>
-                    <button
-                    *ngIf="!category.isActive"
-                      class="btn btn-outline-success"
-                      [swal]="{
+              <tr
+                *ngFor="let user of users | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage} ; let i = index">
+                <th>{{ i + 1 }}</th>
+                <td>{{ user.email! }}</td>
+                <td>{{ user.companyName ?? user.firstName }}</td>
+                <td>{{ user.isActive }}</td>
+                <td>
+                  <button *ngIf="!user.isActive" class="btn btn-outline-success" [swal]="{
                         icon: 'info',
                         title: 'Activate Confirmation',
                         showCancelButton: true,
                         confirmButtonText: 'Yes,Confirm',
                         cancelButtonText: 'Cancel'
-                      }"
-                      (confirm)="HandleOnActivate(category.email!)"
-                    >
-                      Activate
-                    </button>
+                      }" (confirm)="HandleOnActivate(user.email!)">
+                    Activate
+                  </button>
 
-                    <button
-                    *ngIf="category.isActive"
-                      class="btn btn-outline-danger"
-                      [swal]="{
+                  <button *ngIf="user.isActive" class="btn btn-outline-danger" [swal]="{
                         icon: 'warning',
                         title: 'Activate Confirmation',
                         showCancelButton: true,
                         confirmButtonText: 'Yes,Confirm',
                         cancelButtonText: 'Cancel'
-                      }"
-                      (confirm)="HandleOnDisactive(category.email!)"
-                    >
-                      Disactivate
-                    </button>
+                      }" (confirm)="HandleOnDisactive(user.email!)">
+                    Disactivate
+                  </button>
 
-                    <button
-                      class="btn btn-danger mx-2"
-                      [swal]="{
+                  <button class="btn btn-danger mx-2" [swal]="{
                         icon: 'warning',
                         title: 'Delete Confirmation',
                         showCancelButton: true,
                         confirmButtonText: 'Yes,Confirm',
                         cancelButtonText: 'Cancel'
-                      }"
-                      (confirm)="HandleOnDelete(category.email!)"
-                    >
-                      Delete
-                    </button>
-                  </td>
+                      }" (confirm)="HandleOnDelete(user.email!)">
+                    Delete
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="text-center fs-5">
+          <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
         </div>
       </ng-container>
     </div>

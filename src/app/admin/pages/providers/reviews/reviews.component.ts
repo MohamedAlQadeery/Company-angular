@@ -15,6 +15,8 @@ export class ReviewsComponent {
   ) {}
   providers$ = this._providerService.GetAllProviders();
 
+  itemsPerPage = 8;
+  currentPage = 1;
   HandleOnReview(providerId: string, starts: string) {
     console.log(starts);
     if (starts.trim() == '' || +starts < 1 || +starts > 5) {
