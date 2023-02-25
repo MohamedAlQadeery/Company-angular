@@ -107,7 +107,7 @@ export class UserService {
 
   GetAllDisabledNormalUsers() {
     return this._http.get<IUserRespose[]>(
-      `${this.baseUrl}?RoleName=user&&isactive=false`
+      `${this.baseUrl}?RoleName=user&&isactive=false&&isApproved=false`
     );
   }
 
@@ -125,6 +125,6 @@ export class UserService {
 
   GetAllUsers()
   {
-    return this._http.get<IUserRespose[]>(`${this.baseUrl}`);
+    return this._http.get<IUserRespose[]>(`${this.baseUrl}?isApproved=true`);
   }
 }

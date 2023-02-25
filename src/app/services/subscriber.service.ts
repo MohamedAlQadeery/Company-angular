@@ -37,7 +37,7 @@ export class SubscriberService {
   }
 
   GetNotActiveSubscriber(){
-    return this._http.get<ISubscriberResponse[]>(`${this.baseUrl2}?RoleName=subscriber&&isactive=false`);
+    return this._http.get<ISubscriberResponse[]>(`${this.baseUrl2}?RoleName=subscriber&&isactive=false&&isApproved=false`);
   }
   ActiveSubscriber(userEmail : string){
     return this._http.get(`${this.baseUrl2}/Approve/Subscriber/${userEmail}`);

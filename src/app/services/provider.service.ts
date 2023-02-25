@@ -40,7 +40,7 @@ export class ProviderService {
 
   GetNotActiveProvider() {
     return this._http.get<IProviderResponse[]>(
-      `${this.baseUrl2}?RoleName=provider&&isactive=false`
+      `${this.baseUrl2}?RoleName=provider&&isactive=false&&isApproved=false`
     );
   }
 
@@ -50,7 +50,7 @@ export class ProviderService {
 
   GetAllProviders() {
     return this._http.get<IProviderResponse[]>(
-      `${this.baseUrl2}?RoleName=provider&&isactive=true`
+      `${this.baseUrl2}?RoleName=provider&&isactive=true&&isApproved=true`
     );
   }
 
