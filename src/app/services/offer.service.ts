@@ -40,6 +40,10 @@ export class OfferService {
     return this._http.get<IOfferResponse[]>(`${this.baseUrl}`);
   }
 
+  DeleteOffer(id:number){
+    return this._http.delete(`${this.baseUrl}/${id}`);
+  }
+
   ActiveOfferById(id: number) {
     return this._http.get<IOfferResponse>(`${this.baseUrl}/Active/${id}`);
   }
