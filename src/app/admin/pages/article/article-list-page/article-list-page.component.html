@@ -25,7 +25,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let staticPage of staticPages;let i=index">
+                            <tr
+                                *ngFor="let staticPage of staticPages | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage}; let i=index">
                                 <th>{{i+1}}</th>
                                 <td>{{staticPage.title}}</td>
                                 <td>{{staticPage.blog.title}}</td>
@@ -47,6 +48,9 @@
 
                         </tbody>
                     </table>
+                </div>
+                <div class="text-center fs-5">
+                    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
                 </div>
             </ng-container>
 

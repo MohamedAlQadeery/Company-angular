@@ -19,18 +19,17 @@ export class TeamMemberListPageComponent {
     private _toastr: ToastrService
   ) {}
   baseUrl = environment.baseURL;
-  imagePaths = environment.images; 
+  imagePaths = environment.images;
   staticPages$ = this._teamMemberService.GetAll();
+  itemsPerPage = 8;
+  currentPage = 1;
 
   HandleOnDelete(id: number) {
     this._teamMemberService.Delete(id).subscribe({
       next: (res) => {
         console.log(res);
         this.staticPages$ = this._teamMemberService.GetAll();
-        this._toastr.success(
-          'deleted successfully',
-          'Delete Success'
-        );
+        this._toastr.success('deleted successfully', 'Delete Success');
       },
       error: (err) => {
         console.log(err);

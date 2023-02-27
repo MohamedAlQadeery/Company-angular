@@ -18,16 +18,14 @@ export class FaqListPageComponent {
     private _toastr: ToastrService
   ) {}
   staticPages$ = this._faqService.GetAll();
-
+  itemsPerPage = 8;
+  currentPage = 1;
   HandleOnDelete(id: number) {
     this._faqService.Delete(id).subscribe({
       next: (res) => {
         console.log(res);
         this.staticPages$ = this._faqService.GetAll();
-        this._toastr.success(
-          'deleted successfully',
-          'Delete Success'
-        );
+        this._toastr.success('deleted successfully', 'Delete Success');
       },
       error: (err) => {
         console.log(err);

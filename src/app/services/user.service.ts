@@ -111,20 +111,19 @@ export class UserService {
     );
   }
 
-  DisactiveUser(email:string){
+  DisactiveUser(email: string) {
     return this._http.delete(`${this.baseUrl}/${email}`);
   }
 
-  ActivateUser(email:string){
+  ActivateUser(email: string) {
     return this._http.get(`${this.baseUrl}/ActivateUser/${email}`);
   }
 
-  DeleteUser(email:string){
+  DeleteUser(email: string) {
     return this._http.delete(`${this.baseUrl}/DeleteUser/${email}`);
   }
 
-  GetAllUsers()
-  {
+  GetAllUsers() {
     return this._http.get<IUserRespose[]>(`${this.baseUrl}?isApproved=true`);
   }
 }

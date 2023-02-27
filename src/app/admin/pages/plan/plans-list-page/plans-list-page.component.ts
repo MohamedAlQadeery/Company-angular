@@ -5,7 +5,7 @@ import { PlanService } from 'src/app/services/plan.service';
 @Component({
   selector: 'app-plans-list-page',
   templateUrl: './plans-list-page.component.html',
-  styleUrls: ['./plans-list-page.component.css']
+  styleUrls: ['./plans-list-page.component.css'],
 })
 export class PlansListPageComponent {
   constructor(
@@ -13,7 +13,8 @@ export class PlansListPageComponent {
     private _toastr: ToastrService
   ) {}
   plans$ = this._planService.GetAllPlans();
-
+  itemsPerPage = 8;
+  currentPage = 1;
   HandleOnDelete(id: number) {
     this._planService.DeletePlan(id).subscribe({
       next: (res) => {

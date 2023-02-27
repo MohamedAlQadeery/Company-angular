@@ -18,16 +18,14 @@ export class BlogListPageComponent {
     private _toastr: ToastrService
   ) {}
   staticPages$ = this._blogService.GetAll();
-
+  itemsPerPage = 8;
+  currentPage = 1;
   HandleOnDelete(id: number) {
     this._blogService.Delete(id).subscribe({
       next: (res) => {
         console.log(res);
         this.staticPages$ = this._blogService.GetAll();
-        this._toastr.success(
-          'deleted successfully',
-          'Delete Success'
-        );
+        this._toastr.success('deleted successfully', 'Delete Success');
       },
       error: (err) => {
         console.log(err);

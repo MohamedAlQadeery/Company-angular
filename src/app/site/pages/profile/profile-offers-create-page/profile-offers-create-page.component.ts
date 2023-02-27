@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { LangService } from 'src/app/services/language.service';
 import { OfferService } from 'src/app/services/offer.service';
+import { dimensionsValidator } from 'src/app/shared/helpers/validation';
 
 @Component({
   selector: 'app-profile-offers-create-page',
@@ -24,9 +25,21 @@ export class ProfileOffersCreatePageComponent implements OnInit {
   //#region Form Controls
   offerFormGroup: FormGroup;
   descriptionControl = new FormControl('default', [Validators.required]);
-  photoEnControl = new FormControl('', [Validators.required]);
-  photoArControl = new FormControl('', [Validators.required]);
-  photoTrControl = new FormControl('', [Validators.required]);
+  photoEnControl = new FormControl(
+    '',
+    [Validators.required],
+    [dimensionsValidator(1080, 1080)]
+  );
+  photoArControl = new FormControl(
+    '',
+    [Validators.required],
+    [dimensionsValidator(1080, 1080)]
+  );
+  photoTrControl = new FormControl(
+    '',
+    [Validators.required],
+    [dimensionsValidator(1080, 1080)]
+  );
 
   urlControl = new FormControl('');
   //#endregion
@@ -41,6 +54,11 @@ export class ProfileOffersCreatePageComponent implements OnInit {
   }
 
   HandleOnSubmit() {
+    if (!this.offerFormGroup.valid) {
+      this._toastr.error('Images Dimension should be 1080x1080');
+      return;
+    }
+
     let messageTitle = this._translate.instant('add-offer');
     let messageContent = this._translate.instant('add-offer-success');
     this._offerService.CreateOffer(this.offerFormGroup.value).subscribe({

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs';
@@ -10,22 +11,12 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./profile-card-info-page.component.css'],
 })
 export class ProfileCardInfoPageComponent {
-  constructor(
-    private _userService: UserService,
-    private _activeRoute: ActivatedRoute
-  ) {}
-  cardQrCode: string = 'www.facebook.com';
+  constructor(private _userService: UserService) {}
+  cardQrCode: string;
   card$ = this._userService.GetCurrentUserCard().pipe(
     tap((res) => {
-      console.log(res);
-      // this.cardQrCode =
-      //   environment.baseURL +
-      //   `/api/Subscriber/GetCard?cardNumber=${res.cardNumber?.replaceAll(
-      //     '-',
-      //     ''
-      //   )}`;
-
-      console.log(this._activeRoute.url);
+      this.cardQrCode =
+        window.origin + `/card/${res.cardNumber?.replaceAll('-', '')}`;
     })
   );
 }

@@ -1,12 +1,14 @@
 <div class="card p-4">
-    <ng-container *ngIf="card$ | async as card;else loadingCard">
+    <ng-container *ngIf="card$ | async as card;else loadingCard" [ngSwitch]="card.planCardColor">
         <h3 class="mb-4">Card Details Page</h3>
         <div class="row justify-content-center">
 
             <div class="col-md-8 mb-3">
                 <!-- <img src="https://via.placeholder.com/500x300" alt="card" class="img "> -->
                 <div class="card-container">
-                    <img src="assets/site/cards/card-front-2.png" alt="Snow" style="width:100%;">
+                    <img *ngSwitchCase="0" src="assets/site/cards/bronze.png" alt="Snow" style="width:100%;">
+                    <img *ngSwitchCase="1" src="assets/site/cards/silver.png" alt="Snow" style="width:100%;">
+                    <img *ngSwitchCase="2" src="assets/site/cards/gold.png" alt="Snow" style="width:100%;">
                     <div class="card-name">{{card.applicationUser.firstName+' '+card.applicationUser.lastName |
                         titlecase}}</div>
                     <div class="card-number">{{card.cardNumber}}</div>

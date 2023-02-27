@@ -1,6 +1,6 @@
 <div class="row mb-3">
     <div class="col-md-6">
-        <h3 class="mb-3">Users Page</h3>
+        <h3 class="mb-3">Advertisers Page</h3>
 
     </div>
 
@@ -25,7 +25,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let user of users;let i=index">
+                            <tr
+                                *ngFor="let user of users | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage};let i=index ">
                                 <th>{{i+1}}</th>
                                 <td>{{user.email}}</td>
                                 <td>{{user.country}}</td>
@@ -46,6 +47,10 @@
 
                         </tbody>
                     </table>
+                </div>
+
+                <div class="text-center fs-5">
+                    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
                 </div>
             </ng-container>
 

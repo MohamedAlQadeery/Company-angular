@@ -26,7 +26,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let category of providers; let i = index">
+              <tr
+                *ngFor="let category of providers | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage}; let i = index">
                 <th>{{ i + 1 }}</th>
                 <td>{{ category.email }}</td>
                 <td>{{ category.companyName }}</td>
@@ -67,6 +68,10 @@
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="text-center fs-5">
+          <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
         </div>
       </ng-container>
     </div>

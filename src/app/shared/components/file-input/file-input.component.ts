@@ -15,9 +15,7 @@ export class FileInputComponent implements OnInit {
   @Input() accept: string; //format accepts
 
   readonly rejectedFiles$ = new Subject<TuiFileLike | null>();
-
   loadedFiles$: Observable<File>;
-
   ngOnInit(): void {
     this.loadedFiles$ = this.control.valueChanges.pipe(
       tap((file) => {

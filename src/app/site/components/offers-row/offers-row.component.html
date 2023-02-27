@@ -1,9 +1,9 @@
 <ng-container *ngIf="offers.length > 0;else NoOffers" [ngSwitch]="lang">
-    <div class="row">
-        <div class=" col-12 "
+    <div class="row justify-content-center">
+        <div class=" col-11 "
             *ngFor="let offer of offers | paginate:{itemsPerPage: itemsPerPage, currentPage: currentPage}">
-            <div class="portfolio__item-3 transition-3 wow fadeInUp mb-md-3" data-wow-delay=".3s"
-                data-wow-duration="1s">
+            <div class="portfolio__item-3 transition-3 wow fadeInUp mb-md-3" data-wow-delay=".3s" data-wow-duration="1s"
+                [ngClass]="{'is-offer-page': isOfferPage}">
                 <!-- data-background="assets/site/img/portfolio/3/portfolio-1.jpg" -->
                 <div *ngSwitchCase="'en'" class="portfolio__thumb-3 w-img"
                     [style.backgroundImage]="'url(' + imagesUrl + '/' + offer.stringPhoto + ')'">

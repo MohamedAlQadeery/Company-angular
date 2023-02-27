@@ -18,16 +18,14 @@ export class GeneralServiceListPageComponent {
     private _toastr: ToastrService
   ) {}
   staticPages$ = this._generalService.GetAll();
-
+  itemsPerPage = 8;
+  currentPage = 1;
   HandleOnDelete(id: number) {
     this._generalService.Delete(id).subscribe({
       next: (res) => {
         console.log(res);
         this.staticPages$ = this._generalService.GetAll();
-        this._toastr.success(
-          'deleted successfully',
-          'Delete Success'
-        );
+        this._toastr.success('deleted successfully', 'Delete Success');
       },
       error: (err) => {
         console.log(err);
